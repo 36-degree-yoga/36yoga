@@ -1,0 +1,203 @@
+.banner {
+  height: 443px;
+  width: 100%;
+}
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.btn_l {
+  margin-right: 40px;
+}
+
+.mat_list_pic {
+  width: 100%;
+  height: 295px;
+}
+
+.mat_list_pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.customize_area_mobile {
+  display: none;
+}
+
+.word_pic_wrap h1 {
+  margin: 0 30px;
+}
+.customize_area {
+  width: 100%;
+  background-color: #f2a200;
+}
+.customize_area_img_wrap {
+  width: 70%;
+  height: 300px;
+  background-color: #ccc;
+}
+.customize_area_img_wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prop_space {
+  height: 295px;
+}
+
+.product {
+  width: 225.7px;
+}
+.product_img_wrap {
+  width: 100%;
+  height: 295px;
+  background-color: blue;
+  cursor: pointer;
+}
+.product_img_wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.prop_list_pic {
+  width: 100%;
+  height: 734px;
+  margin: 0 10px;
+  background-color: blueviolet;
+}
+
+/* 篩選器↓↓ */
+
+.btn,
+.dropdown-menu {
+  border-color: #004a13;
+  color: #004a13;
+  background-color: #fffefc;
+}
+
+.dropdown-menu {
+  margin-top: 0;
+  top: -10px;
+}
+
+a.dropdown-item:active {
+  background-color: transparent;
+  color: #db5c00;
+  font-weight: normal;
+}
+
+a.dropdown-item:hover {
+  color: #db5c00;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn:hover {
+  color: #004a13;
+  font-weight: 500;
+}
+
+.dropdown-toggle::after {
+  margin-left: 2.2rem;
+}
+/* 篩選器↑↑ */
+
+/* 手機版 */
+@media (max-width: 1440px) {
+}
+@media (max-width: 768px) {
+  .right_area {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .product_side_bar {
+    display: none;
+  }
+
+  .btn_l {
+    margin-right: 20px;
+  }
+
+  /* 客制瑜珈墊 */
+  .customize_area {
+    display: none !important;
+  }
+  .customize_area_mobile {
+    display: flex;
+  }
+
+  .product_img_wrap {
+    height: 242px;
+  }
+  .customize_area_mobile {
+    width: 100%;
+    background-color: #f2a200;
+  }
+
+  .customize_area_mobile_img_wrap {
+    width: 100%;
+    height: 252px;
+    background-color: #ccc;
+  }
+  .content_wrap_mobile {
+    padding: 60px 0 !important;
+  }
+  .word_pic_wrap_mobile {
+    flex-direction: column;
+  }
+  .word_pic_wrap_mobile h1 {
+    margin-bottom: 30px !important;
+  }
+  .btn_wrap {
+    justify-content: center !important;
+  }
+  /* 輔具 */
+  .prop_space {
+    display: none;
+  }
+  .product_img_wrap {
+    height: 242px;
+  }
+}
+@media (max-width: 540px) {
+  .breadcrumb {
+    display: none;
+  }
+  #dropdownListButton {
+    border: 0;
+  }
+  .dropdown-menu {
+    border: 0;
+  }
+
+  .right_area {
+    padding: 0;
+  }
+  .product_list {
+    flex: 0 0 100%;
+    max-width: 100%;
+    justify-content: center !important;
+  }
+  .product {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin: 0 0 30px 0;
+    padding: 0 3px;
+  }
+
+  .mat_list_pic {
+    display: none;
+  }
+
+  .prop_list_pic_wrap {
+    display: none !important;
+  }
+  .space_120 {
+    height: 0px;
+  }
+}

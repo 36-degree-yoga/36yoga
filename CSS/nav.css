@@ -33,7 +33,7 @@ nav {
   font-size: 1.25rem;
 }
 
-a:hover {
+.nav-text:hover {
   text-decoration: none;
   color: #db5c00;
   transition: 0.5s;

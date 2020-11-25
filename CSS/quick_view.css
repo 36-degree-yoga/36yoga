@@ -1,0 +1,52 @@
+/* 彈跳視窗↓↓ */
+.modal-dialog {
+  border-radius: 4px;
+}
+.close {
+  opacity: 1;
+}
+.modal-header {
+  border-bottom: 0;
+}
+button:focus {
+  outline: 1px #fffefc;
+}
+.modal-footer {
+  border-top: 0;
+}
+.modal-content {
+  border: 2px solid #004a13;
+  border-radius: 4px;
+  width: 100%;
+  background: #fffefc;
+  opacity: 1;
+}
+/* 彈跳視窗↑↑ */
+
+/* quick_view↓↓ */
+:focus {
+  opacity: 1;
+}
+.quick_view_img_wrap {
+  width: 349.7px;
+  height: 458px;
+  background-color: #db5c00;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 1000px;
+    margin: 1.75rem auto;
+  }
+}
+.item-tag > h6 {
+  border-left: 8px solid #f2a200;
+  padding: 0 15px;
+}
+.color_circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f2a200;
+  margin: 0 15px;
+}
+/* quick_view↑↑ */

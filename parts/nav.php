@@ -62,14 +62,14 @@
 
                 <div class="btn-group d-flex align-items-center nav-left-text">
                     <a href="" class="nav-text mr-5 ml-4 mt-2" class="dropdown-toggle" data-toggle="dropdown">瑜珈墊</a>
-                    <div class="dropdown-menu">
+                    <div class="nav-drop dropdown-menu">
                         <a class="" href="#">一般</a>
                         <a class="" href="#">客製化</a>
                     </div>
                 </div>
                 <div class="btn-group d-flex align-items-center nav-left-text">
                     <a href="" class="nav-text mr-5 ml-4 mt-2" class="dropdown-toggle" data-toggle="dropdown">輔具</a>
-                    <div class="dropdown-menu">
+                    <div class="nav-drop dropdown-menu">
                         <div class="dropdown-menu-wrapper">
                             <div class="dropdown-menu-group">
                                 <a class="" href="#">瑜珈磚
@@ -97,7 +97,7 @@
                 </div>
                 <div class="btn-group d-flex align-items-center nav-left-text">
                     <a href="" class="nav-text mr-5 ml-4 mt-2" class="dropdown-toggle" data-toggle="dropdown">提案</a>
-                    <div class="dropdown-menu">
+                    <div class="nav-drop dropdown-menu">
                         <a class="" href="#">一般</a>
                         <a class="" href="#">客製化</a>
                     </div>
