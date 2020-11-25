@@ -1,0 +1,121 @@
+body {
+  background-color: #fffefc;
+}
+.nav-place-zone {
+  width: 100%;
+  height: 7.5rem;
+  border-bottom: 1px solid #004a13;
+  background: rgba(255, 254, 252, 0.8);
+}
+.tag-page {
+  margin-top: 5rem;
+}
+.login-btn,
+.regist-btn {
+  width: 33%;
+  border: 2px solid #004a13;
+  border-radius: 4px 0px 0px 0px;
+  border-bottom: none;
+  margin: 0;
+  background-color: #fffefc;
+  font-size: 24px;
+  line-height: 55px;
+  color: #004a13;
+}
+.login-btn {
+  border-right: none;
+}
+.regist-btn {
+  margin-right: -6px;
+  border-radius: 0px 4px 0px 0px;
+  border-left: none;
+}
+.just-a-vertcal-dividerline {
+  height: 56.5px;
+  width: 2px;
+  background-color: #004a13;
+  z-index: 2;
+}
+.login-floor,
+.regist-floor {
+  border: 2px solid #004a13;
+  border-radius: 0px 4px 4px 4px;
+  width: 100%;
+  top: -2.5px;
+  height: 462px;
+  padding: 60px 0;
+  /* transition: 0.8s; */
+}
+
+.form-control1,
+.form-control2 {
+  border: 1px solid #333;
+  border-radius: 4px;
+  width: 100%;
+  height: 32px;
+  margin-bottom: 22px;
+}
+.form-control2 {
+  margin-bottom: 18px;
+}
+.space-b36 {
+  margin-bottom: 36px;
+}
+.space-b20 {
+  margin-bottom: 20px;
+}
+.space-b60 {
+  margin-bottom: 60px;
+}
+
+/* 暫代認證碼 */
+.open-sesame {
+  border: 1px solid #333;
+  border-radius: 4px;
+  height: 32px;
+  width: 30%;
+}
+#imgcode {
+  height: 60px;
+  width: 120px;
+}
+
+/* 套用class */
+.display-none {
+  display: none;
+}
+.color-change-gray-right {
+  border: 2px solid #848484;
+  color: #848484;
+  font-weight: 300;
+  border-left: none;
+}
+.color-change-gray-left {
+  border: 2px solid #848484;
+  color: #848484;
+  font-weight: 300;
+  border-right: none;
+}
+.click-btn {
+  z-index: 1;
+}
+
+/* rwd */
+@media (max-width: 576px) {
+  .login-floor,
+  .regist-floor {
+    border: 1px solid #004a13;
+    width: 100%;
+    top: -2.5px;
+    height: 430px;
+  }
+  .login-btn,
+  .regist-btn {
+    width: 33%;
+    border: 2px solid #004a13;
+    border-bottom: none;
+    font-size: 16px;
+    line-height: 30px;
+    color: #004a13;
+  }
+}
