@@ -1,12 +1,21 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
-<?php include __DIR__ . '/parts/html-head.php'; ?>
 
+<?php
+$p_sql = "SELECT * FROM `products` WHERE `length` LIKE '180'";
+$p_stmt = $pdo->query($p_sql);
+
+$p_rows = $p_stmt->fetchAll();
+
+
+// echo json_encode($p_rows, JSON_UNESCAPED_UNICODE);
+// exit;
+?>
+
+<?php include __DIR__ . '/parts/html-head.php'; ?>
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/product_list.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/product_sidebar.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/quick_view.css">
-
-
 <?php include __DIR__ . '/parts/nav.php'; ?>
 
 
@@ -89,55 +98,58 @@
             <!-- 產品列表 -->
 
             <!-- 一般產品列表 -->
+
             <div class="product_list d-flex justify-content-between flex-wrap" name="std">
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap" data-toggle="modal" data-target="#exampleModal">
-                        <img src="" alt="">
+                <?php foreach ($p_rows as $r) : ?>
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap" data-toggle="modal" data-target="#exampleModal">
+                            <img src="" alt="">
+                        </div>
+                        <div class="space_30"></div>
+                        <h6 class="mb-0" style="text-align: center;"><?= $r['product_name'] ?></h6>
+                        <p class="p-0" style="text-align: center;">NT.<?= $r['price'] ?></p>
                     </div>
-                    <div class="space_30"></div>
-                    <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p class="p-0" style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
+                    <!-- <div class="product mb-5 col-3">
+                        <div class="product_img_wrap">
+                            <img src="" alt="">
+                        </div>
+                        <div class="space_30"></div>
+                        <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
+                        <p style="text-align: center;">NT.1,000</p>
                     </div>
-                    <div class="space_30"></div>
-                    <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap">
+                            <img src="" alt="">
+                        </div>
+                        <div class="space_30"></div>
+                        <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
+                        <p style="text-align: center;">NT.1,000</p>
                     </div>
-                    <div class="space_30"></div>
-                    <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap">
+                            <img src="" alt="">
+                        </div>
+                        <div class="space_30"></div>
+                        <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
+                        <p style="text-align: center;">NT.1,000</p>
                     </div>
-                    <div class="space_30"></div>
-                    <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap">
+                            <img src="" alt="">
+                        </div>
+                        <div class="space_30"></div>
+                        <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
+                        <p style="text-align: center;">NT.1,000</p>
                     </div>
-                    <div class="space_30"></div>
-                    <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <div class="space_30"></div>
-                    <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap">
+                            <img src="" alt="">
+                        </div>
+                        <div class="space_30"></div>
+                        <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
+                        <p style="text-align: center;">NT.1,000</p>
+                    </div> -->
+                <?php endforeach; ?>
                 <div class="mat_list_pic col-6">
                     <img src="<?= WEB_ROOT ?>img/product_list/product_list_mat_02.jpg" alt="">
                 </div>
