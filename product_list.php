@@ -1,13 +1,26 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 
 <?php
-$p_sql = "SELECT * FROM `products` WHERE `length` LIKE '180'";
-$p_stmt = $pdo->query($p_sql);
+// 瑜珈墊
+$m_sql = "SELECT * FROM `products` WHERE `list_id` LIKE 'mat0%' GROUP BY `list_id`";
+$m_stmt = $pdo->query($m_sql);
 
-$p_rows = $p_stmt->fetchAll();
+$m_rows = $m_stmt->fetchAll();
 
+// 瑜珈墊照片
 
-// echo json_encode($p_rows, JSON_UNESCAPED_UNICODE);
+$pic_rows = [];
+foreach ($m_rows as $r) {
+    $pic_rows[] = explode(",", $r['img']);
+};
+
+// $a = $pic_rows[1][1];
+$first = [];
+foreach ($pic_rows as $p) {
+    $first[] = $p[0];
+};
+
+// echo json_encode($a, JSON_UNESCAPED_UNICODE);
 // exit;
 ?>
 
@@ -100,55 +113,18 @@ $p_rows = $p_stmt->fetchAll();
             <!-- 一般產品列表 -->
 
             <div class="product_list d-flex justify-content-between flex-wrap" name="std">
-                <?php foreach ($p_rows as $r) : ?>
+                <?php foreach ($m_rows as $r) : ?>
                     <div class="product mb-5 col-3">
                         <div class="product_img_wrap" data-toggle="modal" data-target="#exampleModal">
-                            <img src="" alt="">
+
+                            <img src="./img/product_list/<?= $first[2] ?>.jpg" alt="">
+
                         </div>
                         <div class="space_30"></div>
                         <h6 class="mb-0" style="text-align: center;"><?= $r['product_name'] ?></h6>
                         <p class="p-0" style="text-align: center;">NT.<?= $r['price'] ?></p>
                     </div>
-                    <!-- <div class="product mb-5 col-3">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <div class="space_30"></div>
-                        <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
-                    <div class="product mb-5 col-3">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <div class="space_30"></div>
-                        <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
-                    <div class="product mb-5 col-3">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <div class="space_30"></div>
-                        <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
-                    <div class="product mb-5 col-3">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <div class="space_30"></div>
-                        <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
-                    <div class="product mb-5 col-3">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <div class="space_30"></div>
-                        <h6 class="mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div> -->
+
                 <?php endforeach; ?>
                 <div class="mat_list_pic col-6">
                     <img src="<?= WEB_ROOT ?>img/product_list/product_list_mat_02.jpg" alt="">
@@ -410,7 +386,7 @@ $p_rows = $p_stmt->fetchAll();
                             Soulmat
                         </h1>
                         <div class="customize_area_mobile_img_wrap ">
-                            <img src="" alt="">
+                            <img src="<?= WEB_ROOT ?>img/product_list/product_list_mat_03.jpg" alt="">
                         </div>
                     </div>
                     <div class="btn_wrap d-flex justify-content-end mt-4">
@@ -493,5 +469,20 @@ $p_rows = $p_stmt->fetchAll();
 <?php include __DIR__ . '/parts/script.php'; ?>
 
 <script src="<?= WEB_ROOT ?>lib/product_list.js"></script>
+
+
+<script>
+    // 圖片hover↓↓
+
+    // $('.product_img_wrap img').hover(
+    //     function() {
+    //         $('.product_img_wrap img').attr('src', '')
+    //     },
+    //     function() {
+
+    //     }
+    // )
+    // 圖片hover↑↑
+</script>
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>

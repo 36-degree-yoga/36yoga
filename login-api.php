@@ -23,6 +23,5 @@ if ($stmt->rowCount() > 0) {
     $_SESSION['admin'] = $stmt->fetch();
 }
 
-$r = $stmt->rowCount();
-echo $r;
+$output['rowCount'] = $stmt->rowCount();
 echo json_encode($output, JSON_UNESCAPED_UNICODE);

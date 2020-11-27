@@ -16,7 +16,7 @@ if (isset($_SESSION['admin'])) {
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="./fontawesome/css/all.css" />-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./login_registered.css" />
+    <link rel="stylesheet" href="./CSS/login_registered.css" />
 
 </head>
 
