@@ -1,18 +1,13 @@
-/* 字體未連結成功 */
-body {
-  font-family: "Noto Sans TC", sans-serif;
-}
 .footer {
   padding: 4rem 0 0 0;
   /* background-color: #004a13; */
   background: url(../img/index/index_back02.jpg);
   background-size: cover;
 }
-h6 {
+.footer_big_title {
   color: #f2a200;
 }
-.footer_title_wrap,
-p {
+.footer_title_wrap {
   color: #fffefc;
 }
 .social-icon {

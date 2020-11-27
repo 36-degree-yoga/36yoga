@@ -3,7 +3,7 @@
         <div class="row mb-5 justify-content-center">
             <div class="col-8 d-flex p-0 flex-column flex-sm-column flex-md-row flex-lg-row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="foot-info1">
-                    <h6>SERVICES</h6>
+                    <h6 class="footer_big_title">SERVICE</h6>
                     <p class="footer_title_wrap">
                         <a class="text-white" href="#">如何購買│How to Buy</a><br />
                         <a class="text-white" href="#">產品特點│Identify</a><br />
@@ -12,7 +12,7 @@
                     </p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 foot-info2">
-                    <h6>INFORMATION</h6>
+                    <h6 class="footer_big_title">INFORMATION</h6>
                     <p class="footer_title_wrap">
                         <a class="text-white" href="#">關於我們│About Us</a><br />
                         <a class="text-white" href="#">產品資訊│Products</a><br />
@@ -21,8 +21,8 @@
                     </p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 foot-info3">
-                    <h6>CONTACT</h6>
-                    <p>
+                    <h6 class="footer_big_title">CONTACT</h6>
+                    <p class="footer_big_title">
                         +886 012 34567<br />
                         36yoga@gmail.com
                     </p>
