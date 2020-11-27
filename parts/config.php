@@ -1,6 +1,6 @@
 <?php
 
-define('WEB_ROOT', '/team_yoga/');
+define('WEB_ROOT', '/36yoga/');
 
 if (!isset($_SESSION)) {
     session_start();
