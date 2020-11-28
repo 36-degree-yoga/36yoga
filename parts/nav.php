@@ -250,6 +250,15 @@
 
                             </div>
                         </a>
+                        <a class="d-flex" href="#">
+                            <div class="img-wrap border">
+                                <img class="product-pic" src="./guess-imgs/yoga brick.jpg" alt="瑜珈磚">
+                            </div>
+                            <div class="product-info ml-3">
+                                <p>好瘦瑜珈磚<br>NT$. 1000</p>
+
+                            </div>
+                        </a>
 
                     </div>
 

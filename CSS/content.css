@@ -1,0 +1,681 @@
+:root {
+    --animate-duration: 2s;
+    
+    }
+
+.for-nav{height:100px;}
+
+h1,h2{
+    color:#004A13;
+}
+
+.hero{
+    height: 48.75rem;
+    padding:0!important;
+
+}
+.hero-img{
+    background: url("./../img/content/content_07.png") right bottom no-repeat;
+    background-size: cover; 
+    margin-bottom: 0;     
+    height: 100%;
+    /* opacity: 1; */
+    /* animation: fadein 2s; */
+    
+}
+
+@keyframes fadein{
+    from{
+        opacity:0;
+        /* background-size: contain;
+    background-position: 2000% 0; */
+    }
+    to{
+        opacity:1;
+        /* background-size: cover;
+    background-position: 0% 0;} */
+    }
+}
+
+
+.hero-text{
+    margin-top: 15.875rem;
+}
+
+
+
+.hero-text-h1-mobile{
+    display: none;
+}
+
+.col-lg-8,
+.col-12{
+    padding:0!important;
+}
+
+
+
+
+.scrolldown_btn{
+    margin-left: 500px;
+}
+
+.scrollbox{
+    transition: .5s;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.scrollbox:hover{
+        transform: translateY(50px);
+
+    }
+
+
+
+
+
+.scroll_p{
+    font-family: 'Josefin Sans', sans-serif;
+    color: #333333;
+    font-size: 1rem;
+    transform: rotate(90deg);
+    height: 40px;
+    margin-left: -12px;
+    width: 6rem;
+    vertical-align: middle;
+    position: relative;
+
+}
+
+.scrolldown_line{
+    height: 90px;
+    width: 2px;
+    background-color: #333333;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.hero-text-h1-desktop{
+    width: 500px;
+    z-index: 1;
+    position:absolute;
+    left: 15px;
+
+}
+
+.hero-text p{
+    margin-top: 5.625rem;
+
+}
+
+.hero-text-span-mobile{
+
+display: none;
+}
+
+.hero-text-span-desktop{
+margin-top: 5.625rem;
+display: inline-block;
+}
+/* content區塊共同地方 */
+
+.content-sec{
+    height: 42.375rem;
+    padding:0!important;
+}
+
+.text-wrap{
+    width: 21.375rem;
+    
+
+}
+
+
+/* 第一個conetnet區塊 */
+.sec1-img{
+    background: url("./../img/content/content_03.png") center bottom no-repeat;
+    background-size: cover;    
+
+
+}
+.sec1-text{
+    background: url("./../img/content/content_08.png");
+    height: 100%;
+    background-size: 50%;            
+    background-attachment: fixed;
+
+
+}
+
+/* .sec1-text::before,
+.sec2-text::before{
+    position: absolute;
+    content:"";
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background-color: #fff;
+
+    opacity: .3;
+
+
+} */
+/* tag */
+.text-wrap{
+    /* margin-top: 12.5rem; */
+    z-index: 1;
+    /* background:rgba(255,255,255,0.5); */
+}
+
+
+
+
+.text-wrap h2{
+    margin-bottom: 1.6875rem;
+
+}
+
+.text-wrap span{
+    margin-top: 3.375rem;
+}
+
+.tag-wrapper{
+    margin-bottom: 2.5rem;
+}
+
+
+
+.tag-line{
+    width: 8px;
+    height: 25px;
+    background-color: #F2A200;
+    border-radius: 1px;
+    top:0;
+    left: 0;
+    margin-right: 0.875rem;
+}
+
+.tag h6{
+    font-size:24px!important;
+    color:#F2A200;
+}
+/* 第2個區塊的內容 */
+.sec2-img{
+    background: url("./../img/content/content_02.png") center bottom no-repeat;
+    background-size: cover;    
+
+
+}
+.sec2-text{
+    background: url("./../img/content/content_08.png");
+    height: 100%;
+    background-size: 50%;            
+    background-attachment: fixed;
+
+
+}
+/* 熱門商品 */
+.content-product{
+    height: 48.5rem;
+    background: #F2A200;
+    overflow: hidden;
+}
+
+.text-center{
+    margin-top: 5rem;
+}
+
+
+
+h3 {
+    color: #004A13;
+    font-size: 2.5rem;
+}
+
+h6 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+a {
+    color: #333333;
+}
+
+a:hover {
+    color: #db5c00;
+    text-decoration: none;
+}
+
+/* 猜你喜歡 推薦商品 ↓↓  */
+.product-zone {
+    margin-right: 78px;
+    cursor: pointer;
+}
+
+.product-info {
+    color: #848484;
+}
+
+.guessyoullike .img-wrap {
+    width: 226px;
+    height: 295px;
+    margin: 60px 0 30px 0;
+}
+
+.product-wrap{
+    height: 378px;
+    transition:.5s;
+}
+
+.product-pic {
+    object-fit: contain;
+    object-position: center;
+}
+
+.product-info{
+        margin-top: 0!important;
+    }
+
+.product-info p{
+    color: #333333;
+}
+
+.icon-wrap {
+    display: none !important;
+}
+
+.btn_f{
+    width: 21.375rem;
+    margin: 60px 0 60px 0;
+    transition:.5s;
+}
+
+.btn_f:hover{
+    opacity: .6s!important;
+}
+
+.btn-product:hover{
+    opacity: .6s!important;
+
+}
+
+/* 猜你喜歡 推薦商品 ↑↑ */
+
+
+/* 最後一個區塊  */
+.last-sec{
+    height: 56.25rem;
+    padding: 0!important;
+    
+}
+
+.last-sec h1{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.last-sec-img{
+    background: url("./../img/content/content_05.png") right bottom no-repeat;
+    background-size: cover; 
+    /* margin-bottom: 5.625rem;    */
+
+}
+
+.last-sec{
+    padding: 0!important;
+
+}
+
+.last-sec h3{
+    color: #333333;
+}
+
+.last-sec-text-wrap{
+    margin-top:7.625rem;
+}
+
+.last-sec-thermo::before{
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    position: absolute;
+    top: -4.6px;
+    left: -4px;
+    background: #DB5C00;
+
+}
+
+.last-sec-thermo{
+
+    /* width: 100%; */
+    height: 6px;
+    background: #DB5C00;
+}
+
+
+/* thermo animation */
+/* .last-sec-thermo
+{
+    animation:fadeInRight;
+    animation-delay:.3s;
+
+} */
+
+
+.last-sec-text{
+    margin-top: 7.5rem;
+    margin-bottom: 4rem;
+}
+
+.btn_l{
+    margin-top: 3.75rem;
+    width: 220px;
+}
+
+.mobile{
+    display: none;
+}
+
+
+
+.srolldown_btn_mobile{
+display: none!important;
+}
+/* ------------------------------------------手機版 */
+/* ------------------------------------------手機版 */
+/* ------------------------------------------手機版 */
+/* ------------------------------------------手機版 */
+
+@media screen and (max-width:992px){
+/* 992 */
+.for-nav{height:75px;}
+
+.hero{
+height: auto;
+align-items: flex-start;
+}
+
+h1{
+font-size: 3.5rem;
+}
+h2{
+font-size:40px;
+}
+
+.srolldown_btn_mobile{
+display: inline-block!important;
+order:3;
+height: 26.625rem;
+/* transform: rotate(90deg); */
+
+/* height: 26.6875rem; */
+
+}
+
+.scroll_p_mobile{
+font-family: 'Josefin Sans', sans-serif;
+    color: #333333;
+    font-size: 1rem;
+    transform: rotate(90deg);
+    height: 40px;
+    margin-left: -12px;
+    width: 6rem;
+    /* vertical-align: middle;*/
+    position: absolute; 
+    bottom: 4.5rem;
+
+}
+
+.scroll_p_mobile::after{
+content: '';
+
+position: absolute;
+ height: 90px;
+width: 2px;
+background-color: #333333;
+transform: rotate(-90deg);
+transform-origin: top;
+left: 100%;
+top: 30%;
+
+}
+
+
+.srolldown_btn_desktop{
+display: none!important;
+}
+
+.hero-text{
+order: 2;
+padding-left: 2.25rem;
+margin-top: 3.125rem;
+padding-left: 2.25rem;
+height: 26.625rem;
+
+}
+
+.hero-text-span-mobile{
+margin-top: 3.125rem;
+display: inline-block;
+}
+
+.hero-text-span-desktop{
+
+display: none;
+}
+
+.hero-img{
+order: 1;
+height: 20.625rem;
+background-position: right top;
+margin-bottom: 0;
+}
+
+.hero-text-h1{
+    position: relative;
+    width: 100%;
+}
+.hero-text-h1-mobile h1{
+left: 0;
+}
+
+.hero-text-h1-mobile{
+display: inline-block;
+}
+
+.hero-text-h1-desktop{
+display: none;
+}
+
+/* 手機版內容區---------------- */
+.content-sec{
+    height: auto!important;
+    padding:0 0 60px 0!important;
+    /* background: url("./img/06_content/content_04.png"); */
+    height: 100%;
+    background-size: 100%;            
+    background-attachment: fixed;
+}
+.content-sec::before{
+    position: absolute;
+    content:"";
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background-color: #fff;
+
+    opacity: .3;
+
+
+}
+
+.sec1-text::before,
+.sec2-text::before{
+    background-color: transparent;
+
+
+}
+
+.text-wrap{
+    height:21.875rem;
+    margin: 0 1.3125rem;
+
+}
+
+
+
+.text-wrap h2{
+    margin-top: 2.375rem;
+    margin-bottom:15px;
+}
+
+.sec1-text,
+.sec2-text{
+    background: none;
+    background-size: 100%;
+}
+
+
+
+
+.text-wrap p{
+    margin-top: 1rem;
+    margin-bottom: 60px;
+}
+
+.sec2-img,
+.sec1-img{
+height: 20.625rem;}
+
+
+.sec2-text{
+    order:2;
+}
+
+.sec2-img{
+    order:1;
+}
+/* --------熱門商品區-------- */
+.content-product{
+    height: 42rem;
+    padding:0 0 50px 0!important;
+}
+
+.content-product .row {
+    margin-left: 0!important;
+    margin-right: 0!important;
+    height: 33rem;
+}
+
+
+.text-center{
+    margin-top: 60px;
+}
+
+.container-fluid {
+        overflow: hidden;
+    }
+
+.guessyoullike {
+        /* width: 1052px; */
+        position: absolute;
+        justify-content: none!important;
+        left:0;
+        transition:.5s;
+    
+    }
+
+.product-zone {
+        /* margin-right: 75px;
+        margin-left: 75px; */
+        
+    }
+    .img-wrap{
+        margin: 40px 0 30px 0;
+    }
+
+
+   
+/* 
+    .justify-content-center {
+        justify-content: space-between !important;
+    } */
+
+    .icon-wrapper{
+        width: 100%;
+    }
+
+    .icon-wrap {
+        display: flex !important;
+        position: absolute;
+        width: 100%;
+        justify-content: space-between;
+        left: 0px;
+        top: 287.5px;
+        padding:0 12px;
+        z-index: 1;
+
+    }
+
+    .btn_f{
+        width: 18rem;
+    }
+
+
+
+/* -----手機版最後一個區塊----- */
+
+.last-sec{
+    height: 55rem;
+}
+
+
+.last-sec-img{
+
+height: 20.625rem;
+order:1;
+margin-bottom: 0;
+margin-left:2.25rem;
+
+}
+
+.last-sec-content{
+order:2;
+}
+
+.last-sec-text-wrap{
+    margin-top: 2.5rem;
+    padding-left: 2.25rem;
+}
+.last-sec-text{
+    margin-top: 3.75rem;
+    margin-bottom: 30px;
+}
+
+.mobile{
+    display: block;
+}
+
+.desktop{
+    display: none;
+}
+
+.last-sec-btn{
+    padding-right: 2.25rem;
+}
+
+.last-sec-btn button{
+    width: 100%;
+    margin-top: 50px;
+}
+
+
+
+
+}

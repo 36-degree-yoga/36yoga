@@ -70,7 +70,7 @@ height: 1.875rem;
 }
 
 nav .btn-group{
-height: 100px;
+height: 99px;
 width: 8.5rem;
 }
 /* ---Hover 效果 ------------*/
@@ -94,7 +94,7 @@ nav .btn-group:hover.nav-left-text{
 
 /* -----Dropdown menu------------------------------ */
 nav .dropdown-menu{
-top: 100px!important;
+top: 98px!important;
 left: -0.05rem!important; 
 transform: none!important;
 color: #004A13!important;
@@ -144,13 +144,13 @@ nav .dropdown-menu img{
 
 
 .nav-right .nav-icon:nth-child(1) .dropdown-menu{
-top: 6.3rem!important;
+top: 6.15rem!important;
 left: -3rem!important;
 line-height: 40px;
 }
 
 .nav-right .nav-icon:nth-child(3) .dropdown-menu{
-  top: 6.3rem!important;
+  top: 6.15rem!important;
   left: -8rem!important;
   line-height: 40px;
   }
