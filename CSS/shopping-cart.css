@@ -1,0 +1,254 @@
+body {
+  background-color: #fffefc;
+}
+.nav-place-zone {
+  width: 100%;
+  height: 7.5rem;
+  border-bottom: 1px solid #004a13;
+  background: rgba(255, 254, 252, 0.8);
+}
+.hot-products-zone {
+  background-color: #ffdc74;
+  width: 100%;
+  height: 500px;
+  margin-top: 50px;
+  margin-bottom: 120px;
+  font-size: 3rem;
+  color: lightcoral;
+}
+.footer-zone {
+  background-color: #004a13;
+  width: 100%;
+  height: 180px;
+}
+
+/* 上面以後套通用元件 替代品 */
+/* 溫度計套入 */
+
+.thermometer_container {
+  margin: 0 auto;
+  width: 900px;
+}
+
+.thermometer_wrap {
+  height: 20px;
+  position: relative;
+}
+
+.thermometer {
+  position: absolute;
+  height: 100%;
+  left: 0;
+}
+.thermometer_line {
+  width: 100%;
+  height: 10px;
+  border: 1px solid #c1c1c1;
+  border-radius: 10px;
+  padding: 1.6px;
+}
+.thermometer_move {
+  height: 100%;
+  width: 25%;
+  background-color: #f2a200;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+.order_step_title {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+.order_step_title p {
+  color: #333333;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.order_step_title p:first-child {
+  font-weight: bold;
+}
+.order_step_number {
+  margin-bottom: 40px;
+  margin-left: 10px;
+}
+.order_step_number p {
+  color: #333333;
+  font-size: 24px;
+}
+.order_step_number p:first-child {
+  color: #f2a200;
+}
+/* 溫度計 */
+/* table */
+table {
+  border-collapse: separate;
+  border-spacing: 0px 20px;
+}
+table tr td {
+  text-align: center;
+}
+tr {
+  margin-bottom: 20px;
+}
+
+/* space */
+tr td:first-child {
+  width: 210px;
+}
+.product-img-pc {
+  width: 166px;
+  height: 166px;
+  overflow: hidden;
+}
+.product-img-pc img {
+  width: 100%;
+}
+.price {
+  width: 15%;
+}
+.favorite-icon {
+  width: 10%;
+}
+.delete-icon {
+  width: 10%;
+}
+/* space */
+/* count */
+.add_cart_icon img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 4px;
+}
+.add_cart_icon:hover {
+  cursor: pointer;
+}
+.count {
+  font-size: 24px;
+  color: #004a13;
+  background: none;
+  border: none;
+  width: 60px;
+  text-align: center;
+}
+.count:focus {
+  outline: none;
+}
+/* color */
+.pc-need-hide-span p {
+  color: #333333;
+}
+/* color */
+.shop-cart-title td {
+  color: #333333;
+  border-bottom: 1px solid #848484;
+}
+.product-info-detail {
+  color: #848484;
+}
+.number-change {
+  color: #004a13;
+  font-size: 1.6rem;
+}
+/* table */
+.pc-need-hide-span p span {
+  visibility: hidden;
+}
+.this-one-pc-none {
+  display: none;
+}
+/* hover */
+a {
+  transition: 0.5s;
+}
+a:hover {
+  opacity: 0.6;
+}
+/* button */
+.btn-leave {
+  width: 130px;
+  line-height: 40px;
+  color: #004a13;
+  border: 1px solid #004a13;
+  margin: 10px 20px;
+  transition: 0.5s;
+}
+.btn-leave:hover {
+  opacity: 0.6;
+  color: #004a13;
+}
+.hope-next-step {
+  background-color: #004a13;
+  color: #fffefc;
+}
+.hope-next-step:hover {
+  color: #fffefc;
+}
+
+@media (max-width: 576px) {
+  /* 溫度計 */
+  .order_step_title {
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .order_step_number {
+    margin-left: 0px;
+  }
+  #order_s_2,
+  #order_s_3,
+  #order_s_4 {
+    display: none;
+  }
+  .order_step_number p {
+    font-size: 16px;
+  }
+  .thermometer_container {
+    margin: 0 auto;
+    width: 300px;
+  }
+  /* 溫度計 */
+  .this-one-mobile-none {
+    display: none;
+  }
+  .dividerline-in-table-no2 {
+    width: 92%;
+    height: 1px;
+    border-radius: 1px;
+    background-color: #004a13;
+    margin-bottom: 18px;
+  }
+  .this-one-pc-none {
+    display: block;
+  }
+  .shop-cart-title p {
+    display: none;
+  }
+  .number-change a {
+    padding-bottom: 4px;
+  }
+
+  .product-info-detail {
+    font-size: 12px;
+  }
+  .pc-need-hide-span p span {
+    visibility: visible;
+  }
+  .pc-need-hide-span {
+    padding-right: 2px;
+  }
+  .pc-need-hide-span p br:first-child {
+    display: none;
+  }
+  /* count */
+
+  /* count */
+  .product-img {
+    background-color: lightpink;
+    width: 40%;
+    margin-right: 10px;
+  }
+  .btn-leave {
+    width: 130px;
+    line-height: 40px;
+    margin: 60px 10px 10px 10px;
+  }
+}
