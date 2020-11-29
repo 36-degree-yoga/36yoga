@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 foot-info3">
                     <h6 class="footer_big_title">CONTACT</h6>
-                    <p class="footer_big_title">
+                    <p class="footer_small_title">
                         +886 012 34567<br />
                         36yoga@gmail.com
                     </p>
