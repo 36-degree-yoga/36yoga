@@ -43,11 +43,11 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <img src="./img/step123needpic/creditfront.png" alt="Avatar" style="width: 350px; height: 210px" />
-                            <p id="demotext" class="position-absolute">
-                                <span class="card-num1-text mr-1"></span>
-                                <span class="card-num2-text mr-1"></span>
-                                <span class="card-num3-text mr-1"></span>
-                                <span class="card-num4-text"></span>
+                            <p id="demotext" class="position-absolute text-monospace">
+                                <span class="card-num1-text text-monospace"></span>
+                                <span class="card-num2-text text-monospace"></span>
+                                <span class="card-num3-text text-monospace"></span>
+                                <span class="card-num4-text text-monospace"></span>
                             </p>
                             <p id="demotextdate" class="position-absolute">
                                 <span class="card-date1-text"></span>
@@ -204,4 +204,5 @@
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script src="./lib/checkout-step123.js"></script>
+<script src="./lib/credit-card.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
