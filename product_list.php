@@ -4,23 +4,70 @@
 // 瑜珈墊
 $m_sql = "SELECT * FROM `products` WHERE `list_id` LIKE 'mat0%' GROUP BY `list_id`";
 $m_stmt = $pdo->query($m_sql);
-
 $m_rows = $m_stmt->fetchAll();
 
 // 瑜珈墊照片
-
-$pic_rows = [];
-foreach ($m_rows as $r) {
-    $pic_rows[] = explode(",", $r['img']);
+foreach ($m_rows as $k => $r) {
+    $m_rows[$k]['my_imgs']  = explode(",", $r['img']);
 };
 
-// $a = $pic_rows[1][1];
-$first = [];
-foreach ($pic_rows as $p) {
-    $first[] = $p[0];
+// 瑜珈磚塊
+$block_sql = "SELECT * FROM `products` WHERE `list_id`LIKE 'b0%'";
+$block_Stmt = $pdo->query($block_sql);
+$block_row = $block_Stmt->fetchAll();
+foreach ($block_row  as $k => $r) {
+    $block_row[$k]['my_imgs'] = explode(",", $r['img']);
 };
 
-// echo json_encode($a, JSON_UNESCAPED_UNICODE);
+// 支撐墊
+$pad_sql = "SELECT * FROM `products` WHERE `list_id`LIKE 'p0%'";
+$pad_Stmt = $pdo->query($pad_sql);
+$pad_row = $pad_Stmt->fetchAll();
+foreach ($pad_row  as $k => $r) {
+    $pad_row[$k]['my_imgs'] = explode(",", $r['img']);
+};
+
+// 滾筒
+$roller_sql = "SELECT * FROM `products` WHERE `list_id`LIKE 'rolle%'";
+$roller_Stmt = $pdo->query($roller_sql);
+$roller_row = $roller_Stmt->fetchAll();
+foreach ($roller_row  as $k => $r) {
+    $roller_row[$k]['my_imgs'] = explode(",", $r['img']);
+};
+
+// 重量手環
+$sand_sql = "SELECT * FROM `products` WHERE `list_id`LIKE 'sand%'";
+$sand_Stmt = $pdo->query($sand_sql);
+$sand_row = $sand_Stmt->fetchAll();
+foreach ($sand_row  as $k => $r) {
+    $sand_row[$k]['my_imgs'] = explode(",", $r['img']);
+};
+
+// 伸展帶
+$strap_sql = "SELECT * FROM `products` WHERE `list_id`LIKE 'a%'";
+$strap_Stmt = $pdo->query($strap_sql);
+$strap_row = $strap_Stmt->fetchAll();
+foreach ($strap_row  as $k => $r) {
+    $strap_row[$k]['my_imgs'] = explode(",", $r['img']);
+};
+
+// 彈力帶
+$band_sql = "SELECT * FROM `products` WHERE `list_id`LIKE 'c%'";
+$band_Stmt = $pdo->query($band_sql);
+$band_row = $band_Stmt->fetchAll();
+foreach ($band_row  as $k => $r) {
+    $band_row[$k]['my_imgs'] = explode(",", $r['img']);
+};
+
+// 舖巾
+$towel_sql = "SELECT * FROM `products` WHERE `list_id`LIKE 'w%'";
+$towel_Stmt = $pdo->query($towel_sql);
+$towel_row = $towel_Stmt->fetchAll();
+foreach ($towel_row  as $k => $r) {
+    $towel_row[$k]['my_imgs'] = explode(",", $r['img']);
+};
+
+// echo json_encode($roller_row, JSON_UNESCAPED_UNICODE);
 // exit;
 ?>
 
@@ -34,7 +81,7 @@ foreach ($pic_rows as $p) {
 
 <div class="container-fluid">
     <!-- banner照片 -->
-    <div class="space_120"></div>
+    <div style="height: 100px; width:100%;"></div>
     <div class="row">
         <div class="banner">
             <img src="<?= WEB_ROOT ?>img/product_list/product_list_mat_01.jpg" alt="">
@@ -71,9 +118,11 @@ foreach ($pic_rows as $p) {
                         </div>
 
                         <div class="subtitle">
-                            <a href="#std">一般</a>
+                            <a href="#std" id="a">一般</a>
                         </div>
-                        <div class="subtitle"><a href="#ctm">客製化</a></div>
+                        <div class="subtitle">
+                            <a href="#ctm">客製化</a>
+                        </div>
                     </div>
                     <div class="product_siderbar_title">
 
@@ -113,17 +162,19 @@ foreach ($pic_rows as $p) {
             <!-- 一般產品列表 -->
 
             <div class="product_list d-flex justify-content-between flex-wrap" name="std">
-                <?php foreach ($m_rows as $r) : ?>
-                    <div class="product mb-5 col-3">
+                <?php foreach ($m_rows as $m) : ?>
+                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $m['sid'] ?>)">
                         <div class="product_img_wrap" data-toggle="modal" data-target="#exampleModal">
 
-                            <img src="./img/product_list/<?= $first[2] ?>.jpg" alt="">
-
+                            <img src="./img/product_list/<?= $m['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $m['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $m['my_imgs'][0] ?>.jpg">
+                            <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
+                            <img src="./img/product_list/<?= $m['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
                         </div>
                         <div class="space_30"></div>
-                        <h6 class="mb-0" style="text-align: center;"><?= $r['product_name'] ?></h6>
-                        <p class="p-0" style="text-align: center;">NT.<?= $r['price'] ?></p>
+                        <h6 class="mb-0" style="text-align: center;"><?= $m['product_name'] ?></h6>
+                        <p class="p-0" style="text-align: center;">NT.<?= $m['price'] ?></p>
                     </div>
+
 
                 <?php endforeach; ?>
                 <div class="mat_list_pic col-6">
@@ -162,103 +213,60 @@ foreach ($pic_rows as $p) {
                 <!-- 瑜珈磚大圖 -->
                 <div class="prop_list_pic_wrap col-6 d-flex p-0 justify-content-start">
                     <div class="prop_list_pic">
-                        <img src="" alt="">
+                        <img src="<?= WEB_ROOT ?>img/product_list/product_list_block.jpg" alt="">
                     </div>
                 </div>
                 <!-- 瑜珈磚列表 -->
                 <div class="product_list col-6 p-0 d-flex flex-wrap justify-content-around">
-                    <div class="product mb-5 col-6">
-                        <div class="product_img_wrap" data-toggle="modal" data-target="#exampleModal">
-                            <img src="./img/02_product_list_mat/EkoLite-133013080-Mats-FW18-Acai-01_cb404050-614a-4311-a5c9-80bafc3bbedc_500x500.jpg" alt="">
+                    <?php foreach ($block_row as $b) : ?>
+                        <div class="product mb-5 col-6" onclick="showProductModal(<?= $b['sid'] ?>)">
+
+                            <div class="product_img_wrap" data-toggle="modal" data-target="#exampleModal">
+
+                                <img src="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $b['my_imgs'][0] ?>.jpg">
+                                <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
+                                <img src="./img/product_list/<?= $b['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
+                            </div>
+                            <h6 class="mt-4 mb-0" style="text-align: center;"><?= $b['product_name'] ?></h6>
+                            <p style="text-align: center;">NT.<?= $b['price'] ?></p>
+
                         </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
-                    <div class="product mb-5 col-6">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
-                    <div class="product mb-5 col-6">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
-                    <div class="product mb-5 col-6">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <!-- 支撐墊 -->
             <div class="space_120" id="pad"></div>
             <div class="d-flex justify-content-between flex-wrap">
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
+                <?php foreach ($pad_row as $p) : ?>
+                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $p['sid'] ?>)">
+                        <div class="product_img_wrap">
+                            <img src="./img/product_list/<?= $p['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $p['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $p['my_imgs'][0] ?>.jpg">
+                            <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
+                            <img src="./img/product_list/<?= $p['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
+                        </div>
+                        <h6 class="mt-4 mb-0 w-100 justify-content-center" style="text-align: center;"><?= $p['product_name'] ?></h6>
+                        <p class="p-0" style="text-align: center;">NT.<?= $p['price'] ?></p>
                     </div>
-                    <h6 class="mt-4 mb-0 w-100 justify-content-center" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p class="p-0" style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p class="p-0" style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
+                <?php endforeach; ?>
+                <div class="prop_space col-6"></div>
             </div>
             <!-- 滾筒 -->
             <div class="space_120" id="roller"></div>
             <div class="d-flex justify-content-between flex-wrap">
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
+                <?php foreach ($roller_row as $r) : ?>
+                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $r['sid'] ?>)">
+                        <div class="product_img_wrap">
+                            <img src="./img/product_list/<?= $r['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $r['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $r['my_imgs'][0] ?>.jpg">
+                            <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
+                            <img src="./img/product_list/<?= $r['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
+                        </div>
+                        <h6 class="mt-4 mb-0" style="text-align: center;"><?= $r['product_name'] ?></h6>
+                        <p class="p-0" style="text-align: center;">NT.<?= $r['price'] ?></p>
                     </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p class="p-0" style="text-align: center;">NT.1,000</p>
-                </div>
+                <?php endforeach; ?>
+
                 <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p class="p-0" style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
+
                 </div>
             </div>
             <!-- 沙包 -->
@@ -266,110 +274,73 @@ foreach ($pic_rows as $p) {
             <div class="d-flex flex-wrap justify-content-between ">
                 <!-- 沙包列表 -->
                 <div class="product_list col-6 p-0 d-flex flex-wrap justify-content-around">
-                    <div class="product mb-5 col-6">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
+                    <?php foreach ($sand_row as $s) : ?>
+                        <div class="product mb-5 col-6" onclick="showProductModal(<?= $s['sid'] ?>)">
+                            <div class="product_img_wrap">
+                                <img src="./img/product_list/<?= $s['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $s['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $s['my_imgs'][0] ?>.jpg">
+                                <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
+                                <img src="./img/product_list/<?= $s['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
+                            </div>
+                            <h6 class="mt-4 mb-0" style="text-align: center;"><?= $s['product_name'] ?></h6>
+                            <p style="text-align: center;"><?= $s['price'] ?></p>
                         </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
-                    <div class="product mb-5 col-6">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
-                    <div class="product mb-5 col-6">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
-                    <div class="product mb-5 col-6">
-                        <div class="product_img_wrap">
-                            <img src="" alt="">
-                        </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                        <p style="text-align: center;">NT.1,000</p>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 <!-- 沙包大圖 -->
                 <div class="prop_list_pic_wrap col-6 d-flex p-0 justify-content-end">
                     <div class="prop_list_pic">
-                        <img src="" alt="">
+                        <img src="<?= WEB_ROOT ?>img/product_list/product_list_sand.jpg" alt="">
                     </div>
                 </div>
             </div>
             <!-- 伸展帶 -->
             <div class="space_120" id="strap"></div>
             <div class="d-flex justify-content-between flex-wrap">
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
+                <?php foreach ($strap_row as $a) : ?>
+                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $a['sid'] ?>)">
+                        <div class="product_img_wrap">
+                            <img src="./img/product_list/<?= $a['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $a['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $a['my_imgs'][0] ?>.jpg">
+                            <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
+                            <img src="./img/product_list/<?= $a['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
+                        </div>
+                        <h6 class="mt-4 mb-0" style="text-align: center;"><?= $a['product_name'] ?></h6>
+                        <p class="p-0" style="text-align: center;">NT.<?= $a['price'] ?></p>
+
                     </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p class="p-0" style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p class="p-0" style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
+                <?php endforeach; ?>
             </div>
             <!-- 彈力帶 -->
             <div class="space_120" id="band"></div>
             <div class="d-flex justify-content-between flex-wrap">
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
+                <?php foreach ($band_row as $b) : ?>
+                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $b['sid'] ?>)">
+                        <div class="product_img_wrap">
+                            <img src="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $b['my_imgs'][0] ?>.jpg">
+                            <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
+                            <img src="./img/product_list/<?= $b['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
+                        </div>
+                        <h6 class="mt-4 mb-0" style="text-align: center;"><?= $b['product_name'] ?></h6>
+                        <p class="p-0" style="text-align: center;">NT.<?= $b['price'] ?></p>
+
                     </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p class="p-0" style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
+                <?php endforeach; ?>
                 <div class="prop_space col-6"></div>
             </div>
             <!-- 鋪巾 -->
             <div class="space_120" id="towel"></div>
             <div class="d-flex justify-content-between flex-wrap">
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
+                <?php foreach ($towel_row as $w) : ?>
+                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $w['sid'] ?>)">
+                        <div class="product_img_wrap">
+                            <img src="./img/product_list/<?= $w['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $w['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $w['my_imgs'][0] ?>.jpg">
+                            <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
+                            <img src="./img/product_list/<?= $w['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
+                        </div>
+                        <h6 class="mt-4 mb-0" style="text-align: center;"><?= $w['product_name'] ?></h6>
+                        <p class="p-0" style="text-align: center;">NT.<?= $w['price'] ?></p>
+
                     </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p class="p-0" style="text-align: center;">NT.1,000</p>
-                </div>
-                <div class="product mb-5 col-3">
-                    <div class="product_img_wrap">
-                        <img src="" alt="">
-                    </div>
-                    <h6 class="mt-4 mb-0" style="text-align: center;">好瘦瑜珈墊</h6>
-                    <p style="text-align: center;">NT.1,000</p>
-                </div>
+                <?php endforeach; ?>
                 <div class="prop_space col-6"></div>
 
             </div>
@@ -413,45 +384,8 @@ foreach ($pic_rows as $p) {
                     </span>
                 </button>
             </div>
-            <div class="modal-body d-flex justify-content-center">
-
-                <div class="quick_view_img_wrap">
-                    <img src="" alt="">
-                </div>
-                <div class="ml-5">
-                    <h3>瑜珈墊</h3>
-                    <div class="space_30"></div>
-                    <div class="item-tag d-flex">
-                        <h6 class="text-justify" style="color: #F2A200;">止滑</h6>
-                        <h6 class="text-justify" style="color: #F2A200;">防水</h6>
-                    </div>
-                    <div class="space_30"></div>
-                    <p style="line-height: 30px;">
-                        1. 全新結構，提供手腕與腳踝最佳緩衝及保護。
-                        <br>
-                        2. 天然橡膠材質，乾濕止滑效果優異。
-                        <br>
-                        3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。
-
-                    </p>
-                    <div class="space_30"></div>
-                    <div class="d-flex align-items-center">
-                        <div style="width: 10px;height: 20px;background-color: #db5c00;"></div>
-                        <h6 class="ml-2">NT. 1,000</h6>
-                    </div>
-                    <div class="space_60"></div>
-                    <div class="d-flex">
-                        <div class="color_circle"></div>
-                        <div class="color_circle"></div>
-                        <div class="color_circle"></div>
-                    </div>
-                    <div class="space_60"></div>
-                    <div>
-                        <button class="btn_l" style="margin-right: 40px;">了解更多</button>
-                        <button class="btn_f">加入購物車</button>
-                    </div>
-                </div>
-
+            <div class="modal-body ">
+                <iframe src="modal.php?sid=17" frameborder="0"></iframe>
             </div>
             <div class="modal-footer">
                 <div class="space_30"></div>
@@ -474,15 +408,26 @@ foreach ($pic_rows as $p) {
 <script>
     // 圖片hover↓↓
 
-    // $('.product_img_wrap img').hover(
-    //     function() {
-    //         $('.product_img_wrap img').attr('src', '')
-    //     },
-    //     function() {
+    $('.product_img_wrap img').hover(
+        function() {
+            console.log(this);
+            $(this).attr('src', $(this).attr('data-src2'));
 
-    //     }
-    // )
+        },
+        function() {
+            $(this).attr('src', $(this).attr('data-src1'));
+
+        }
+    )
     // 圖片hover↑↑
+
+
+    // 跳出視窗↓↓
+    function showProductModal(sid) {
+        $('iframe')[0].src = "modal.php?sid=" + sid;
+        $('#exampleModal').modal('show')
+    }
+    // 跳出視窗↑↑
 </script>
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>

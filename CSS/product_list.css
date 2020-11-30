@@ -6,6 +6,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: left bottom;
 }
 .btn_l {
   margin-right: 40px;
@@ -53,7 +54,6 @@
 .product_img_wrap {
   width: 100%;
   height: 295px;
-  background-color: blue;
   cursor: pointer;
 }
 .product_img_wrap img {
@@ -61,11 +61,16 @@
   height: 100%;
   object-fit: cover;
 }
+
 .prop_list_pic {
   width: 100%;
   height: 734px;
   margin: 0 10px;
-  background-color: blueviolet;
+}
+.prop_list_pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* 篩選器↓↓ */

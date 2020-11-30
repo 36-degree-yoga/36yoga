@@ -1,0 +1,214 @@
+a:hover {
+  text-decoration: none;
+}
+
+.btn_delete {
+  width: 50px;
+}
+.btn_l {
+  margin-right: 40px;
+}
+/* 會員中心side_bar↓↓ */
+
+.member_img_wrap {
+  height: 100px;
+  width: 100px;
+  background-color: aqua;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.member_pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.log_out {
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background-color: #fffefc;
+}
+.account_sidebar_title {
+  margin: 5px 0;
+  list-style: none;
+}
+.account_sidebar_title a {
+  color: #333;
+}
+.account_sidebar_title a:hover {
+  text-decoration: none;
+}
+.bar_title_area a {
+  color: #333;
+}
+/* 會員中心side_bar↑↑ */
+
+/* 會員中心 手機板 side_bar↓↓ */
+.m_account_bar_wrap {
+  display: none;
+}
+/* 會員中心 手機板 side_bar↑↑ */
+
+/* 照片區↓↓ */
+.member_account_img_wrap {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.member_account_img_wrap p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mask {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  background-color: #fffefc;
+  opacity: 0.7;
+  position: absolute;
+  border: 4px solid #f2a21f;
+}
+/* 照片區↑↑ */
+
+/* 填寫資料區↓↓ */
+input {
+  border: none;
+}
+input:focus {
+  outline: -webkit-focus-ring-color auto 1px;
+  outline-color: -webkit-focus-ring-color;
+  outline-style: auto;
+  outline-width: 0px;
+}
+.input_line {
+  width: 300px;
+  border-bottom: 1px solid #333333;
+}
+
+/* 填寫資料區↑↑ */
+
+/* 彈跳視窗↓↓ */
+
+.modal-dialog {
+  border-radius: 4px;
+  max-width: 668px;
+}
+.close {
+  opacity: 1;
+}
+.modal-header {
+  border-bottom: 0;
+}
+button:focus {
+  outline: 1px #fffefc;
+}
+.modal-footer {
+  border-top: 0;
+}
+.modal-content {
+  border: 2px solid #004a13;
+  border-radius: 4px;
+  width: 100%;
+  background: #fffefc;
+  opacity: 1;
+}
+/* 彈跳視窗↑↑ */
+
+/* RWD↓↓*/
+@media (max-width: 1440px) {
+}
+@media (max-width: 768px) {
+  .account_side_bar {
+    display: none !important;
+  }
+
+  /* 手機板橫條bar↓ */
+  body {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .m_account_bar_wrap {
+    display: block;
+    overflow-x: scroll;
+    height: 55px;
+  }
+
+  .m_account_bar_item {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .m_account_option {
+    padding: 20px;
+  }
+  /* 寫JQ可以加的class */
+  .check_border {
+    border-bottom: 2px solid #f2a200;
+  }
+  /* 手機板橫條bar↑ */
+
+  .right_area {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 540px) {
+  /* 手機板橫條bar↓ */
+  .m_account_bar_item {
+    width: 660px;
+    height: 100%;
+  }
+  /* 手機板橫條bar↑ */
+
+  .right_area {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .space_120 {
+    height: 60px;
+  }
+
+  .change_picture_area {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .edit_area {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .edit_info {
+    flex-direction: column;
+    align-items: flex-start !important;
+    border-bottom: 1px solid #333333;
+  }
+  .input_line {
+    border-bottom: none !important;
+  }
+  .btn_l {
+    margin-right: 20px;
+  }
+
+  /* 彈跳視窗↓ */
+
+  .btn_delete {
+    width: 40px;
+  }
+  .modal-header .close {
+    margin: -1rem auto -1rem -1rem;
+  }
+  .modal-body {
+    padding: 2rem 1rem 1rem 1rem;
+  }
+  /* 彈跳視窗↑ */
+}
+/* RWD↑↑*/
