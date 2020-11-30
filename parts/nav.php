@@ -14,28 +14,53 @@
         </div>
         <div class="side-content">
             <div class="side-content-item">
-                <h5>瑜珈墊</h5>
-                <h6>一般</h6>
-                <h6>客製化</h6>
+                <a>
+                    <h5 href="<?= WEB_ROOT ?>product_list.php">瑜珈墊</h5>
+                </a>
+                <a>
+                    <h6 href="<?= WEB_ROOT ?>product_list.php#ctm">一般</h6>
+                </a>
+                <a>
+                    <h6 href="<?= WEB_ROOT ?>product_list.php#block">客製化</h6>
+                </a>
             </div>
             <div class="side-content-item">
-                <h5>輔具</h5>
-                <h6>支撐墊</h6>
-                <h6>滾筒</h6>
-                <h6>沙包</h6>
-                <h6>伸展</h6>
-                <h6>彈力帶</h6>
-                <h6>鋪巾</h6>
+                <a href="<?= WEB_ROOT ?>product_list.php#block">
+                    <h5>輔具</h5>
+                </a>
+                <a href="<?= WEB_ROOT ?>product_list.php#pad">
+                    <h6>支撐墊</h6>
+                </a>
+                <a href="<?= WEB_ROOT ?>product_list.php#roller">
+                    <h6>滾筒</h6>
+                </a>
+                <a href="<?= WEB_ROOT ?>product_list.php#sand">
+                    <h6>沙包</h6>
+                </a>
+                <a href="<?= WEB_ROOT ?>product_list.php#strap">
+                    <h6>伸展</h6>
+                </a>
+                <a href="<?= WEB_ROOT ?>product_list.php#band">
+                    <h6>彈力帶</h6>
+                </a>
+                <a href="<?= WEB_ROOT ?>product_list.php#towel">
+                    <h6>鋪巾</h6>
+                </a>
 
             </div>
             <div class="side-content-item">
+                <a href="<?= WEB_ROOT ?>about.php"></a>
                 <h5>關於我們</h5>
             </div>
             <div class="side-content-item">
-                <h5>提案</h5>
+                <a href="<?= WEB_ROOT ?>content.php">
+                    <h5>提案</h5>
+                </a>
             </div>
             <div class="side-content-item">
-                <h5>問與答</h5>
+                <a href="">
+                    <h5>問與答</h5>
+                </a>
             </div>
         </div>
         <div class="side-bottom d-flex justify-content-between mt-auto">
@@ -97,7 +122,7 @@
                 <a href="#" class="ml-4">
                     <img src="<?= WEB_ROOT ?>SVG/icon-line.svg" alt="" style="width:30px;height:30px;">
                 </a>
-                <a href="#" class="ml-4">
+                <a href="https://www.instagram.com/janjaneswag/" class="ml-4">
                     <img src="<?= WEB_ROOT ?>SVG/icon-ig.svg" alt="" style="width:30px;height:30px;">
 
                 </a>
@@ -109,7 +134,7 @@
         <!-- Nav for desktop ---------------------->
         <div class="container-fluid d-flex align-items-center nav-desktop">
             <div class="nav-logo col-3 d-flex align-items-center pl-5">
-                <a href="">
+                <a href="<?= WEB_ROOT ?>home_page.php">
                     <svg id="logo_-_1" data-name="logo - 1" xmlns="http://www.w3.org/2000/svg" width="190.003" height="44.449" viewBox="0 0 190.003 44.449">
                         <g id="Group_464" data-name="Group 464">
                             <g id="Group_405" data-name="Group 405" transform="translate(0 0)">
@@ -166,8 +191,8 @@
                 <div class="btn-group d-flex align-items-center nav-left-text">
                     <a href="" class="nav-text mr-5 ml-4 mt-2" class="dropdown-toggle" data-toggle="dropdown">瑜珈墊</a>
                     <div class="dropdown-menu">
-                        <a class="" href="#">一般</a>
-                        <a class="" href="#">客製化</a>
+                        <a class="" href="<?= WEB_ROOT ?>product_list.php#std">一般</a>
+                        <a class="" href="<?= WEB_ROOT ?>product_list.php#ctm">客製化</a>
                     </div>
                 </div>
                 <div class="btn-group d-flex align-items-center nav-left-text">
@@ -175,21 +200,21 @@
                     <div class="dropdown-menu">
                         <div class="dropdown-menu-wrapper">
                             <div class="dropdown-menu-group">
-                                <a class="" href="#">瑜珈磚
+                                <a class="" href="<?= WEB_ROOT ?>product_list.php#block">瑜珈磚
                                 </a>
-                                <a class="" href="#">支撐墊
+                                <a class="" href="<?= WEB_ROOT ?>product_list.php#pad">支撐墊
                                 </a>
-                                <a href="">滾筒
+                                <a href="<?= WEB_ROOT ?>product_list.php#roller">滾筒
                                 </a>
 
-                                <a href="">沙包
+                                <a href="<?= WEB_ROOT ?>product_list.php#sand">沙包
                                 </a>
-                                <a href="">伸展帶
+                                <a href="<?= WEB_ROOT ?>product_list.php#strap">伸展帶
                                 </a>
-                                <a href="">彈力帶
+                                <a href="<?= WEB_ROOT ?>product_list.php#band">彈力帶
                                 </a>
-                                <a href="">舖巾</a>
-                                <!-- font-size:16px,一條一條 -->
+                                <a href="<?= WEB_ROOT ?>product_list.php#towel">舖巾</a>
+
                             </div>
                         </div>
 
@@ -201,8 +226,8 @@
                 <div class="btn-group d-flex align-items-center nav-left-text">
                     <a href="" class="nav-text mr-5 ml-4 mt-2" class="dropdown-toggle" data-toggle="dropdown">提案</a>
                     <div class="dropdown-menu">
-                        <a class="" href="#">一般</a>
-                        <a class="" href="#">客製化</a>
+                        <a class="" href="<?= WEB_ROOT ?>content.php">一般</a>
+                        <a class="" href="<?= WEB_ROOT ?>content.php">客製化</a>
                     </div>
 
                 </div>
@@ -219,8 +244,14 @@
                         </svg>
                     </a>
                     <div class="dropdown-menu">
-                        <a class="" href="#">登入</a>
-                        <a class="" href="#">註冊</a>
+                        <?php if (isset($_SESSION['admin'])) : ?>
+                            <a class="" href="<?= WEB_ROOT ?>member_my_account.php">會員中心</a>
+                            <a class="" href="<?= WEB_ROOT ?>logout.php">登出</a>
+                        <?php else : ?>
+                            <a class="" href="<?= WEB_ROOT ?>login_regist.php">註冊</a>
+                            <a class="" href="<?= WEB_ROOT ?>login.php">登入</a>
+                        <?php endif ?>
+
                     </div>
                 </div>
 
@@ -243,7 +274,7 @@
                     <div class="dropdown-menu" style="">
                         <a class="d-flex" href="#">
                             <div class="img-wrap border">
-                                <img class="product-pic" src="./img/content/mat_3.jpg" alt="瑜珈磚">
+                                <img class="product-pic" src="./guess-imgs/yoga brick.jpg" alt="瑜珈磚">
                             </div>
                             <div class="product-info ml-3">
                                 <p>好瘦瑜珈磚<br>NT$. 1000</p>
@@ -252,7 +283,7 @@
                         </a>
                         <a class="d-flex" href="#">
                             <div class="img-wrap border">
-                                <img class="product-pic" src="./img/content/mat_3.jpg" alt="瑜珈磚">
+                                <img class="product-pic" src="./guess-imgs/yoga brick.jpg" alt="瑜珈磚">
                             </div>
                             <div class="product-info ml-3">
                                 <p>好瘦瑜珈磚<br>NT$. 1000</p>
