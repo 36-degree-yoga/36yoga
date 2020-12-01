@@ -1,11 +1,11 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
-<link rel="stylesheet" href="./CSS/reset.css">  
 <link rel="stylesheet" href="./bootstrap/css/bootstrap-grid.css">
 <link rel="stylesheet" href="./CSS/animate.min.css">
 <link rel="stylesheet" href="./CSS/slick.css">
 <link rel="stylesheet" href="./CSS/homepage.css">
+<link rel="stylesheet" href="./CSS/quick_view.css">
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 貼上html -->
@@ -178,7 +178,7 @@
                         <!-- 移動圖片們 -->
                         <div class="movemove prods_left col-5" data-rellax-speed="4" >
                             <div class="prods_box ">
-                                <div class="prods_picwrap ppwrap_01" data-toggle="modal" data-target="#exampleModal">
+                                <div class="prods_picwrap ppwrap_01" >
                                     <img class="index_prodspic_h1" src="./img/index/index_04_h.jpg" alt="">
                                     <img class="index_prodspic01" src="./img/index/index_04.jpg" alt="">   
                                 </div>
@@ -186,17 +186,17 @@
                                     <div class="d-flex prod_pp_quick">
                                         <div class="prod_ppwrap">
                                             <h6 class="prod">環保瑜珈墊</h6>
-                                            <p class="prod_price" data-toggle="modal" data-target="#exampleModal">$1000</p>
+                                            <p class="prod_price">$1000</p>
                                         </div>
-                                        <a href="" class="index_quick">
-                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" data-toggle="modal" data-target="#exampleModal" >
-                                        </a>
+                                        <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                        </div>
                                 
                                     </div>
                                 </div>
                             </div>
                             <div class="prods_box ">
-                                <div class="prods_picwrap ppwrap_02" data-toggle="modal" data-target="#exampleModal">
+                                <div class="prods_picwrap ppwrap_02">
                                     <img class="index_prodspic_h2" src="./img/index/index_04_h.jpg" alt="">
                                     <img class="index_prodspic02" src="./img/index/index_06.jpg" alt="">
                                 </div>
@@ -205,13 +205,13 @@
                                         <h6 class="prod">環保瑜珈墊</h6>
                                         <p class="prod_price">$1000</p>
                                     </div>
-                                    <a href="" class="index_quick">
-                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" data-toggle="modal" data-target="#exampleModal" >
-                                    </a>
+                                    <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="prods_box ">
-                                <div class="prods_picwrap ppwrap_03" data-toggle="modal" data-target="#exampleModal">
+                            <div class="prods_box">
+                                <div class="prods_picwrap ppwrap_03">
                                     <img class="index_prodspic_h3" src="./img/index/index_04_h.jpg" alt="">
                                     <img class="index_prodspic03" src="./img/index/index_05.jpg" alt="">
                                 </div>
@@ -220,16 +220,16 @@
                                         <h6 class="prod">環保瑜珈墊</h6>
                                         <p class="prod_price">$1000</p>
                                     </div>
-                                    <a href="" class="index_quick">
-                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" data-toggle="modal" data-target="#exampleModal" >
-                                    </a>
+                                    <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                    </div>
                                 </div>
                             </div>
                            
                         </div>
                         <div class="movemove prods_right col-5  " data-rellax-speed="5">
                             <div class="prods_box ">
-                                <div class="prods_picwrap ppwrap_04" data-toggle="modal" data-target="#exampleModal">
+                                <div class="prods_picwrap ppwrap_04">
                                     <img class="index_prodspic_h4" src="./img/index/index_04_h.jpg" alt="">
                                     <img class="index_prodspic04" src="./img/index/index_03.jpg" alt="">
                                 </div>
@@ -238,13 +238,13 @@
                                         <h6 class="prod">環保瑜珈墊</h6>
                                         <p class="prod_price">$1000</p>
                                     </div>
-                                    <a href="" class="index_quick">
-                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" data-toggle="modal" data-target="#exampleModal" >
-                                    </a>
+                                    <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                    </div>
                                 </div>
                             </div>
                             <div class="prods_box">
-                                <div class="prods_picwrap ppwrap_05" data-toggle="modal" data-target="#exampleModal">
+                                <div class="prods_picwrap ppwrap_05">
                                     <img class="index_prodspic_h5" src="./img/index/index_04_h.jpg" alt="">
                                     <img class="index_prodspic05" src="./img/index/index_07.jpg" alt="">
                                 </div>
@@ -253,13 +253,13 @@
                                         <h6 class="prod">環保瑜珈墊</h6>
                                         <p class="prod_price">$1000</p>
                                     </div>
-                                    <a href="" class="index_quick">
-                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" data-toggle="modal" data-target="#exampleModal" >
-                                    </a>
+                                    <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                    </div>
                                 </div>
                             </div>
                             <div class="prods_box">
-                                <div class="prods_picwrap ppwrap_06" data-toggle="modal" data-target="#exampleModal">
+                                <div class="prods_picwrap ppwrap_06">
                                     <img class="index_prodspic_h6" src="./img/index/index_04_h.jpg" alt="">
                                     <img class="index_prodspic06" src="./img/index/index_08.jpg" alt="">
                                 </div>
@@ -268,15 +268,15 @@
                                         <h6 class="prod">環保瑜珈墊</h6>
                                         <p class="prod_price">$1000</p>
                                     </div>
-                                    <a href="" class="index_quick">
-                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" data-toggle="modal" data-target="#exampleModal" >
-                                    </a>
+                                    <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                    </div>
                                 </div>
                             </div>
                             
                         </div>
                     </div>
-                    <div class="testline"></div>
+                
 
                 </div>
                 
@@ -319,13 +319,13 @@
                             <div style="width: 10px;height: 20px;background-color: #db5c00;"></div>
                             <h6 class="ml-2">NT. 1,000</h6>
                         </div>
-                        <div class="space_60"></div>
+                        <div class="space_30"></div>
                         <div class="d-flex">
                             <div class="color_circle"></div>
                             <div class="color_circle"></div>
                             <div class="color_circle"></div>
                         </div>
-                        <div class="space_60"></div>
+                        <div class="space_30"></div>
                         <div>
                             <button class="btn_l" style="margin-right: 40px;">了解更多</button>
                             <button class="btn_f">加入購物車</button>
@@ -375,7 +375,7 @@
                                 </div>
                                 <p class="reviews_p">透過小測驗讓我找到適合自己的產品，顏色樣式可以自己搭，選擇性多。</p>
                                 <div class="reviews_member row">
-                                    <img src="./SVG/icon-member.svg" alt="" class="icon_member">
+                                    <img src="./SVG/icon-indexmember.svg" alt="" class="icon_member">
                                     <p class="reviews_nickname">沙莉</p>
                                 </div>
                             </div>   
@@ -395,7 +395,7 @@
                                 </div>
                                 <p class="reviews_p">有外表又有內容的瑜珈墊，是能背著走的時尚配件，走到哪都能輕鬆做瑜珈。</p>
                                 <div class="reviews_member row">
-                                    <img src="./SVG/icon-member.svg" alt="" class="icon_member">
+                                    <img src="./SVG/icon-indexmember.svg" alt="" class="icon_member">
                                     <p class="reviews_nickname">俞臻</p>
                                 </div>
                             </div>   
@@ -415,7 +415,7 @@
                                 </div>
                                 <p class="reviews_p">環保無毒的材質，讓孕媽媽用得很放心，厚度也能客製，真的太貼心了！</p>
                                 <div class="reviews_member row">
-                                    <img src="./SVG/icon-member.svg" alt="" class="icon_member">
+                                    <img src="./SVG/icon-indexmember.svg" alt="" class="icon_member">
                                     <p class="reviews_nickname">馬咪</p>
                                 </div>
                             </div>
@@ -435,7 +435,7 @@
                                 </div>
                                 <p class="reviews_p">適合男生用的瑜珈墊超難找！終於有適合高個兒的，CP值超高，周邊質感也很好。</p>
                                 <div class="reviews_member row">
-                                    <img src="./SVG/icon-member.svg" alt="" class="icon_member">
+                                    <img src="./SVG/icon-indexmember.svg" alt="" class="icon_member">
                                     <p class="reviews_nickname">小新</p>
                                 </div>
                             </div>   
@@ -455,7 +455,7 @@
                                 </div>
                                 <p class="reviews_p">讓初學瑜珈的我找到適合的瑜珈墊，分類明確易懂，而且花色真的很美！</p>
                                 <div class="reviews_member row">
-                                    <img src="./SVG/icon-member.svg" alt="" class="icon_member">
+                                    <img src="./SVG/icon-indexmember.svg" alt="" class="icon_member">
                                     <p class="reviews_nickname">蝴蝶</p>
                                 </div>
                             </div>   

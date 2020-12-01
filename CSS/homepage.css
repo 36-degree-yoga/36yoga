@@ -56,6 +56,107 @@
                 margin: 0 auto; 
                 padding: 0;
             }
+
+
+    /*test*/
+            /* 間距↓↓ */
+            .space_30 {
+                width: 100%;
+                height: 30px;
+            }
+            .space_60 {
+                width: 100%;
+                height: 60px;
+            }
+            .space_120 {
+                width: 100%;
+                height: 120px;
+            }
+            /* 間距↑↑ */
+
+            /* 綠底按鈕↓↓ */
+            .btn_f {
+                background-color: #004a13;
+                font-weight: 400;
+                color: #fffefc;
+                width: 108px;
+                height: 38px;
+                border: none;
+                border-radius: 4px;
+                transition: 0.5s;
+            }
+            
+            .btn_f:hover {
+                opacity: 0.6;
+            }
+            /* 綠底按鈕↑↑ */
+
+            /* 線按鈕↓↓ */
+            .btn_l {
+                background-color: transparent;
+                font-weight: 400;
+                color: #004a13;
+                width: 108px;
+                height: 38px;
+                border: 2px solid #004a13;
+                border-radius: 4px;
+                transition: 0.5s;
+            }
+            .btn_l:hover {
+                opacity: 0.6;
+            }
+            /* 線按鈕↑↑ */
+
+            /* 彈跳視窗↓↓ */
+            .modal-dialog {
+                border-radius: 4px;
+            }
+            .close {
+                opacity: 1;
+            }
+            .modal-header {
+                border-bottom: 0;
+            }
+            button:focus {
+                outline: 1px #fffefc;
+            }
+            .modal-footer {
+                border-top: 0;
+            }
+            .modal-content {
+                border: 2px solid #004a13;
+                border-radius: 4px;
+                width: 100%;
+                background: #fffefc;
+                opacity: 1;
+            }
+            
+            iframe {
+                width: 100%;
+                height: 525px;
+                z-index: 9999;
+            }
+            /* 彈跳視窗↑↑ */
+            
+            /* quick_view↓↓ */
+            :focus {
+                opacity: 1;
+            }
+            .quick_view_img_wrap {
+                width: 349.7px;
+                height: 458px;
+            }
+            
+            .quick_view_img_wrap img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            /* quick_view↑↑ */
+
+
+
     /* hero */
             .index_header {
                 margin: 0; 
@@ -665,83 +766,6 @@
                 margin-top: 10px;
                 font-size: 1.5rem;
             }
-
-/* 彈跳視窗↓↓ */
-        
-            .modal-dialog{
-                border-radius: 4px;
-                
-            }
-            .close{
-                opacity: 1;
-            }
-            .modal-header{
-                border-bottom:0;
-            }
-            button:focus{
-                outline: 1px #FFFEFC;
-            }
-            .modal-footer{
-                border-top:0; 
-            }
-            .modal-content {
-            border:2px solid #004A13;
-            border-radius: 4px;
-            width: 100%;
-            background: #FFFEFC;
-            opacity: 1;
-            }
-/* 彈跳視窗↑↑ */
-/* 彈跳視窗↓↓ */
-          
-            .modal-dialog {
-            border-radius: 4px;
-            }
-            .close {
-            opacity: 1;
-            }
-            .modal-header {
-            border-bottom: 0;
-            }
-            button:focus {
-            outline: 1px #fffefc;
-            }
-            .modal-footer {
-            border-top: 0;
-            }
-            .modal-content {
-            border: 2px solid #004a13;
-            border-radius: 4px;
-            width: 100%;
-            background: #fffefc;
-            opacity: 1;
-            }
-/* 彈跳視窗↑↑ */
-
-
-/* quick_view↓↓ */
-            :focus {
-            opacity: 1;
-            }
-            .quick_view_img_wrap{
-                width: 349.7px;
-                height: 458px;
-                background-color: #db5c00;
-            }
-
-
-            .item-tag>h6 {
-                border-left: 8px solid #F2A200;
-                padding: 0 15px;
-            }
-            .color_circle{
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                background-color: #F2A200;
-                margin: 0 15px;
-            }
-        /* quick_view↑↑ */
 
 /* Customer Reviews */
             .index_reviews{
@@ -1405,7 +1429,25 @@
 
         }
 
-
+ /* quick_view↓↓ */
+       
+        @media (min-width: 576px) {
+            .modal-dialog {
+            max-width: 1000px;
+            margin: 1.75rem auto;
+            }
+        }
+        .item-tag > h6 {
+            border-left: 8px solid #f2a200;
+            padding: 0 15px;
+        }
+        .color_circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 15px;
+}
+/* quick_view↑↑ */
 
 /* mobile*/
 /* screen 500px */
