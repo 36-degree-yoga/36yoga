@@ -14,20 +14,10 @@ $c_rows = $pdo->query($c_sql)->fetchAll();
 $t = $c_rows[0]['question'];
 $q = $c_rows[0]['ans'];
 $v = $c_rows[0]['value'];
-$pieces = explode(",", $q);
+$pieces = explode(",", $q); //把string變成了array
 $value = explode(",", $v);
 
 //表單已被提交，並且應該對其進行驗證。如果未提交，則跳過驗證並顯示一個空白表單。
-
-$resultErr = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST[$name])) {
-        $resultErr = "姓名或密碼不能為空";
-    } else {
-        //存入session
-        $_SESSION['yoga_test'][$name] = $_POST[$name];
-    }
-}
 ?>
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -85,26 +75,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="content d-flex justify-content-center flex-wrap">
             <pre>
-        <?php print_r($_POST) ?>
-    </pre>
+                 <?php print_r($_POST) ?>
+            </pre>
             <div class="content-title text-center w-100 animate__animated animate__fadeInUp">
                 <h2>
                     <? echo $t ?>
                 </h2>
             </div>
             <!-- 送出 -->
-            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <form method="POST" name="testForm" novalidate>
+                <!-- onsubmit="checkForm(); return false;" -->
                 <div class="btn-wrapper d-flex flex-wrap align-content-start">
 
                     <?php foreach (array_combine($pieces, $value) as $course => $value) : ?>
                         <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp">
-                            <button type="" class="btn_l choice" id="test" name="<? echo $name ?>" value="<?= $value ?>"><?= $course ?></button>
+                            <div type="button" class="btn_l choice" id="test" name="<? echo $name ?>" value="<?= $value ?>"><?= $course ?></div>
                         </div>
                     <?php endforeach ?>
+
                 </div>
                 <div class="choice-next d-flex justify-content-center animate__animated animate__fadeInUp">
                     <!-- <button type="submit" class="btn_f choice mx-5" name="" value="">上一步</button> -->
-                    <button type="submit" class="btn_f choice mx-5" name="" value="">下一步</button>
+                    <button type="submit" class="btn_f choice mx-5" name="" value="" onclick="checkForm(); return false;">下一步</button>
 
                 </div>
             </form>
@@ -197,7 +189,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script>
+    let name = "<?echo $name;?>";
+    console.log(name)
 
+    function checkForm() {
+        console.log('hi name');
+
+        if (name.val()) {
+            $.post('test-api.php', {
+                name: name.val(),
+
+            }, function(d) {
+                if (d.success) {
+                    console.log('hi sent');
+
+                } else {
+                    console.log('error fail to sent');
+                }
+            }, 'json');
+        }
+    }
 </script>
+
+
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>
