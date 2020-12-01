@@ -50,7 +50,7 @@ $others_rows = $others_stmt->fetchAll();
             <div style="width: 10px;height: 20px;background-color: #db5c00;"></div>
             <h6 class="ml-2"> NT.<?= $modal_rows['price'] ?></h6>
         </div>
-        <div class="space_60"></div>
+        <div class="space_30"></div>
         <div class="d-flex">
             <?php foreach ($others_rows as $i) : ?><a href="?sid=<?= $i['sid'] ?>">
                     <div class="color_circle" style="background-color:<?= $i['color'] ?>"></div>

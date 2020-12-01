@@ -1,13 +1,14 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
-<link rel="stylesheet" href="./bootstrap/css/bootstrap-grid.css">
-<link rel="stylesheet" href="./CSS/animate.min.css">
-<link rel="stylesheet" href="./CSS/slick.css">
-<link rel="stylesheet" href="./CSS/homepage.css">
-<link rel="stylesheet" href="./CSS/quick_view.css">
+<link rel="stylesheet" href="<?= WEB_ROOT ?>bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/animate.min.css">
+<link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/slick.css">
+<link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/homepage.css">
 
+<link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/quick_view.css">
 <?php include __DIR__ . '/parts/nav.php'; ?>
+
 <!-- 貼上html -->
 <!-- index computer -->
 
@@ -282,63 +283,27 @@
                 
             </div>
         </div>
-        <!-- 彈跳視窗↓↓ -->
+       <!-- 彈跳視窗↓↓ -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog ">
-            <div class="modal-content">
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                        <img src="./SVG/delete.svg" alt="">
-                    </span>
-                </button>
-                </div>
-                <div class="modal-body d-flex justify-content-center">
-                
-                    <div class="quick_view_img_wrap">
-                        <img src="" alt="">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">
+                                <img src="./SVG/delete.svg" alt="">
+                            </span>
+                        </button>
                     </div>
-                    <div class="ml-5">
-                        <h3>瑜珈墊</h3>
-                        <div class="space_30"></div>
-                        <div class="item-tag d-flex">
-                            <h6 class="text-justify" style="color: #F2A200;">止滑</h6>
-                            <h6 class="text-justify" style="color: #F2A200;">防水</h6>
-                        </div>
-                        <div class="space_30"></div>
-                        <p style="line-height: 30px;">
-                            1. 全新結構，提供手腕與腳踝最佳緩衝及保護。
-                            <br>
-                            2. 天然橡膠材質，乾濕止滑效果優異。
-                            <br>
-                            3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。
-                            
-                        </p>
-                        <div class="space_30"></div>
-                        <div class="d-flex align-items-center">
-                            <div style="width: 10px;height: 20px;background-color: #db5c00;"></div>
-                            <h6 class="ml-2">NT. 1,000</h6>
-                        </div>
-                        <div class="space_30"></div>
-                        <div class="d-flex">
-                            <div class="color_circle"></div>
-                            <div class="color_circle"></div>
-                            <div class="color_circle"></div>
-                        </div>
-                        <div class="space_30"></div>
-                        <div>
-                            <button class="btn_l" style="margin-right: 40px;">了解更多</button>
-                            <button class="btn_f">加入購物車</button>
-                        </div>
+                    <div class="modal-body ">
+                        <iframe src="modal.php?sid=17" frameborder="0"></iframe>
                     </div>
-                
+                    <div class="modal-footer">
+                        <div class="space_30"></div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                <div class="space_30"></div>
-                </div>
-            </div>
             </div>
         </div>
+<!-- 彈跳視窗↑↑ -->
 
         <!-- Customer Reviews -->
         <div id="index_reviews" class="index_reviews container-fluid p-0">
@@ -480,7 +445,6 @@
             </div>
         </div>
         
-    <!-- 彈跳視窗↑↑ -->  
 
         <!-- 人氣商品 -->
         <div id="index_hot" class="index_hot container-fluid p-0">
