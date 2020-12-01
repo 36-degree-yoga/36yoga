@@ -3,7 +3,9 @@
 <!-- css連結 -->
 
 <link rel="stylesheet" href="./CSS/shopping-cart.css" />
+<link rel="stylesheet" href="./CSS/share.css" />
 <?php include __DIR__ . '/parts/nav.php'; ?>
+
 <!-- 貼上html -->
 
 <div class="nav-place-zone"></div>
