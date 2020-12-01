@@ -31,7 +31,7 @@
 </div>
 
 <div class="container">
-    <div class="row justify-content-center flex-sm-column flex-sm-column flex-md-row flex-lg-row">
+    <form class="row justify-content-center flex-sm-column flex-sm-column flex-md-row flex-lg-row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 i-need-padding">
             <!-- part1 -->
             <div>
@@ -39,11 +39,11 @@
                     <h6>運送資訊</h6>
                     <div class="d-flex justify-content-between this-one-mobile-none">
                         <div class="mx-3 this-one-mobile-none">
-                            <input type="checkbox" class="form-check-input" id="inside" checked />
+                            <input type="radio" class="form-check-input" id="inside" name="area" checked />
                             <label class="form-check-label" for="inside">台灣本島</label>
                         </div>
                         <div class="ml-3 this-one-mobile-none">
-                            <input type="checkbox" class="form-check-input" id="outside" />
+                            <input type="radio" name="area" class="form-check-input" id="outside" />
                             <label class="form-check-label" for="outside">離島/海外地區</label>
                         </div>
                     </div>
@@ -165,11 +165,11 @@
                     <h6>發票明細</h6>
                     <div class="d-flex justify-content-between">
                         <div class="this-one-mobile-none mr-1">
-                            <input type="checkbox" class="form-check-input" id="" checked />
+                            <input type="radio" name="invoice" class="form-check-input" id="" checked />
                             <label class="form-check-label" for="">電子發票</label>
                         </div>
                         <div class="ml-4 this-one-mobile-none">
-                            <input type="checkbox" class="form-check-input" id="" />
+                            <input type="radio" name="invoice" class="form-check-input" id="" />
                             <label class="form-check-label" for="">發票證明聯</label>
                         </div>
                     </div>
@@ -188,11 +188,11 @@
                     <div class="form-group row mb-2">
                         <div class="d-flex justify-content-start px-4">
                             <div class="mx-3">
-                                <input type="checkbox" class="form-check-input" id="" checked />
+                                <input type="radio" name="vehicle" class="form-check-input" id="" checked />
                                 <label class="form-check-label" for="">隨包裹</label>
                             </div>
                             <div class="mx-3">
-                                <input type="checkbox" class="form-check-input" id="" />
+                                <input type="radio" name="vehicle" class="form-check-input" id="" />
                                 <label class="form-check-label" for="">電子條碼載具</label>
                             </div>
                         </div>
@@ -346,11 +346,11 @@
                 </div>
                 <div class="text-center">
                     <button class="btn btn-leave p-0">回到購物車</button>
-                    <button class="btn btn-leave p-0 hope-next-step">下一步</button>
+                    <input type="submit" class="btn btn-leave p-0 hope-next-step" value="下一步">
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>

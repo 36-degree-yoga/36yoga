@@ -6,7 +6,8 @@ $modal_sql = "SELECT `sid`, `product_name`, `list_id`, `product_num`, `price`, `
 $modal_stmt = $pdo->query($modal_sql);
 
 $modal_rows = $modal_stmt->fetch();
-
+// echo json_encode($modal_rows, JSON_UNESCAPED_UNICODE);
+// exit;
 $pic = explode(",", $modal_rows['img'])[1];
 
 
@@ -16,15 +17,14 @@ $others_sql = "SELECT `sid`, `product_name`, `list_id`, `product_num`, `price`, 
 $others_stmt = $pdo->query($others_sql);
 $others_rows = $others_stmt->fetchAll();
 
-// echo json_encode($pic, JSON_UNESCAPED_UNICODE);
-// exit;
+
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/quick_view.css">
 
 
-<div class="d-flex align-items-center justify-content-center">
+<div class="modal_wrap d-flex align-items-center justify-content-center" data-sid="<?= $modal_rows['sid'] ?>">
     <div class="quick_view_img_wrap">
         <img src="./img/product_list/<?= $pic ?>.jpg" alt="">
     </div>
@@ -60,7 +60,7 @@ $others_rows = $others_stmt->fetchAll();
         <div class="space_60"></div>
         <div>
             <button class="btn_l" style="margin-right: 40px;">了解更多</button>
-            <button class="btn_f">加入購物車</button>
+            <button class="btn_f buy_btn">加入購物車</button>
         </div>
     </div>
 </div>
@@ -69,6 +69,25 @@ $others_rows = $others_stmt->fetchAll();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script>
-    const others = <?= json_encode($others_rows, JSON_UNESCAPED_UNICODE) ?>
+    const others = <?= json_encode($others_rows, JSON_UNESCAPED_UNICODE) ?>;
+
+    $('.buy_btn').on('click', function(event) {
+        const sid = $('.modal_wrap').attr('data-sid');
+        const qty = 1;
+
+        console.log({
+            sid: sid,
+            quantity: qty
+        });
+
+        $.get('handle-cart.php', {
+            sid: sid,
+            quantity: qty,
+            action: 'add'
+        }, function(data) {
+            console.log(data);
+            countCart(data.cart);
+        }, 'json');
+    });
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
