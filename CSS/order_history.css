@@ -1,0 +1,495 @@
+/* h6 {
+  margin-bottom: 8px;
+} */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 80px 0 5px 0;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: rgb(219, 219, 219);
+}
+
+/* 側BAR */
+a:hover {
+  text-decoration: none;
+}
+/* 會員中心side_bar↓↓ */
+.member_img_wrap {
+  height: 100px;
+  width: 100px;
+  background-color: aqua;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.member_pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* display: none; */
+}
+
+.log_out {
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background-color: #fffefc;
+}
+.account_sidebar_title {
+  margin: 5px 0;
+  list-style: none;
+}
+.account_sidebar_title a {
+  color: #333;
+}
+.account_sidebar_title a:hover {
+  text-decoration: none;
+}
+.bar_title_area a {
+  color: #333;
+}
+/* 會員中心side_bar↑↑ */
+
+/* 會員中心 手機板 side_bar↓↓ */
+.m_account_bar_wrap {
+  display: none;
+}
+/* 會員中心 手機板 side_bar↑↑ */
+
+/* 照片區↓↓ */
+.member_account_img_wrap {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.member_account_img_wrap p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mask {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  background-color: #fffefc;
+  opacity: 0.7;
+  position: absolute;
+  border: 4px solid #f2a21f;
+}
+/* 照片區↑↑ */
+
+/* 填寫資料區↓↓ */
+input {
+  border: none;
+}
+input:focus {
+  outline: -webkit-focus-ring-color auto 1px;
+  outline-color: -webkit-focus-ring-color;
+  outline-style: auto;
+  outline-width: 0px;
+}
+.input_line {
+  width: 300px;
+  border-bottom: 1px solid #333333;
+}
+
+/* 填寫資料區↑↑ */
+
+/* 彈跳視窗↓↓ */
+
+.modal-dialog {
+  border-radius: 4px;
+  max-width: 668px;
+}
+
+.modal-header {
+  border-bottom: 0;
+}
+button:focus {
+  outline: 1px #fffefc;
+}
+.modal-footer {
+  border-top: 0;
+}
+.modal-content {
+  border: 2px solid #004a13;
+  border-radius: 4px;
+  width: 100%;
+  background: #fffefc;
+  opacity: 1;
+}
+/* 彈跳視窗↑↑ */
+
+/* RWD↓↓*/
+@media (max-width: 1440px) {
+}
+@media (max-width: 768px) {
+  .account_side_bar {
+    display: none !important;
+  }
+
+  /* 手機板橫條bar↓ */
+  body {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .m_account_bar_wrap {
+    display: block;
+    overflow-x: scroll;
+    height: 55px;
+  }
+
+  .m_account_bar_item {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .m_account_option {
+    padding: 20px;
+  }
+  /* 寫JQ可以加的class */
+  .check_border {
+    border-bottom: 2px solid #f2a200;
+  }
+  /* 手機板橫條bar↑ */
+
+  .right_area {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 540px) {
+  /* 手機板橫條bar↓ */
+  .m_account_bar_item {
+    width: 660px;
+    height: 100%;
+  }
+  /* 手機板橫條bar↑ */
+
+  .right_area {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .space_120 {
+    height: 60px;
+  }
+
+  .change_picture_area {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .edit_area {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .edit_info {
+    flex-direction: column;
+    align-items: flex-start !important;
+    border-bottom: 1px solid #333333;
+  }
+  .input_line {
+    border-bottom: none !important;
+  }
+
+  /* 彈跳視窗↓ */
+
+  /* 彈跳視窗↑ */
+}
+/* RWD↑↑*/
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 400;
+  font: #333333;
+}
+p {
+  /* line-height: 22px; */
+  color: #333;
+  margin-bottom: -16px;
+}
+li {
+  color: #333;
+}
+
+button {
+  transition: 0.3s;
+}
+button:hover {
+  opacity: 0.6;
+}
+
+.order_list_history {
+  display: flex;
+}
+
+/* 訂單選單 */
+.list_option {
+  width: 100%;
+  margin-bottom: 60px;
+  cursor: pointer;
+}
+.list_option li {
+  border: 1px solid #333333;
+  text-align: center;
+  padding: 10px;
+}
+.list_option li:hover {
+  color: #c7c7c7;
+}
+
+.click_green {
+  background-color: #004a13;
+  color: #fffefc;
+}
+/* 訂單列表標題 */
+
+.order_list_wrap {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.order_top_word {
+  margin-bottom: 20px;
+}
+
+.order_title,
+.order_title_content {
+  width: 100%;
+  border: 1px solid #333;
+}
+
+.order_title li {
+  background-color: #fdebca;
+}
+
+.order_title li,
+.order_title_content li {
+  padding: 10px;
+  text-align: center;
+}
+
+.order_history_detail_btn {
+  height: 60px;
+  border-bottom: 1px solid #848484;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: 0.5s;
+}
+
+.order_history_detail_btn p,
+.order_history_detail_btn img {
+  transition: 0.3s;
+}
+
+.order_history_detail_btn:hover p,
+.order_history_detail_btn:hover img {
+  opacity: 0.6;
+}
+
+.order_history_detail_btn p {
+  font-weight: 500;
+  color: #f2a200;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  margin-left: 5px;
+}
+.order_history_detail_btn img {
+  width: 20px;
+}
+
+/* <!-- 詳細區塊 --> */
+
+.order_details_page {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #848484;
+  margin-bottom: 60px;
+}
+
+.order_product_wrap {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.order_details_page {
+}
+
+.order_img_wrap {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  margin-right: 20px;
+}
+
+.p_title {
+  font-weight: 500;
+  /* margin-bottom: 10px; */
+}
+.p_detail {
+  font-size: 0.8em;
+  /* line-height: 22px; */
+  margin-bottom: 0;
+}
+
+/*按鈕 */
+#buy_again {
+  margin-left: 20px;
+}
+.btn_s {
+  background-color: #004a13;
+  font-weight: 300;
+  color: #fffefc;
+  width: 108px;
+  height: 38px;
+  border: none;
+  border-radius: 4px;
+}
+
+.m_order_history {
+  display: none;
+}
+
+/* 手機 */
+
+@media (max-width: 500px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  p {
+    /* line-height: 25px; */
+  }
+
+  .order_list_history {
+    display: none;
+  }
+  .hide {
+    display: none;
+  }
+  .m_order_history {
+    display: block;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* 標題 */
+
+  .m_back_and_title {
+    background-color: #004a13;
+    height: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .m_title {
+    font-size: 1rem;
+    color: #fffefc;
+    height: 50px;
+  }
+  .m_title img {
+    height: 50px;
+    width: 35px;
+    margin-right: 10px;
+  }
+
+  .back_arrow {
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    color: #fffefc;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  /* 手機選項蘭 */
+  .m_order_option_wrap {
+    overflow-x: scroll;
+    height: 60px;
+  }
+
+  .m_order_type {
+    width: 525px;
+    height: 100%;
+  }
+
+  .m_order_option {
+    padding: 20px;
+  }
+
+  .check_border {
+    border-bottom: 2px solid #f2a200;
+  }
+
+  /* 清單藍 */
+
+  .m_order_list,
+  .m_order_item {
+    width: 100%;
+  }
+
+  .m_order_title {
+    background-color: #fdebca;
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid #848484;
+    border-bottom: 1px solid #848484;
+  }
+
+  .m_order_status {
+    margin-bottom: 15px;
+  }
+
+  .m_order_detail {
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #848484;
+  }
+
+  .m_p {
+    font-size: 14px;
+  }
+
+  .p_title {
+    margin-bottom: 0;
+  }
+  .m_order_product_wrap {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .order_img_wrap {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+  }
+
+  .product-left {
+    width: 100%;
+  }
+
+  .count_price {
+    width: 35%;
+  }
+
+  .btn-wrap {
+    margin-top: 30px;
+  }
+
+  .order_history_detail_btn {
+    margin-bottom: 0;
+  }
+}

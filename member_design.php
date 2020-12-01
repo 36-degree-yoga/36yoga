@@ -1,27 +1,30 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 
 <?php
-$sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = `members`.id) LEFT JOIN `products` ON `favorite`.product_sid = `products`.sid )";
-// 怎麼加上排序!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-$stmt = $pdo->query($sql);
-$row = $stmt->fetchAll();
-
-// foreach ($row as $k => $r) {
-//     $row[$k]['my_imgs']  = explode(",", $r['img']);
-// };
+// $sid = intval($_GET['sid'] ?? 42); 
+$design_sql = "SELECT `sid`, `mat-total-price`, `mat-count`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `created_at` FROM `custom_product` WHERE `sid`";
+$design_stmt = $pdo->query($design_sql);
+$design_rows = $design_stmt->fetchAll();
 
 
-// echo json_encode($row, JSON_UNESCAPED_UNICODE);
+
+// $pic = explode(",", $design_rows['design_img']);
+
+
+// $design_price = $pdo->quote($modal_rows['product_name']);
+
+// $others_sql = "SELECT `sid`, `product_name`, `list_id`, `product_num`, `price`, `quick_view_01`, `quick_view_02`, `quick_view_03`, `color`, `img` FROM `products` WHERE product_name=$product_name  GROUP BY `color` ORDER BY sid";
+// $others_stmt = $pdo->query($others_sql);
+// $others_rows = $others_stmt->fetchAll();
+
+// echo json_encode($design_rows, JSON_UNESCAPED_UNICODE);
 // exit;
-
-
-
 ?>
+
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
-<link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/member_my_favorite.css">
+<link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/member_design.css">
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 會員中心選單橫條bar↓↓ -->
@@ -189,10 +192,11 @@ $row = $stmt->fetchAll();
         <!-- 右側 -->
 
         <div class="product_list col-9 d-flex flex-wrap ">
-            <?php foreach ($row as $r) : ?>
+            <?php foreach ($design_rows as $d) : ?>
                 <div class="product mb-5 col-4">
                     <div class="product_img_wrap position-relative" data-toggle="modal" data-target="#exampleModal">
-                        <img src="./img/product_list/<?= $r['my_imgs'][1] ?>.jpg" alt="">
+                        <div class="d-flex justify-content-center "><img style="background-color: <?= $d['pick_color'] ?>;" src="img/customize/design/<?= $d['design_img'] ?>.png" alt=""></div>
+
 
                         <svg id="" class="btn_like position-absolute" style="right:15px;bottom:15px" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
                             <g id="圖層_2" data-name="圖層 2">
@@ -208,8 +212,8 @@ $row = $stmt->fetchAll();
 
                     </div>
                     <div class="space_30"></div>
-                    <h6 class="mb-0" style="text-align: center;"><?= $r['product_name'] ?></h6>
-                    <p class="p-0" style="text-align: center;">NT.<?= $r['price'] ?></p>
+                    <h6 class="mb-0" style="text-align: center;">我的設計</h6>
+                    <p class="p-0" style="text-align: center;">NT.<?= $d['mat-total-price'] ?></p>
                     <div class="space_30"></div>
                     <button class="btn_f w-100">加入購物車</button>
                 </div>
