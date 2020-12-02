@@ -1,8 +1,8 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 
 <?php
-// $sid = intval($_GET['sid'] ?? 42); 
-$design_sql = "SELECT `sid`, `mat-total-price`, `mat-count`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `created_at` FROM `custom_product` WHERE `sid`";
+$member_id = intval($_SESSION['user']['id']);
+$design_sql = "SELECT `sid`, `member_id`, `mat-total-price`, `mat-count`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `created_at` FROM `custom_product` WHERE `member_id` = $member_id";
 $design_stmt = $pdo->query($design_sql);
 $design_rows = $design_stmt->fetchAll();
 
@@ -214,8 +214,13 @@ $design_rows = $design_stmt->fetchAll();
                     <div class="space_30"></div>
                     <h6 class="mb-0" style="text-align: center;">我的設計</h6>
                     <p class="p-0" style="text-align: center;">NT.<?= $d['mat-total-price'] ?></p>
-                    <div class="space_30"></div>
-                    <button class="btn_f w-100">加入購物車</button>
+                    <div class="d-flex justify-content-between">
+                        <a href="javascript: delete_it(<?= $d['sid'] ?>)">
+                            <img src="SVG/icon_trash.svg" alt="">
+                        </a>
+                        <button class="btn_f w-75">加入購物車</button>
+                    </div>
+
                 </div>
             <?php endforeach; ?>
 
@@ -230,6 +235,10 @@ $design_rows = $design_stmt->fetchAll();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_my_favorite.js"></script>
 <script>
-
+    function delete_it(sid) {
+        if (confirm(`確定要刪除設計嗎?`)) {
+            location.href = "member_desgin_delete.php?sid=" + sid;
+        }
+    }
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

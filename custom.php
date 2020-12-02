@@ -709,24 +709,24 @@
 <script src="lib/fabric.min.js"></script>
 <script src="lib/custom.js"></script>
 <script>
-    // $('#buy_btn').on('click', function(event) {
-    //     const item = $(this).closest('.product-item');
-    //     const sid = item.attr('data-sid');
-    //     const qty = $('#mat-total-price').val();
+    $('#buy_btn').on('click', function(event) {
+        const item = $(this).closest('.product-item');
+        const sid = <? $_SESSION['user']['id'] ?> ;
+        const qty = $('#mat-total-price').val();
 
-    //     console.log({
-    //         sid: sid,
-    //         quantity: qty
-    //     });
-    //     $.get('handle-cart.php', {
-    //         sid: sid,
-    //         quantity: qty,
-    //         action: 'add'
-    //     }, function(data) {
-    //         console.log(data);
-    //         countCart(data.cart);
-    //     }, 'json');
-    // });
+        console.log({
+            sid: sid,
+            quantity: qty
+        });
+        $.get('handle-cart.php', {
+            sid: sid,
+            quantity: qty,
+            action: 'add'
+        }, function(data) {
+            console.log(data);
+            countCart(data.cart);
+        }, 'json');
+    });
 </script>
 
 
