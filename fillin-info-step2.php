@@ -1,8 +1,16 @@
-<?php include __DIR__ . '/parts/config.php'; ?>
+<?php include __DIR__ . '/parts/config.php';
+
+
+$stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
+$rows = $stmt->fetch();
+
+
+// echo json_encode($rows, JSON_UNESCAPED_UNICODE);
+?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 <link rel="stylesheet" href="./CSS/fill-in-infomation.css" />
-<link rel="stylesheet" href="./CSS/share.css" />
+
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 貼上html -->
 <div class="nav-place-zone"></div>
@@ -31,7 +39,7 @@
 </div>
 
 <div class="container">
-    <form class="row justify-content-center flex-sm-column flex-sm-column flex-md-row flex-lg-row">
+    <div class="row justify-content-center flex-sm-column flex-sm-column flex-md-row flex-lg-row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 i-need-padding">
             <!-- part1 -->
             <div>
@@ -57,8 +65,8 @@
                                 <option value="" disabled selected hidden>
                                     --請選擇--
                                 </option>
-                                <option>宅配到府</option>
-                                <option>超商取貨</option>
+                                <option value="home">宅配到府</option>
+                                <option value="store">超商取貨</option>
                             </select>
                         </div>
                     </div>
@@ -69,9 +77,9 @@
                                 <option value="" disabled selected hidden>
                                     --請選擇--
                                 </option>
-                                <option>貨到付款</option>
-                                <option>信用卡支付</option>
-                                <option>ATM匯款</option>
+                                <option value="yoo">貨到付款</option>
+                                <option value="cerdit">信用卡支付</option>
+                                <option value="atm">ATM匯款</option>
                             </select>
                         </div>
                     </div>
@@ -104,30 +112,30 @@
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="email">Email信箱</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6" id="email" />
+                            <input type="text" class="form-control6" id="email" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="name">收件人姓名</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6" id="name" />
+                            <input type="text" class="form-control6" id="name" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="phonr-number">手機號碼</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6" id="phone-number" />
+                            <input type="text" class="form-control6" id="phone-number" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">收件地址</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2">
                             <div class="d-flex">
-                                <select class="form-control7 option-1 px-2 text-center">
+                                <select class="form-control7 option-1 px-2 text-center" id="city">
                                     <option value="" disabled selected hidden>
                                         --請選擇--
                                     </option>
-                                    <option>臺北市</option>
+                                    <option value="1">臺北市</option>
                                     <option>新北市</option>
                                     <option>桃園市</option>
                                     <option>臺中市</option>
@@ -148,7 +156,7 @@
                                     <option>臺東縣</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control6 my-3" id="city-detail" />
+                            <input type="text" class="form-control6 my-3" id="city-detail" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
@@ -346,14 +354,26 @@
                 </div>
                 <div class="text-center">
                     <button class="btn btn-leave p-0">回到購物車</button>
-                    <input type="submit" class="btn btn-leave p-0 hope-next-step" value="下一步">
+                    <input class="btn btn-leave p-0 hope-next-step" value="下一步" type="submit">
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </div>
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
+<script>
+    $('#member-info').click(() => {
+        $("#email").val("<?= $rows['email'] ?>");
+        $("#name").val("<?= $rows['account'] ?>");
+        $("#phone-number").val("<?= $rows['mobile'] ?>");
+        $("#city").val("1");
+        $("#city-detail").val("<?= $rows['address'] ?>");
+
+    });
+
+    
+</script>
 <script src="./lib/checkout-step123.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
