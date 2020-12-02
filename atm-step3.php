@@ -140,7 +140,7 @@
     </div>
     <div class="text-center">
         <button class="btn btn-leave p-0">回上一步</button>
-        <button class="btn btn-leave p-0 hope-next-step">下一步</button>
+        <a href="complete-order-step4.php" class="btn btn-leave p-0 hope-next-step">下一步</a>
     </div>
 </div>
 <?php include __DIR__ . '/parts/html-footer.php'; ?>

@@ -349,6 +349,20 @@ $rows = $stmt->fetch();
         $("#city-detail").val("<?= $rows['address'] ?>");
 
     });
+    //頁面跳轉
+    $('.hope-next-step').on('click', function() {
+        // console.log($(".how-to-pay").val())
+        if ($(".how-to-pay").val() === "cerdit") {
+            console.log($(".how-to-pay").val())
+            $(window).attr('location', 'credit-card-step3.php');
+           
+        } else {
+            console.log($(".how-to-pay").val())
+            $(window).attr('location', 'atm-step3.php');
+         
+        }
+
+    });
 </script>
 <script src="./lib/checkout-step123.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
