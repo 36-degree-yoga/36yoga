@@ -244,58 +244,35 @@ $rows = $stmt->fetch();
                     <div class="m_order_list">
                         <!-- 手機每個訂單 -->
                         <div class="m_order_item">
-                            <div class="m_product_detail">
+                            <div class="m_product_detail mb-0">
                                 <!-- 商品項目外框 -->
-                                <div class="m_order_product_wrap d-flex align-items-end justify-content-between">
-                                    <div class="product-left d-flex">
-                                        <!-- 訂單商品圖 -->
-                                        <div class="order_img_wrap">
-                                            <img class="p_img" src="" alt="" />
+                                <?php foreach ($_SESSION['cart'] as $c) : ?>
+                                    <div class="m_order_product_wrap d-flex align-items-end justify-content-between">
+                                        <div class="product-left d-flex">
+                                            <!-- 訂單商品圖 -->
+                                            <div class="order_img_wrap">
+                                                <img class="p_img" src="./img/product_list/<?= explode(",", $c['img'])[1] ?>.jpg" style="width: 100px;height:100px;" alt="" />
+                                            </div>
+                                            <!-- 商品尺寸 -->
+                                            <div class="product_detail d-flex flex-column align-self-start">
+                                                <p class="p_title"><?= $c['product_name'] ?></p>
+                                                <p class="p_detail">顏色:<?= $c['color'] ?></p>
+                                                <p class="p_detail">尺寸:<?= $c['length'] ?>*<?= $c['width'] ?></p>
+                                                <p class="p_detail">
+                                                    重量:<?= $c['weight'] ?>g
+                                                </p>
+                                            </div>
                                         </div>
-                                        <!-- 商品尺寸 -->
-                                        <div class="product_detail d-flex flex-column align-self-start">
-                                            <p class="p_title">旋風瑜珈專哈哈哈</p>
-                                            <p class="p_detail">顏色:<span id="color"></span></p>
-                                            <p class="p_detail">尺寸:<span id="size"></span></p>
-                                            <p class="p_detail">
-                                                重量:<span id="weight"></span>g
-                                            </p>
+                                        <!-- 件數價錢 -->
+                                        <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
+                                            <p class="m-0">共<span class="count"><?= $c['quantity'] ?></span>件</p>
+                                            <p class="m-0">NT$ <?= $c['price'] * $c['quantity'] ?><span class="price"></span></p>
                                         </div>
                                     </div>
-                                    <!-- 件數價錢 -->
-                                    <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
-                                        <p class="m-0">共<span class="count">10</span>件</p>
-                                        <p class="m-0">NT$ 11000<span class="price"></span></p>
-                                    </div>
-                                </div>
-                                <hr />
+                                    <hr />
+                                <?php endforeach; ?>
                                 <!--商品項目外框↑-->
 
-                                <!-- 商品項目外框 -->
-                                <div class="m_order_product_wrap d-flex align-items-end justify-content-between mt-3">
-                                    <div class="product-left d-flex">
-                                        <!-- 訂單商品圖 -->
-                                        <div class="order_img_wrap">
-                                            <img class="p_img" src="" alt="" />
-                                        </div>
-                                        <!-- 商品尺寸 -->
-                                        <div class="product_detail d-flex flex-column align-self-start">
-                                            <p class="p_title">旋風瑜珈專哈哈哈</p>
-                                            <p class="p_detail">顏色:<span id="color"></span></p>
-                                            <p class="p_detail">尺寸:<span id="size"></span></p>
-                                            <p class="p_detail">
-                                                重量:<span id="weight"></span>g
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- 件數價錢 -->
-                                    <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
-                                        <p class="m-0">共<span class="count">10</span>件</p>
-                                        <p class="m-0">NT$ 11000<span class="price"></span></p>
-                                    </div>
-                                </div>
-                                <!--商品項目外框↑-->
-                                <hr class="mb-0" />
                             </div>
                             <!-- 細節打開按鈕啦 -->
                             <div class="m_detail_button">
@@ -372,8 +349,6 @@ $rows = $stmt->fetch();
         $("#city-detail").val("<?= $rows['address'] ?>");
 
     });
-
-    
 </script>
 <script src="./lib/checkout-step123.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
