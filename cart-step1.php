@@ -64,7 +64,7 @@
                                 <div class="product-info text-left">
                                     <p><?= $c['product_name'] ?></p>
                                     <p class="product-info-detail">
-                                        顏色:<?= $c['color'] ?><br />尺寸：<?= $c['length'] ?>*<?= $c['width'] ?><br />重量:<?= $c['weight'] ?>g
+                                        顏色：<?= $c['color'] ?><br />尺寸：<?= $c['length'] ?>*<?= $c['width'] ?><br />重量：<?= $c['weight'] ?>g
                                     </p>
                                 </div>
                             </td>
@@ -74,7 +74,7 @@
                                 <div class="cart_count_wrap d-flex justify-content-center col align-items-lg-center">
                                     <!-- - -->
                                     <div class="minus add_cart_icon ">
-                                        <img src="./SVG/custom/minus_g_icon.svg" alt="" style="width: 100px;height:100px;">
+                                        <img src="./SVG/custom/minus_g_icon.svg" alt="">
                                     </div>
                                     <!-- 數量 -->
                                     <!-- <div class="count">1</div> -->
@@ -86,7 +86,7 @@
                                 </div>
                                 <!-- copy count -->
                             </td>
-                            <td class="price">NT.<?= $c['price'] ?></td>
+                            <td class="price">NT.<?= $c['price'] * $c['quantity'] ?></td>
                             <td class="favorite-icon">
                                 <a href="#"><img src="./SVG/icon_favorite.svg" alt=""></a>
 
@@ -103,53 +103,55 @@
         </div>
         <!-- 手機版 -->
         <?php foreach ($_SESSION['cart'] as $c) : ?>
-        <div class="this-one-pc-none w-100">
-            <div class="d-flex col-12">
-                <div class=" col-10 d-flex justify-content-start p-0">
-                    <div class="product-img mr-3">
-                        <img src="./img/product_list/<?= explode(",", $c['img'])[1] ?>.jpg" alt="">
-                    </div>
-                    <div class="product-info  d-flex flex-column">
-                        <p>好瘦好瘦瑜伽墊</p>
-                        <p class="product-info-detail m-0">
-                            顏色:嘿<br />尺寸：150*130<br />重量:500g
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-2 d-flex justify-content-end align-items-end">
-                    <p class="m-0">NT.1200</p>
-                </div>
-            </div>
-            <div class="col-12 d-flex align-items-top mb-2 mt-3 icon-family">
-                <div class="col-8 d-flex justify-content-start number-change align-items-center p-0">
-                    <!-- copy count -->
-                    <div class="cart_count_wrap d-flex justify-content-start align-items-center">
-                        <!-- - -->
-                        <div class="minus add_cart_icon ">
-                            <img src="./SVG/custom/minus_g_icon.svg" alt="">
+            <div class="this-one-pc-none w-100">
+                <div class="d-flex col-12">
+                    <div class=" col-10 d-flex justify-content-start p-0">
+                        <div class="product-img mr-3">
+                            <img src="./img/product_list/<?= explode(",", $c['img'])[1] ?>.jpg" alt="" style="width: 100%;height:100px;">
                         </div>
-                        <!-- 數量 -->
-                        <!-- <div class="count">1</div> -->
-                        <input id="mat-count" name="mat-count" class="count" type="text" value="1" readonly="readonly">
-                        <!-- + -->
-                        <div class="plus add_cart_icon">
-                            <img src="./SVG/custom/plus_g_icon.svg" alt="">
+                        <div class="product-info  d-flex flex-column">
+                            <p><?= $c['product_name'] ?></p>
+                            <p class="product-info-detail m-0">
+                                顏色：<?= $c['color'] ?><br />尺寸：<?= $c['length'] ?>*<?= $c['width'] ?><br />重量：<?= $c['weight'] ?>g
+                            </p>
+
+
                         </div>
                     </div>
-                    <!-- copy count -->
-                </div>
-                <div class="col-4 d-flex justify-content-between align-items-center">
-                    <a href="#"> <img src="./SVG/icon_favorite.svg" alt=""></a>
 
-                    <a href="#"><img src="./SVG/icon_trash.svg" alt=""></a>
+                    <div class="col-2 d-flex justify-content-end align-items-end">
+                        <p class="m-0">NT.<?= $c['price'] * $c['quantity'] ?></p>
+                    </div>
                 </div>
+                <div class="col-12 d-flex align-items-top mb-2 mt-3 icon-family">
+                    <div class="col-8 d-flex justify-content-start number-change align-items-center p-0">
+                        <!-- copy count -->
+                        <div class="cart_count_wrap d-flex justify-content-start align-items-center">
+                            <!-- - -->
+                            <div class="minus add_cart_icon ">
+                                <img src="./SVG/custom/minus_g_icon.svg" alt="">
+                            </div>
+                            <!-- 數量 -->
+                            <!-- <div class="count">1</div> -->
+                            <input id="mat-count" name="mat-count" class="count" type="text" value="<?= $c['quantity'] ?>" readonly="readonly">
+                            <!-- + -->
+                            <div class="plus add_cart_icon">
+                                <img src="./SVG/custom/plus_g_icon.svg" alt="">
+                            </div>
+                        </div>
+                        <!-- copy count -->
+                    </div>
+                    <div class="col-4 d-flex justify-content-between align-items-center">
+                        <a href="#"> <img src="./SVG/icon_favorite.svg" alt=""></a>
+
+                        <a href="#"><img src="./SVG/icon_trash.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="dividerline-in-table-no2 mx-auto"></div>
+
+
+
             </div>
-            <div class="dividerline-in-table-no2 mx-auto"></div>
-
-
-
-        </div>
         <?php endforeach; ?>
 
         <!-- 總計 -->
