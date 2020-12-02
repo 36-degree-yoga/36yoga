@@ -10,12 +10,15 @@ $output = [
 // if (empty($_POST['name'])) {
 //     echo json_encode($output, JSON_UNESCAPED_UNICODE);
 //     exit;
+// `member_sid`,
+
+//     $_SESSION['user']['id'],
 // }
 
-$sql = "INSERT INTO `custom_product`( `member_sid`, `mat-count`, `mat-total-price`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `save_data`, `created_at`
+$sql = "INSERT INTO `custom_product`( `member_id`, `mat-count`, `mat-total-price`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `created_at`
         ) VALUES (
         ?, ?, ?, ?,
-        ?, ?, ?, ?, ?, ?, ?, NOW()
+        ?, ?, ?, ?, ?, ?, NOW()
     )";
 
 
@@ -32,7 +35,6 @@ $stmt->execute([
     $_POST['pick_color'],
     $_POST['design_img'],
     $_POST['mat-print'],
-    $_POST['save_data'],
 ]);
 if ($stmt->rowCount() == 1) {
     $output['success'] = true;

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="./CSS/share.css">
 <link rel="stylesheet" href="./CSS/custom.css" />
 <!-- 貼上html -->
-<div style="display:none">
+<div style="">
     <?php include __DIR__ . '/parts/nav.php'; ?>
 </div>
 
@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="done_btn">
-                        <button onclick="canvasSession();downloadCanvas();saveData()" type="submit" class="btn_l" data-toggle="modal" data-target="#save_design">
+                        <button onclick="downloadCanvas()" type="submit" class="btn_l" data-toggle="modal" data-target="#save_design">
                             儲存設計
                         </button>
                         <button id="buy_btn" onclick="downloadCanvas()" type="submit" class="btn_f" data-toggle="modal" data-target="#add_cart_btn">加入購物車</button>
@@ -709,24 +709,24 @@
 <script src="lib/fabric.min.js"></script>
 <script src="lib/custom.js"></script>
 <script>
-    $('#buy_btn').on('click', function(event) {
-        const item = $(this).closest('.product-item');
-        const sid = item.attr('data-sid');
-        const qty = $('#mat-total-price').val();
+    // $('#buy_btn').on('click', function(event) {
+    //     const item = $(this).closest('.product-item');
+    //     const sid = item.attr('data-sid');
+    //     const qty = $('#mat-total-price').val();
 
-        console.log({
-            sid: sid,
-            quantity: qty
-        });
-        $.get('handle-cart.php', {
-            sid: sid,
-            quantity: qty,
-            action: 'add'
-        }, function(data) {
-            console.log(data);
-            countCart(data.cart);
-        }, 'json');
-    });
+    //     console.log({
+    //         sid: sid,
+    //         quantity: qty
+    //     });
+    //     $.get('handle-cart.php', {
+    //         sid: sid,
+    //         quantity: qty,
+    //         action: 'add'
+    //     }, function(data) {
+    //         console.log(data);
+    //         countCart(data.cart);
+    //     }, 'json');
+    // });
 </script>
 
 
