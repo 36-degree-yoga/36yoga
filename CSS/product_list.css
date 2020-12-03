@@ -86,6 +86,9 @@
   margin-top: 0;
   top: -10px;
 }
+.dropdown-item {
+  padding: 0.25rem 1rem;
+}
 
 a.dropdown-item:active {
   background-color: transparent;
