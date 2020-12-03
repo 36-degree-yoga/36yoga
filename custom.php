@@ -735,7 +735,7 @@
             action: 'add'
         };
         console.log(dataObj);
-        $.get('handle-cart.php', dataObj, function(data) {
+        $.get('handle-cart-custom.php', dataObj, function(data) {
             console.log(data);
             // countCart(data.cart);
         }, 'json');

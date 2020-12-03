@@ -1,8 +1,8 @@
 <?php
 include __DIR__ . '/parts/config.php';
 
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
+if (!isset($_SESSION['custom'])) {
+    $_SESSION['custom'] = [];
 }
 
 $output = [];
@@ -27,14 +27,14 @@ switch ($action) {
         if (!'sid') {
             $output['code'] = 401;
         } else {
-            if (isset($_SESSION['cart'][$sid])) {
-                $_SESSION['cart'][$sid]['quantity'] = $quantity;
-                $_SESSION['cart'][$sid]['img'] = $img;
-                $_SESSION['cart'][$sid]['weight'] = $weight;
-                $_SESSION['cart'][$sid]['length'] = $length;
-                $_SESSION['cart'][$sid]['width'] = $width;
-                $_SESSION['cart'][$sid]['color'] = $color;
-                $_SESSION['cart'][$sid]['price'] = $price;
+            if (isset($_SESSION['custom'][$sid])) {
+                $_SESSION['custom'][$sid]['quantity'] = $quantity;
+                $_SESSION['custom'][$sid]['img'] = $img;
+                $_SESSION['custom'][$sid]['weight'] = $weight;
+                $_SESSION['custom'][$sid]['length'] = $length;
+                $_SESSION['custom'][$sid]['width'] = $width;
+                $_SESSION['custom'][$sid]['color'] = $color;
+                $_SESSION['custom'][$sid]['price'] = $price;
             } else {
                 $sql = "SELECT * FROM products WHERE sid=$sid";
                 $row = $pdo->query($sql)->fetch();
@@ -48,15 +48,15 @@ switch ($action) {
                     $row['width'] = $width;
                     $row['color'] = $color;
                     $row['price'] = $price;
-                    $_SESSION['cart'][$row['sid']] = $row;
+                    $_SESSION['custom'][$row['sid']] = $row;
                 }
             }
         }
         break;
 
     case 'remove':
-        if (isset($_SESSION['cart'][$sid])) {
-            unset($_SESSION['cart'][$sid]);
+        if (isset($_SESSION['custom'][$sid])) {
+            unset($_SESSION['custom'][$sid]);
         } else {
             $output['code'] = 420;
         }
@@ -74,6 +74,6 @@ switch ($action) {
 
 
 //最後的最後才存到session裡面
-$output['cart'] = $_SESSION['cart'];
+$output['custom'] = $_SESSION['custom'];
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
