@@ -53,14 +53,14 @@
                     </tr>
                     <!-- one product -->
                     <?php foreach ($_SESSION['cart'] as $c) : ?>
-                        <tr class="mt-3">
+                        <tr class="mt-3 product-edit" id="product_<?= $c['sid'] ?>">
                             <td>
                                 <div class="product-img-pc mx-auto ">
                                     <img src="./img/product_list/<?= explode(",", $c['img'])[1] ?>.jpg" alt="">
                                 </div>
 
                             </td>
-                            <td class="pl-4">
+                            <td class="pl-4 need-weight" data-weight="<?= $c['weight'] ?>">
                                 <div class="product-info text-left">
                                     <p><?= $c['product_name'] ?></p>
                                     <p class="product-info-detail">
@@ -68,7 +68,7 @@
                                     </p>
                                 </div>
                             </td>
-                            <td class="number-change w-25">
+                            <td class="number-change w-25" data-count="<?= $c['quantity'] ?>">
 
                                 <!-- copy count -->
                                 <div class="cart_count_wrap d-flex justify-content-center col align-items-lg-center">
@@ -86,7 +86,7 @@
                                 </div>
                                 <!-- copy count -->
                             </td>
-                            <td class="price">NT.<?= $c['price'] * $c['quantity'] ?></td>
+                            <td class="price" data-money="<?= $c['price'] * $c['quantity'] ?>">NT.<?= $c['price'] * $c['quantity'] ?></td>
                             <td class="favorite-icon">
                                 <a href="#"><img src="./SVG/icon_favorite.svg" alt=""></a>
 
@@ -156,10 +156,10 @@
 
         <!-- 總計 -->
         <div class="d-flex justify-content-end col-12 col-sm-12 col-md-10 col-lg-10">
-            <div class="text-right pc-need-hide-span">
-                <p>共 3 件</br><span> /</span>
-                    總重：1500g<br>
-                    共計：NT.3600</p>
+            <div class="text-right">
+                <p>共 <span id="totalCountNumber"></span> 件</br><span class=" pc-need-hide-span"> /</span>
+                    總重：<span id="totalWeight"></span>g<br>
+                    共計：NT.<span id="totalMoney"></span></p>
             </div>
         </div>
         <div class="text-center">
@@ -199,7 +199,27 @@
     })
     // ↑↑ 商品數量↑↑ //
 
-    // console.log()
+    //    product-edit" id="product_<//?= $c['sid'] ?>
+    function calcTotal() {
+        let totalMoney = 0;
+        let totalWeight = 0;
+        let totalCountNumber = 0;
+        $('.product-edit').each(function() {
+            const tr = $(this);
+            const totalcount = parseInt(tr.find('td.number-change').attr('data-count'));
+            const weight = parseInt(tr.find('td.need-weight').attr('data-weight'));
+            const hismoney = parseInt(tr.find('td.price').attr('data-money'));
+       
+            totalMoney += hismoney;
+            totalWeight += weight;
+            totalCountNumber += totalcount;
+
+        });
+        $('#totalMoney').text(totalMoney);
+        $('#totalWeight').text(totalWeight);
+        $('#totalCountNumber').text(totalCountNumber);
+    }
+    calcTotal();
 </script>
 
 
