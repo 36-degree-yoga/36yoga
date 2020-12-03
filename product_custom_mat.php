@@ -2,7 +2,7 @@
 
 <?php
 
-$sid = intval($_GET['sid'] ?? 1);
+$sid = 34;
 
 // 產品名稱
 $p_sql = "SELECT `sid`, `product_name`, `price`, `introduction`, `color`, `length`, `img` FROM `products` WHERE `sid`=$sid";
@@ -173,7 +173,7 @@ $others_rows = $others_stmt->fetchAll();
                             <div class="icon-favorite">
                                 <!-- <img src="./SVG/icon_favorite.svg" alt=""> -->
 
-                                <svg id="" class="btn_like" onclick="checkLike(event); return false;" data-sid="<?= $p['sid'] ?>" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
+                                <svg id="" class="btn_like" onclick="checkLike(); return false;" data-sid="<?= $p['sid'] ?>" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
                                     <g id="圖層_2" data-name="圖層 2">
                                         <g id="圖層_1-2" data-name="圖層 1">
                                             <g id="Path_324" data-name="Path 324">
@@ -198,54 +198,13 @@ $others_rows = $others_stmt->fetchAll();
 
                     <!-- 區塊1 : 商品標題-右測 -->
                     <div class="product-detail-1-right px-0 ">
-                        <!-- 選擇顏色 -->
 
-                        <div class="d-flex line-height">
-                            <?php foreach ($others_rows as $i) : ?>
-                                <a class="color-selector pl-0 d-flex " href="?sid=<?= $i['sid'] ?>">
-
-                                    <div class="color-element border list-unstyled mr-2" style="background-color:<?= $i['color'] ?>">
-                                        <div class="<?= $i['sid'] == $_GET['sid'] ? 'color-element-wrap' : ''; ?>"></div>
-                                    </div>
-
-                                </a>
-                            <?php endforeach; ?>
-                        </div>
-                        <!-- 選擇尺寸 -->
-                        <div class="size-list-dropdown dropdown line-height">
-                            <button class="size-list-btn btn size-list-dropdown-toggle dropdown-toggle rounded-0 px-5 w-100" type="button" id="dropdownListButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                選擇尺寸
-                            </button>
-                            <div class="size-list-dropdown-menu dropdown-menu  rounded-0 w-100" aria-labelledby="dropdownMenuButton">
-                                <?php foreach ($l_rows as $k => $l) : ?>
-
-                                    <a class="size-list-item dropdown-item text-center" href="#"><?= $l['length'] ?> 公分</a>
-                                    <!-- <a class="size-list-item dropdown-item text-center" href="#">215 公分</a> -->
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                        <!-- 選擇數量 -->
-                        <div class="amount-btn-wrap d-flex justify-content-between line-height">
-
-                            <img class="button-minus" src="./SVG/button_minus.svg" alt="">
-
-                            <!-- <h4 class="amount-number text-center mb-0">1</h4> -->
-
-                            <input id="amount-number" name="amount" class="amount-number border-0 text-center w-100" type="text" value="1" readonly="readonly" style="font-size: 24px;">
-
-                            <img class="button-add" src="./SVG/button_add.svg" alt="">
-                        </div>
                         <!-- CTA 按鈕 -->
-                        <div class="cta-btn-wrap d-flex justify-content-between">
+                        <div class="cta-btn-wrap d-flex align-items-end">
 
-                            <!-- 按鈕：立即購買 -->
-                            <button class="buy-btn btn btn-l w-50 mr-3">
-                                立即購買
-                            </button>
-
-                            <!-- 按鈕：加入購物車 -->
-                            <button class="addtocart-btn btn btn-f w-50 ">
-                                加入購物車
+                            <!-- 按鈕：開始製作 -->
+                            <button class="addtocart-btn btn btn-f w-100 ">
+                                開始製作
                             </button>
 
                         </div>
@@ -1929,21 +1888,17 @@ $others_rows = $others_stmt->fetchAll();
     // console.log(colorFill)
 
     function checkLike() {
-        const me = $(event.currentTarget);
-        const product_sid = me.attr('data-sid');
-        console.log('product_sid:', {
-            product_sid
-        });
+
+        const product_sid = $(this).attr('data-sid') * 1;
+
         $.post('my_favorite_api.php', {
             product_sid,
 
         }, function(data) {
-            console.log(data);
-            if (data.add) {
-                me.find('.like_fill').addClass('color');
 
-            } else {
-                me.find('.like_fill').removeClass('color');
+            if (data.add) {
+                ('.like_fill').toggleClass('color');
+                console.log(data.add)
             }
 
         }, 'json')
