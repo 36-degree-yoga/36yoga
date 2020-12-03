@@ -1,11 +1,14 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 
 <?php
-$sid = intval($_GET['sid'] ?? 1);
+$id = intval($_GET['id'] ?? 6);
 
-$sql = "SELECT * FROM `members` WHERE `id`=$sid";
+$sql = "SELECT * FROM `members` WHERE `id`=$id";
+
+// echo $sql;
+// exit;
 $stmt = $pdo->query($sql);
-$row = $stmt->fetch();
+$member_row = $stmt->fetch();
 
 // echo json_encode($row, JSON_UNESCAPED_UNICODE);
 // exit;
@@ -54,7 +57,7 @@ $row = $stmt->fetch();
                     <!-- 照片與登出區 -->
                     <div class="edit_info d-flex align-items-center justify-content-start">
                         <div class="member_img_wrap">
-                            <img class="member_pic" src="./img/member/<?= $row['avatar'] ?>.jpg" alt="">
+                            <img class="member_pic" src="./img/member/<?= $member_row['avatar'] ?>.jpg" alt="">
                         </div>
                         <div class="ml-3">
                             <p class="m-0">yoga_team</p>
@@ -65,7 +68,7 @@ $row = $stmt->fetch();
                     <!-- 選單區 -->
                     <div class="mt-5 ">
                         <ul class="d-flex flex-column justify-content-center p-0">
-                            <li class="account_sidebar_title d-flex align-items-center">
+                            <li id="bar_account" class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
                                     <defs>
                                         <style>
@@ -194,7 +197,7 @@ $row = $stmt->fetch();
                     </div>
 
                     <!-- 照片 -->
-                    <img class="member_pic" src="./img/member/<?= $row['avatar'] ?>.jpg" alt="">
+                    <img class="member_pic" src="./img/member/<?= $member_row['avatar'] ?>.jpg" alt="">
 
                 </div>
                 <div class="space_30"></div>
@@ -205,59 +208,75 @@ $row = $stmt->fetch();
                 </p>
             </div>
             <!-- 填資料區 -->
-            <form name="member_info_form" onsubmit="checkForm(); return false;" class="edit_area col-7 d-flex flex-column justify-content-center align-items-center" novalidate>
+            <form name="member_info_form" onsubmit="checkForm(); return false; " class="edit_area col-7 d-flex flex-column justify-content-center align-items-center" novalidate>
                 <div>
-                    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                    <!-- 姓名 -->
+                    <input type="hidden" name="id" value="<?= $member_row['id'] ?>">
                     <div class="edit_info my-4 d-flex align-items-center">
                         <p>姓名</p>
                         <div class="input_line ml-3">
-                            <input type="text" id="name" name="nickname" value="<?= htmlentities($row['nickname']) ?>">
+                            <input type="text" id="name" name="nickname" value="<?= htmlentities($member_row['nickname']) ?>">
                         </div>
                     </div>
+
+                    <!-- 帳號 -->
                     <div class="edit_info my-4 d-flex align-items-center w-100 justify-content-between">
                         <p>帳號</p>
                         <div class="input_line ml-3">
-                            <input type="account" id="account" name="account" value="<?= htmlentities($row['account']) ?>">
-                            <a href="#" style="color: #135F39;">刪除帳號</a>
+                            <input type="account" id="account" name="account" value="<?= htmlentities($member_row['account']) ?>">
+                            <a href="#" style="color: #135F39;" data-toggle="modal" data-target="#checkModal">刪除帳號</a>
                         </div>
 
                     </div>
+                    <!-- 密碼 -->
                     <div class="my-4 d-flex align-items-center">
                         <p>密碼</p>
                         <div>
                             <a class="ml-3" href="#" style="border-bottom: 1px solid #135F39;color:#135F39;" data-toggle="modal" data-target="#exampleModal">設定新密碼</a>
-                            <input id="sentPass" type="hidden" name="password" value="<?= $row['password'] ?>">
+                            <input id="sentPass" type="hidden" name="password" value="<?= $member_row['password'] ?>">
                         </div>
                     </div>
+
+                    <!-- 手機 -->
                     <div class="edit_info my-4 d-flex align-items-center">
                         <p>手機</p>
                         <div class="input_line ml-3">
-                            <input type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($row['mobile']) ?>">
+                            <input type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($member_row['mobile']) ?>">
                         </div>
                     </div>
+
+                    <!-- 信箱 -->
                     <div class="edit_info my-4 d-flex align-items-center">
                         <p>信箱</p>
                         <div class="input_line ml-3">
-                            <input type="email" id="email" name="email" value="<?= htmlentities($row['email']) ?>">
+                            <input type="email" id="email" name="email" value="<?= htmlentities($member_row['email']) ?>">
                         </div>
                     </div>
+
+                    <!-- 生日 -->
                     <div class="edit_info mt-4 d-flex align-items-center">
                         <p>生日</p>
                         <div class="input_line ml-3">
-                            <input type="date" id="birthday" name="birthday" value="<?= htmlentities($row['birthday']) ?>" style="width:300px;">
+                            <input type="date" id="birthday" name="birthday" value="<?= htmlentities($member_row['birthday']) ?>" style="width:300px;">
                         </div>
                     </div>
-
+                    <div class="space_30"></div>
+                    <div class="warning_name" style="color: #f2a200;"></div>
+                    <div class="warning_mobile" style="color: #f2a200;"></div>
+                    <div class="warning_email" style="color: #f2a200;"></div>
                 </div>
 
                 <!-- 按鈕 -->
-                <div class="space_120"></div>
+                <div class="space_60"></div>
                 <div class="col-12 d-flex justify-content-center align-items-center">
                     <button class="btn_l" type="reset">取消變更</button>
                     <button class="btn_f" type="submit">儲存</button>
+
                 </div>
 
             </form>
+            <div class="space_120"></div>
+            <div class="space_60"></div>
         </div>
 
     </div>
@@ -298,6 +317,7 @@ $row = $stmt->fetch();
                             <input type="text" id="newPass2">
                         </div>
                     </div>
+                    <div class="errorMsg text-center" style="color: #f2a200;"></div>
                     <div class="space_60"></div>
                     <div class="w-100 d-flex justify-content-center">
                         <button id="btnChangePass" class="btn_f" type="submit">變更密碼</button>
@@ -313,6 +333,37 @@ $row = $stmt->fetch();
 </div>
 <!-- 彈跳視窗↑↑ -->
 
+<!-- 刪除密碼彈跳↓↓ -->
+<div class="modal fade" id="checkModal" tabindex="-1" aria-labelledby="checkModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <img src="./SVG/delete.svg" alt="" class="btn_delete">
+                    </span>
+                </button>
+            </div>
+            <form action="">
+                <div class="modal-body d-flex justify-content-center flex-column">
+
+                    <div class=" d-flex align-items-center justify-content-center">
+                        <h6 style="color: #f2a200;">確定刪除密碼</h6>
+
+                    </div>
+                    <div class="space_30"></div>
+                    <div class="w-100 d-flex justify-content-center">
+                        <button id="" class="btn_l" type="submit" onclick="delete_it(<?= $id ?>)">確認刪除</button>
+                        <button id="" class="btn_f" type="button" class="close" data-dismiss="modal" aria-label="Close">取消刪除</button>
+                    </div>
+            </form>
+            <div class="modal-footer">
+                <div class="space_30"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 刪除密碼彈跳↑↑ -->
 
 <div class="space_120"></div>
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
@@ -323,24 +374,33 @@ $row = $stmt->fetch();
     const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
     const name = $('#name'),
-        email = $('#email');
+        email = $('#email'),
+        mobile = $('mobile');
 
     function checkForm() {
-        name.next().text('');
-        email.next().text('');
-
+        $('.warning_name').text('');
+        $('.warning_email').text('');
+        $('.warning_email').text('');
         let isPass = true;
 
         if (name.val().length < 2) {
             isPass = false;
-            // name.next().text('請填寫正確的姓名!');
+            $('.warning_name').text('請填寫正確的姓名');
         }
 
 
         if (email.val()) {
             if (!email_re.test(email.val())) {
                 isPass = false;
-                // email.next().text('請填寫正確的 email 格式!');
+                $('.warning_email').text('請填寫正確的信箱格式!');
+            }
+        }
+
+        if (mobile.val()) {
+            if (!mobile_re.test(mobile.val())) {
+                isPass = false;
+                console.log('mobile')
+                $('.warning_email').text('請填寫正確的手機格式!');
             }
         }
 
@@ -348,9 +408,12 @@ $row = $stmt->fetch();
             $.post('member_my_account_api.php', $(document.member_info_form).serialize(), function(data) {
                 console.log(data);
                 if (data.success) {
-                    console.log('修改完成')
+
+                    $('.warning').text('修改完成');
+                    $('.warning').delay(1000).hide(0);
                 } else {
-                    console.log('資料沒有修改')
+                    $('.warning').text('資料未修改');
+                    $('.warning').delay(1000).hide(0);
                 }
 
             }, 'json')
@@ -362,11 +425,11 @@ $row = $stmt->fetch();
     $('#btnChangePass').on('click', function(event) {
         event.preventDefault();
         console.log('hii')
-        console.log('test', <?= $row['password'] ?>)
+        console.log('test', <?= $member_row['password'] ?>)
 
         let errorMsg = '';
 
-        if ($('#nowPass').val() != <?= $row['password'] ?>) {
+        if ($('#nowPass').val() != <?= $member_row['password'] ?>) {
             errorMsg = "舊密碼錯誤";
         } else if ($('#newPass1').val() != $('#newPass2').val()) {
             errorMsg = "新密碼不相等";
@@ -374,9 +437,18 @@ $row = $stmt->fetch();
             $('#sentPass').val($('#newPass1').val());
             $('#exampleModal').modal('hide');
         }
+        $('.errorMsg').text(errorMsg);
 
 
     });
+
+    // 刪除帳號
+    function delete_it(id) {
+        console.log('id' + id);
+
+        location.href = "member_my_account_del_api.php?id=" + id;
+
+    }
 </script>
 
 
