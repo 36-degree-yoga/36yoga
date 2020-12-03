@@ -723,6 +723,7 @@
         const price = $('#mat-total-price').val();
 
         const dataObj = {
+            item,
             sid,
             quantity,
             img,
