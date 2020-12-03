@@ -1941,11 +1941,9 @@ $others_rows = $others_stmt->fetchAll();
             console.log(data);
             if (data.add) {
                 me.find('.like_fill').addClass('color');
-
             } else {
                 me.find('.like_fill').removeClass('color');
             }
-
         }, 'json')
 
 
