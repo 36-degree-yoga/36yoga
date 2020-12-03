@@ -45,7 +45,7 @@
                     </div>
                     <div class="custom_total_price d-flex align-items-center">
                         共計NT.
-                        <input class="mtp" id="mat-total-price" name="mat-total-price" type="text" value="700" readonly>&ensp;元
+                        <input class="mtp" id="mat-total-price" name="mat-total-price" type="text" value="2000" readonly>&ensp;元
                     </div>
                 </div>
 
@@ -70,16 +70,17 @@
                     </div>
 
                     <div class="done_btn">
-                        <button onclick="downloadCanvas()" type="submit" class="btn_l" data-toggle="modal" data-target="#save_design">
+                        <button onclick="saveData();downloadCanvas()" type="submit" class="btn_l" data-toggle="modal" data-target="#save_design">
                             儲存設計
                         </button>
-                        <button id="buy_btn" onclick="downloadCanvas()" type="submit" class="btn_f" data-toggle="modal" data-target="#add_cart_btn">加入購物車</button>
+                        <button id="buy_btn" onclick="noSaveData();downloadCanvas()" type="submit" class="btn_f" data-toggle="modal" data-target="#add_cart_btn">加入購物車</button>
                     </div>
                 </div>
 
 
                 <input type="text" name="design_img" id="design_img" value="" style="display:none">
                 <input type="text" name="save_data" id="save_data" value="" style="display:none">
+                <input type="text" name="weight" id="weight" value="340" style="display:none">
 
 
 
@@ -250,7 +251,7 @@
                                 </div>
                                 <div class="color_defining d-flex align-items-center -">
                                     <div class="color self_color"></div>
-                                    <input class="btn_f" id="picker" type="color" value="" oninput="changeBackground(picker.value)" style="opacity: 0;width: 0;">
+                                    <input class="btn_f" id="picker" type="color" value="" oninput="changeBackground(picker.value)" style="opacity: 0;width:0;">
 
                                     <button type="button" class="btn_f" id="picker_btn">自定義顏色</button>
                                 </div>
@@ -425,7 +426,7 @@
 
         <div class="custom_total_price d-flex align-items-center">
             共NT.
-            <input class="mtp" id="mat-total-price" name="mat-total-price" type="text" value="700" readonly>&ensp;元
+            <input class="mtp" id="mat-total-price" name="mat-total-price" type="text" value="2000" readonly>&ensp;元
         </div>
 
         <div class="m_cart_icon_wrap d-flex col-6 justify-content-end p-0">
@@ -560,7 +561,8 @@
 
                 <div class="color_defining d-flex align-items-center mt-5">
                     <div class="color self_color"></div>
-                    <input class="btn_f" id="m_picker" type="color" value="" oninput="changeBackground(m_picker.value)" style="opacity: 0;width: 0;">
+                    <input class="btn_f" id="m_picker" type="color" value="" style="opacity: 0;width: 0;">
+                    <!-- oninput="changeBackground(m_picker.value)" -->
 
                     <button type="button" class="btn_f" id="m_picker_btn">自定義顏色</button>
                 </div>
@@ -710,21 +712,31 @@
 <script src="lib/custom.js"></script>
 <script>
     $('#buy_btn').on('click', function(event) {
-        const item = $(this).closest('.product-item');
-        const sid = <? $_SESSION['user']['id'] ?> ;
-        const qty = $('#mat-total-price').val();
+        const item = '客製瑜珈墊';
+        const sid = 34;
+        const quantity = $('#mat-count').val();
+        const img = $('#design_img').val();
+        const weight = $('#weight').val();
+        const length = $('#mat-h').val();
+        const width = $('#matw').val();
+        const color = $('#pick_color').val();
+        const price = $('#mat-total-price').val();
 
-        console.log({
-            sid: sid,
-            quantity: qty
-        });
-        $.get('handle-cart.php', {
-            sid: sid,
-            quantity: qty,
+        const dataObj = {
+            sid,
+            quantity,
+            img,
+            weight,
+            length,
+            width,
+            color,
+            price,
             action: 'add'
-        }, function(data) {
+        };
+        console.log(dataObj);
+        $.get('handle-cart.php', dataObj, function(data) {
             console.log(data);
-            countCart(data.cart);
+            // countCart(data.cart);
         }, 'json');
     });
 </script>

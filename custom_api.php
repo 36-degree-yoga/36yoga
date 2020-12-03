@@ -15,10 +15,10 @@ $output = [
 //     $_SESSION['user']['id'],
 // }
 
-$sql = "INSERT INTO `custom_product`( `member_id`, `mat-count`, `mat-total-price`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `created_at`
+$sql = "INSERT INTO `custom_product`( `member_id`, `mat-count`, `weight`, `mat-total-price`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `save_data`, `created_at`
         ) VALUES (
         ?, ?, ?, ?,
-        ?, ?, ?, ?, ?, ?, NOW()
+        ?, ?, ?, ?, ?, ?, ?, ?, NOW()
     )";
 
 
@@ -27,6 +27,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([
     $_SESSION['user']['id'],
     $_POST['mat-count'],
+    $_POST['weight'],
     $_POST['mat-total-price'],
     $_POST['matw'],
     $_POST['mat-h'],
@@ -35,6 +36,7 @@ $stmt->execute([
     $_POST['pick_color'],
     $_POST['design_img'],
     $_POST['mat-print'],
+    $_POST['save_data'],
 ]);
 if ($stmt->rowCount() == 1) {
     $output['success'] = true;
