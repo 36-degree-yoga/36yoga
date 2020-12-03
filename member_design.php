@@ -233,7 +233,7 @@ $design_rows = $design_stmt->fetchAll();
 <div class=" space_120"></div>
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
-<script src="<?= WEB_ROOT ?>lib/member_my_favorite.js"></script>
+<script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
 <script>
     function delete_it(sid) {
         if (confirm(`確定要刪除設計嗎?`)) {
