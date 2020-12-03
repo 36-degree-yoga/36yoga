@@ -145,7 +145,7 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="star-icon flex-column">
 
-                                <img src="./SVG/stars_5.svg" alt="">
+                                <img src="/SVG/stars_5.svg" alt="">
 
                                 <div class="review-link">
                                     <a class="pl-2" href="#write-review">
