@@ -2,24 +2,23 @@
 
 <?php
 
-$member_id = intval($_SESSION['user']['id']) ?? 1;
+$member_id = intval($_SESSION['user']['id']);
 
-
-$sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = $member_id)  JOIN `products` ON `favorite`.product_sid = `products`.sid ) WHERE `member_id` = 1";
+$mf_sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = `members`.id)  JOIN `products` ON `favorite`.product_sid = `products`.sid ) WHERE `members`.id = $member_id";
 
 // $sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = `members`.id) LEFT JOIN `products` ON `favorite`.product_sid = `products`.sid )";
 
 // 怎麼加上排序!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-$stmt = $pdo->query($sql);
-$row = $stmt->fetchAll($member_id);
+$mf_stmt = $pdo->query($mf_sql);
+$mf_row = $mf_stmt->fetchAll();
 
-foreach ($row as $k => $r) {
-    $row[$k]['my_imgs']  = explode(",", $r['img']);
+foreach ($mf_row as $k => $r) {
+    $mf_row[$k]['my_imgs']  = explode(",", $r['img']);
 };
 
 
-// echo json_encode($row, JSON_UNESCAPED_UNICODE);
+// echo json_encode($mf_row, JSON_UNESCAPED_UNICODE);
 // exit;
 
 
@@ -199,7 +198,7 @@ foreach ($row as $k => $r) {
 
         <div class="product_list col-9 d-flex flex-wrap ">
 
-            <?php foreach ($row as $r) : ?>
+            <?php foreach ($mf_row as $r) : ?>
                 <div class="product mb-5 col-4">
                     <div class="product_img_wrap position-relative" data-toggle="modal" data-target="#exampleModal">
                         <img src="./img/product_list/<?= $r['my_imgs'][1] ?>.jpg" alt="">
@@ -243,21 +242,20 @@ foreach ($row as $k => $r) {
             product_sid
         });
         $.post('my_favorite_api.php', {
-                product_sid,
+            product_sid,
 
-            }, function(data) {
-                console.log(data);
-                if (!data.add) {
+        }, function(data) {
+            console.log(data);
+            if (!data.add) {
 
-                    me.find('.like_fill').addClass('color');
+                me.find('.like_fill').addClass('color');
 
-                }
-
-                // if (!data.add) {
-                //     confirm(`確定要刪除設計嗎?`)
-                //     
-                // }
             }
+
+            // if (!data.add) {
+            //     confirm(`確定要刪除設計嗎?`)
+            //     
+            // }
         }, 'json')
 
     };
