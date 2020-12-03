@@ -1,13 +1,21 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 <?php
 $where = " WHERE 1 ";
-$test_num = count($_SESSION['yoga_test']) + 1;
+if (empty($_SESSION['yoga_test'])) {
+    $_SESSION['yoga_test'] = [];
+    $test_num = 1;
+} elseif (count($_SESSION['yoga_test']) == 5) {
+    unset($_SESSION['yoga_test']);
+    //之後再轉向到結果頁面
+    header('Location: test-01.php');
+    exit;
+} else {
+    $test_num = count($_SESSION['yoga_test']) + 1;
+};
+
 $name = 'test' . $test_num;
 echo 'name::' . $name;
-
-if (count($_SESSION['yoga_test']) > 0) {
-    $where .= " AND `question_id`=$test_num ";
-}
+$where .= " AND `question_id`=$test_num ";
 
 $c_sql = "SELECT * FROM yoga_test $where";
 $c_rows = $pdo->query($c_sql)->fetchAll();
@@ -22,7 +30,7 @@ $value = explode(",", $v);
 $resultErr = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST[$name])) {
-        $resultErr = "姓名或密碼不能為空";
+        $resultErr = "請選擇";
     } else {
         //存入session
         $_SESSION['yoga_test'][$name] = $_POST[$name];
@@ -85,8 +93,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="content d-flex justify-content-center flex-wrap">
             <pre>
-        <?php print_r($_POST) ?>
-    </pre>
+                <?php print_r($_POST) ?>
+            </pre>
             <div class="content-title text-center w-100 animate__animated animate__fadeInUp">
                 <h2>
                     <? echo $t ?>
@@ -98,13 +106,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <?php foreach (array_combine($pieces, $value) as $course => $value) : ?>
                         <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp">
-                            <button type="" class="btn_l choice" id="test" name="<? echo $name ?>" value="<?= $value ?>"><?= $course ?></button>
+                            <button type="button" onclick="getValue();return false;" class="btn_l choice" id="test" name="<? echo $name ?>" value="<?= $value ?>"><?= $course ?></button>
+                            <input type="hidden" id="test" name="<? echo $name ?>" value="<?= $value ?>"></input>
+                            <label for="<? echo $name ?>"></label>
                         </div>
                     <?php endforeach ?>
+                    <button type="submit" class="btn_f choice mx-5" name="" value="">下一步</button>
                 </div>
                 <div class="choice-next d-flex justify-content-center animate__animated animate__fadeInUp">
                     <!-- <button type="submit" class="btn_f choice mx-5" name="" value="">上一步</button> -->
-                    <button type="submit" class="btn_f choice mx-5" name="" value="">下一步</button>
+                    <!-- <button type="submit" class="btn_f choice mx-5" name="" value="">下一步</button> -->
 
                 </div>
             </form>
@@ -197,7 +208,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script>
-
+    function getValue() {
+        console.log(event.target.value);
+        $(this).siblings("input[type = 'hidden']").val();
+        b = $(this).siblings("input[type = 'hidden']");
+        a = $(this).next().val();
+        console.log('hi b:' + b);
+        console.log('hi a:' + a);
+    }
 </script>
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>

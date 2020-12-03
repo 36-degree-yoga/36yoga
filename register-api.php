@@ -25,9 +25,12 @@ $stmt->execute([
     $_POST['regis_pw1']
 ]);
 
+$user_sid = $pdo->lastInsertId();
+
 if ($stmt->rowCount() > 0) {
     $output['success'] = true;
     $output['error'] = '';
-    $_SESSION['user'] = $_POST['regis_email'];
+    // $_SESSION['user'] = $_POST['regis_email'];
+    $_SESSION['user']['id'] = $user_sid;
 }
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
