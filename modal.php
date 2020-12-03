@@ -80,7 +80,7 @@ $others_rows = $others_stmt->fetchAll();
             quantity: qty
         });
 
-        $.get('handle-cart.php', {
+        $.get('handle-cart-product.php', {
             sid: sid,
             quantity: qty,
             action: 'add'
