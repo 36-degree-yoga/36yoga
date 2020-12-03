@@ -52,7 +52,8 @@ $others_rows = $others_stmt->fetchAll();
         </div>
         <div class="space_60"></div>
         <div class="d-flex">
-            <?php foreach ($others_rows as $i) : ?><a href="?sid=<?= $i['sid'] ?>">
+            <?php foreach ($others_rows as $i) : ?>
+                <a href="?sid=<?= $i['sid'] ?>">
                     <div class="color_circle" style="background-color:<?= $i['color'] ?>"></div>
                 </a>
             <?php endforeach; ?>
@@ -69,6 +70,6 @@ $others_rows = $others_stmt->fetchAll();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script>
-    const others = <?= json_encode($others_rows, JSON_UNESCAPED_UNICODE) ?>
+    const others = <?= json_encode($others_rows, JSON_UNESCAPED_UNICODE) ?>;
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

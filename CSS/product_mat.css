@@ -1,0 +1,869 @@
+* {
+  font-family: "Noto Sans TC", sans-serif;
+  /* outline: 1px solid red; */
+  color: #333333;
+}
+
+h3 {
+  color: #004a13;
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+h6 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+a {
+  color: #333333;
+}
+
+a:hover {
+  color: #db5c00;
+  text-decoration: none;
+}
+
+.line-height {
+  margin-bottom: 30px;
+}
+
+/* 間距↓↓ */
+.space_30 {
+  width: 100%;
+  height: 30px;
+}
+
+.space_60 {
+  width: 100%;
+  height: 60px;
+}
+
+.space_120 {
+  width: 100%;
+  height: 120px;
+}
+
+/* 間距↑↑ */
+
+/* 餅乾屑 ↓ */
+/* .breadcrumb-item > a:hover {
+  color: #db5c00;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0.5rem 0;
+}
+
+.breadcrumb-item > a,
+.dropdown-item {
+  color: #004a13;
+  font-weight: lighter;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #004a13;
+  content: " > ";
+}
+
+.breadcrumb-item.active {
+  color: #004a13;
+  font-weight: 500;
+}
+
+.breadcrumb-wrap {
+  margin: 60px 0;
+} */
+
+/* 餅乾屑 ↑ */
+
+/* 篩選器 ↓ */
+
+.btn,
+.dropdown-menu {
+  border-color: #004a13;
+  color: #004a13;
+  background-color: #fffefc;
+}
+
+.dropdown-menu {
+  margin-top: 0;
+  top: -10px;
+}
+
+a.dropdown-item:active {
+  background-color: transparent;
+  color: #db5c00;
+  font-weight: normal;
+}
+
+a.dropdown-item:hover {
+  color: #db5c00;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn:hover {
+  color: #004a13;
+  font-weight: 500;
+}
+
+/* 待調整 */
+.dropdown-toggle::after {
+  margin-left: 0rem;
+}
+
+/* 篩選器 ↑ */
+
+/* 愛心 */
+.btn_like {
+  cursor: pointer;
+}
+.like_fill {
+  fill: none;
+}
+.like_fill.color {
+  fill: #db5c00;
+}
+
+.like_stroke {
+  fill: #db5c00;
+}
+.like_stroke.hover {
+  opacity: 0.6;
+}
+/* 愛心 */
+
+/* 尺寸篩選器 ↓ */
+
+.size-list-btn,
+.size-list-dropdown-menu {
+  border-color: #333333 !important;
+  color: #333333 !important;
+  background-color: #fffefc !important;
+}
+
+.sort-by.show {
+  transform: translate3d(-85px, 27px, 0px) !important;
+}
+
+.size-list-item {
+  color: #333333 !important;
+}
+
+a.size-list-item:active {
+  background-color: transparent !important;
+  color: #db5c00 !important;
+  font-weight: normal !important;
+}
+
+a.size-list-item:hover {
+  color: #db5c00 !important;
+}
+
+.size-list-dropdown-toggle::after {
+  margin-right: auto !important;
+}
+
+/* 尺寸篩選器 ↑ */
+
+/* 數量按鈕↓ */
+.button-minus,
+.button-add {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* 數量按鈕↑ */
+
+/* cta 按鈕↓ */
+.addtocart-btn {
+  border-radius: 4px;
+  color: #fffefc;
+  background-color: #004a13;
+  font-weight: 400;
+}
+
+.addtocart-btn:hover {
+  opacity: 0.6;
+  text-decoration: none;
+  color: #fffefc;
+}
+
+.buy-btn:hover {
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+/* cta 按鈕↑ */
+
+/* 商品banner區 */
+
+.banner-area {
+  margin-top: 60px;
+}
+.product-detail-1-left {
+  margin-top: 60px;
+}
+.banner-wrap {
+  margin-right: 30px;
+  width: 500px;
+  height: 600px;
+  /* height: 100%; */
+  overflow: hidden;
+}
+
+.big-banner {
+  object-fit: cover;
+  /* object-position: -60px; */
+  height: 600px;
+  /* transform: rotate(90deg); */
+  /* position: absolute;
+  right: 0; */
+}
+
+.sm-banner-area {
+  bottom: 0px;
+  margin-right: 120px;
+}
+
+.sm-banner-wrap {
+  width: 120px;
+  height: 120px;
+  margin-top: 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sm-banner-wrap.border {
+  border: 4px solid #db5c00;
+}
+
+/* 詳細內容 區塊1(左)*/
+.item-tag > p {
+  border-left: 8px solid #f2a200;
+  padding: 0 15px;
+}
+
+/* 詳細內容 區塊1(右)*/
+
+.color-element {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.color-element-wrap {
+  content: "";
+  background: url("../SVG/selected.svg") no-repeat;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+  top: -5px;
+  left: -4px;
+  /* visibility: hidden; */
+}
+
+.vertical-line {
+  border-bottom: 2px solid #333333;
+  padding-left: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* 區塊2 */
+.feature-img-wrap {
+  width: 380px;
+}
+
+.img-info-1 {
+  width: 380px;
+  top: 60px;
+  left: 10%;
+  border-bottom: 1px solid #bab3b3;
+  padding-bottom: 10px;
+}
+
+.img-info-2 {
+  width: 390px;
+  top: 50%;
+  right: 10%;
+  border-bottom: 1px solid #bab3b3;
+  padding-bottom: 10px;
+}
+
+.img-info-3 {
+  width: 270px;
+  bottom: 30%;
+  left: 20%;
+  border-bottom: 1px solid #bab3b3;
+  padding-bottom: 10px;
+}
+
+.feature-info-img-wrap {
+  width: 40%;
+  /* height: 50%; */
+  overflow: hidden;
+}
+
+.details-info,
+.shopping-procedure {
+  background-color: rgba(255, 249, 237, 0.5);
+}
+
+/*  折疊 */
+.card-header {
+  padding: 0px;
+  margin-bottom: 0px;
+  background-color: transparent;
+}
+
+/* 產品資訊下拉按鈕 ↓*/
+
+.product-info-btn,
+.submit-btn {
+  border-color: #333333;
+  color: #333333;
+  background-color: transparent;
+}
+
+.product-info-btn:hover,
+.submit-btn:hover {
+  color: #333333;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.btn-link:focus {
+  text-decoration: none;
+}
+
+/* 產品資訊下拉按鈕 ↑ */
+
+/* 猜你喜歡 推薦商品 ↓↓  */
+
+.guessyoullike {
+  height: 460px;
+}
+
+.product-zone {
+  margin-right: 30px;
+}
+
+.product-info {
+  color: #333333;
+}
+
+.img-wrap {
+  /* width: 225.7px; */
+  height: 378px;
+  margin-bottom: 30px;
+}
+
+.product-pic {
+  object-fit: cover;
+  object-position: center;
+}
+
+.icon-wrap {
+  display: none !important;
+}
+
+/* 猜你喜歡 推薦商品 ↑↑*/
+
+/* 撰寫商品評論 & 產品問題詢問 下拉按鈕 ↓*/
+
+.write-reviews-btn,
+.ask-questions-btn {
+  background-color: #004a13;
+  /* font-weight: 400; */
+  color: #fffefc;
+  border: none;
+  border-radius: 4px;
+  margin-left: 20px;
+}
+
+.write-reviews-btn:hover,
+.ask-questions-btn:hover {
+  color: #fffefc;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+/* 撰寫商品評論下拉按鈕 ↑ */
+
+/* 區塊4 評論頁籤 */
+.nav-pills .nav-link {
+  border-radius: 0;
+}
+
+.nav-pills .nav-link.active {
+  border-bottom: 2px solid #db5c00;
+  color: #db5c00;
+  background-color: #fffefc;
+}
+
+/* 區塊4 search-bar */
+.form-control:focus {
+  border-color: #333333;
+  box-shadow: none;
+}
+
+.search-bar {
+  border-radius: 0;
+  border: 1.5px solid #333333;
+  border-left: 0;
+}
+
+.search-bar-btn {
+  border-radius: 0;
+  border: 1.5px solid #333333;
+  border-right: 0;
+  background-color: transparent;
+}
+
+.input-group {
+  flex-wrap: nowrap;
+}
+
+/* 評論篩選器 ↓ */
+
+.reviews-btn,
+.reviews-dropdown-menu {
+  border-color: #ccc !important;
+  color: #333333 !important;
+  background-color: #fffefc !important;
+}
+
+.reviews-dropdown-menu {
+  margin-top: 0;
+  top: 0px !important;
+}
+
+.reviews-item {
+  color: #333333 !important;
+}
+
+a.reviews-item:active {
+  background-color: transparent !important;
+  color: #db5c00 !important;
+  font-weight: normal !important;
+}
+
+a.reviews-item:hover {
+  color: #db5c00 !important;
+}
+
+.reviews-dropdown-toggle::after {
+  margin-right: 0 !important;
+}
+
+.reviews-filter-btn {
+  display: none;
+}
+
+/* 評論篩選器 ↑ */
+
+/* 撰寫商品評論 星星 */
+
+.star-outline {
+  border-color: #db5c00;
+}
+
+/* 評論問與答區塊 */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar-name .nickname {
+  color: #db5c00;
+}
+
+.comment-content {
+  margin-left: 30px;
+}
+
+.content-area {
+  margin-left: 26px;
+}
+
+.filter-info {
+  font-weight: 500;
+}
+
+.fa-thumbs-up,
+.fa-thumbs-down {
+  cursor: pointer;
+}
+
+/* 分頁 */
+.page-link {
+  color: #848484;
+  background-color: transparent;
+  border: none;
+}
+
+/* .page-link::before {
+  content: "";
+  background: url("../SVG/selected.svg") no-repeat;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: -3px;
+  visibility: hidden;
+} */
+
+.page-link:focus {
+  box-shadow: none;
+}
+
+.page-link:hover {
+  color: #004a13;
+  font-weight: 500;
+  background-color: transparent;
+  border-color: none;
+}
+
+@media (max-width: 500px) {
+  /* 間距↓↓ */
+  .space_30 {
+    height: 20px;
+  }
+
+  .space_60 {
+    height: 40px;
+  }
+
+  .space_120 {
+    height: 60px;
+  }
+
+  .line-height {
+    margin-bottom: 20px;
+  }
+
+  /* 間距↑↑ */
+
+  .col-2 {
+    max-width: 0;
+    flex: 0 0 0;
+  }
+
+  .banner-area {
+    max-width: 100%;
+    flex: 0 0 100%;
+    margin-top: 0px;
+    flex-direction: column !important;
+  }
+
+  .product-detail,
+  .first-zone {
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .product-detail-1 {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .product-detail-1-left {
+    margin-top: 0px;
+  }
+
+  /* ↓sidebar↓ */
+  .product_siderbar_wrap {
+    display: none !important;
+  }
+
+  /* banner 區 */
+
+  .first-zone {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex-direction: column !important;
+    justify-content: none !important;
+  }
+
+  .sm-banner-area {
+    display: flex !important;
+    flex-direction: row !important;
+    margin-right: 0px !important;
+    order: 2 !important;
+  }
+
+  .sm-banner-wrap {
+    margin: 20px 20px;
+    width: 85px !important;
+    height: 85px !important;
+  }
+
+  .banner-wrap {
+    width: 100% !important;
+    height: 500px;
+    order: 1 !important;
+  }
+  .big-banner {
+    object-fit: cover !important;
+    height: 500px;
+  }
+
+  /* 餅乾屑 */
+  /* .breadcrumb-wrap {
+    display: none;
+  } */
+
+  /* 商品標題 */
+  .product-detail-1 {
+    margin-top: 20px;
+    flex-direction: column !important;
+  }
+
+  .vertical-line {
+    border-left: none;
+    border-bottom: 2px solid #333333;
+    padding-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .product-detail-1-left,
+  .product-detail-1-right {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  /* 產品特色  上*/
+  .feature-img-wrap {
+    margin-bottom: 20px;
+    width: 100% !important;
+    /* height: 100%; */
+  }
+
+  .feature-img-area {
+    border-bottom: 1px dashed !important;
+    padding-bottom: 0px !important;
+  }
+
+  .img-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-info-1,
+  .img-info-2,
+  .img-info-3 {
+    position: relative !important;
+    margin-bottom: 20px;
+  }
+
+  .img-info-1 {
+    width: 50%;
+    top: 0px;
+    left: 25%;
+    border-bottom: 1px solid #bab3b3;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+
+  .img-info-2 {
+    width: 50%;
+    top: 0;
+    right: -25%;
+    border-bottom: 1px solid #bab3b3;
+    padding-bottom: 10px;
+    text-align: center !important;
+  }
+
+  .img-info-3 {
+    width: 50%;
+    bottom: 0%;
+    left: 25%;
+    border-bottom: 1px solid #bab3b3;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+
+  /* 產品特色  下*/
+  .feature-info-area-1,
+  .feature-info-area-2 {
+    flex-direction: column !important;
+  }
+
+  .feature-info-img-wrap {
+    width: 100%;
+    height: 100%;
+  }
+
+  .feature-info-area-2 > .eature-info-text {
+    order: 1;
+  }
+
+  .feature-info-area-2 > .feature-info-img-wrap {
+    order: 2;
+  }
+
+  .feature-info-text {
+    padding-bottom: 20px;
+  }
+
+  /* 猜你喜歡 */
+
+  .guessyoullike {
+    /* width: 900px; */
+    left: 0;
+    justify-content: flex-start !important;
+  }
+
+  .product-zone-wrap {
+    left: 0;
+    transition: 0.5s;
+  }
+
+  /* .img-wrap {
+                height: 100%;
+            } */
+
+  .product-zone {
+    margin-right: 40px;
+    margin-left: 40px;
+    width: 220px !important;
+  }
+
+  /*  猜你喜歡:手機版 icon */
+  .icon-wrap {
+    display: flex !important;
+    position: absolute;
+    width: 300px;
+    justify-content: space-between;
+    left: 0px;
+    top: 150px;
+  }
+
+  .icon-left img,
+  .icon-right img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .producr-zone-wrap {
+    width: 900px;
+    left: 0;
+  }
+
+  /* 評論：兩個 按鈕 */
+  .star-score {
+    flex-direction: column !important;
+  }
+
+  .icon-score {
+    margin-right: auto;
+    padding-top: 10px;
+    margin-left: -7px;
+  }
+
+  .customer-reviews-cta {
+    justify-content: center !important;
+  }
+
+  .write-reviews-btn,
+  .ask-questions-btn {
+    width: 50%;
+    margin-left: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .write-reviews-btn {
+    margin-right: 20px;
+  }
+
+  /* 評論：搜尋bar  */
+  .search-bar {
+    width: 100% !important;
+  }
+
+  /* 評論篩選器  */
+  .reviews-filter {
+    display: none !important;
+  }
+
+  /* 評論篩選器手機版 */
+  .reviews-filter-btn {
+    display: initial;
+    border-radius: 4px;
+    color: #fffefc;
+    background-color: #004a13;
+    margin-bottom: 40px;
+  }
+
+  .reviews-filter-btn:hover {
+    color: #fffefc;
+    opacity: 0.6;
+    text-decoration: none;
+  }
+
+  .modal-header .close {
+    margin: -1rem -1rem -1rem -1rem;
+  }
+
+  .close {
+    opacity: 1;
+  }
+
+  .delete-btn-img {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+  }
+
+  .reviewsFilter-label {
+    border-color: #004a13 !important;
+    color: #004a13;
+  }
+
+  .text-note {
+    display: none;
+  }
+
+  .thumbs-up {
+    padding-left: 0 !important;
+  }
+
+  /* 問與答 手機版間距 */
+  .media-yoga {
+    margin-left: -56px;
+  }
+
+  /* 分頁 手機版 */
+  .page-item {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+
+  .page-link {
+    padding: 6px 12px !important;
+  }
+}
