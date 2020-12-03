@@ -1,4 +1,59 @@
-<?php include __DIR__ . '/parts/config.php'; ?>
+<?php
+include __DIR__ . '/parts/config.php';
+
+if (!isset($_SESSION['user'])) {
+    header('Location: user-login.php');
+    exit;
+}
+
+$member_sid = intval($_SESSION['user']['id']);
+$o_sql = "SELECT * FROM `orders` WHERE `member_sid`=$member_sid ORDER BY `order_date` DESC";
+$o_rows = $pdo->query($o_sql)->fetchAll();
+
+// 如果沒有任何的訂購資料, 就顯示訊息或離開
+if (empty($o_rows)) {
+    header('Location: product_list.php'); // 顯示訊息比較好, 告訴用戶沒有訂單資料
+    exit;
+}
+
+$order_sids = [];
+foreach ($o_rows as $o) {
+    $order_sids[] = $o['sid'];
+}
+
+
+$d_sql = sprintf("SELECT d.*, p.product_name, p.color, p.weight, p.length, p.img, p.price FROM `order_details` d 
+JOIN `products` p ON p.sid=d.product_sid
+WHERE d.`order_sid` IN (%s)", implode(',', $order_sids));
+
+$d_rows = $pdo->query($d_sql)->fetchAll();
+
+// $cc = [];
+foreach ($d_rows as $kk => $k) {
+    $aa = $k['price'];
+    $bb = $k['quantity'];
+    $d_rows[$kk]['ttl'] = $aa * $bb;
+}
+
+// echo json_encode($d_rows);
+// echo json_encode($order_sids);
+// echo json_encode($d_rows);
+
+
+//把圖片炸開
+foreach ($d_rows  as $k => $r) {
+    $d_row[$k]['my_imgs'] = explode(",", $r['img']);
+};
+
+// php foreach ($block_row as $b) : 
+//div class="product mb-5 col-6" onclick="showProductModal(= $b['sid'] )">
+
+//         <div class="product_img_wrap" data-toggle="modal" data-target="#exampleModal">
+
+//             <img src="./img/product_list/= $b['my_imgs'][1] .jpg"
+
+
+?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 
@@ -308,92 +363,103 @@
 
 
                     <!-- 這裡一張訂單開始 -->
-                    <div class="order_item_wrap">
-                        <div class="order_top_word">
-                            <p>已於 <span id="top_date">2020-11-08</span> 完成訂單</p>
-                        </div>
-
-                        <ul class="d-flex order_title">
-                            <li class="col">訂單編號</li>
-                            <li class="col">下單日期</li>
-                            <li class="col">付款狀態</li>
-                            <li class="col">物流進度</li>
-                            <li class="col">總金額</li>
-                        </ul>
-                        <ul class="d-flex order_title_content">
-                            <li class="col" id="order_id">BE8882724</li>
-                            <li class="col" id="order_at">2020/10/31</li>
-                            <li class="col" id="order_pay">已付款</li>
-                            <li class="col" id="order_transport">已送達</li>
-                            <li class="col" id="order_moneny">NT$ 2000</li>
-                        </ul>
-
-                        <div class="order_history_detail_btn openIt d-flex align-items-center justify-content-center">
-                            <img src="SVG/custom/minus_o_icon.svg" alt="" />
-                            <p>展開訂單明細</p>
-                        </div>
-
-                        <!-- 詳細區塊 -->
-
-                        <div class="order_details_page">
-                            <!-- 金額詳情 -->
-                            <div class="order_money_detail d-flex justify-content-end">
-                                <p>
-                                    商品總額: $<span id="order_total_pay">2000</span>&ensp; /&ensp;
-                                </p>
-                                <p>運費: $<span id="order_total_pay">0</span>&ensp; /&ensp;</p>
-                                <p>折扣: -$<span id="order_total_pay">0</span> 元</p>
+                    <?php foreach ($o_rows as $o) : ?>
+                        <div class="order_item_wrap">
+                            <div class="order_top_word">
+                                <p>已於 <span id="top_date"><?= $o['order_date'] ?></span> 完成訂單</p>
                             </div>
 
-                            <!-- 商品 -->
-                            <div class="order_product_wrap d-flex align-items-center">
-                                <div class="product-left d-flex col-8">
-                                    <!-- 訂單商品圖 -->
-                                    <div class="order_img_wrap">
-                                        <img class="p_img" src="" alt="" />
+                            <ul class="d-flex order_title">
+                                <li class="col">訂單編號</li>
+                                <li class="col">下單日期</li>
+                                <li class="col">付款狀態</li>
+                                <li class="col">物流進度</li>
+                                <li class="col">總金額</li>
+                            </ul>
+                            <ul class="d-flex order_title_content">
+                                <li class="col" id="order_id">YA-<?= $o['sid'] ?></li>
+                                <li class="col" id="order_at"><?= $o['order_date'] ?></li>
+                                <li class="col" id="order_pay"><?= $o['payment_status'] ?></li>
+                                <li class="col" id="order_transport"><?= $o['logistic_status'] ?></li>
+                                <li class="col" id="order_moneny">NT$ <?= $o['amount'] ?></li>
+                            </ul>
+
+                            <div class="order_history_detail_btn openIt d-flex align-items-center justify-content-center">
+                                <img src="SVG/custom/minus_o_icon.svg" alt="" />
+                                <p>展開訂單明細</p>
+                            </div>
+
+                            <!-- 詳細區塊 -->
+
+                            <div class="order_details_page">
+                                <!-- 金額詳情 -->
+                                <div class="order_money_detail d-flex justify-content-end">
+                                    <p>
+                                        商品總額: $<span id="order_total_pay">
+                                            <?= $o['amount'] ?> </span>&ensp; /&ensp;
+                                    </p>
+                                    <p>運費: $<span id="order_total_pay">
+                                            <?= $o['trans_fee'] ?></span>&ensp; /&ensp;</p>
+                                    <p>折扣: -$<span id="order_total_pay">
+                                            <?= $o['deduction'] ?></span> 元</p>
+                                </div>
+
+                                <!-- 商品 -->
+                                <?php foreach ($d_rows as $dd) : ?>
+                                    <?php if ($o['sid'] == $dd['order_sid']) : ?>
+                                        <div class="order_product_wrap d-flex align-items-center">
+                                            <div class="product-left d-flex col-8">
+                                                <!-- 訂單商品圖 -->
+                                                <div class="order_img_wrap">
+                                                    <img class="p_img" src="" alt="" />
+                                                </div>
+                                                <!-- 商品尺寸 -->
+                                                <div class="product_detail d-flex flex-column align-self-start">
+                                                    <p class="p_title"><?= $dd['product_name'] ?></p>
+                                                    <p class="p_detail">顏色:<span id="color"><?= $dd['color'] ?></span></p>
+                                                    <p class="p_detail">尺寸:<span id="size"><?= $dd['length'] ?></span></p>
+                                                    <p class="p_detail">重量:<span id="weight"><?= $dd['weight'] ?></span>g</p>
+                                                </div>
+                                            </div>
+                                            <!-- 件數價錢 -->
+                                            <div class="count_price d-flex justify-content-start col-5">
+                                                <p class="col-6">共<span class="count"><?= $dd['quantity'] ?></span>件</p>
+                                                <p class="col-6">NT$ <span class="price"><?= $dd['ttl'] ?></span></p>
+                                            </div>
+                                        </div>
+                                    <?php endif ?>
+                                <?php endforeach ?>
+
+                                <!-- 訂單狀態資訊跟按鈕 -->
+                                <div class="order_detail_bottom d-flex align-items-end justify-content-between">
+                                    <!-- 狀態 -->
+                                    <ul>
+                                        <li class="transport_pay_way d-flex justify-content-start">
+                                            <p>
+                                                寄送方式: <span id="transport_way">
+                                                    <?= $o['logistic'] ?> </span>&ensp; /&ensp;
+                                            </p>
+                                            <p>付費方式: <span id="pay_way">
+                                                    <?= $o['payment'] ?></span>&ensp;</p>
+                                        </li>
+                                        <li class="data_statu d-flex justify-content-start">
+                                            <p>
+                                                <span id="data">2020-11-02</span>&ensp;
+                                                <span id="time">09:00</span>&ensp;
+                                                <span id="order_event">出貨</span>
+                                            </p>
+                                        </li>
+                                    </ul>
+
+                                    <!-- 按鈕 -->
+                                    <div class="btn-wrap d-flex">
+                                        <!-- <button class="btn_l">button</button> -->
+                                        <button class="btn_s" id="buy_again">再買一次</button>
                                     </div>
-                                    <!-- 商品尺寸 -->
-                                    <div class="product_detail d-flex flex-column align-self-start">
-                                        <p class="p_title">超棒餘家電我就是棒</p>
-                                        <p class="p_detail">顏色:<span id="color"></span></p>
-                                        <p class="p_detail">尺寸:<span id="size"></span></p>
-                                        <p class="p_detail">重量:<span id="weight"></span>g</p>
-                                    </div>
-                                </div>
-                                <!-- 件數價錢 -->
-                                <div class="count_price d-flex justify-content-start col-5">
-                                    <p class="col-6">共<span class="count">10</span>件</p>
-                                    <p class="col-6">NT$ <span class="price">2000</span></p>
-                                </div>
-                            </div>
-
-                            <!-- 訂單狀態資訊跟按鈕 -->
-                            <div class="order_detail_bottom d-flex align-items-end justify-content-between">
-                                <!-- 狀態 -->
-                                <ul>
-                                    <li class="transport_pay_way d-flex justify-content-start">
-                                        <p>
-                                            寄送方式: <span id="transport_way">宅配</span>&ensp; /&ensp;
-                                        </p>
-                                        <p>付費方式: <span id="pay_way">ATM轉帳</span>&ensp;</p>
-                                    </li>
-                                    <li class="data_statu d-flex justify-content-start">
-                                        <p>
-                                            <span id="data">2020-11-02</span>&ensp;
-                                            <span id="time">09:00</span>&ensp;
-                                            <span id="order_event">出貨</span>
-                                        </p>
-                                    </li>
-                                </ul>
-
-                                <!-- 按鈕 -->
-                                <div class="btn-wrap d-flex">
-                                    <button class="btn_l">button</button>
-                                    <button class="btn_s" id="buy_again">再買一次</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endforeach; ?>
                     <!--↑↑ 這裡一張訂單結束 -->
 
                 </div>
@@ -403,7 +469,7 @@
     </div>
 
 </div>
-<!-- GG -->
+<!-- GG ---是什麼辣XD -->
 <div class="m_order_history" style="padding-top: 75px;">
     <!-- 手機標題 -->
     <div class="m_back_and_title d-flex align-items-center justify-content-between">
@@ -542,14 +608,6 @@
 </div>
 
 </div>
-
-
-
-
-
-
-
-
 
 
 
