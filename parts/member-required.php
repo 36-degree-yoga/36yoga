@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-if (!isset($_SESSION['admin'])) {
-    header('Location: ab-list.php');
+if (!isset($_SESSION['user'])) {
+    header('Location:homepage.php');
     exit;
 }
