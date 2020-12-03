@@ -3,8 +3,9 @@ body {
 }
 .nav-place-zone {
   width: 100%;
-  height: 100px;
-
+  height: 7.5rem;
+  border-bottom: 1px solid #004a13;
+  background: rgba(255, 254, 252, 0.8);
 }
 .hot-products-zone {
   background-color: #ffdc74;
@@ -148,7 +149,7 @@ tr td:first-child {
   font-size: 1.6rem;
 }
 /* table */
-.pc-need-hide-span p span {
+.pc-need-hide-span {
   visibility: hidden;
 }
 .this-one-pc-none {
@@ -228,7 +229,7 @@ a:hover {
   .product-info-detail {
     font-size: 12px;
   }
-  .pc-need-hide-span p span {
+  .pc-need-hide-span {
     visibility: visible;
   }
   .pc-need-hide-span {
