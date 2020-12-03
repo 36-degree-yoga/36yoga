@@ -50,10 +50,9 @@ $others_rows = $others_stmt->fetchAll();
             <div style="width: 10px;height: 20px;background-color: #db5c00;"></div>
             <h6 class="ml-2"> NT.<?= $modal_rows['price'] ?></h6>
         </div>
-        <div class="space_30"></div>
+        <div class="space_60"></div>
         <div class="d-flex">
-            <?php foreach ($others_rows as $i) : ?>
-                <a href="?sid=<?= $i['sid'] ?>">
+            <?php foreach ($others_rows as $i) : ?><a href="?sid=<?= $i['sid'] ?>">
                     <div class="color_circle" style="background-color:<?= $i['color'] ?>"></div>
                 </a>
             <?php endforeach; ?>
@@ -71,8 +70,6 @@ $others_rows = $others_stmt->fetchAll();
 <!-- js連結 -->
 <script>
     const others = <?= json_encode($others_rows, JSON_UNESCAPED_UNICODE) ?>;
-<<<<<<< HEAD
-=======
 
     $('.buy_btn').on('click', function(event) {
         const sid = $('.modal_wrap').attr('data-sid');
@@ -83,15 +80,17 @@ $others_rows = $others_stmt->fetchAll();
             quantity: qty
         });
 
-        $.get('handle-cart.php', {
+        $.get('handle-cart-product.php', {
             sid: sid,
             quantity: qty,
             action: 'add'
         }, function(data) {
             console.log(data);
-            countCart(data.cart);
+            if (window.parent && window.parent.renderSmallCart) {
+                window.parent.renderSmallCart(data.cart);
+            }
+
         }, 'json');
     });
->>>>>>> 3182594cd558b0f2d2381f5659ba24bb87fbb9c3
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

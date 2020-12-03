@@ -1,11 +1,17 @@
 body {
   background-color: #fffefc;
+  background-image: url(../img/step123needpic/finish-order.png);
+  background-repeat: no-repeat;
+  height: 900px;
+  background-position: center;
 }
 .nav-place-zone {
   width: 100%;
-  height: 100px;
-
+  height: 120px;
+  /* border-bottom: 1px solid #004a13; */
+  /* background: rgba(255, 254, 252, 0.8); */
 }
+
 .tag-page {
   margin-top: 5rem;
 }
@@ -20,7 +26,10 @@ body {
   font-size: 24px;
   line-height: 55px;
   color: #004a13;
+  cursor: pointer;
+  /* transition: 0.5s; */
 }
+
 .login-btn {
   border-right: none;
 }
@@ -29,11 +38,18 @@ body {
   border-radius: 0px 4px 0px 0px;
   border-left: none;
 }
+
+/* hover */
 .just-a-vertcal-dividerline {
   height: 56.5px;
   width: 2px;
   background-color: #004a13;
   z-index: 2;
+}
+.daddy-floor {
+  width: 100%;
+  height: 462px;
+  margin-bottom: 120px;
 }
 .login-floor,
 .regist-floor {
@@ -43,7 +59,9 @@ body {
   top: -2.5px;
   height: 462px;
   padding: 60px 0;
-  /* transition: 0.8s; */
+  background-color: #fffefc;
+  color: #333;
+  z-index: 1;
 }
 
 .form-control1,
@@ -52,8 +70,10 @@ body {
   border-radius: 4px;
   width: 100%;
   height: 32px;
-  margin-bottom: 22px;
+  /* margin-bottom: px; */
 }
+
+.form-control1,
 .form-control2 {
   margin-bottom: 18px;
 }
@@ -72,11 +92,22 @@ body {
   border: 1px solid #333;
   border-radius: 4px;
   height: 32px;
-  width: 30%;
+  width: 40%;
 }
+
 #imgcode {
   height: 60px;
   width: 120px;
+}
+
+body {
+  background-image: url(../img/step123needpic/finish-order.png);
+  background-repeat: no-repeat;
+  height: 900px;
+  background-position: center bottom;
+}
+.btn_f:hover {
+  color: #fffefc;
 }
 
 /* 套用class */
@@ -96,25 +127,51 @@ body {
   border-right: none;
 }
 .click-btn {
-  z-index: 1;
+  z-index: 3;
 }
 
+/* label 大小*/
+label{
+  width: 100%;
+}
+
+/* a color */
+a{
+  color: #DB5C00;
+}
+
+ /* 記住帳密位置 */
+.form-group{
+  margin-bottom: 30px;
+}
+
+.form-regis {
+  margin-top: 62px;
+}
 /* rwd */
 @media (max-width: 576px) {
   .login-floor,
   .regist-floor {
-    border: 1px solid #004a13;
-    width: 100%;
-    top: -2.5px;
+    top: -3px;
     height: 430px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .login-btn,
   .regist-btn {
     width: 33%;
-    border: 2px solid #004a13;
-    border-bottom: none;
     font-size: 16px;
-    line-height: 30px;
-    color: #004a13;
+    line-height: 32px;
+  }
+  .daddy-floor {
+    margin-bottom: 60px;
+  }
+  .need-bck-img {
+    background-size: contain;
+    background-position: center;
+  }
+  .just-a-vertcal-dividerline {
+    height: 33px;
+    width: 2px;
   }
 }

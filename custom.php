@@ -723,6 +723,7 @@
         const price = $('#mat-total-price').val();
 
         const dataObj = {
+            item,
             sid,
             quantity,
             img,
@@ -734,7 +735,7 @@
             action: 'add'
         };
         console.log(dataObj);
-        $.get('handle-cart.php', dataObj, function(data) {
+        $.get('handle-cart-custom.php', dataObj, function(data) {
             console.log(data);
             // countCart(data.cart);
         }, 'json');

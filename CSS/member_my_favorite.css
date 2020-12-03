@@ -23,11 +23,18 @@ a:hover {
   object-fit: cover;
 }
 
-.like_fill {
+/* .like_fill {
   fill: none;
 }
 .like_fill.color {
   fill: #db5c00;
+} */
+
+.like_fill {
+  fill: #db5c00;
+}
+.like_fill.color {
+  fill: none;
 }
 
 .like_stroke {

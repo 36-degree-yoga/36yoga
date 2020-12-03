@@ -1,15 +1,22 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 
 <?php
-$sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = `members`.id) LEFT JOIN `products` ON `favorite`.product_sid = `products`.sid )";
+
+$member_id = intval($_SESSION['user']['id']) ?? 1;
+
+
+$sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = $member_id)  JOIN `products` ON `favorite`.product_sid = `products`.sid ) WHERE `member_id` = 1";
+
+// $sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = `members`.id) LEFT JOIN `products` ON `favorite`.product_sid = `products`.sid )";
+
 // 怎麼加上排序!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 $stmt = $pdo->query($sql);
-$row = $stmt->fetchAll();
+$row = $stmt->fetchAll($member_id);
 
-// foreach ($row as $k => $r) {
-//     $row[$k]['my_imgs']  = explode(",", $r['img']);
-// };
+foreach ($row as $k => $r) {
+    $row[$k]['my_imgs']  = explode(",", $r['img']);
+};
 
 
 // echo json_encode($row, JSON_UNESCAPED_UNICODE);
@@ -52,6 +59,7 @@ $row = $stmt->fetchAll();
 <div class="container">
     <div class="row">
         <div class="space_120"></div>
+        <div class="space_60"></div>
         <!-- 左側: 選單 -->
         <div class="account_side_bar d-flex col-3 position-relative ">
             <div class="account_side_bar_wrap d-flex justify-content-center justify-content-between">
@@ -188,13 +196,15 @@ $row = $stmt->fetchAll();
 
         <!-- 右側 -->
 
+
         <div class="product_list col-9 d-flex flex-wrap ">
+
             <?php foreach ($row as $r) : ?>
                 <div class="product mb-5 col-4">
                     <div class="product_img_wrap position-relative" data-toggle="modal" data-target="#exampleModal">
                         <img src="./img/product_list/<?= $r['my_imgs'][1] ?>.jpg" alt="">
 
-                        <svg id="" class="btn_like position-absolute" style="right:15px;bottom:15px" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
+                        <svg id="" class="btn_like position-absolute" onclick="checkLike(event); return false;" data-sid="<?= $r['product_sid'] ?>" style="right:15px;bottom:15px" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
                             <g id="圖層_2" data-name="圖層 2">
                                 <g id="圖層_1-2" data-name="圖層 1">
                                     <g id="Path_324" data-name="Path 324">
@@ -226,6 +236,30 @@ $row = $stmt->fetchAll();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_my_favorite.js"></script>
 <script>
+    function checkLike() {
+        const me = $(event.currentTarget);
+        const product_sid = me.attr('data-sid');
+        console.log('product_sid:', {
+            product_sid
+        });
+        $.post('my_favorite_api.php', {
+                product_sid,
 
+            }, function(data) {
+                console.log(data);
+                if (!data.add) {
+
+                    me.find('.like_fill').addClass('color');
+
+                }
+
+                // if (!data.add) {
+                //     confirm(`確定要刪除設計嗎?`)
+                //     
+                // }
+            }
+        }, 'json')
+
+    };
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

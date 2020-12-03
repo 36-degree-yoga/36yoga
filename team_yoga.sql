@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-11-30 09:16:57
+-- 產生時間： 2020-12-03 09:51:02
 -- 伺服器版本： 10.4.14-MariaDB
 -- PHP 版本： 7.3.23
 
@@ -32,6 +32,7 @@ CREATE TABLE `custom_product` (
   `member_id` int(11) NOT NULL,
   `mat-total-price` int(11) NOT NULL,
   `mat-count` int(11) NOT NULL,
+  `weight` int(11) NOT NULL,
   `matw` int(11) NOT NULL,
   `mat-h` int(11) NOT NULL,
   `mat-thickness` varchar(255) NOT NULL,
@@ -39,6 +40,7 @@ CREATE TABLE `custom_product` (
   `pick_color` varchar(255) NOT NULL,
   `design_img` varchar(255) NOT NULL,
   `mat-print` varchar(255) NOT NULL,
+  `save_data` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -46,10 +48,15 @@ CREATE TABLE `custom_product` (
 -- 傾印資料表的資料 `custom_product`
 --
 
-INSERT INTO `custom_product` (`sid`, `member_id`, `mat-total-price`, `mat-count`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `created_at`) VALUES
-(40, 0, 700, 1, 61, 173, '3.5', 'TPE', 'rgb(82, 163, 156)', '', '', '2020-11-30 16:09:13'),
-(41, 0, 700, 1, 61, 173, '3.5', 'TPE', 'rgb(82, 163, 156)', '', '', '2020-11-30 16:09:51'),
-(42, 0, 700, 1, 61, 173, '3.5', 'TPE', 'thistle', '', '', '2020-11-30 16:10:38');
+INSERT INTO `custom_product` (`sid`, `member_id`, `mat-total-price`, `mat-count`, `weight`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `save_data`, `created_at`) VALUES
+(71, 5, 2150, 1, 340, 61, 183, '5.0', 'NR', 'rgb(201, 139, 153)', '234248688', '印刷', 'no', '2020-12-03 14:48:56'),
+(72, 5, 2150, 1, 340, 61, 183, '5.0', 'NR', 'rgb(201, 139, 153)', '161574989', '印刷', 'save', '2020-12-03 14:49:19'),
+(73, 5, 2150, 1, 340, 61, 183, '5.0', 'NR', 'rgb(201, 139, 153)', '167518286', '印刷', 'no', '2020-12-03 14:51:13'),
+(74, 1, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(90, 66, 66)', '302282108', '', 'no', '2020-12-03 15:30:21'),
+(75, 1, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(90, 66, 66)', '264997236', '', 'no', '2020-12-03 15:30:34'),
+(76, 5, 4000, 2, 680, 61, 173, '3.5', 'TPE', 'rgb(63, 63, 63)', '460631370', '', 'no', '2020-12-03 15:32:32'),
+(77, 5, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(201, 139, 153)', '749882848', '', 'no', '2020-12-03 15:36:10'),
+(78, 5, 8000, 4, 1360, 61, 173, '3.5', 'TPE', 'rgb(90, 66, 66)', '186751155', '', 'no', '2020-12-03 15:38:54');
 
 -- --------------------------------------------------------
 
@@ -84,17 +91,17 @@ INSERT INTO `favorite` (`sid`, `member_id`, `product_sid`, `created_at`) VALUES
 
 CREATE TABLE `members` (
   `id` int(11) NOT NULL,
-  `account` varchar(50) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `account` varchar(50) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `mobile` varchar(255) DEFAULT NULL,
   `city` varchar(10) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
-  `activated` int(11) NOT NULL DEFAULT 0,
-  `nickname` varchar(255) NOT NULL,
-  `avatar` varchar(50) NOT NULL DEFAULT '[]',
-  `create_at` datetime NOT NULL
+  `activated` int(11) DEFAULT 0,
+  `nickname` varchar(255) DEFAULT NULL,
+  `avatar` varchar(50) DEFAULT '[]',
+  `create_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -106,7 +113,64 @@ INSERT INTO `members` (`id`, `account`, `email`, `password`, `mobile`, `city`, `
 (2, 'chrome2416', 'chrome2416@yahoo.com.tw', '123', '0983-118-742', '台北市', '大安區信義路三段123號', '2000-11-11', 0, 'Kelly', 'avatar02', '2019-12-13 00:00:00'),
 (3, 'sally123', 'sally123@gmail.com', '123', '0912-345-678', '台北市', '大安區信義路三段123號', '2000-02-17', 0, 'Sally', 'avatar03', '2020-11-24 00:00:00'),
 (4, 'yujuwk357', 'yujuwk@gmail.com', '123', '0953-319-458', '新北市', '汐止區水源路', '2000-02-18', 0, 'Ruan', 'avatar04', '2020-11-24 00:00:00'),
-(5, 'taco123', 'taco123@gmail,com', '123', '0935-318-343', '台北市', '文山區興隆路三段號', '2012-11-30', 0, 'taco', 'avatar05', '2020-11-25 00:00:00');
+(5, 'taco123', 'taco123@gmail.com', '123', '0935-318-343', '台北市', '文山區興隆路三段號', '2012-11-30', 0, 'taco', 'avatar05', '2020-11-25 00:00:00'),
+(9, '', 'abc830212@gmail.com', '456', NULL, NULL, NULL, NULL, 0, '', '[]', '2020-12-03 14:55:36');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `orders`
+--
+
+CREATE TABLE `orders` (
+  `sid` int(11) NOT NULL,
+  `member_sid` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `order_date` datetime NOT NULL,
+  `logistic` varchar(255) DEFAULT NULL COMMENT '物流',
+  `trans_fee` varchar(255) DEFAULT NULL COMMENT '運費',
+  `payment` varchar(255) DEFAULT NULL COMMENT '付款方式',
+  `deduction` varchar(255) DEFAULT NULL COMMENT '折抵金額',
+  `buyer` varchar(255) DEFAULT NULL COMMENT '收件人',
+  `address` varchar(255) DEFAULT NULL,
+  `mobile` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `points` varchar(255) DEFAULT NULL,
+  `payment_status` varchar(255) DEFAULT NULL,
+  `logistic_status` varchar(255) DEFAULT NULL,
+  `order_status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `orders`
+--
+
+INSERT INTO `orders` (`sid`, `member_sid`, `amount`, `order_date`, `logistic`, `trans_fee`, `payment`, `deduction`, `buyer`, `address`, `mobile`, `email`, `points`, `payment_status`, `logistic_status`, `order_status`) VALUES
+(1, 1, 4080, '2020-08-05 18:00:03', '宅配', '60', '貨到付款', '100', '阿蝶', '台北市麗寶最高那一層', '0966666666', 'butterfly@gmail.com', '10', '已付款', '已經出貨', '已完成訂單'),
+(2, 1, 11400, '2020-12-05 11:24:35', '宅配', '60', '貨到付款', '0', '阿蝶', '台北市麗寶最高那一層', '0966666666', 'butterfly@gmail.com', '10', '已付款', '已出貨', '已完成訂單');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `sid` int(11) NOT NULL,
+  `order_sid` int(11) NOT NULL,
+  `product_sid` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `custom_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `order_details`
+--
+
+INSERT INTO `order_details` (`sid`, `order_sid`, `product_sid`, `quantity`, `custom_id`) VALUES
+(1, 1, 1, 1, NULL),
+(2, 1, 13, 1, NULL),
+(3, 2, 25, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -116,22 +180,22 @@ INSERT INTO `members` (`id`, `account`, `email`, `password`, `mobile`, `city`, `
 
 CREATE TABLE `products` (
   `sid` int(11) NOT NULL,
-  `product_name` varchar(255) NOT NULL,
-  `list_id` varchar(30) NOT NULL,
-  `product_num` varchar(10) NOT NULL,
-  `publish_date` date NOT NULL,
-  `price` int(11) NOT NULL,
-  `on_sale` tinyint(11) NOT NULL DEFAULT 1,
-  `quick_view_01` text NOT NULL,
-  `quick_view_02` text NOT NULL,
-  `quick_view_03` text NOT NULL,
-  `introduction` text NOT NULL,
-  `color` varchar(50) NOT NULL,
-  `length` int(11) NOT NULL,
-  `width` int(11) NOT NULL,
-  `thickness` int(11) NOT NULL,
-  `weight` varchar(11) NOT NULL,
-  `img` text NOT NULL DEFAULT '[]'
+  `product_name` varchar(255) DEFAULT NULL,
+  `list_id` varchar(30) DEFAULT NULL,
+  `product_num` varchar(10) DEFAULT NULL,
+  `publish_date` date DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `on_sale` tinyint(11) DEFAULT 1,
+  `quick_view_01` text DEFAULT NULL,
+  `quick_view_02` text DEFAULT NULL,
+  `quick_view_03` text DEFAULT NULL,
+  `introduction` text DEFAULT NULL,
+  `color` varchar(50) DEFAULT NULL,
+  `length` int(11) DEFAULT NULL,
+  `width` int(11) DEFAULT NULL,
+  `thickness` int(11) DEFAULT NULL,
+  `weight` varchar(11) DEFAULT NULL,
+  `img` text DEFAULT '\'[]\''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -139,12 +203,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`sid`, `product_name`, `list_id`, `product_num`, `publish_date`, `price`, `on_sale`, `quick_view_01`, `quick_view_02`, `quick_view_03`, `introduction`, `color`, `length`, `width`, `thickness`, `weight`, `img`) VALUES
-(1, '36 pro® 6mm', 'mat01-purple', 'm01-p-180', '2020-10-01', 3600, 0, '1. 全新結構，提供手腕與腳踝最佳緩衝及保護。', '2. 天然橡膠材質，乾濕止滑效果優異。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '超密寬敞的高性能瑜伽墊，具有無與倫比的舒適性和緩衝性。保證PRO®永不磨損。', '#B6A8C2', 180, 66, 1, '340', 'm01_0,m01_1,m01_2,m01_3'),
+(1, '36 pro® 6mm', 'mat01-purple', 'm01-p-180', '2020-10-01', 3600, 0, '1. 全新結構，提供手腕與腳踝最佳緩衝及保護。', '2. 天然橡膠材質，乾濕止滑效果優異。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '超密寬敞的高性能瑜伽墊，具有無與倫比的舒適性和緩衝性。保證PRO®永不磨損。', '#3F5981', 180, 66, 1, '340', 'm01_0,m01_1,m01_2,m01_3'),
 (2, '36 pro® 6mm', 'mat01-green', 'm02-g-180', '2020-10-02', 3600, 0, '1. 全新結構，提供手腕與腳踝最佳緩衝及保護。', '2. 天然橡膠材質，乾濕止滑效果優異。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '超密寬敞的高性能瑜伽墊，具有無與倫比的舒適性和緩衝性。保證PRO®永不磨損。', '#5F7874', 180, 66, 1, '340', 'm02_0,m02_1,m02_2,m02_3'),
-(3, '36 pro® 6mm', 'mat01-dark_blue', 'm03-d-180', '2020-10-03', 3600, 0, '1. 全新結構，提供手腕與腳踝最佳緩衝及保護。', '2. 天然橡膠材質，乾濕止滑效果優異。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '超密寬敞的高性能瑜伽墊，具有無與倫比的舒適性和緩衝性。保證PRO®永不磨損。', '#3F5981', 180, 66, 1, '340', 'm03_0,m03_1,m03_2,m03_3'),
-(4, '36 pro® 6mm', 'mat01-purple', 'm01-p-180', '2020-10-01', 3600, 0, '1. 全新結構，提供手腕與腳踝最佳緩衝及保護。', '2. 天然橡膠材質，乾濕止滑效果優異。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '超密寬敞的高性能瑜伽墊，具有無與倫比的舒適性和緩衝性。保證PRO®永不磨損。', '#B6A8C2', 215, 66, 1, '360', 'm01_0,m01_1,m01_2,m01_3'),
+(3, '36 pro® 6mm', 'mat01-dark_blue', 'm03-d-180', '2020-10-03', 3600, 0, '1. 全新結構，提供手腕與腳踝最佳緩衝及保護。', '2. 天然橡膠材質，乾濕止滑效果優異。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '超密寬敞的高性能瑜伽墊，具有無與倫比的舒適性和緩衝性。保證PRO®永不磨損。', '#B6A8C2', 180, 66, 1, '340', 'm03_0,m03_1,m03_2,m03_3'),
+(4, '36 pro® 6mm', 'mat01-purple', 'm01-p-180', '2020-10-01', 3600, 0, '1. 全新結構，提供手腕與腳踝最佳緩衝及保護。', '2. 天然橡膠材質，乾濕止滑效果優異。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '超密寬敞的高性能瑜伽墊，具有無與倫比的舒適性和緩衝性。保證PRO®永不磨損。', '#3F5981', 215, 66, 1, '360', 'm01_0,m01_1,m01_2,m01_3'),
 (5, '36 pro® 6mm', 'mat01-green', 'm02-g-180', '2020-10-02', 3600, 0, '1. 全新結構，提供手腕與腳踝最佳緩衝及保護。', '2. 天然橡膠材質，乾濕止滑效果優異。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '超密寬敞的高性能瑜伽墊，具有無與倫比的舒適性和緩衝性。保證PRO®永不磨損。', '#5F7874', 215, 66, 1, '360', 'm02_0,m02_1,m02_2,m02_3'),
-(6, '36 pro® 6mm', 'mat01-dark_blue', 'm03-d-180', '2020-10-03', 3600, 0, '1. 全新結構，提供手腕與腳踝最佳緩衝及保護。', '2. 天然橡膠材質，乾濕止滑效果優異。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '超密寬敞的高性能瑜伽墊，具有無與倫比的舒適性和緩衝性。保證PRO®永不磨損。', '#3F5981', 215, 66, 1, '360', 'm03_0,m03_1,m03_2,m03_3'),
+(6, '36 pro® 6mm', 'mat01-dark_blue', 'm03-d-180', '2020-10-03', 3600, 0, '1. 全新結構，提供手腕與腳踝最佳緩衝及保護。', '2. 天然橡膠材質，乾濕止滑效果優異。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '超密寬敞的高性能瑜伽墊，具有無與倫比的舒適性和緩衝性。保證PRO®永不磨損。', '#B6A8C2', 215, 66, 1, '360', 'm03_0,m03_1,m03_2,m03_3'),
 (7, '36 prolite®4.7mm', 'mat02-red', 'm04-r-180', '2010-10-04', 2760, 0, '1. 高密度墊層可在任何表面提供無與倫比的體驗，關節保護和多功能性。', '2. 織物狀的表面光潔度可在姿勢之間實現最佳移動。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '中型瑜伽墊，為您的練習帶來無與倫比的緩沖和舒適感。', '#DF212B', 180, 60, 0, '180', 'm04_0,m04_1,m04_2,m04_3'),
 (8, '36 prolite®4.7mm', 'mat02-blue', 'm05-b-180', '2020-10-05', 2760, 0, '1. 高密度墊層可在任何表面提供無與倫比的體驗，關節保護和多功能性。', '2. 織物狀的表面光潔度可在姿勢之間實現最佳移動。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '中型瑜伽墊，為您的練習帶來無與倫比的緩沖和舒適感。', '#49589E', 180, 60, 0, '180', 'm05_0,m05_1,m05_2,m05_3'),
 (9, '36 prolite®4.7mm', 'mat02-black_blue', 'm06-b-180', '2020-10-06', 2760, 0, '1. 高密度墊層可在任何表面提供無與倫比的體驗，關節保護和多功能性。', '2. 織物狀的表面光潔度可在姿勢之間實現最佳移動。', '3. 表面特殊波紋壓痕處理，提升質感並增加磨擦阻力係數。', '中型瑜伽墊，為您的練習帶來無與倫比的緩沖和舒適感。', '#1F2024', 180, 60, 0, '180', 'm06_0,m06_1,m06_2,m06_3'),
@@ -171,7 +235,8 @@ INSERT INTO `products` (`sid`, `product_name`, `list_id`, `product_num`, `publis
 (30, '36 彈力帶', 'c01', 'c01--060', '2020-10-11', 664, 0, '1. 四種分級阻力搭配，由易至難，漸進式訓練。', '2. 獨創內裡菱格壓紋設計，高效防滑並增添3倍極限拉伸範圍。', '3. 環保、天然乳膠成分，讓手感柔軟，自然無味、彈力更強。', '100％天然乳膠彈力帶，可為您的鍛煉增加額外的挑戰。 所有套裝都放入網狀小袋中，便於存放。', '', 60, 5, 1, '100', 'c01_0,c01_1,c01_2,c01_3'),
 (31, '36 彈力帶', 'c02', 'c02--060', '2020-10-12', 664, 0, '1. 四種分級阻力搭配，由易至難，漸進式訓練。', '2. 獨創內裡菱格壓紋設計，高效防滑並增添3倍極限拉伸範圍。', '3. 環保、天然乳膠成分，讓手感柔軟，自然無味、彈力更強。', '100％天然乳膠彈力帶，可為您的鍛煉增加額外的挑戰。 所有套裝都放入網狀小袋中，便於存放。', '', 60, 5, 1, '100', 'c02_0,c02_1,c02_2,c02_3'),
 (32, '棉質舖巾', 'w01', 'w01--173', '2020-08-05', 1140, 0, '1. 採用高優質的超細纖維質料，親膚性佳且柔軟舒適。', '2. 專利Skidless®止滑技術，矽膠顆粒點服貼在瑜珈墊上，練習過程中不易滑動。', '3. 使用前可先噴上一些水氣，增加瑜珈鋪巾的止滑效果。', '瑜珈鋪巾適合熱瑜珈或是動態瑜珈使用，可直接平鋪在一般瑜珈墊上，在手腳濕潤情況下最能見到止滑效果。', '', 173, 61, 0, '120', 'w01_0,w01_1,w01_2,w01_3'),
-(33, '環保羊毛舖巾', 'w02', 'w02--208', '2020-08-06', 1320, 0, '1. 75％的再生羊毛和25％的再生合成纖維。', '2. 鎖邊針跡，防止磨損。', '3. 密集編織具有抗拉伸性和超柔軟性，即使洗滌後仍能抵抗“起毛球”。', '由100％的再生纖維製成，可壓和折疊，提供溫暖，舒適和多功能性。', '', 208, 153, 0, '150', 'w02_0,w02_1,w02_2,w02_3');
+(33, '環保羊毛舖巾', 'w02', 'w02--208', '2020-08-06', 1320, 0, '1. 75％的再生羊毛和25％的再生合成纖維。', '2. 鎖邊針跡，防止磨損。', '3. 密集編織具有抗拉伸性和超柔軟性，即使洗滌後仍能抵抗“起毛球”。', '由100％的再生纖維製成，可壓和折疊，提供溫暖，舒適和多功能性。', '', 208, 153, 0, '150', 'w02_0,w02_1,w02_2,w02_3'),
+(34, '客製瑜珈墊', '', '', '2020-08-06', 3600, 0, '', '', '', '製作專屬於你的瑜珈墊！質感客製化刻字、圖片、顏色等。任你揮灑創意、創造獨一無二的專屬禮物。', '', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- 已傾印資料表的索引
@@ -197,6 +262,18 @@ ALTER TABLE `members`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- 資料表索引 `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- 資料表索引 `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`sid`);
+
+--
 -- 資料表索引 `products`
 --
 ALTER TABLE `products`
@@ -210,7 +287,7 @@ ALTER TABLE `products`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `custom_product`
 --
 ALTER TABLE `custom_product`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `favorite`
@@ -222,13 +299,25 @@ ALTER TABLE `favorite`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `products`
 --
 ALTER TABLE `products`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=304;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=305;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -2,7 +2,7 @@
 
 <?php
 $member_id = intval($_SESSION['user']['id']);
-$design_sql = "SELECT `sid`, `member_id`, `mat-total-price`, `mat-count`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `created_at` FROM `custom_product` WHERE `member_id` = $member_id";
+$design_sql = "SELECT `sid`, `member_id`, `mat-total-price`, `mat-count`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `created_at` FROM `custom_product` WHERE `member_id` = $member_id AND `save_data`='save'";
 $design_stmt = $pdo->query($design_sql);
 $design_rows = $design_stmt->fetchAll();
 
@@ -215,10 +215,10 @@ $design_rows = $design_stmt->fetchAll();
                     <h6 class="mb-0" style="text-align: center;">我的設計</h6>
                     <p class="p-0" style="text-align: center;">NT.<?= $d['mat-total-price'] ?></p>
                     <div class="d-flex justify-content-between">
-                        <a href="javascript: delete_it(<?= $d['sid'] ?>)">
+                        <a href="javascript: delete_it(<?= $d['sid'] ?>)" class="">
                             <img src="SVG/icon_trash.svg" alt="">
                         </a>
-                        <button class="btn_f w-75">加入購物車</button>
+                        <button class="btn_f  mr-3" style="width:72%">加入購物車</button>
                     </div>
 
                 </div>
@@ -230,7 +230,7 @@ $design_rows = $design_stmt->fetchAll();
     </div>
 </div>
 
-<div class="space_120"></div>
+<div class=" space_120"></div>
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_my_favorite.js"></script>

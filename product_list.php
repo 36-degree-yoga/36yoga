@@ -52,7 +52,7 @@ foreach ($strap_row  as $k => $r) {
 };
 
 // 彈力帶
-$band_sql = "SELECT * FROM `products` WHERE `list_id`LIKE 'c%'";
+$band_sql = "SELECT * FROM `products` WHERE `list_id`LIKE 'c0%'";
 $band_Stmt = $pdo->query($band_sql);
 $band_row = $band_Stmt->fetchAll();
 foreach ($band_row  as $k => $r) {
