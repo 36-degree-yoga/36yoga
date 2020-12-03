@@ -1,4 +1,12 @@
-<?php include __DIR__ . '/parts/config.php'; ?>
+<?php include __DIR__ . '/parts/config.php';
+
+
+$stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
+$rows = $stmt->fetch();
+
+
+// echo json_encode($rows, JSON_UNESCAPED_UNICODE);
+?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 <link rel="stylesheet" href="./CSS/fill-in-infomation.css" />
@@ -39,11 +47,11 @@
                     <h6>運送資訊</h6>
                     <div class="d-flex justify-content-between this-one-mobile-none">
                         <div class="mx-3 this-one-mobile-none">
-                            <input type="checkbox" class="form-check-input" id="inside" checked />
+                            <input type="radio" class="form-check-input" id="inside" name="area" checked />
                             <label class="form-check-label" for="inside">台灣本島</label>
                         </div>
                         <div class="ml-3 this-one-mobile-none">
-                            <input type="checkbox" class="form-check-input" id="outside" />
+                            <input type="radio" name="area" class="form-check-input" id="outside" />
                             <label class="form-check-label" for="outside">離島/海外地區</label>
                         </div>
                     </div>
@@ -57,8 +65,8 @@
                                 <option value="" disabled selected hidden>
                                     --請選擇--
                                 </option>
-                                <option>宅配到府</option>
-                                <option>超商取貨</option>
+                                <option value="home">宅配到府</option>
+                                <option value="store">超商取貨</option>
                             </select>
                         </div>
                     </div>
@@ -69,9 +77,9 @@
                                 <option value="" disabled selected hidden>
                                     --請選擇--
                                 </option>
-                                <option>貨到付款</option>
-                                <option>信用卡支付</option>
-                                <option>ATM匯款</option>
+                                <option value="yoo">貨到付款</option>
+                                <option value="cerdit">信用卡支付</option>
+                                <option value="atm">ATM匯款</option>
                             </select>
                         </div>
                     </div>
@@ -104,30 +112,30 @@
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="email">Email信箱</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6" id="email" />
+                            <input type="text" class="form-control6" id="email" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="name">收件人姓名</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6" id="name" />
+                            <input type="text" class="form-control6" id="name" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="phonr-number">手機號碼</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6" id="phone-number" />
+                            <input type="text" class="form-control6" id="phone-number" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">收件地址</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2">
                             <div class="d-flex">
-                                <select class="form-control7 option-1 px-2 text-center">
+                                <select class="form-control7 option-1 px-2 text-center" id="city">
                                     <option value="" disabled selected hidden>
                                         --請選擇--
                                     </option>
-                                    <option>臺北市</option>
+                                    <option value="1">臺北市</option>
                                     <option>新北市</option>
                                     <option>桃園市</option>
                                     <option>臺中市</option>
@@ -148,7 +156,7 @@
                                     <option>臺東縣</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control6 my-3" id="city-detail" />
+                            <input type="text" class="form-control6 my-3" id="city-detail" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
@@ -165,11 +173,11 @@
                     <h6>發票明細</h6>
                     <div class="d-flex justify-content-between">
                         <div class="this-one-mobile-none mr-1">
-                            <input type="checkbox" class="form-check-input" id="" checked />
+                            <input type="radio" name="invoice" class="form-check-input" id="" checked />
                             <label class="form-check-label" for="">電子發票</label>
                         </div>
                         <div class="ml-4 this-one-mobile-none">
-                            <input type="checkbox" class="form-check-input" id="" />
+                            <input type="radio" name="invoice" class="form-check-input" id="" />
                             <label class="form-check-label" for="">發票證明聯</label>
                         </div>
                     </div>
@@ -188,11 +196,11 @@
                     <div class="form-group row mb-2">
                         <div class="d-flex justify-content-start px-4">
                             <div class="mx-3">
-                                <input type="checkbox" class="form-check-input" id="" checked />
+                                <input type="radio" name="vehicle" class="form-check-input" id="" checked />
                                 <label class="form-check-label" for="">隨包裹</label>
                             </div>
                             <div class="mx-3">
-                                <input type="checkbox" class="form-check-input" id="" />
+                                <input type="radio" name="vehicle" class="form-check-input" id="" />
                                 <label class="form-check-label" for="">電子條碼載具</label>
                             </div>
                         </div>
@@ -236,58 +244,35 @@
                     <div class="m_order_list">
                         <!-- 手機每個訂單 -->
                         <div class="m_order_item">
-                            <div class="m_product_detail">
+                            <div class="m_product_detail mb-0">
                                 <!-- 商品項目外框 -->
-                                <div class="m_order_product_wrap d-flex align-items-end justify-content-between">
-                                    <div class="product-left d-flex">
-                                        <!-- 訂單商品圖 -->
-                                        <div class="order_img_wrap">
-                                            <img class="p_img" src="" alt="" />
+                                <?php foreach ($_SESSION['cart'] as $c) : ?>
+                                    <div class="m_order_product_wrap d-flex align-items-end justify-content-between">
+                                        <div class="product-left d-flex">
+                                            <!-- 訂單商品圖 -->
+                                            <div class="order_img_wrap">
+                                                <img class="p_img" src="./img/product_list/<?= explode(",", $c['img'])[1] ?>.jpg" style="width: 100px;height:100px;" alt="" />
+                                            </div>
+                                            <!-- 商品尺寸 -->
+                                            <div class="product_detail d-flex flex-column align-self-start">
+                                                <p class="p_title"><?= $c['product_name'] ?></p>
+                                                <p class="p_detail">顏色:<?= $c['color'] ?></p>
+                                                <p class="p_detail">尺寸:<?= $c['length'] ?>*<?= $c['width'] ?></p>
+                                                <p class="p_detail">
+                                                    重量:<?= $c['weight'] ?>g
+                                                </p>
+                                            </div>
                                         </div>
-                                        <!-- 商品尺寸 -->
-                                        <div class="product_detail d-flex flex-column align-self-start">
-                                            <p class="p_title">旋風瑜珈專哈哈哈</p>
-                                            <p class="p_detail">顏色:<span id="color"></span></p>
-                                            <p class="p_detail">尺寸:<span id="size"></span></p>
-                                            <p class="p_detail">
-                                                重量:<span id="weight"></span>g
-                                            </p>
+                                        <!-- 件數價錢 -->
+                                        <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
+                                            <p class="m-0">共<span class="count"><?= $c['quantity'] ?></span>件</p>
+                                            <p class="m-0">NT$ <?= $c['price'] * $c['quantity'] ?><span class="price"></span></p>
                                         </div>
                                     </div>
-                                    <!-- 件數價錢 -->
-                                    <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
-                                        <p class="m-0">共<span class="count">10</span>件</p>
-                                        <p class="m-0">NT$ 11000<span class="price"></span></p>
-                                    </div>
-                                </div>
-                                <hr />
+                                    <hr />
+                                <?php endforeach; ?>
                                 <!--商品項目外框↑-->
 
-                                <!-- 商品項目外框 -->
-                                <div class="m_order_product_wrap d-flex align-items-end justify-content-between mt-3">
-                                    <div class="product-left d-flex">
-                                        <!-- 訂單商品圖 -->
-                                        <div class="order_img_wrap">
-                                            <img class="p_img" src="" alt="" />
-                                        </div>
-                                        <!-- 商品尺寸 -->
-                                        <div class="product_detail d-flex flex-column align-self-start">
-                                            <p class="p_title">旋風瑜珈專哈哈哈</p>
-                                            <p class="p_detail">顏色:<span id="color"></span></p>
-                                            <p class="p_detail">尺寸:<span id="size"></span></p>
-                                            <p class="p_detail">
-                                                重量:<span id="weight"></span>g
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- 件數價錢 -->
-                                    <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
-                                        <p class="m-0">共<span class="count">10</span>件</p>
-                                        <p class="m-0">NT$ 11000<span class="price"></span></p>
-                                    </div>
-                                </div>
-                                <!--商品項目外框↑-->
-                                <hr class="mb-0" />
                             </div>
                             <!-- 細節打開按鈕啦 -->
                             <div class="m_detail_button">
@@ -346,7 +331,7 @@
                 </div>
                 <div class="text-center">
                     <button class="btn btn-leave p-0">回到購物車</button>
-                    <button class="btn btn-leave p-0 hope-next-step">下一步</button>
+                    <input class="btn btn-leave p-0 hope-next-step" value="下一步" type="submit">
                 </div>
             </div>
         </div>
@@ -355,5 +340,29 @@
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
+<script>
+    $('#member-info').click(() => {
+        $("#email").val("<?= $rows['email'] ?>");
+        $("#name").val("<?= $rows['account'] ?>");
+        $("#phone-number").val("<?= $rows['mobile'] ?>");
+        $("#city").val("1");
+        $("#city-detail").val("<?= $rows['address'] ?>");
+
+    });
+    //頁面跳轉
+    $('.hope-next-step').on('click', function() {
+        // console.log($(".how-to-pay").val())
+        if ($(".how-to-pay").val() === "cerdit") {
+            console.log($(".how-to-pay").val())
+            $(window).attr('location', 'credit-card-step3.php');
+           
+        } else {
+            console.log($(".how-to-pay").val())
+            $(window).attr('location', 'atm-step3.php');
+         
+        }
+
+    });
+</script>
 <script src="./lib/checkout-step123.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

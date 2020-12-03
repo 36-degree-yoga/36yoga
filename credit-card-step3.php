@@ -105,54 +105,34 @@
                 <div class="m_order_list">
                     <!-- 手機每個訂單 -->
                     <div class="m_order_item">
-                        <div class="m_product_detail">
+                        <div class="m_product_detail mb-0">
                             <!-- 商品項目外框 -->
-                            <div class="m_order_product_wrap d-flex align-items-end justify-content-between">
-                                <div class="product-left d-flex">
-                                    <!-- 訂單商品圖 -->
-                                    <div class="order_img_wrap">
-                                        <img class="p_img" src="" alt="" />
+                            <?php foreach ($_SESSION['cart'] as $c) : ?>
+                                <div class="m_order_product_wrap d-flex align-items-end justify-content-between">
+                                    <div class="product-left d-flex">
+                                        <!-- 訂單商品圖 -->
+                                        <div class="order_img_wrap">
+                                            <img class="p_img" src="./img/product_list/<?= explode(",", $c['img'])[1] ?>.jpg" style="width: 100px;height:100px;" alt="" />
+                                        </div>
+                                        <!-- 商品尺寸 -->
+                                        <div class="product_detail d-flex flex-column align-self-start">
+                                            <p class="p_title"><?= $c['product_name'] ?></p>
+                                            <p class="p_detail">顏色:<?= $c['color'] ?></p>
+                                            <p class="p_detail">尺寸:<?= $c['length'] ?>*<?= $c['width'] ?></p>
+                                            <p class="p_detail">重量:<?= $c['weight'] ?>g</p>
+                                        </div>
                                     </div>
-                                    <!-- 商品尺寸 -->
-                                    <div class="product_detail d-flex flex-column align-self-start">
-                                        <p class="p_title">旋風瑜珈專哈哈哈</p>
-                                        <p class="p_detail">顏色:<span id="color"></span></p>
-                                        <p class="p_detail">尺寸:<span id="size"></span></p>
-                                        <p class="p_detail">重量:<span id="weight"></span>g</p>
+                                    <!-- 件數價錢 -->
+                                    <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
+                                        <p class="m-0">共<span class="count"><?= $c['quantity'] ?></span>件</p>
+                                        <p class="m-0">NT$ <?= $c['price'] * $c['quantity'] ?></p>
                                     </div>
                                 </div>
-                                <!-- 件數價錢 -->
-                                <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
-                                    <p class="m-0">共<span class="count">10</span>件</p>
-                                    <p class="m-0">NT$ 11000<span class="price"></span></p>
-                                </div>
-                            </div>
-                            <hr />
+                                <hr />
+                            <?php endforeach; ?>
                             <!--商品項目外框↑-->
 
-                            <!-- 商品項目外框 -->
-                            <div class="m_order_product_wrap d-flex align-items-end justify-content-between mt-3">
-                                <div class="product-left d-flex">
-                                    <!-- 訂單商品圖 -->
-                                    <div class="order_img_wrap">
-                                        <img class="p_img" src="" alt="" />
-                                    </div>
-                                    <!-- 商品尺寸 -->
-                                    <div class="product_detail d-flex flex-column align-self-start">
-                                        <p class="p_title">旋風瑜珈專哈哈哈</p>
-                                        <p class="p_detail">顏色:<span id="color"></span></p>
-                                        <p class="p_detail">尺寸:<span id="size"></span></p>
-                                        <p class="p_detail">重量:<span id="weight"></span>g</p>
-                                    </div>
-                                </div>
-                                <!-- 件數價錢 -->
-                                <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
-                                    <p class="m-0">共<span class="count">10</span>件</p>
-                                    <p class="m-0">NT$ 11000<span class="price"></span></p>
-                                </div>
-                            </div>
-                            <!--商品項目外框↑-->
-                            <hr class="mb-0" />
+
                         </div>
                         <!-- 細節打開按鈕啦 -->
                         <div class="m_detail_button">
@@ -197,12 +177,52 @@
     </div>
     <div class="text-center">
         <button class="btn btn-leave p-0">回上一步</button>
-        <button class="btn btn-leave p-0 hope-next-step">確認付款</button>
+        <a href="complete-order-step4.php" class="btn btn-leave p-0 hope-next-step">確認付款</a>
     </div>
 </div>
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
+<script>
+    //credit card
+    let credit = document.querySelector(".flip-card-inner");
+    let cvv = document.querySelector("#cvv-code");
+    let demotext = document.querySelector("#demotext");
+    let demotextdate = document.querySelector("#demotextdate");
+    let number = document.querySelectorAll(".credit-card-front-info");
+    // 背面
+    cvv.addEventListener("click", function() {
+        credit.classList.add("turn-around");
+        demotext.classList.add("there-need-hidden");
+        demotextdate.classList.add("there-need-hidden");
+    });
+    //前面
+    number.forEach(function(element) {
+        element.addEventListener("click", function() {
+            credit.classList.remove("turn-around");
+            demotext.classList.remove("there-need-hidden");
+            demotextdate.classList.remove("there-need-hidden");
+        });
+    });
+
+    //鍵盤輸入
+    let allInput = document.getElementById("auto-change-input");
+    input = allInput.getElementsByTagName("input");
+    let iNow = 0;
+    (type = !-[1] ? "onpropertychange" : "oninput"), (limit = 4); //滿足自動切換焦點的字元數
+    for (let i = 0; i < input.length - 1; i++) {
+        input[i].index = i;
+        input[i][type] = function() {
+            iNow = this.index;
+            let that = this;
+            setTimeout(function() {
+                that.value.length > limit - 1 && input[iNow + 1].focus();
+            }, 0);
+        };
+    }
+
+    //鍵盤輸入練習
+</script>
 <script src="./lib/checkout-step123.js"></script>
-<script src="./lib/credit-card.js"></script>
+<!-- <script src="./lib/credit-card.js"></script> -->
 <?php include __DIR__ . '/parts/html-end.php'; ?>

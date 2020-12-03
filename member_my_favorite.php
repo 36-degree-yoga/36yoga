@@ -7,9 +7,9 @@ $sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id =
 $stmt = $pdo->query($sql);
 $row = $stmt->fetchAll();
 
-foreach ($row as $k => $r) {
-    $row[$k]['my_imgs']  = explode(",", $r['img']);
-};
+// foreach ($row as $k => $r) {
+//     $row[$k]['my_imgs']  = explode(",", $r['img']);
+// };
 
 
 // echo json_encode($row, JSON_UNESCAPED_UNICODE);

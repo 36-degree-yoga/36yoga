@@ -1,4 +1,11 @@
-<?php include __DIR__ . '/parts/config.php'; ?>
+<?php include __DIR__ . '/parts/config.php';
+
+// $p_stmt = $pdo->query("SELECT * FROM `products` ORDER BY `sid` ASC");
+// // $rows=$stmt->fetchAll();
+// $c = $p_stmt->fetch();
+
+
+?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 
@@ -45,183 +52,107 @@
                         <td>刪除</td>
                     </tr>
                     <!-- one product -->
-                    <tr class="mt-3">
-                        <td>
-                            <div class="product-img-pc mx-auto ">
-                                <img src="./img/step123needpic/index_11_inner02.jpg" alt="">
-                            </div>
-                        </td>
-                        <td class="pl-4">
-                            <div class="product-info text-left">
-                                <p>好瘦好瘦瑜伽墊</p>
-                                <p class="product-info-detail">
-                                    顏色:嘿<br />尺寸：150*130<br />重量:500g
-                                </p>
-                            </div>
-                        </td>
-                        <td class="number-change w-25">
-
-                            <!-- copy count -->
-                            <div class="cart_count_wrap d-flex justify-content-center col align-items-lg-center">
-                                <!-- - -->
-                                <div class="minus add_cart_icon ">
-                                    <img src="./SVG/custom/minus_g_icon.svg" alt="">
+                    <?php foreach ($_SESSION['cart'] as $c) : ?>
+                        <tr class="mt-3">
+                            <td>
+                                <div class="product-img-pc mx-auto ">
+                                    <img src="./img/product_list/<?= explode(",", $c['img'])[1] ?>.jpg" alt="">
                                 </div>
-                                <!-- 數量 -->
-                                <!-- <div class="count">1</div> -->
-                                <input id="mat-count" name="mat-count" class="count" type="text" value="1" readonly="readonly">
-                                <!-- + -->
-                                <div class="plus add_cart_icon">
-                                    <img src="./SVG/custom/plus_g_icon.svg" alt="">
-                                </div>
-                            </div>
-                            <!-- copy count -->
-                        </td>
-                        <td class="price">NT.1200</td>
-                        <td class="favorite-icon">
-                            <a href="#"><img src="./SVG/icon_favorite.svg" alt=""></a>
 
-                        </td>
-                        <td class="delete-icon">
-                            <a href="#"><img src="./SVG/icon_trash.svg" alt=""></a>
-                        </td>
-                    </tr>
-                    <tr class="mt-3">
-                        <td>
-                            <div class="product-img-pc mx-auto ">
-                                <img src="./img/step123needpic/index_11_inner02.jpg" alt="">
-                            </div>
-                        </td>
-                        <td class="pl-4">
-                            <div class="product-info text-left">
-                                <p>好瘦好瘦瑜伽墊</p>
-                                <p class="product-info-detail">
-                                    顏色:嘿<br />尺寸：150*130<br />重量:500g
-                                </p>
-                            </div>
-                        </td>
-                        <td class="number-change w-25">
-                            <!-- copy count -->
-                            <div class="cart_count_wrap d-flex justify-content-center col align-items-lg-center">
-                                <!-- - -->
-                                <div class="minus add_cart_icon ">
-                                    <img src="./SVG/custom/minus_g_icon.svg" alt="">
+                            </td>
+                            <td class="pl-4">
+                                <div class="product-info text-left">
+                                    <p><?= $c['product_name'] ?></p>
+                                    <p class="product-info-detail">
+                                        顏色：<?= $c['color'] ?><br />尺寸：<?= $c['length'] ?>*<?= $c['width'] ?><br />重量：<?= $c['weight'] ?>g
+                                    </p>
                                 </div>
-                                <!-- 數量 -->
+                            </td>
+                            <td class="number-change w-25">
 
-                                <input id="mat-count" name="mat-count" class="count" type="text" value="1" readonly="readonly">
-                                <!-- + -->
-                                <div class="plus add_cart_icon">
-                                    <img src="./SVG/custom/plus_g_icon.svg" alt="">
+                                <!-- copy count -->
+                                <div class="cart_count_wrap d-flex justify-content-center col align-items-lg-center">
+                                    <!-- - -->
+                                    <div class="minus add_cart_icon ">
+                                        <img src="./SVG/custom/minus_g_icon.svg" alt="">
+                                    </div>
+                                    <!-- 數量 -->
+                                    <!-- <div class="count">1</div> -->
+                                    <input id="mat-count" name="mat-count" class="count" type="text" value="<?= $c['quantity'] ?>" readonly="readonly">
+                                    <!-- + -->
+                                    <div class="plus add_cart_icon">
+                                        <img src="./SVG/custom/plus_g_icon.svg" alt="">
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- copy count -->
-                        </td>
-                        <td class="price">NT.1200</td>
-                        <td class="favorite-icon">
-                            <a href="#"><img src="./SVG/icon_favorite.svg" alt=""></a>
+                                <!-- copy count -->
+                            </td>
+                            <td class="price">NT.<?= $c['price'] * $c['quantity'] ?></td>
+                            <td class="favorite-icon">
+                                <a href="#"><img src="./SVG/icon_favorite.svg" alt=""></a>
 
-                        </td>
-                        <td class="delete-icon">
-                            <a href="#"><img src="./SVG/icon_trash.svg" alt=""></a>
-                        </td>
-                    </tr>
+                            </td>
+                            <td class="delete-icon">
+                                <a href="#"><img src="./SVG/icon_trash.svg" alt=""></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 
 
         </div>
         <!-- 手機版 -->
-        <div class="this-one-pc-none w-100">
-            <div class="d-flex col-12">
-                <div class=" col-10 d-flex justify-content-start p-0">
-                    <div class="product-img mr-3">商品圖</div>
-                    <div class="product-info  d-flex flex-column">
-                        <p>好瘦好瘦瑜伽墊</p>
-                        <p class="product-info-detail m-0">
-                            顏色:嘿<br />尺寸：150*130<br />重量:500g
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-2 d-flex justify-content-end align-items-end">
-                    <p class="m-0">NT.1200</p>
-                </div>
-            </div>
-            <div class="col-12 d-flex align-items-top mb-2 mt-3 icon-family">
-                <div class="col-8 d-flex justify-content-start number-change align-items-center p-0">
-                    <!-- copy count -->
-                    <div class="cart_count_wrap d-flex justify-content-start align-items-center">
-                        <!-- - -->
-                        <div class="minus add_cart_icon ">
-                            <img src="./SVG/custom/minus_g_icon.svg" alt="">
+        <?php foreach ($_SESSION['cart'] as $c) : ?>
+            <div class="this-one-pc-none w-100">
+                <div class="d-flex col-12">
+                    <div class=" col-10 d-flex justify-content-start p-0">
+                        <div class="product-img mr-3">
+                            <img src="./img/product_list/<?= explode(",", $c['img'])[1] ?>.jpg" alt="" style="width: 100%;height:100px;">
                         </div>
-                        <!-- 數量 -->
-                        <!-- <div class="count">1</div> -->
-                        <input id="mat-count" name="mat-count" class="count" type="text" value="1" readonly="readonly">
-                        <!-- + -->
-                        <div class="plus add_cart_icon">
-                            <img src="./SVG/custom/plus_g_icon.svg" alt="">
+                        <div class="product-info  d-flex flex-column">
+                            <p><?= $c['product_name'] ?></p>
+                            <p class="product-info-detail m-0">
+                                顏色：<?= $c['color'] ?><br />尺寸：<?= $c['length'] ?>*<?= $c['width'] ?><br />重量：<?= $c['weight'] ?>g
+                            </p>
+
+
                         </div>
                     </div>
-                    <!-- copy count -->
-                </div>
-                <div class="col-4 d-flex justify-content-between align-items-center">
-                    <a href="#"> <img src="./SVG/icon_favorite.svg" alt=""></a>
 
-                    <a href="#"><img src="./SVG/icon_trash.svg" alt=""></a>
-                </div>
-            </div>
-            <div class="dividerline-in-table-no2 mx-auto"></div>
-
-
-
-        </div>
-        <div class="this-one-pc-none w-100">
-            <div class="d-flex col-12">
-                <div class=" col-10 d-flex justify-content-start p-0">
-                    <div class="product-img mr-3">商品圖</div>
-                    <div class="product-info  d-flex flex-column">
-                        <p>好瘦好瘦瑜伽墊</p>
-                        <p class="product-info-detail m-0">
-                            顏色:嘿<br />尺寸：150*130<br />重量:500g
-                        </p>
+                    <div class="col-2 d-flex justify-content-end align-items-end">
+                        <p class="m-0">NT.<?= $c['price'] * $c['quantity'] ?></p>
                     </div>
                 </div>
-
-                <div class="col-2 d-flex justify-content-end align-items-end">
-                    <p class="m-0">NT.1200</p>
-                </div>
-            </div>
-            <div class="col-12 d-flex align-items-top mb-2 mt-3 icon-family">
-                <div class="col-8 d-flex justify-content-start number-change align-items-center p-0">
-                    <!-- copy count -->
-                    <div class="cart_count_wrap d-flex justify-content-start align-items-center">
-                        <!-- - -->
-                        <div class="minus add_cart_icon ">
-                            <img src="./SVG/custom/minus_g_icon.svg" alt="">
+                <div class="col-12 d-flex align-items-top mb-2 mt-3 icon-family">
+                    <div class="col-8 d-flex justify-content-start number-change align-items-center p-0">
+                        <!-- copy count -->
+                        <div class="cart_count_wrap d-flex justify-content-start align-items-center">
+                            <!-- - -->
+                            <div class="minus add_cart_icon ">
+                                <img src="./SVG/custom/minus_g_icon.svg" alt="">
+                            </div>
+                            <!-- 數量 -->
+                            <!-- <div class="count">1</div> -->
+                            <input id="mat-count" name="mat-count" class="count" type="text" value="<?= $c['quantity'] ?>" readonly="readonly">
+                            <!-- + -->
+                            <div class="plus add_cart_icon">
+                                <img src="./SVG/custom/plus_g_icon.svg" alt="">
+                            </div>
                         </div>
-                        <!-- 數量 -->
-                        <!-- <div class="count">1</div> -->
-                        <input id="mat-count" name="mat-count" class="count" type="text" value="1" readonly="readonly">
-                        <!-- + -->
-                        <div class="plus add_cart_icon">
-                            <img src="./SVG/custom/plus_g_icon.svg" alt="">
-                        </div>
+                        <!-- copy count -->
                     </div>
-                    <!-- copy count -->
-                </div>
-                <div class="col-4 d-flex justify-content-between align-items-center">
-                    <a href="#"> <img src="./SVG/icon_favorite.svg" alt=""></a>
+                    <div class="col-4 d-flex justify-content-between align-items-center">
+                        <a href="#"> <img src="./SVG/icon_favorite.svg" alt=""></a>
 
-                    <a href="#"><img src="./SVG/icon_trash.svg" alt=""></a>
+                        <a href="#"><img src="./SVG/icon_trash.svg" alt=""></a>
+                    </div>
                 </div>
+                <div class="dividerline-in-table-no2 mx-auto"></div>
+
+
+
             </div>
-            <div class="dividerline-in-table-no2 mx-auto"></div>
-
-
-
-        </div>
+        <?php endforeach; ?>
 
         <!-- 總計 -->
         <div class="d-flex justify-content-end col-12 col-sm-12 col-md-10 col-lg-10">
@@ -244,5 +175,33 @@
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
-<script src="./lib/shopping-cart-count.js"></script>
+
+<script>
+    // ↓↓ 商品數量↓↓// 
+    var t = $('.count'); /*  數量顯示框*/
+    $('.plus').click(function() {
+        if (t.val() < 10) {
+            /* 數量最大不能超過 */
+            t.val(parseInt(t.val()) + 1);
+        } else {
+            t.val(10);
+        }
+        console.log(t.val());
+    })
+    $('.minus').click(function() {
+        if (t.val() <= 1) {
+            /*數量最少爲1  */
+            t.val(1);
+        } else {
+            t.val(parseInt(t.val()) - 1);
+        }
+        console.log(t.val());
+    })
+    // ↑↑ 商品數量↑↑ //
+
+    // console.log()
+</script>
+
+
+<!-- <script src="./lib/shopping-cart-count.js"></script> -->
 <?php include __DIR__ . '/parts/html-end.php'; ?>

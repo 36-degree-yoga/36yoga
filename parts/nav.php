@@ -244,12 +244,12 @@
                         </svg>
                     </a>
                     <div class="dropdown-menu">
-                        <?php if (isset($_SESSION['admin'])) : ?>
+                        <?php if (isset($_SESSION['user'])) : ?>
                             <a class="" href="<?= WEB_ROOT ?>member_my_account.php">會員中心</a>
                             <a class="" href="<?= WEB_ROOT ?>logout.php">登出</a>
                         <?php else : ?>
-                            <a class="" href="<?= WEB_ROOT ?>login_regist.php">註冊</a>
-                            <a class="" href="<?= WEB_ROOT ?>login.php">登入</a>
+                            <a class="" href="<?= WEB_ROOT ?>login-test01.php">註冊</a>
+                            <a class="" href="<?= WEB_ROOT ?>login-test01.php">登入</a>
                         <?php endif ?>
 
                     </div>

@@ -3,7 +3,7 @@
         <div class="row mb-5 justify-content-center">
             <div class="col-8 d-flex p-0 flex-column flex-sm-column flex-md-row flex-lg-row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="foot-info1">
-                    <h6 class="footer_big_title">SERVICE</h6>
+                    <h6 class="footer_big_title" style="color: #f2a200;">SERVICE</h6>
                     <p class="footer_title_wrap">
                         <a class="text-white" href="#">如何購買│How to Buy</a><br />
                         <a class="text-white" href="#">產品特點│Identify</a><br />

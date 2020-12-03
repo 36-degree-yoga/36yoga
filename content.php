@@ -1,4 +1,25 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
+<?php
+$rec1_sql = "SELECT * FROM `products` WHERE `sid` IN (1 , 2 , 13)";
+$rec1_Stmt = $pdo->query($rec1_sql);
+$rec1_row = $rec1_Stmt->fetchAll();
+foreach ($rec1_row  as $k => $r) {
+    $rec1_row[$k]['my_imgs'] = explode(",", $r['img']);
+};
+
+$rec2_sql = "SELECT * FROM `products` WHERE `sid` IN (9 , 18 , 21)";
+$rec2_Stmt = $pdo->query($rec2_sql);
+$rec2_row = $rec2_Stmt->fetchAll();
+foreach ($rec2_row  as $k2 => $r2) {
+    $rec2_row[$k2]['my_imgs'] = explode(",", $r2['img']);
+};
+
+// echo json_encode($rec2_row, JSON_UNESCAPED_UNICODE);
+
+?>
+
+
+
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
@@ -96,64 +117,25 @@
             <h2 class="text-center rec-ani-1" style="animation-delay: .8s;">商品推薦</h2>
 
             <div class="guessyoullike d-flex justify-content-center position-relative">
-                <a href="">
-                    <div class="product-zone px-0 rec-ani-1">
 
-                        <div class="product-wrap">
+                <?php foreach ($rec1_row as $b) : ?>
+                    <a href="">
+                        <div class="product-zone px-0 rec-ani-1">
+                            <div class="product-wrap">
+                                <div class="img-wrap">
+                                    <img src="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" alt="" style="height: 100%;width: 100%; object-fit: cover;">
+                                </div>
 
-                            <div class="img-wrap border ">
-                                <!-- product 的 border 之後取消 -->
-                                <img class="product-pic w-100" src="<?= WEB_ROOT ?>img/content/mat_3.jpg" alt="瑜珈磚">
-                            </div>
-
-                            <div class="product-info text-center">
-                                <a href="">
-                                    <h6 class="mb-0">好瘦瑜珈磚</h6>
-                                </a>
-                                <p>NT$. 1000</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="product-zone px-0 rec-ani-1">
-
-                        <div class="product-wrap">
-
-                            <div class="img-wrap border ">
-                                <!-- product 的 border 之後取消 -->
-                                <img class="product-pic w-100" src="<?= WEB_ROOT ?>img/content/mat_3.jpg" alt="瑜珈磚">
-                            </div>
-
-                            <div class="product-info text-center">
-                                <a href="">
-                                    <h6 class="mb-0">好瘦瑜珈磚2</h6>
-                                </a>
-                                <p>NT$. 1000</p>
+                                <div class="product-info text-center">
+                                    <a href="">
+                                        <h6 class="mb-0"><?= $b['product_name'] ?></h6>
+                                    </a>
+                                    <p>NT.<?= $b['price'] ?></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="product-zone px-0 mr-0 rec-ani-1">
-
-                        <div class="product-wrap">
-
-                            <div class="img-wrap border ">
-                                <!-- product 的 border 之後取消 -->
-                                <img class="product-pic w-100" src="<?= WEB_ROOT ?>img/content/mat_3.jpg" alt="瑜珈磚">
-                            </div>
-
-                            <div class="product-info text-center">
-                                <a href="">
-                                    <h6 class="mb-0">好瘦瑜珈磚3</h6>
-                                </a>
-                                <p>NT$. 1000</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                <?php endforeach; ?>
 
 
             </div>
@@ -218,64 +200,25 @@
             <h2 class="text-center rec-ani-2" style="animation-delay: .8s;">商品推薦</h2>
 
             <div class="guessyoullike d-flex justify-content-center position-relative">
-                <a href="">
-                    <div class="product-zone px-0 rec-ani-2">
 
-                        <div class="product-wrap">
+                <?php foreach ($rec2_row as $b2) : ?>
+                    <a href="">
+                        <div class="product-zone px-0 rec-ani-1">
+                            <div class="product-wrap">
+                                <div class="img-wrap">
+                                    <img src="./img/product_list/<?= $b2['my_imgs'][1] ?>.jpg" alt="" style="height: 100%;width: 100%; object-fit: cover;">
+                                </div>
 
-                            <div class="img-wrap border ">
-                                <!-- product 的 border 之後取消 -->
-                                <img class="product-pic w-100" src="<?= WEB_ROOT ?>img/content/mat_3.jpg" alt="瑜珈磚">
-                            </div>
-
-                            <div class="product-info text-center">
-                                <a href="">
-                                    <h6 class="mb-0">好瘦瑜珈磚</h6>
-                                </a>
-                                <p>NT$. 1000</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="product-zone px-0 rec-ani-2">
-
-                        <div class="product-wrap">
-
-                            <div class="img-wrap border ">
-                                <!-- product 的 border 之後取消 -->
-                                <img class="product-pic w-100" src="<?= WEB_ROOT ?>img/content/mat_3.jpg" alt="瑜珈磚">
-                            </div>
-
-                            <div class="product-info text-center">
-                                <a href="">
-                                    <h6 class="mb-0">好瘦瑜珈磚2</h6>
-                                </a>
-                                <p>NT$. 1000</p>
+                                <div class="product-info text-center">
+                                    <a href="">
+                                        <h6 class="mb-0"><?= $b2['product_name'] ?></h6>
+                                    </a>
+                                    <p>NT.<?= $b2['price'] ?></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="product-zone px-0 mr-0 rec-ani-2">
-
-                        <div class="product-wrap">
-
-                            <div class="img-wrap border ">
-                                <!-- product 的 border 之後取消 -->
-                                <img class="product-pic w-100" src="<?= WEB_ROOT ?>img/content/mat_3.jpg" alt="瑜珈磚">
-                            </div>
-
-                            <div class="product-info text-center">
-                                <a href="">
-                                    <h6 class="mb-0">好瘦瑜珈磚3</h6>
-                                </a>
-                                <p>NT$. 1000</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                <?php endforeach; ?>
 
 
             </div>

@@ -1,4 +1,35 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
+<?php
+$where = " WHERE 1 ";
+$test_num = count($_SESSION['yoga_test']) + 1;
+$name = 'test' . $test_num;
+echo 'name::' . $name;
+
+if (count($_SESSION['yoga_test']) > 0) {
+    $where .= " AND `question_id`=$test_num ";
+}
+
+$c_sql = "SELECT * FROM yoga_test $where";
+$c_rows = $pdo->query($c_sql)->fetchAll();
+$t = $c_rows[0]['question'];
+$q = $c_rows[0]['ans'];
+$v = $c_rows[0]['value'];
+$pieces = explode(",", $q);
+$value = explode(",", $v);
+
+//表單已被提交，並且應該對其進行驗證。如果未提交，則跳過驗證並顯示一個空白表單。
+
+$resultErr = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST[$name])) {
+        $resultErr = "姓名或密碼不能為空";
+    } else {
+        //存入session
+        $_SESSION['yoga_test'][$name] = $_POST[$name];
+    }
+}
+?>
+
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
@@ -27,7 +58,7 @@
 
     <!-- 內文 -->
     <div class="content-wrapper position-absolute d-flex">
-
+        <!-- 進度條 -->
         <div class="pro-bar d-flex justify-content-end">
             <div class="pro-number">
                 <div class="number d-flex justify-content-center align-items-center"><span>01</span></div>
@@ -53,29 +84,30 @@
         </div>
 
         <div class="content d-flex justify-content-center flex-wrap">
+            <pre>
+        <?php print_r($_POST) ?>
+    </pre>
             <div class="content-title text-center w-100 animate__animated animate__fadeInUp">
-                <h2>你常做的瑜珈種類？</h2>
+                <h2>
+                    <? echo $t ?>
+                </h2>
             </div>
-            <div class="btn-wrapper d-flex flex-wrap align-content-start">
-                <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp"><button type="button" class="btn_l choice" name="" value="">哈達瑜珈</button></div>
-                <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp"><button type="button" class="btn_l choice" name="" value="">哈達瑜珈</button></div>
-                <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp"><button type="button" class="btn_l choice" name="" value="">哈達瑜珈</button></div>
-                <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp"><button type="button" class="btn_l choice" name="" value="">哈達瑜珈</button></div>
-                <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp"><button type="button" class="btn_l choice" name="" value="">哈達瑜珈</button></div>
-                <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp"><button type="button" class="btn_l choice" name="" value="">哈達瑜珈</button></div>
-                <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp"><button type="button" class="btn_l choice" name="" value="">哈達瑜珈</button></div>
-                <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp"><button type="button" class="btn_l choice" name="" value="">哈達瑜珈</button></div>
+            <!-- 送出 -->
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <div class="btn-wrapper d-flex flex-wrap align-content-start">
 
+                    <?php foreach (array_combine($pieces, $value) as $course => $value) : ?>
+                        <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp">
+                            <button type="" class="btn_l choice" id="test" name="<? echo $name ?>" value="<?= $value ?>"><?= $course ?></button>
+                        </div>
+                    <?php endforeach ?>
+                </div>
+                <div class="choice-next d-flex justify-content-center animate__animated animate__fadeInUp">
+                    <!-- <button type="submit" class="btn_f choice mx-5" name="" value="">上一步</button> -->
+                    <button type="submit" class="btn_f choice mx-5" name="" value="">下一步</button>
 
-            </div>
-
-
-
-            <div class="choice-next d-flex justify-content-center animate__animated animate__fadeInUp">
-                <button type="button" class="btn_f choice mx-5" name="" value="">上一步</button>
-                <button type="button" class="btn_f choice mx-5" name="" value="">下一步</button>
-
-            </div>
+                </div>
+            </form>
         </div>
 
     </div>
@@ -163,7 +195,9 @@
 
 <!-- include __DIR__ . '/parts/html-footer.php';  -->
 <?php include __DIR__ . '/parts/script.php'; ?>
-<script src="<?= WEB_ROOT ?>lib/content.js"></script>
 <!-- js連結 -->
+<script>
+
+</script>
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>

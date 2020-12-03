@@ -111,7 +111,7 @@ foreach ($towel_row  as $k => $r) {
                 <!-- 側bar標題 -->
                 <div class="product_sidebar_content">
 
-                    <div class="product_siderbar_title">
+                    <div class="product_siderbar_title mat_bar">
 
                         <div class="title">
                             <a id="plst_top" href="#">瑜珈墊</a>
@@ -121,19 +121,19 @@ foreach ($towel_row  as $k => $r) {
                             <a href="#std" id="a">一般</a>
                         </div>
                         <div class="subtitle">
-                            <a href="#ctm">客製化</a>
+                            <a href="#ctm" id="b">客製化</a>
                         </div>
                     </div>
-                    <div class="product_siderbar_title">
+                    <div class="product_siderbar_title prop_bar">
 
                         <div class="title"><a href="#">輔具</a></div>
-                        <div class="subtitle"><a href="#block">瑜珈磚</a></div>
-                        <div class="subtitle"><a href="#pad">支撐墊</a></div>
-                        <div class="subtitle"><a href="#roller">滾筒</a></div>
-                        <div class="subtitle"><a href="#sand">沙包</a></div>
-                        <div class="subtitle"><a href="#strap">伸展帶</a></div>
-                        <div class="subtitle"><a href="#band">彈力帶</a></div>
-                        <div class="subtitle"><a href="#towel">舖巾</a></div>
+                        <div class="subtitle"><a href="#block" id="c">瑜珈磚</a></div>
+                        <div class="subtitle"><a href="#pad" id="d">支撐墊</a></div>
+                        <div class="subtitle"><a href="#roller" id="e">滾筒</a></div>
+                        <div class="subtitle"><a href="#sand" id="f">沙包</a></div>
+                        <div class="subtitle"><a href="#strap" id="g">伸展帶</a></div>
+                        <div class="subtitle"><a href="#band" id="h">彈力帶</a></div>
+                        <div class="subtitle"><a href="#towel" id="i">舖巾</a></div>
                     </div>
                 </div>
             </div>

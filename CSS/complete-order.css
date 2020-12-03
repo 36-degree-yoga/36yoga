@@ -3,7 +3,7 @@ body {
 }
 .nav-place-zone {
   width: 100%;
-  height: 120px;
+  height: 100px;
 }
 .footer-zone {
   background-color: #004a13;
@@ -68,7 +68,7 @@ body {
 
 /* 溫度計 */
 .need-bck-img {
-  background: url(./img/background-img/finish-order.png) no-repeat;
+  background: url(./img/step123needpic/finish-order.png) no-repeat;
 
   background-size: cover;
   background-position: bottom;
