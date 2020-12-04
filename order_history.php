@@ -197,7 +197,7 @@ foreach ($d_rows  as $k => $r) {
 
 <!-- 中間 -->
 <div class="container hide">
-    <div class="row " style="padding-top: 120px;padding-bottom: 120px;">
+    <div class="row " style="padding-top: 60px;padding-bottom: 120px;">
         <div class="space_120"></div>
         <!-- 左側: 選單 -->
         <div class="account_side_bar d-flex col-3 position-relative ">
