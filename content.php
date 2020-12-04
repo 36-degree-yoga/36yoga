@@ -21,13 +21,13 @@ foreach ($rec2_row  as $k2 => $r2) {
 <!DOCTYPE html>
 <html lang="en">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>36YOGA</title>
-    <link rel="stylesheet" href="<?= WEB_ROOT ?>bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="<?= WEB_ROOT ?>fontawesome/css/all.css">
-    <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/nav.css">
-    <!-- <link rel="stylesheet" href="<= WEB_ROOT ?>CSS/footer.css" /> -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>36YOGA</title>
+<link rel="stylesheet" href="<?= WEB_ROOT ?>bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="<?= WEB_ROOT ?>fontawesome/css/all.css">
+<link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/nav.css">
+<!-- <link rel="stylesheet" href="<= WEB_ROOT ?>CSS/footer.css" /> -->
 
 
 <!-- <php include __DIR__ . '/parts/html-head.php'; ?> -->
@@ -45,10 +45,10 @@ foreach ($rec2_row  as $k2 => $r2) {
     <div class="srolldown_btn col-1 d-flex flex-column justify-content-end align-items-center">
         <div class="scrollbox animate__animated animate__fadeInDown">
             <div class="scroll_p">Scroll Down</div>
-            <div class="scrolldown_line"></div> 
+            <div class="scrolldown_line"></div>
         </div>
-        
-    </div>  
+
+    </div>
 
     <div class="col-lg-3 col-9 d-flex flex-column hero-text position-relative align-items-start">
         <div class="hero-text-h1 hero-text-h1-desktop mt-0 animate__animated animate__fadeInLeft">
@@ -70,7 +70,7 @@ foreach ($rec2_row  as $k2 => $r2) {
     <!-- 手機版scrolldown -->
 
 
-    <div class="srolldown_btn_mobile col-3 d-flex align-items-end" >
+    <div class="srolldown_btn_mobile col-3 d-flex align-items-end">
         <div class="scroll_p_mobile">Scroll&ensp;Down</div>
     </div>
 
