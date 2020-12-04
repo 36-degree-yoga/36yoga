@@ -15,14 +15,15 @@ h1,h2{
 
 }
 .hero-img{
-    background: url("./../img/content/content_07.png") right bottom no-repeat;
+    background: url("./../img/content/content_09.jpg") right bottom no-repeat;
     background-size: cover; 
     margin-bottom: 0;     
-    height: 100%;
+    height: 100%; 
     /* opacity: 1; */
     /* animation: fadein 2s; */
     
 }
+
 
 @keyframes fadein{
     from{
@@ -335,7 +336,7 @@ a:hover {
 }
 
 .last-sec-text-wrap{
-    margin-top:7.625rem;
+    margin-top: 9rem;
 }
 
 .last-sec-thermo::before{
@@ -369,7 +370,7 @@ a:hover {
 
 .last-sec-text{
     margin-top: 7.5rem;
-    margin-bottom: 4rem;
+    margin-bottom: 60px;
 }
 
 .btn_l{
@@ -385,6 +386,19 @@ a:hover {
 
 .srolldown_btn_mobile{
 display: none!important;
+}
+
+.hero-text-h1,
+.hero-text-span-desktop{
+    margin-left: -30px;
+}
+
+.hero-text-span-desktop{
+    width: 85%;
+}
+
+.hero{
+    height: 800px;
 }
 /* ------------------------------------------手機版 */
 /* ------------------------------------------手機版 */
@@ -410,11 +424,15 @@ font-size:40px;
 .srolldown_btn_mobile{
 display: inline-block!important;
 order:3;
-height: 26.625rem;
+height: 22rem;
 /* transform: rotate(90deg); */
 
 /* height: 26.6875rem; */
 
+}
+
+.srolldown_btn_mobile_h{
+    transform: translateY(50px);
 }
 
 .scroll_p_mobile{
@@ -435,7 +453,7 @@ font-family: 'Josefin Sans', sans-serif;
 content: '';
 
 position: absolute;
- height: 90px;
+height: 90px;
 width: 2px;
 background-color: #333333;
 transform: rotate(-90deg);
@@ -444,6 +462,8 @@ left: 100%;
 top: 30%;
 
 }
+
+
 
 
 .srolldown_btn_desktop{
@@ -455,7 +475,7 @@ order: 2;
 padding-left: 2.25rem;
 margin-top: 3.125rem;
 padding-left: 2.25rem;
-height: 26.625rem;
+height: 20rem;
 
 }
 
@@ -465,7 +485,6 @@ display: inline-block;
 }
 
 .hero-text-span-desktop{
-
 display: none;
 }
 
@@ -591,7 +610,7 @@ height: 20.625rem;}
     
     }
 
-.product-zone {
+    .product-zone {
         /* margin-right: 75px;
         margin-left: 75px; */
         
@@ -626,6 +645,59 @@ height: 20.625rem;}
     .btn_f{
         width: 18rem;
     }
+
+
+    /* scroll down 按鈕 */
+    .scrolldown_btn{
+        margin-left: 500px;
+        transform: translateY(500px);
+        cursor: pointer;
+        animation-duration: 1s;
+        animation-delay: 5s;
+    }
+
+    .scrollbox{
+        height: 400px;
+        margin-left: 35px;
+        transition-duration: .3s;
+        cursor: pointer;
+        margin-top: 250px;
+    }
+
+    .scrolldown_btn_h{
+        height: 80px;
+        margin-left: 35px;
+        transition-duration: .3s;
+        cursor: pointer;
+    }
+
+    .scrollbox_h{
+        height: 80px;
+        /* margin-left: 35px;
+        transition-duration: .3s;
+        cursor: pointer; */
+    }
+
+    .scroll_p{
+        font-family: 'Josefin Sans', sans-serif;
+        color: #333333;
+        font-size: 1.2rem;
+        transform: rotate(90deg);
+        height: 40px;
+        margin-left: -55px;
+        margin-top: 100px;
+    }
+
+    .scrolldown_line{
+        height: 300px;
+        width: 2px;
+        background-color: #333333;
+        margin-top: 50px;
+    }
+
+
+
+    
 
 
 
@@ -676,6 +748,51 @@ order:2;
 }
 
 
-
-
 }
+
+@media(max-width:500px){
+    /* scroll down 按鈕 */
+    .scrolldown_btn{
+        display: none;
+    }
+
+    .scrollbox{
+        display: none;
+    }
+
+    .scrolldown_btn_h{
+        display: none;
+    }
+
+    .scrollbox_h{
+        display: none;
+    }
+
+    .scroll_p{
+        display: none;
+    }
+
+    .scrolldown_line{
+        display: none;
+    }
+
+    .hero-text-h1-mobile h1{
+        font-size: 3rem;
+        margin-left: 30px;
+    }
+
+    .hero-text-span-mobile{
+        margin-top: 20px;
+    }
+
+    .text-wrap{
+        padding-left: 10px;
+        padding-top: 20px;
+    }
+ 
+    .last-sec{
+        height: 58.5rem;
+    }
+    
+}
+

@@ -31,22 +31,23 @@ foreach ($rec2_row  as $k2 => $r2) {
 <div class="w-100 for-nav"></div>
 <div class="container-fluid hero d-flex flex-wrap">
 
-    <div class="srolldown_btn srolldown_btn_desktop col-1 d-flex flex-column justify-content-end align-items-center">
-        <div class="scrollbox">
-            <div class="scroll_p">Scroll&ensp;Down</div>
-            <div class="scrolldown_line"></div>
+    <!-- scroll down -->
+    <div class="srolldown_btn col-1 d-flex flex-column justify-content-end align-items-center">
+        <div class="scrollbox animate__animated animate__fadeInDown">
+            <div class="scroll_p">Scroll Down</div>
+            <div class="scrolldown_line"></div> 
         </div>
-    </div>
+        
+    </div>  
 
-    <div class="col-lg-3 col-9 d-flex flex-column hero-text position-relative align-items-center">
+    <div class="col-lg-3 col-9 d-flex flex-column hero-text position-relative align-items-start">
         <div class="hero-text-h1 hero-text-h1-desktop mt-0 animate__animated animate__fadeInLeft">
             <h1>瑜珈墊挑選指南</h1>
         </div>
         <div class="hero-text-h1 hero-text-h1-mobile mt-0 animate__animated animate__fadeInLeft">
             <h1>瑜珈墊<br>挑選指南</h1>
         </div>
-        <span class="hero-text-span-desktop animate__animated animate__fadeInLeft">一張適合的瑜珈墊，可以幫助你更快速地進入體式，同時確保安全與舒適度。
-            閱讀我們的挑選指南，找到專屬你的瑜珈墊！
+        <span class="hero-text-span-desktop animate__animated animate__fadeInLeft">一張適合的瑜珈墊，可以幫助你更快速地進入體式，同時確保安全與舒適度。閱讀我們的挑選指南，找到專屬你的瑜珈墊！
         </span>
         <span class="hero-text-span-mobile">一張適合的瑜珈墊，可以幫助你更快速地進入體式，同時確保安全與舒適度。
             閱讀我們的挑選指南，找到專屬你的瑜珈墊！
@@ -59,7 +60,7 @@ foreach ($rec2_row  as $k2 => $r2) {
     <!-- 手機版scrolldown -->
 
 
-    <div class="srolldown_btn_mobile col-3 d-flex align-items-end">
+    <div class="srolldown_btn_mobile col-3 d-flex align-items-end" >
         <div class="scroll_p_mobile">Scroll&ensp;Down</div>
     </div>
 
@@ -69,7 +70,7 @@ foreach ($rec2_row  as $k2 => $r2) {
 </div>
 <!-- content區塊1 -->
 
-<div class="container-fluid d-flex content-sec flex-wrap position-relative">
+<div id='content_part1' class="container-fluid d-flex content-sec flex-wrap position-relative">
 
     <div class="col-lg-6 col-12 sec1-img sec1-img-ani-1">
 
@@ -248,7 +249,8 @@ foreach ($rec2_row  as $k2 => $r2) {
                 <h1>Soulmat</h1>
             </div>
             <div class="last-sec-text mobile last-sec-text-ani">
-                <h1 class="">Find Your</h1>
+                <h1 class="">Find</h1>
+                <h1> Your</h1>
                 <h1>Soulmat</h1>
             </div>
 
