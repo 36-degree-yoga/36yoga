@@ -343,7 +343,7 @@ position: relative;
 width: 40px;
 height: 40px;
 border-radius: 3px;
-background:;
+/* background:; */
 margin: 0 auto;
 padding-top: 12px;
 transition: all 500ms cubic-bezier(1.000, 0.000, 0.645, 0.650);
@@ -501,5 +501,18 @@ z-index:3000;
 .navv-mobile{
   display: fixed;
   z-index: 5000;
+}
+
+#logo_-_1{
+  margin-left: -10px;
+}
+
+.menu-bar{
+  height: 4px;
+  margin-top: -6px;
+}
+
+.toggled .bar3{
+  margin-top: 1px;
 }
 }

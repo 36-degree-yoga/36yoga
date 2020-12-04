@@ -112,6 +112,11 @@ a.dropdown-item:hover {
 .dropdown-toggle::after {
   margin-left: 2.2rem;
 }
+
+.dropdown-toggle{
+  margin-right: 15px;
+}
+
 /* 篩選器↑↑ */
 
 /* 手機版 */
@@ -211,4 +216,11 @@ a.dropdown-item:hover {
   .space_120 {
     height: 0px;
   }
+
+  .banner{
+    margin-top: -100px;
+  }
+
+ 
+
 }
