@@ -308,8 +308,6 @@
             totalWeight += weight * totalcount;
             totalCountNumber += totalcount;
         });
-
-
         console.log({
             totalMoney,
             totalWeight,
