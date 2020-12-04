@@ -251,7 +251,7 @@ foreach ($_SESSION as $k => $v) {
                 </div>
             </div>
             <div class="nav-right d-flex align-items-center col-lg-3 justify-content-end">
-                <div class="nav-icon mr-5 btn-group d-flex align-items-center">
+                <div class="nav-icon mr-4 btn-group d-flex align-items-center">
                     <a href="" class="nav-text mr-5" class="dropdown-toggle" data-toggle="dropdown">
                         <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
                             <path class="nav-icon-stroke" id="icon_-_member" data-name="icon - member" d="M0,27V23.625c0-3.713,6.075-6.751,13.5-6.751S27,19.912,27,23.625V27ZM6.749,6.751A6.75,6.75,0,1,1,13.5,13.5,6.751,6.751,0,0,1,6.749,6.751Z" transform="translate(1 1)" fill="none" stroke="#004a13" stroke-width="2" />
@@ -269,7 +269,7 @@ foreach ($_SESSION as $k => $v) {
                     </div>
                 </div>
 
-                <a class="nav-icon mr-5 align-items-center d-flex" href="">
+                <a class="nav-icon mr-4 align-items-center d-flex" href="">
                     <svg class="" xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28">
                         <g class="" id="Path_321" data-name="Path 321" transform="translate(0 -1.206)" fill="none">
                             <path class="nav-icon" d="M15,29.206C6.935,23.364,2.7,18.049.97,13.6-3.678,1.68,9.6-2.37,15,4.667,20.4-2.37,33.678,1.68,29.03,13.6,27.3,18.049,23.065,23.364,15,29.206Z" stroke="none" />

@@ -98,6 +98,14 @@ body {
 #imgcode {
   height: 60px;
   width: 120px;
+  /* background-color: #FDEBCA; */
+  /* background-image: url('../img/index/random01.svg'); */
+}
+
+.randompic{
+  width: 120px;
+  height: 60px;
+  background-image: url('');
 }
 
 body {
