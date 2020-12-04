@@ -18,9 +18,19 @@ foreach ($rec2_row  as $k2 => $r2) {
 
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>36YOGA</title>
+    <link rel="stylesheet" href="<?= WEB_ROOT ?>bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= WEB_ROOT ?>fontawesome/css/all.css">
+    <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/nav.css">
+    <!-- <link rel="stylesheet" href="<= WEB_ROOT ?>CSS/footer.css" /> -->
 
 
-<?php include __DIR__ . '/parts/html-head.php'; ?>
+<!-- <php include __DIR__ . '/parts/html-head.php'; ?> -->
 <!-- css連結 -->
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/animate.min.css">
