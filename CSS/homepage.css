@@ -1653,10 +1653,6 @@ body{
         transform: scale(0.4);
     }
     
-
-
-
-
     /* 溫度計 */
     .m_index_thermometer{
         width: 290px;
@@ -1665,6 +1661,15 @@ body{
         margin-top: 10px;
         animation-duration: 1s;
         animation-delay: .1s;
+    }
+
+    .m_thermometer_move {
+        height: 100%;
+        width: 33%;
+        background-color: #db5c00;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        transition: 0.5s;
     }
 
     a{
@@ -1690,6 +1695,8 @@ body{
     .m_home_page_number a:hover {
         text-decoration: none ;
     }
+
+        
 
     /* mobile hero 上層 */
     .m_hero_btm{

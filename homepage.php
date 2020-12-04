@@ -431,7 +431,7 @@
 
                         <!-- 移動圖片們 -->
                         <div class="movemove prods_left col-5" data-rellax-speed="4" >
-                            <div class="prods_box ">
+                            <div class="prods_box">
                                 <div class="prods_picwrap ppwrap_01" >
                                     <img class="index_prodspic_h1" src="./img/index/index_04_h.jpg" alt="">
                                     <img class="index_prodspic01" src="./img/index/index_04.jpg" alt="">   
@@ -866,14 +866,14 @@
                                 <img class="thermometer d-block position-absolute" src="./SVG/new_m_index_thermometer.svg" alt="">
                         
                                 <div class="thermometer_line">
-                                    <div class="thermometer_move"></div>
+                                    <div class="m_thermometer_move"></div>
                                 </div>
                                 <!-- </div> -->
                             </div>
                             <div class="m_home_page_number row justify-content-around">
-                                <p id="hpn_1">01</p>
-                                <p id="hpn_2">02</p>
-                                <p id="hpn_3">03</p>
+                                <p id="m_hpn_1">01</p>
+                                <p id="m_hpn_2">02</p>
+                                <p id="m_hpn_3">03</p>
                             </div>
                         </div>
                     </div>    
