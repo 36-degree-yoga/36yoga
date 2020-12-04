@@ -58,9 +58,11 @@
             </div>
 
             <div class="">
-                <a href="<?= WEB_ROOT ?>test-01.php">
-                    <div class="btn_f btn animate__animated animate__fadeInUp test-btn">開始測驗</div>
+
+                <a href="<?= WEB_ROOT ?>yoga-test-q.php" style="color:#004A13; text-decoration:none;">
+                    <div class="btn_f btn animate__animated animate__fadeInUp test-btn">開始測驗</ㄖ>
                 </a>
+
             </div>
 
 

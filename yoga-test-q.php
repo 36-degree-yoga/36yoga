@@ -1,41 +1,55 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 <?php
-$where = " WHERE 1 ";
-if (empty($_SESSION['yoga_test'])) {
+
+if (!isset($_SESSION['yoga_test'])) {
     $_SESSION['yoga_test'] = [];
-    $test_num = 1;
-} elseif (count($_SESSION['yoga_test']) == 5) {
-    unset($_SESSION['yoga_test']);
-    //之後再轉向到結果頁面
-    header('Location: test-01.php');
-    exit;
-} else {
-    $test_num = count($_SESSION['yoga_test']) + 1;
 };
 
-$name = 'test' . $test_num;
-echo 'name::' . $name;
-$where .= " AND `question_id`=$test_num ";
+// if ($_SERVER['HTTP_REFERER'] = "= WEB_ROOT yoga-test-result.php") {
+//     //如果是重新測驗來ㄉ 
+//     unset($_SESSION['yoga_test']);
+//     if (!isset($_SESSION['yoga_test'])) {
+//         $_SESSION['yoga_test'] = [];
+//     };
+//     // echo 'hi referer';
+// };
 
-$c_sql = "SELECT * FROM yoga_test $where";
-$c_rows = $pdo->query($c_sql)->fetchAll();
-$t = $c_rows[0]['question'];
-$q = $c_rows[0]['ans'];
-$v = $c_rows[0]['value'];
-$pieces = explode(",", $q);
-$value = explode(",", $v);
 
-//表單已被提交，並且應該對其進行驗證。如果未提交，則跳過驗證並顯示一個空白表單。
+if (count($_SESSION['yoga_test']) == 4) {
+    // unset($_SESSION['yoga_test']);
+    //再轉向到結果頁面
+    header('Location: yoga-test-result.php');
+    // echo 'oh';
+};
 
 $resultErr = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST[$name])) {
-        $resultErr = "請選擇";
+    if (empty($_POST['test'])) {
+        echo "請選擇";
     } else {
         //存入session
-        $_SESSION['yoga_test'][$name] = $_POST[$name];
+        $_SESSION['yoga_test'][] = $_POST['test'];
     }
-}
+};
+
+$showQ = count($_SESSION['yoga_test']) + 1;
+// $where = " WHERE 1 ";
+// $where .= " AND `question_id`=$showQ ";
+// echo 'name::' . $showQ;
+
+$c_sql = "SELECT * FROM yoga_test WHERE `question_id`=$showQ";
+$c_rows = $pdo->query($c_sql)->fetch();
+$t = $c_rows['question'];
+$q = $c_rows['ans'];
+$v = $c_rows['value'];
+$pieces = explode(",", $q);
+$value = explode(",", $v);
+$qqq = intval(count($_SESSION['yoga_test']) + 1);
+
+// echo json_encode($qqq);
+//表單已被提交，並且應該對其進行驗證。如果未提交，則跳過驗證並顯示一個空白表單。
+
 ?>
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -55,11 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <svg class="position-absolute green-rock" xmlns="http://www.w3.org/2000/svg" width="1218.765" height="1124.635" viewBox="0 0 1218.765 1124.635">
         <path id="Path_497" data-name="Path 497" d="M3065.932,796.8s289.165-36.809,169.6-430.369c-46.626-72.864-78.97-52.932-140.728-167.04-42.191-64.665-253.649-242.858-478.167-338.941-58.487-28.374-196.947-71.7-259.8-94.854-36.749-14.772-177.878,3.375-250.177,135.408-34.83,81.736-105.186,217.363-21.6,464.762,26.577,75.663,102.185,334.884,427,496.739,69.6,22.356,172.882,43.479,363.374-11.115C2951.239,797.385,3033.653,804.788,3065.932,796.8Z" transform="translate(-2045.738 238.715)" fill="#004a13" />
     </svg>
-
     <svg class="position-absolute yellow-rock" xmlns="http://www.w3.org/2000/svg" width="1113.47" height="1339.771" viewBox="0 0 1113.47 1339.771">
         <path id="Path_527" data-name="Path 527" d="M2282.99-363.548s-14.382-128.173-309.193-41.889c-79.1,21.572-404.271,151.405-564.481,532.5-48.532,107.528-61.1,200.933,3.619,308.793,7.19,86.284,14.383,287.622,115.051,352.334,64.712,50.333,71.9,172.572,488.956,86.288,64.712-28.761,186.951,21.572,316.383-100.667,57.523-64.716,86.284-93.477,86.284-287.622,21.572-64.716,81.985-166.484,56.134-387.977-44.253-155.983-20-24.252-81.046-211.612C2401.89-156.543,2405.2-292.088,2282.99-363.548Z" transform="translate(-1368.592 435.295)" fill="#f2a200" />
     </svg>
-
     <svg class="position-absolute orange-rock" xmlns="http://www.w3.org/2000/svg" width="1391.512" height="1510.477" viewBox="0 0 1391.512 1510.477">
         <path id="Path_498" data-name="Path 498" d="M2195.53-369.841s-13.007-116.931-279.62-38.215c-71.53,19.68-365.6,138.125-510.489,485.8-43.89,98.1-55.254,183.309,3.273,281.709,6.5,78.716,13.007,262.395,104.045,321.431,58.522,45.919,65.028,157.436,442.188,78.72,58.522-26.239,169.07,19.68,286.121-91.837,52.021-59.04,78.031-85.279,78.031-262.395,19.509-59.04,74.143-151.882,50.765-353.948-40.021-142.3-18.088-22.125-73.294-193.051C2303.056-180.992,2306.051-304.649,2195.53-369.841Z" transform="translate(2365.646 1619.562) rotate(-158)" fill="#cd6327" />
     </svg>
@@ -73,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="number d-flex justify-content-center align-items-center"><span>02</span></div>
                 <div class="number d-flex justify-content-center align-items-center"><span>03</span></div>
                 <div class="number d-flex justify-content-center align-items-center"><span>04</span></div>
-                <div class="number d-flex justify-content-center align-items-center" style="color:#db5c00"><span>05</span></div>
+                <div class="number d-flex justify-content-center align-items-center"><span>05</span></div>
             </div>
             <div class="thermometer_container">
                 <div class="thermometer_wrap d-flex  justify-content-center position-relative">
@@ -91,35 +103,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </div>
 
-        <div class="content d-flex justify-content-center flex-wrap">
-            <pre>
-                <?php print_r($_POST) ?>
-            </pre>
+        <div class="content d-flex align-items-start flex-column">
+
             <div class="content-title text-center w-100 animate__animated animate__fadeInUp">
                 <h2>
                     <? echo $t ?>
                 </h2>
             </div>
             <!-- 送出 -->
-            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                <div class="btn-wrapper d-flex flex-wrap align-content-start">
-
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="w-100">
+                <input type="hidden" id="test" name="test" value="">
+                <div class="btn-wrapper d-flex flex-wrap align-content-start w-100">
                     <?php foreach (array_combine($pieces, $value) as $course => $value) : ?>
                         <div class="btn-wrap col-6 d-flex justify-content-center animate__animated animate__fadeInUp">
-                            <button type="button" onclick="getValue();return false;" class="btn_l choice" id="test" name="<? echo $name ?>" value="<?= $value ?>"><?= $course ?></button>
-                            <input type="hidden" id="test" name="<? echo $name ?>" value="<?= $value ?>"></input>
-                            <label for="<? echo $name ?>"></label>
+
+                            <!-- <button type="button" class="btn_l choice" onclick="$('#test').val(?= $value ?>)">?= $course ?></button> -->
+                            <button type="button" class="btn_l choice" onclick="$('#test').val('<?= $value ?>')"><?= $course ?></button>
+
                         </div>
                     <?php endforeach ?>
-                    <button type="submit" class="btn_f choice mx-5" name="" value="">下一步</button>
+                    <!-- <button class="btn_f choice mx-5" name="form" value="nextStep">下一步</button> -->
                 </div>
-                <div class="choice-next d-flex justify-content-center animate__animated animate__fadeInUp">
-                    <!-- <button type="submit" class="btn_f choice mx-5" name="" value="">上一步</button> -->
-                    <!-- <button type="submit" class="btn_f choice mx-5" name="" value="">下一步</button> -->
+                <div class="choice-next d-flex w-100 justify-content-center animate__animated animate__fadeInUp">
+                    <button class="btn_f choice mx-5" name="" value="">上一步</button>
+                    <button class="btn_f choice mx-5" name="" value="">下一步</button>
 
                 </div>
             </form>
         </div>
+        <!-- <pre>
+                php print_r($_POST) ?>
+            </pre> -->
 
     </div>
 
@@ -207,15 +221,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!-- include __DIR__ . '/parts/html-footer.php';  -->
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
+
 <script>
-    function getValue() {
-        console.log(event.target.value);
-        $(this).siblings("input[type = 'hidden']").val();
-        b = $(this).siblings("input[type = 'hidden']");
-        a = $(this).next().val();
-        console.log('hi b:' + b);
-        console.log('hi a:' + a);
-    }
+    $('.choice').on('click', function() {
+        $(this).css('color', 'white').css('background', 'darkgreen').parent().siblings().find('.choice').css('background', 'white').css('color', 'green');
+
+    });
+
+    let hhh = ($('.thermometer_line').height() - 18) / 5;
+    console.log(hhh);
+
+
+    var qqq = <?php echo json_encode($qqq); ?>;
+    var move = hhh * qqq;
+    console.log(qqq);
+    $('.pro-number .number').eq(qqq - 1).css('color', '#db5c00');
+    $('.thermometer_move').css('height', move + "18");
+
+
+    console.log(' move:' + move);
 </script>
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>

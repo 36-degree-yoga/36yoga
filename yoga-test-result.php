@@ -1,4 +1,85 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
+<?php
+$ans = $_SESSION['yoga_test'];
+
+//答案 set 
+
+$map1 = ["做哈達瑜珈", "做阿斯坦加瑜珈", "做動瑜珈", "做熱瑜珈", "做各種瑜珈"];
+$map2 = ["做和緩瑜珈", "做陰瑜珈", "做修復瑜珈", "做探索各式瑜珈"];
+
+
+//
+$y11 = [7, 8, 9]; //動態180cm
+$y12 = [10, 11, 12]; //動態220
+$y21 = [1, 2, 3]; //靜態180cm
+$y22 = [4, 5, 6]; //靜態220cm
+
+
+//輔具
+$p1 = [13, 18]; //動瑜珈輔具
+$p2 = [15, 20]; //靜態瑜珈輔具
+
+//判斷
+$finalm = [];
+$finalp = [];
+//長度＆選項
+$a0 = $_SESSION['yoga_test'][0];
+$a2 = $_SESSION['yoga_test'][2];
+if (in_array($a2, $map1)) {
+    if ($a0 == 180) {
+        $finalm = $y11;
+        $finalp = $p1;
+    } else {
+        $finalm = $y12;
+        $finalp = $p1;
+    }
+
+    // echo json_encode($finalm);
+} else {
+    if ($a0 == 180) {
+        $finalm = $y21;
+        $finalp = $p2;
+    } else {
+        $finalm = $y22;
+        $finalp = $p2;
+    }
+    // echo json_encode($finalm);
+};
+
+
+
+// 瑜珈磚
+$rand = rand(0, 2);
+//
+$qmat_sql = "SELECT * FROM `products` WHERE `sid`= $finalm[$rand] and `length` = $a0";
+echo $qmat_sql;
+$qmat_Stmt = $pdo->query($qmat_sql);
+$qmat_row = $qmat_Stmt->fetch();
+$qmat_row['my_imgs'] = explode(",", $qmat_row['img']);
+echo json_encode($qmat_row);
+// foreach ($qmat_row  as $qmk => $qmr) {
+//     $qmat_row[$qmk]['my_imgs'] = explode(",", $qmr['img']);
+// };
+
+// 瑜珈輔具-1
+$qp1_sql = "SELECT * FROM `products` WHERE `sid`= $finalp[0]";
+$qp1_Stmt = $pdo->query($qp1_sql);
+$qp1_row = $qp1_Stmt->fetch();
+$qp1_row['my_imgs'] = explode(",", $qp1_row['img']);
+// echo json_encode($qp1_row);
+
+
+// 瑜珈輔具-2
+$qp2_sql = "SELECT * FROM `products` WHERE `sid`= $finalp[1]";
+$qp2_Stmt = $pdo->query($qp2_sql);
+$qp2_row = $qp2_Stmt->fetch();
+$qp2_row['my_imgs'] = explode(",", $qp2_row['img']);
+// echo json_encode($qp2_row);
+
+
+?>
+
+
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
@@ -25,132 +106,137 @@
     <!-- 內文 -->
     <div class="content-wrapper position-absolute d-flex">
         <div class="content d-flex justify-content-center flex-wrap align-items-end">
+            <!-- title -->
             <div class="content-title text-center w-100">
                 <h2>Your Soulmat</h2>
             </div>
-            <div class="content-product d-flex justify-content-between mb-4">
-                <!--Top1  -->
-                <div class="product-zone px-0 top1 animate__animated animate__fadeInUp" style="animation-delay: .3s;">
-                    <div class="tag-wrapper d-flex justify-content-between">
-                        <div class="d-flex align-items-center tag mr-3">
-                            <div class="tag-line"></div>
-                            <h3 class="mt-2">Top1</h3>
-                        </div>
-                        <div class="d-flex align-items-center tag mr-3 mt-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="28.39" viewBox="0 0 34 28.39">
-                                <g id="Layer_3" data-name="Layer 3" transform="translate(-1.22 -3.61)">
-                                    <path id="Path_489" data-name="Path 489" d="M4,13.33a1.39,1.39,0,1,0-.411.986A1.39,1.39,0,0,0,4,13.33Z" transform="translate(0 0)" fill="#db5c00" />
-                                    <path id="Path_490" data-name="Path 490" d="M31.81,15.84a20.35,20.35,0,0,0-4.58,1.43,22.7,22.7,0,0,0-3.48,2.1A17.69,17.69,0,0,1,22,16.57a47.65,47.65,0,0,1-2.8-7.69,1.046,1.046,0,0,0-2,0,46.709,46.709,0,0,1-2.8,7.69,17,17,0,0,1-1.76,2.8,22.7,22.7,0,0,0-3.48-2.1,20.66,20.66,0,0,0-4.58-1.43,1.006,1.006,0,0,0-1.09,1.44A50.13,50.13,0,0,1,7.82,31.17a1,1,0,0,0,1,.83h18.8a1,1,0,0,0,1-.83,50.15,50.15,0,0,1,4.26-13.89,1,1,0,0,0-1.07-1.44ZM26.79,30H9.64a55.659,55.659,0,0,0-3.4-11.71,15.75,15.75,0,0,1,2.09.78,20,20,0,0,1,3.85,2.45,1,1,0,0,0,1.39-.09,19.28,19.28,0,0,0,2.67-4,43.46,43.46,0,0,0,2-4.89,41.739,41.739,0,0,0,2,4.89,19.92,19.92,0,0,0,2.66,4,1,1,0,0,0,1.4.09,19.21,19.21,0,0,1,3.85-2.45,14.769,14.769,0,0,1,2.09-.78A55.07,55.07,0,0,0,26.79,30Z" transform="translate(0 0)" fill="#db5c00" />
-                                    <path id="Path_491" data-name="Path 491" d="M35.22,13.33a1.39,1.39,0,1,1-1.39-1.39A1.39,1.39,0,0,1,35.22,13.33Z" transform="translate(0 0)" fill="#db5c00" />
-                                    <path id="Path_492" data-name="Path 492" d="M18.22,6.39A1.39,1.39,0,1,0,16.84,5a1.39,1.39,0,0,0,1.38,1.39Z" transform="translate(0 0)" fill="#db5c00" />
-                                    <path id="Path_493" data-name="Path 493" d="M18.23,26.34a1.11,1.11,0,1,0,1.1,1.1A1.11,1.11,0,0,0,18.23,26.34Z" transform="translate(0 0)" fill="#db5c00" />
-                                    <path id="Path_494" data-name="Path 494" d="M12.58,26.34a1.11,1.11,0,1,0,1.1,1.1A1.11,1.11,0,0,0,12.58,26.34Z" transform="translate(0 0)" fill="#db5c00" />
-                                    <path id="Path_495" data-name="Path 495" d="M23.89,26.34a1.11,1.11,0,1,0,1.1,1.1A1.11,1.11,0,0,0,23.89,26.34Z" transform="translate(0 0)" fill="#db5c00" />
-                                </g>
-                            </svg>
+            <!-- 商品們 -->
+            <div class="result-content-wrapper mobile-content-wrapper w-100 d-flex justify-content-center" style="padding: 0 13%;">
+                <div class="content-product d-flex justify-content-center mb-4" style="width: 40%;">
+                    <!--Top1  -->
+                    <div class="product-zone px-0 top1 animate__animated animate__fadeInUp" style="animation-delay: .3s;">
+                        <div class="tag-wrapper d-flex justify-content-between">
+                            <div class="d-flex align-items-center tag mr-3">
+                                <div class="tag-line"></div>
+                                <h3 class="mt-2">Top1</h3>
+                            </div>
+                            <div class="d-flex align-items-center tag mr-3 mt-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="28.39" viewBox="0 0 34 28.39">
+                                    <g id="Layer_3" data-name="Layer 3" transform="translate(-1.22 -3.61)">
+                                        <path id="Path_489" data-name="Path 489" d="M4,13.33a1.39,1.39,0,1,0-.411.986A1.39,1.39,0,0,0,4,13.33Z" transform="translate(0 0)" fill="#db5c00" />
+                                        <path id="Path_490" data-name="Path 490" d="M31.81,15.84a20.35,20.35,0,0,0-4.58,1.43,22.7,22.7,0,0,0-3.48,2.1A17.69,17.69,0,0,1,22,16.57a47.65,47.65,0,0,1-2.8-7.69,1.046,1.046,0,0,0-2,0,46.709,46.709,0,0,1-2.8,7.69,17,17,0,0,1-1.76,2.8,22.7,22.7,0,0,0-3.48-2.1,20.66,20.66,0,0,0-4.58-1.43,1.006,1.006,0,0,0-1.09,1.44A50.13,50.13,0,0,1,7.82,31.17a1,1,0,0,0,1,.83h18.8a1,1,0,0,0,1-.83,50.15,50.15,0,0,1,4.26-13.89,1,1,0,0,0-1.07-1.44ZM26.79,30H9.64a55.659,55.659,0,0,0-3.4-11.71,15.75,15.75,0,0,1,2.09.78,20,20,0,0,1,3.85,2.45,1,1,0,0,0,1.39-.09,19.28,19.28,0,0,0,2.67-4,43.46,43.46,0,0,0,2-4.89,41.739,41.739,0,0,0,2,4.89,19.92,19.92,0,0,0,2.66,4,1,1,0,0,0,1.4.09,19.21,19.21,0,0,1,3.85-2.45,14.769,14.769,0,0,1,2.09-.78A55.07,55.07,0,0,0,26.79,30Z" transform="translate(0 0)" fill="#db5c00" />
+                                        <path id="Path_491" data-name="Path 491" d="M35.22,13.33a1.39,1.39,0,1,1-1.39-1.39A1.39,1.39,0,0,1,35.22,13.33Z" transform="translate(0 0)" fill="#db5c00" />
+                                        <path id="Path_492" data-name="Path 492" d="M18.22,6.39A1.39,1.39,0,1,0,16.84,5a1.39,1.39,0,0,0,1.38,1.39Z" transform="translate(0 0)" fill="#db5c00" />
+                                        <path id="Path_493" data-name="Path 493" d="M18.23,26.34a1.11,1.11,0,1,0,1.1,1.1A1.11,1.11,0,0,0,18.23,26.34Z" transform="translate(0 0)" fill="#db5c00" />
+                                        <path id="Path_494" data-name="Path 494" d="M12.58,26.34a1.11,1.11,0,1,0,1.1,1.1A1.11,1.11,0,0,0,12.58,26.34Z" transform="translate(0 0)" fill="#db5c00" />
+                                        <path id="Path_495" data-name="Path 495" d="M23.89,26.34a1.11,1.11,0,1,0,1.1,1.1A1.11,1.11,0,0,0,23.89,26.34Z" transform="translate(0 0)" fill="#db5c00" />
+                                    </g>
+                                </svg>
 
-                        </div>
-                        <div class="d-flex align-items-center tag">
-                            <div class="tag-line tag-line-s"></div>
-                            <p class="match">90% Match</p>
-
-                        </div>
-                    </div>
-
-                    <div class="product-wrap">
-
-                        <div class="img-wrap border position-relative">
-                            <!-- product 的 border 之後取消 -->
-                            <img class="product-pic w-100" src="<?= WEB_ROOT ?>/img/content/mat_3.jpg" alt="瑜珈磚">
-                            <div class="product-info text-center position-absolute d-flex align-items-center">
-                                <a class="w-100" href="">
-                                    <h6 class="">好瘦瑜珈磚</h6>
-                                    <p class="">NT$. 1000</p>
-                                </a>
+                            </div>
+                            <div class="d-flex align-items-center tag">
+                                <div class="tag-line tag-line-s"></div>
+                                <p class="match">90% Match</p>
 
                             </div>
                         </div>
 
+                        <div class="product-wrap">
+
+                            <div class="img-wrap border position-relative">
+                                <!-- product 的 border 之後取消 -->
+                                <img class="product-pic w-100" src="./img/product_list/<?= $qmat_row['my_imgs'][1] ?>.jpg" alt="瑜珈磚" style="width: 100%;height:100%;">
+                                <div class="product-info text-center position-absolute d-flex align-items-center">
+                                    <a class="w-100" href="">
+                                        <h6 class=""><?= $qmat_row['product_name'] ?> 瑜珈墊</h6>
+                                        <p class="">NT$ <?= $qmat_row['price'] ?></p>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
                     </div>
-
-
                 </div>
+                <!-- 推薦輔具 -->
+                <div class="result-content-wrapper content-product d-flex flex-wrap justify-content-center align-content-between" style="width: 60%;">
+                    <div class="w-100 mobile-text" style="margin-top: 65px;font-size:16px;line-height:22px; margin-right: 40px;">
+                        &nbsp; &nbsp; &nbsp; &nbsp;你的Soulmat為<span style="color: #db5c00">長度<?php echo $ans[0] ?>cm</span>，<span style="color: #db5c00">厚度<?= round($qmat_row['thickness'], 2) ?>mm</span>的<span style="color: #db5c00">瑜珈墊<?= $qmat_row['product_name'] ?></span>，並搭配輔具：<span style="color: #db5c00"> <?= $qp1_row['product_name'] ?></span>和<span style="color: #db5c00"><?= $qp2_row['product_name'] ?></span>，讓你在<?php echo $ans[2] ?>的時候，身體能夠<?php echo $ans[1] ?>。
 
-            </div>
-            <!--Top2  -->
-            <div class="content-product d-flex justify-content-between mb-4 animate__animated animate__fadeInUp" style="animation-delay: .9s;">
-
-                <div class="product-zone px-0 ">
-                    <div class="tag-wrapper d-flex justify-content-between">
-                        <div class="d-flex align-items-center tag mr-3">
-                            <div class="tag-line"></div>
-                            <h6 class="mt-2">Top2</h6>
-                        </div>
-
-                        <div class="d-flex align-items-center tag">
-                            <div class="tag-line tag-line-s"></div>
-                            <p class="match">80% Match</p>
-
-                        </div>
                     </div>
+                    <div class="d-flex w-100 result-content-wrapper">
+                        <!--Top2  -->
+                        <div class="content-product d-flex justify-content-center mb-4 animate__animated animate__fadeInUp" style="animation-delay: .9s; width:50%;">
 
-                    <div class="product-wrap">
+                            <div class="product-zone px-0 ">
+                                <div class="tag-wrapper d-flex justify-content-between">
+                                    <div class="d-flex align-items-center tag mr-3">
+                                        <div class="tag-line"></div>
+                                        <h6 class="mt-2">PROPS</h6>
+                                    </div>
 
-                        <div class="img-wrap border position-relative">
-                            <!-- product 的 border 之後取消 -->
-                            <img class="product-pic w-100" src="<?= WEB_ROOT ?>/img/content/mat_3.jpg" alt="瑜珈磚">
-                            <div class="product-info text-center position-absolute d-flex align-items-center">
-                                <a class="w-100" href="">
-                                    <h6 class="">好瘦瑜珈磚</h6>
-                                    <p class="">NT$. 1000</p>
-                                </a>
+
+                                </div>
+
+                                <div class="product-wrap">
+
+                                    <div class="img-wrap border position-relative">
+                                        <!-- product 的 border 之後取消 -->
+                                        <img class="product-pic w-100" src="./img/product_list/<?= $qp1_row['my_imgs'][1] ?>.jpg" alt="瑜珈磚">
+                                        <div class="product-info text-center position-absolute d-flex align-items-center">
+                                            <a class="w-100" href="">
+                                                <h6 class=""><?= $qp1_row['product_name'] ?></h6>
+                                                <p class="">NT$ <?= $qp1_row['price'] ?></p>
+                                            </a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
 
                             </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
-
-
-            </div>
-
-            <!-- Top3 -->
-            <div class="content-product d-flex justify-content-between mb-4 animate__animated animate__fadeInUp" style="animation-delay: 1.2s;">
-
-                <div class="product-zone px-0 ">
-                    <div class="tag-wrapper d-flex justify-content-between">
-                        <div class="d-flex align-items-center tag mr-3">
-                            <div class="tag-line"></div>
-                            <h6 class="mt-2">Top3</h6>
-                        </div>
-
-                        <div class="d-flex align-items-center tag">
-                            <div class="tag-line tag-line-s"></div>
-                            <p class="match">70% Match</p>
 
                         </div>
-                    </div>
 
-                    <div class="product-wrap">
+                        <!-- Top3 -->
+                        <div class="content-product d-flex justify-content-center mb-4 animate__animated animate__fadeInUp" style="animation-delay: 1.2s;width:50%;">
 
-                        <div class="img-wrap border position-relative">
-                            <!-- product 的 border 之後取消 -->
-                            <img class="product-pic w-100" src="<?= WEB_ROOT ?>/img/content/mat_3.jpg" alt="瑜珈磚">
-                            <div class="product-info text-center position-absolute d-flex align-items-center">
-                                <a class="w-100" href="">
-                                    <h6 class="">好瘦瑜珈磚</h6>
-                                    <p class="">NT$. 1000</p>
-                                </a>
+                            <div class="product-zone px-0 ">
+                                <div class="tag-wrapper d-flex justify-content-between">
+                                    <div class="d-flex align-items-center tag mr-3">
+                                        <div class="tag-line"></div>
+                                        <h6 class="mt-2">PROPS</h6>
+                                    </div>
+
+                                </div>
+
+                                <div class="product-wrap">
+
+                                    <div class="img-wrap border position-relative">
+                                        <!-- product 的 border 之後取消 -->
+                                        <img class="product-pic w-100" src="./img/product_list/<?= $qp2_row['my_imgs'][1] ?>.jpg" alt="瑜珈磚">
+                                        <div class="product-info text-center position-absolute d-flex align-items-center">
+                                            <a class="w-100" href="">
+                                                <h6 class=""><?= $qp2_row['product_name'] ?></h6>
+                                                <p class="">NT$ <?= $qp2_row['price'] ?></p>
+                                            </a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
 
                             </div>
+
+
+
+
                         </div>
-
                     </div>
-
 
                 </div>
 
@@ -158,17 +244,16 @@
 
 
             </div>
-            <div class="col-12 d-flex justify-content-center"><button type="button" class="btn_f mx-5" name="" value="">看更多商品</button></div>
-
-
+            <!-- 看更多商品 -->
+            <div class="w-100 d-flex justify-content-center mobile-more-btn"><button type="button" class="btn_f mx-5" name="" value="">看更多商品</button></div>
         </div>
 
     </div>
 
     <div class="re-take d-flex justify-content-center position-absolute align-items-center">
         <h6>想看其他結果？</h6>
-        <button type="button" class="btn_f" name="" value="">重新測驗</button>
-
+        <a href="<?= WEB_ROOT ?>yoga-test-unset.php"><button type="button" class="btn_f" name="" value="">重新測驗</button></a>
+        <!-- href="?= WEB_ROOT ?>yoga-test-q.php" -->
     </div>
 
 
@@ -237,9 +322,15 @@
 
 </div>
 
+
+
 <!-- include __DIR__ . '/parts/html-footer.php';  -->
 <?php include __DIR__ . '/parts/script.php'; ?>
-<script src="<?= WEB_ROOT ?>lib/content.js"></script>
 <!-- js連結 -->
+<!-- <script>
+    function unsettest() {
+
+    }
+</script> -->
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>
