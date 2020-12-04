@@ -8,16 +8,18 @@ $map1 = ["做哈達瑜珈", "做阿斯坦加瑜珈", "做動瑜珈", "做熱瑜�
 $map2 = ["做和緩瑜珈", "做陰瑜珈", "做修復瑜珈", "做探索各式瑜珈"];
 
 
-//
+//瑜珈墊組合
 $y11 = [7, 8, 9]; //動態180cm
 $y12 = [10, 11, 12]; //動態220
 $y21 = [1, 2, 3]; //靜態180cm
 $y22 = [4, 5, 6]; //靜態220cm
 
 
-//輔具
-$p1 = [13, 18]; //動瑜珈輔具
-$p2 = [15, 20]; //靜態瑜珈輔具
+//輔具組合
+$p11 = [18, 19, 19]; //動瑜珈輔具
+$p12 = [23, 24, 25]; //動瑜珈輔具
+$p21 = [15, 16, 17]; //靜態瑜珈輔具
+$p22 = [20, 21, 22]; //靜態瑜珈輔具
 
 //判斷
 $finalm = [];
@@ -28,20 +30,24 @@ $a2 = $_SESSION['yoga_test'][2];
 if (in_array($a2, $map1)) {
     if ($a0 == 180) {
         $finalm = $y11;
-        $finalp = $p1;
+        $finalp1 = $p11;
+        $finalp2 = $p12;
     } else {
         $finalm = $y12;
-        $finalp = $p1;
+        $finalp1 = $p11;
+        $finalp2 = $p12;
     }
 
     // echo json_encode($finalm);
 } else {
     if ($a0 == 180) {
         $finalm = $y21;
-        $finalp = $p2;
+        $finalp1 = $p21;
+        $finalp2 = $p22;
     } else {
         $finalm = $y22;
-        $finalp = $p2;
+        $finalp1 = $p21;
+        $finalp2 = $p22;
     }
     // echo json_encode($finalm);
 };
@@ -49,9 +55,11 @@ if (in_array($a2, $map1)) {
 
 
 // 瑜珈磚
-$rand = rand(0, 2);
+$rand1 = rand(0, 2);
+$rand2 = rand(0, 2);
+$rand3 = rand(0, 2);
 //
-$qmat_sql = "SELECT * FROM `products` WHERE `sid`= $finalm[$rand] and `length` = $a0";
+$qmat_sql = "SELECT * FROM `products` WHERE `sid`= $finalm[$rand1] and `length` = $a0";
 echo $qmat_sql;
 $qmat_Stmt = $pdo->query($qmat_sql);
 $qmat_row = $qmat_Stmt->fetch();
@@ -62,7 +70,7 @@ echo json_encode($qmat_row);
 // };
 
 // 瑜珈輔具-1
-$qp1_sql = "SELECT * FROM `products` WHERE `sid`= $finalp[0]";
+$qp1_sql = "SELECT * FROM `products` WHERE `sid`= $finalp1[$rand2]";
 $qp1_Stmt = $pdo->query($qp1_sql);
 $qp1_row = $qp1_Stmt->fetch();
 $qp1_row['my_imgs'] = explode(",", $qp1_row['img']);
@@ -70,7 +78,7 @@ $qp1_row['my_imgs'] = explode(",", $qp1_row['img']);
 
 
 // 瑜珈輔具-2
-$qp2_sql = "SELECT * FROM `products` WHERE `sid`= $finalp[1]";
+$qp2_sql = "SELECT * FROM `products` WHERE `sid`= $finalp2[$rand3]";
 $qp2_Stmt = $pdo->query($qp2_sql);
 $qp2_row = $qp2_Stmt->fetch();
 $qp2_row['my_imgs'] = explode(",", $qp2_row['img']);
@@ -162,7 +170,7 @@ $qp2_row['my_imgs'] = explode(",", $qp2_row['img']);
                 </div>
                 <!-- 推薦輔具 -->
                 <div class="result-content-wrapper content-product d-flex flex-wrap justify-content-center align-content-between" style="width: 60%;">
-                    <div class="w-100 mobile-text" style="margin-top: 65px;font-size:16px;line-height:22px; margin-right: 40px;">
+                    <div class="w-100 mobile-text" style="margin-top: 65px;font-size:16px;line-height:22px; margin-right: 10%; margin-left:10%">
                         &nbsp; &nbsp; &nbsp; &nbsp;你的Soulmat為<span style="color: #db5c00">長度<?php echo $ans[0] ?>cm</span>，<span style="color: #db5c00">厚度<?= round($qmat_row['thickness'], 2) ?>mm</span>的<span style="color: #db5c00">瑜珈墊<?= $qmat_row['product_name'] ?></span>，並搭配輔具：<span style="color: #db5c00"> <?= $qp1_row['product_name'] ?></span>和<span style="color: #db5c00"><?= $qp2_row['product_name'] ?></span>，讓你在<?php echo $ans[2] ?>的時候，身體能夠<?php echo $ans[1] ?>。
 
                     </div>
@@ -245,14 +253,16 @@ $qp2_row['my_imgs'] = explode(",", $qp2_row['img']);
 
             </div>
             <!-- 看更多商品 -->
-            <div class="w-100 d-flex justify-content-center mobile-more-btn"><button type="button" class="btn_f mx-5" name="" value="">看更多商品</button></div>
+            <a href="<?= WEB_ROOT ?>product_list.php">
+                <div class="w-100 d-flex justify-content-center mobile-more-btn"><button type="button" class="btn_f mx-5" name="" value="">看更多商品</button></div>
+            </a>
         </div>
 
     </div>
 
     <div class="re-take d-flex justify-content-center position-absolute align-items-center">
         <h6>想看其他結果？</h6>
-        <a href="<?= WEB_ROOT ?>yoga-test-unset.php"><button type="button" class="btn_f" name="" value="">重新測驗</button></a>
+        <a href="<?= WEB_ROOT ?>yogatest-unset.php"><button type="button" class="btn_f" name="" value="">重新測驗</button></a>
         <!-- href="?= WEB_ROOT ?>yoga-test-q.php" -->
     </div>
 
