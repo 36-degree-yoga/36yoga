@@ -6,19 +6,6 @@ $design_sql = "SELECT `sid`, `member_id`, `mat-total-price`, `mat-count`, `matw`
 $design_stmt = $pdo->query($design_sql);
 $design_rows = $design_stmt->fetchAll();
 
-
-
-// $pic = explode(",", $design_rows['design_img']);
-
-
-// $design_price = $pdo->quote($modal_rows['product_name']);
-
-// $others_sql = "SELECT `sid`, `product_name`, `list_id`, `product_num`, `price`, `quick_view_01`, `quick_view_02`, `quick_view_03`, `color`, `img` FROM `products` WHERE product_name=$product_name  GROUP BY `color` ORDER BY sid";
-// $others_stmt = $pdo->query($others_sql);
-// $others_rows = $others_stmt->fetchAll();
-
-// echo json_encode($design_rows, JSON_UNESCAPED_UNICODE);
-// exit;
 ?>
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -235,6 +222,11 @@ $design_rows = $design_stmt->fetchAll();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
 <script>
+    $('.m_account_option').on('click', function() {
+        $(this).children().addClass('check_border').parent().siblings().children().removeClass('check_border');
+
+    });
+
     function delete_it(sid) {
         if (confirm(`確定要刪除設計嗎?`)) {
             location.href = "member_desgin_delete.php?sid=" + sid;
