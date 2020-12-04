@@ -137,7 +137,7 @@ $member_row = $stmt->fetch();
                                 </svg>
                                 <a href="order_history.php" class="mb-0 ml-4">訂單紀錄</a>
                             </li>
-                            <li class="account_sidebar_title d-flex align-items-center">
+                            <li id="bar_favorite" class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
                                     <g id="Layer_2" data-name="Layer 2">
                                         <g id="Layer_1-2" data-name="Layer 1">

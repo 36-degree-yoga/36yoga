@@ -282,7 +282,7 @@ $member_row = $stmt->fetch();
                                 </svg>
                                 <a href="member_my_account.php" class="mb-0 ml-4">我的帳號</a>
                             </li>
-                            <li class="account_sidebar_title d-flex align-items-center">
+                            <li id="bar_order" class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
                                     <g id="Layer_2" data-name="Layer 2">
                                         <g id="Layer_1-2" data-name="Layer 1">
