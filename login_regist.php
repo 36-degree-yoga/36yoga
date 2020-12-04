@@ -1,4 +1,4 @@
-<?php include __DIR__ . '/parts/config.php'; 
+<?php include __DIR__ . '/parts/config.php';
 if (isset($_SESSION['user'])) {
     header('Location: product_list.php');
 };
@@ -46,7 +46,7 @@ $gotoURL = 'product_list.php';
                                 <img src="./img/index/random01.svg" alt="" class="randompic">
                                 <!-- <img src="./img/index/random02.svg" alt="" class="randompic">
                                 <img src="./img/index/random03.svg" alt="" class="randompic"> -->
-                            </div> 
+                            </div>
                         </div>
                         <div class="form-group form-check d-flex space-b60">
                             <input type="checkbox" class="form-check-input" id="logincheck">
@@ -65,7 +65,7 @@ $gotoURL = 'product_list.php';
                             <label for="email">
                                 <input type="email" class="form-control2" id="regis_email" name="regis_email" aria-describedby="emailHelp" placeholder="&nbsp;帳號 Email" required>
                             </label>
-                            
+
                             <label for="password"><input type="password" class="form-control2 " id="regis_pw1" name="regis_pw1" placeholder="&nbsp;密碼 Password" required></label>
                             <label for="password"><input type="password" class="form-control2" placeholder="&nbsp;二次輸入密碼 Password" required></label>
                         </div>
@@ -102,8 +102,8 @@ $gotoURL = 'product_list.php';
 <script src="<?= WEB_ROOT ?>lib/login.js"></script>
 
 <script>
-     // php部分-->登入
-     const loginemail = $('#loginemail')
+    // php部分-->登入
+    const loginemail = $('#loginemail')
     const loginpassword = $('#loginpassword')
 
 
@@ -117,7 +117,7 @@ $gotoURL = 'product_list.php';
         }, function(data) {
             if (data.success) {
                 console.log('hi');
-                location.href = '<?= $gotoURL ?>';
+                location.href = '<?= $_SERVER['HTTP_REFERER'] ?>';
             } else {
                 console.log('error');
             }

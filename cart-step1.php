@@ -6,6 +6,8 @@
 
 
 ?>
+
+
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 
@@ -91,9 +93,31 @@
 
                             </td>
                             <td class="delete-icon">
-                                <a href="javascript:delItem(<?= $c['sid'] ?>)"><img src="./SVG/icon_trash.svg" alt=""></a>
+                                <!--  href="javascript:delItem(<//?= $c['sid'] ?>)"  -->
+                                <a data-toggle="modal" data-target="#del_prod_warn"><img src="./SVG/icon_trash.svg" alt=""></a>
                             </td>
                         </tr>
+                        <!-- delete warning modal-->
+                        <div class="modal fade" id="del_prod_warn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-content modal-size">
+                                    <div class="modal-header out_header">
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <img class="" src="svg/delete.svg" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="modal-body out_body">
+                                        <p class="mx-auto">確定要刪除商品嗎？</p>
+                                    </div>
+                                    <div class="text-center mb-5">
+                                        <button class="btn btn-leave p-0" data-dismiss="modal">先不要</button>
+                                        <button class="btn btn-leave p-0 del-btn-check" onclick="delItem(<?= $c['sid'] ?>)" data-dismiss="modal">確認</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- delete warning -->
                     <?php endforeach; ?>
 
                     <!------------ 客製項目----*-------- -->
@@ -154,6 +178,9 @@
 
 
         </div>
+
+
+
         <!-- 手機版 -->
         <?php foreach ($_SESSION['cart'] as $c) : ?>
             <div class="this-one-pc-none w-100 m-product-edit" data-sid="<?= $c['sid'] ?>" id="product_<?= $c['sid'] ?>">
@@ -216,7 +243,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button class="btn btn-leave p-0">繼續購物</button>
+            <button class="btn btn-leave p-0" onclick="location.href='<?= WEB_ROOT ?>product_list.php'">繼續購物</button>
             <button class="btn btn-leave p-0 hope-next-step">下ㄧ步</button>
         </div>
     </div>

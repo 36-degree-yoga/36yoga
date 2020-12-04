@@ -176,7 +176,7 @@
         </div>
     </div>
     <div class="text-center">
-        <button class="btn btn-leave p-0">回上一步</button>
+        <button class="btn btn-leave p-0" onclick="location.href='<?= WEB_ROOT ?>fillin-info-step2.php'">回上一步</button>
         <a href="complete-order-step4.php" class="btn btn-leave p-0 hope-next-step">確認付款</a>
     </div>
 </div>
