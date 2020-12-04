@@ -4,7 +4,7 @@
 // $rows = $stmt->fetch();
 
 if (!isset($_SESSION['user'])) {
-    header('Location: login-test01.php');
+    header('Location: login_regist.php');
     exit;
 }
 

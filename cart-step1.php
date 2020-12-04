@@ -6,6 +6,8 @@
 
 
 ?>
+
+
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 

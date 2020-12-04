@@ -58,8 +58,8 @@
       </div>
     </div>
     <div class="col-12 text-center">
-      <button class="btn btn-leave p-0">回到首頁</button>
-      <button class="btn btn-leave p-0 hope-next-step">繼續購物</button>
+      <button class="btn btn-leave p-0" onclick="location.href='<?= WEB_ROOT ?>homepage.php'">回到首頁</button>
+      <button class="btn btn-leave p-0 hope-next-step" onclick="location.href='<?= WEB_ROOT ?>product_list.php'">繼續購物</button>
     </div>
   </div>
 </div>

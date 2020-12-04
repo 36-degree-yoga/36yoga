@@ -60,7 +60,8 @@ $member_row = $stmt->fetch();
                     <!-- 照片與登出區 -->
                     <div class="edit_info d-flex align-items-center justify-content-start">
                         <div class="member_img_wrap">
-                            <img class="member_pic" src="./img/member/<?= $member_row['avatar'] ?>.jpg" alt="">
+                            <img class="member_pic" src="./img/member/<?= isset($member_row['avatar']) ? $member_row['avatar'] : 'avatar00' ?>.jpg" alt="">
+
                         </div>
                         <div class="ml-3">
                             <p class="m-0">yoga_team</p>
@@ -200,7 +201,7 @@ $member_row = $stmt->fetch();
                     </div>
 
                     <!-- 照片 -->
-                    <img class="member_pic" src="./img/member/<?= $member_row['avatar'] ?>.jpg" alt="">
+                    <img class="member_pic" src="./img/member/<?= isset($member_row['avatar']) ? $member_row['avatar'] : 'avatar00' ?>.jpg" alt="">
 
                 </div>
                 <div class="space_30"></div>

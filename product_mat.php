@@ -26,7 +26,14 @@ $l_sql = "SELECT `sid`, `product_name`, `list_id`, `product_num`, `publish_date`
 
 $l_rows = $pdo->query($l_sql)->fetchAll();
 
-// echo  json_encode($l_rows, JSON_UNESCAPED_UNICODE);
+foreach ($l_rows as $l => $v) {
+    $a[] = [
+        'sid' => $v['sid'],
+        'len' => $v['length']
+    ];
+};
+
+// echo  json_encode($a, JSON_UNESCAPED_UNICODE);
 // exit;
 
 // 顏色
@@ -85,19 +92,19 @@ $others_rows = $others_stmt->fetchAll();
                 <!-- 側bar標題 -->
                 <div class="product_sidebar_content">
                     <div class="product_siderbar_title">
-                        <div class="title"><a id="plst_top" href="#">瑜珈墊</a></div>
-                        <div class="subtitle"><a href="#std">一般</a></div>
-                        <div class="subtitle"><a href="#ctm">客製化</a></div>
+                        <div class="title"><a id="plst_top" href="<?= WEB_ROOT ?>product_list.php">瑜珈墊</a></div>
+                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#std">一般</a></div>
+                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#ctm">客製化</a></div>
                     </div>
                     <div class="product_siderbar_title">
-                        <div class="title"><a href="#">輔具</a></div>
-                        <div class="subtitle"><a href="#block">瑜珈磚</a></div>
-                        <div class="subtitle"><a href="#pad">支撐墊</a></div>
-                        <div class="subtitle"><a href="#roller">滾筒</a></div>
-                        <div class="subtitle"><a href="#sand">沙包</a></div>
-                        <div class="subtitle"><a href="#strap">伸展帶</a></div>
-                        <div class="subtitle"><a href="#band">彈力帶</a></div>
-                        <div class="subtitle"><a href="#towel">舖巾</a></div>
+                        <div class="title"><a href="<?= WEB_ROOT ?>product_list.php#block">輔具</a></div>
+                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#block">瑜珈磚</a></div>
+                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#pad">支撐墊</a></div>
+                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#roller">滾筒</a></div>
+                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#sand">沙包</a></div>
+                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#strap">伸展帶</a></div>
+                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#band">彈力帶</a></div>
+                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#towel">舖巾</a></div>
                     </div>
                 </div>
             </div>
@@ -212,18 +219,27 @@ $others_rows = $others_stmt->fetchAll();
                             <?php endforeach; ?>
                         </div>
                         <!-- 選擇尺寸 -->
-                        <div class="size-list-dropdown dropdown line-height">
-                            <button class="size-list-btn btn size-list-dropdown-toggle dropdown-toggle rounded-0 px-5 w-100" type="button" id="dropdownListButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                選擇尺寸
-                            </button>
-                            <div class="size-list-dropdown-menu dropdown-menu  rounded-0 w-100" aria-labelledby="dropdownMenuButton">
-                                <?php foreach ($l_rows as $k => $l) : ?>
 
-                                    <a class="size-list-item dropdown-item text-center" href="#"><?= $l['length'] ?> 公分</a>
+                        <div class="size-list-dropdown dropdown line-height">
+
+                            <button class="size-list-btn btn size-list-dropdown-toggle dropdown-toggle rounded-0 px-5 w-100" type="button" id="dropdownListButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php foreach ($a as $k1 => $l1) : ?>
+                                    <?= intval($l1['sid']) == $_GET['sid'] ? htmlentities($l1['len']) . '公分'  : '' ?>
+                                <?php endforeach; ?>
+                            </button>
+
+
+                            <div class="size-list-dropdown-menu dropdown-menu  rounded-0 w-100" aria-labelledby="dropdownMenuButton">
+
+                                <?php foreach ($l_rows as $k => $l) : ?>
+                                    <a class="size-list-item dropdown-item text-center" href="?sid=<?= $l['sid'] ?>"><?= $l['length'] ?> 公分</a>
                                     <!-- <a class="size-list-item dropdown-item text-center" href="#">215 公分</a> -->
+
                                 <?php endforeach; ?>
                             </div>
+
                         </div>
+
                         <!-- 選擇數量 -->
                         <div class="amount-btn-wrap d-flex justify-content-between line-height">
 
@@ -244,7 +260,7 @@ $others_rows = $others_stmt->fetchAll();
                             </button>
 
                             <!-- 按鈕：加入購物車 -->
-                            <button class="addtocart-btn btn btn-f w-50 ">
+                            <button class="addtocart-btn btn btn-f w-50 " data-sid="<?= $p['sid'] ?>" onclick="javascript: addToCart(event);return false;">
                                 加入購物車
                             </button>
 
@@ -1905,11 +1921,8 @@ $others_rows = $others_stmt->fetchAll();
 
             </div>
 
-
-
         </div>
         <!-- <?php endforeach ?> -->
-
     </div>
     <div class="space_120"></div>
 
@@ -1923,6 +1936,13 @@ $others_rows = $others_stmt->fetchAll();
 <script src="<?= WEB_ROOT ?>lib/product_mat.js"></script>
 
 <script>
+    // 左側欄互動
+
+
+
+
+    // 左側欄互動
+
     // 當 .btn_like 的 .like_fill.color 時，checkLike()會傳送資料到 my-favorite_api.php
 
     // const colorFill = $('.like_fill').hasClass('color');
@@ -1944,9 +1964,31 @@ $others_rows = $others_stmt->fetchAll();
             } else {
                 me.find('.like_fill').removeClass('color');
             }
-        }, 'json')
+        }, 'json');
 
+    };
 
+    //加入購物車
+    function addToCart(event) {
+
+        const sid = $('.addtocart-btn').attr('data-sid');
+        const qty = $('.amount-number').val();
+
+        console.log({
+            sid: sid,
+            quantity: qty
+        });
+
+        $.get('handle-cart-product.php', {
+            sid: sid,
+            quantity: qty,
+            action: 'add'
+        }, function(data) {
+            console.log(data);
+            if (window.parent && window.parent.renderSmallCart) {
+                window.parent.renderSmallCart(data.cart);
+            }
+        }, 'json');
     };
 </script>
 

@@ -111,7 +111,7 @@ $qqq = intval(count($_SESSION['yoga_test']) + 1);
                 </h2>
             </div>
             <!-- 送出 -->
-            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="w-100">
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="w-100" style="padding-top:40px;">
                 <input type="hidden" id="test" name="test" value="">
                 <div class="btn-wrapper d-flex flex-wrap align-content-start w-100">
                     <?php foreach (array_combine($pieces, $value) as $course => $value) : ?>
@@ -236,7 +236,7 @@ $qqq = intval(count($_SESSION['yoga_test']) + 1);
     var move = hhh * qqq;
     console.log(qqq);
     $('.pro-number .number').eq(qqq - 1).css('color', '#db5c00');
-    $('.thermometer_move').css('height', move + "18");
+    $('.thermometer_move').css('height', move + "24");
 
 
     console.log(' move:' + move);

@@ -114,7 +114,7 @@ foreach ($towel_row  as $k => $r) {
                     <div class="product_siderbar_title mat_bar">
 
                         <div class="title">
-                            <a id="plst_top" href="#">瑜珈墊</a>
+                            <div id="plst_top">瑜珈墊</div>
                         </div>
 
                         <div class="subtitle">
@@ -126,11 +126,13 @@ foreach ($towel_row  as $k => $r) {
                     </div>
                     <div class="product_siderbar_title prop_bar">
 
-                        <div class="title"><a href="#">輔具</a></div>
+                        <div class="title">
+                            <div>輔具</div>
+                        </div>
                         <div class="subtitle"><a href="#block" id="c">瑜珈磚</a></div>
                         <div class="subtitle"><a href="#pad" id="d">支撐墊</a></div>
                         <div class="subtitle"><a href="#roller" id="e">滾筒</a></div>
-                        <div class="subtitle"><a href="#sand" id="f">沙包</a></div>
+                        <div class="subtitle"><a href="#sand" id="f">重量手環</a></div>
                         <div class="subtitle"><a href="#strap" id="g">伸展帶</a></div>
                         <div class="subtitle"><a href="#band" id="h">彈力帶</a></div>
                         <div class="subtitle"><a href="#towel" id="i">舖巾</a></div>
@@ -374,7 +376,7 @@ foreach ($towel_row  as $k => $r) {
 </div>
 
 <!-- 彈跳視窗↓↓ -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -428,6 +430,20 @@ foreach ($towel_row  as $k => $r) {
         $('#exampleModal').modal('show')
     }
     // 跳出視窗↑↑
+
+    // 手機板沒有modal↓↓
+    // $('#exampleModal').on('shown.bs.modal', function() {
+    //     var width = $(window).width();
+    //     if (width < 768) {
+    //         $('.modal-backdrop').hide();
+    //         $('#exampleModal').modal('hide');
+    //     }
+    // });
+
+
+
+
+    // 手機板沒有modal↑↑
 </script>
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>
