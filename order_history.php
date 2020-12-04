@@ -24,7 +24,12 @@ foreach ($o_rows as $o) {
 }
 
 
+<<<<<<< HEAD
+
+$d_sql = sprintf("SELECT d.*, p.product_name, p.color, p.weight, p.length, p.img, p.price FROM `order_details` d 
+=======
 $d_sql = sprintf("SELECT d.*, p.product_name, p.color, p.weight, p.length, p.width, p.img, p.price FROM `order_details` d 
+>>>>>>> 316b737281f184554849e217ddb9188b02162ab1
 JOIN `products` p ON p.sid=d.product_sid
 WHERE d.`order_sid` IN (%s)", implode(',', $order_sids));
 
@@ -83,6 +88,13 @@ if (in_array('未出貨', $order_status)) {
 // }
 
 // echo json_encode($d_rows, JSON_UNESCAPED_UNICODE);
+
+
+// 照片用
+$sql = "SELECT * FROM `members` WHERE `id`=$member_sid";
+$stmt = $pdo->query($sql);
+$member_row = $stmt->fetch();
+
 
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -238,18 +250,19 @@ if (in_array('未出貨', $order_status)) {
                     <!-- 照片與登出區 -->
                     <div class="edit_info d-flex align-items-center justify-content-start">
                         <div class="member_img_wrap">
-                            <img class="member_pic" src="./img/member/<?= $row['avatar'] ?>.jpg" alt="">
+                            <img class="member_pic" src="./img/member/<?= isset($member_row['avatar']) ? $member_row['avatar'] : 'avatar00' ?>.jpg" alt="">
+
                         </div>
                         <div class="ml-3">
                             <p class="m-0">yoga_team</p>
                             <p class="m-0">點數: 500點</p>
-                            <button class="log_out mt-2 px-2 py-1">登出</button>
+                            <button class="log_out mt-2 px-2 py-1" onclick="location.href='<?= WEB_ROOT ?>logout.php'">登出</button>
                         </div>
                     </div>
                     <!-- 選單區 -->
                     <div class="mt-5 ">
                         <ul class="d-flex flex-column justify-content-center p-0">
-                            <li class="account_sidebar_title d-flex align-items-center">
+                            <li id="bar_account" class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
                                     <defs>
                                         <style>
@@ -271,11 +284,9 @@ if (in_array('未出貨', $order_status)) {
                                         </g>
                                     </g>
                                 </svg>
-
-
-                                <a href="#" class="mb-0 ml-4">我的帳號</a>
+                                <a href="member_my_account.php" class="mb-0 ml-4">我的帳號</a>
                             </li>
-                            <li id="bar_order_history" class="account_sidebar_title d-flex align-items-center">
+                            <li class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
                                     <g id="Layer_2" data-name="Layer 2">
                                         <g id="Layer_1-2" data-name="Layer 1">
@@ -303,7 +314,7 @@ if (in_array('未出貨', $order_status)) {
                                         </g>
                                     </g>
                                 </svg>
-                                <a href="#" class="mb-0 ml-4">訂單紀錄</a>
+                                <a href="order_history.php" class="mb-0 ml-4">訂單紀錄</a>
                             </li>
                             <li class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
@@ -316,7 +327,7 @@ if (in_array('未出貨', $order_status)) {
                                         </g>
                                     </g>
                                 </svg>
-                                <a href="#" class="mb-0 ml-4">我的最愛</a>
+                                <a href="member_my_favorite.php" class="mb-0 ml-4">我的最愛</a>
                             </li>
                             <li class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
@@ -352,11 +363,10 @@ if (in_array('未出貨', $order_status)) {
                                         </g>
                                     </g>
                                 </svg>
-                                <a href="#" class="mb-0 ml-4">客製化設計</a>
+                                <a href="member_design.php" class="mb-0 ml-4">客製化設計</a>
                             </li>
                         </ul>
                     </div>
-
                 </div>
                 <!-- 區隔線 -->
                 <div class="ml-5" style="height: 500px; width:1px; background-color: #333333;">

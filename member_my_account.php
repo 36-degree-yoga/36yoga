@@ -66,7 +66,7 @@ $member_row = $stmt->fetch();
                         <div class="ml-3">
                             <p class="m-0">yoga_team</p>
                             <p class="m-0">點數: 500點</p>
-                            <button class="log_out mt-2 px-2 py-1">登出</button>
+                            <button class="log_out mt-2 px-2 py-1" onclick="location.href='<?= WEB_ROOT ?>logout.php'">登出</button>
                         </div>
                     </div>
                     <!-- 選單區 -->
@@ -94,9 +94,7 @@ $member_row = $stmt->fetch();
                                         </g>
                                     </g>
                                 </svg>
-
-
-                                <a href="#" class="mb-0 ml-4">我的帳號</a>
+                                <a href="member_my_account.php" class="mb-0 ml-4">我的帳號</a>
                             </li>
                             <li class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
@@ -126,7 +124,7 @@ $member_row = $stmt->fetch();
                                         </g>
                                     </g>
                                 </svg>
-                                <a href="#" class="mb-0 ml-4">訂單紀錄</a>
+                                <a href="order_history.php" class="mb-0 ml-4">訂單紀錄</a>
                             </li>
                             <li class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
@@ -139,7 +137,7 @@ $member_row = $stmt->fetch();
                                         </g>
                                     </g>
                                 </svg>
-                                <a href="#" class="mb-0 ml-4">我的最愛</a>
+                                <a href="member_my_favorite.php" class="mb-0 ml-4">我的最愛</a>
                             </li>
                             <li class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
@@ -175,7 +173,7 @@ $member_row = $stmt->fetch();
                                         </g>
                                     </g>
                                 </svg>
-                                <a href="#" class="mb-0 ml-4">客製化設計</a>
+                                <a href="member_design.php" class="mb-0 ml-4">客製化設計</a>
                             </li>
                         </ul>
                     </div>
