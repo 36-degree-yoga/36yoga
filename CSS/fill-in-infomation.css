@@ -58,11 +58,13 @@
   color: #f2a200;
 }
 /* 溫度計 */
+
 .form-control4 {
   border: 1px solid #333;
   border-radius: 4px;
   height: 32px;
   width: 72%;
+  
 }
 .form-control9 {
   border: 1px solid #333;

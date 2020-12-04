@@ -117,15 +117,17 @@
                                         <!-- 商品尺寸 -->
                                         <div class="product_detail d-flex flex-column align-self-start">
                                             <p class="p_title"><?= $c['product_name'] ?></p>
-                                            <p class="p_detail">顏色:<?= $c['color'] ?></p>
-                                            <p class="p_detail">尺寸:<?= $c['length'] ?>*<?= $c['width'] ?></p>
-                                            <p class="p_detail">重量:<?= $c['weight'] ?>g</p>
+                                            <p class="p_detail">顏色：<?= $c['color'] ?></p>
+                                            <p class="p_detail">尺寸：<?= $c['length'] ?>*<?= $c['width'] ?></p>
+                                            <p class="p_detail">
+                                                重量：<span class="weight"><?= $c['weight'] ?></span>g
+                                            </p>
                                         </div>
                                     </div>
                                     <!-- 件數價錢 -->
                                     <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
                                         <p class="m-0">共<span class="count"><?= $c['quantity'] ?></span>件</p>
-                                        <p class="m-0">NT$ <?= $c['price'] * $c['quantity'] ?></p>
+                                        <p class="m-0">NT$ <span class="price"><?= $c['price'] * $c['quantity'] ?></span></p>
                                     </div>
                                 </div>
                                 <hr />
@@ -148,15 +150,15 @@
                     <tbody>
                         <tr>
                             <th scope="row">商品數量</th>
-                            <td>n</td>
+                            <td><span id="totalCountNumber"></span></td>
                         </tr>
                         <tr>
                             <th scope="row">商品重量</th>
-                            <td>total-weight</td>
+                            <td><span id="totalWeight"></span>g</td>
                         </tr>
                         <tr>
                             <th scope="row">商品金額</th>
-                            <td>money-sum</td>
+                            <td>NT.<span id="totalMoney"></span></td>
                         </tr>
                         <tr>
                             <th scope="row">運費</th>
@@ -184,6 +186,9 @@
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script>
+
+
+
     //credit card
     let credit = document.querySelector(".flip-card-inner");
     let cvv = document.querySelector("#cvv-code");

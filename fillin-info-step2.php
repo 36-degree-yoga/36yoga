@@ -123,19 +123,19 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="email">Email信箱</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6" id="email" value="" required />
+                            <input type="text" class="form-control6 px-2" id="email" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="name">收件人姓名</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6" id="name" value="" required />
+                            <input type="text" class="form-control6 px-2" id="name" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="phonr-number">手機號碼</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6" id="phone-number" value="" required />
+                            <input type="text" class="form-control6 px-2" id="phone-number" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
@@ -167,13 +167,13 @@ $m_row = $pdo->query($m_sql)->fetch();
                                     <option>臺東縣</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control6 my-3" id="city-detail" value="" required />
+                            <input type="text" class="form-control6 px-2 my-3" id="city-detail" value="" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">備註</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2">
-                            <textarea name="" id="" cols="30" rows="3" class="form-control9"></textarea>
+                            <textarea name="" id="" cols="30" rows="3" class="form-control9 px-2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -220,7 +220,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">載據編號</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6" aria-describedby="" placeholder="（發票隨包裹不必填寫）" />
+                            <input type="text" class="form-control6 px-2" aria-describedby="" placeholder="（發票隨包裹不必填寫）" />
                         </div>
                     </div>
                 </div>
@@ -235,7 +235,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="">優惠代碼</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control4" id="" />
+                            <input type="text" class="form-control4 px-2" id="" />
                             <a href="#" class="text-center control-his-position ml-3"><u>確認</u></a>
                         </div>
                     </div>
@@ -267,17 +267,17 @@ $m_row = $pdo->query($m_sql)->fetch();
                                             <!-- 商品尺寸 -->
                                             <div class="product_detail d-flex flex-column align-self-start">
                                                 <p class="p_title"><?= $c['product_name'] ?></p>
-                                                <p class="p_detail">顏色:<?= $c['color'] ?></p>
-                                                <p class="p_detail">尺寸:<?= $c['length'] ?>*<?= $c['width'] ?></p>
+                                                <p class="p_detail">顏色：<?= $c['color'] ?></p>
+                                                <p class="p_detail">尺寸：<?= $c['length'] ?>*<?= $c['width'] ?></p>
                                                 <p class="p_detail">
-                                                    重量:<?= $c['weight'] ?>g
+                                                    重量：<span class="weight"><?= $c['weight'] ?></span>g
                                                 </p>
                                             </div>
                                         </div>
                                         <!-- 件數價錢 -->
                                         <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
                                             <p class="m-0">共<span class="count"><?= $c['quantity'] ?></span>件</p>
-                                            <p class="m-0">NT$ <?= $c['price'] * $c['quantity'] ?><span class="price"></span></p>
+                                            <p class="m-0">NT$ <span class="price"><?= $c['price'] * $c['quantity'] ?></span></p>
                                         </div>
                                     </div>
                                     <hr />
@@ -300,15 +300,15 @@ $m_row = $pdo->query($m_sql)->fetch();
                         <tbody>
                             <tr>
                                 <th scope="row">商品數量</th>
-                                <td>n</td>
+                                <td><span id="totalCountNumber"></span></td>
                             </tr>
                             <tr>
                                 <th scope="row">商品重量</th>
-                                <td>total-weight</td>
+                                <td><span id="totalWeight"></span>g</td>
                             </tr>
                             <tr>
                                 <th scope="row">商品金額</th>
-                                <td>money-sum</td>
+                                <td>NT.<span id="totalMoney"></span></td>
                             </tr>
                             <tr>
                                 <th scope="row">運費</th>
@@ -352,6 +352,35 @@ $m_row = $pdo->query($m_sql)->fetch();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script>
+    function calcTotal() {
+
+        let totalMoney = 0;
+        let totalWeight = 0;
+        let totalCountNumber = 0;
+        $('.m_order_product_wrap').each(function() {
+            const df = $(this);
+            const totalcount = parseInt(df.find('.count').text());
+            const weight = parseInt(df.find('.weight').text());
+            const hismoney = parseInt(df.find('.price').text());
+
+            totalMoney += hismoney;
+            totalWeight += weight * totalcount;
+            totalCountNumber += totalcount;
+        });
+        console.log({
+            totalMoney,
+            totalWeight,
+            totalCountNumber
+        })
+        $('#totalMoney').text(totalMoney);
+        $('#totalWeight').text(totalWeight);
+        $('#totalCountNumber').text(totalCountNumber);
+
+    }
+    calcTotal();
+    //table-info
+
+
     $('#member-info').click(() => {
         $("#email").val("<?= $m_row['email'] ?>");
         $("#name").val("<?= $m_row['account'] ?>");
