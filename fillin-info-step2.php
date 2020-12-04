@@ -73,7 +73,7 @@ $rows = $stmt->fetch();
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">付款方式</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 pr-2 d-flex">
-                            <select class="form-control6 option-1 px-2 text-center">
+                            <select class="form-control6 option-1 px-2 text-center how-to-pay">
                                 <option value="" disabled selected hidden>
                                     --請選擇--
                                 </option>
@@ -349,9 +349,8 @@ $rows = $stmt->fetch();
         $("#city-detail").val("<?= $rows['address'] ?>");
 
     });
-    //頁面跳轉
+
     $('.hope-next-step').on('click', function() {
-        // console.log($(".how-to-pay").val())
         if ($(".how-to-pay").val() === "cerdit") {
             console.log($(".how-to-pay").val())
             $(window).attr('location', 'credit-card-step3.php');
@@ -359,7 +358,7 @@ $rows = $stmt->fetch();
         } else {
             console.log($(".how-to-pay").val())
             $(window).attr('location', 'atm-step3.php');
-         
+       
         }
 
     });
