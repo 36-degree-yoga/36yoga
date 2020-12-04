@@ -59,7 +59,7 @@ $others_rows = $others_stmt->fetchAll();
         </div>
         <div class="space_60"></div>
         <div>
-            <button class="btn_l" style="margin-right: 40px;">了解更多</button>
+            <button class="btn_l" style="margin-right: 40px;" onclick="parent.location.href='product_mat.php?sid=<?= $_GET['sid'] ?>'">了解更多</button>
             <button class="btn_f buy_btn">加入購物車</button>
         </div>
     </div>
