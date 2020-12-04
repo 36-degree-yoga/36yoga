@@ -45,9 +45,11 @@
                     </div>
                     <div class="custom_total_price d-flex align-items-center">
                         共計NT.
-                        <input class="mtp" id="mat-total-price" name="mat-total-price" type="text" value="2000" readonly>&ensp;元
+                        <input class="mtp" id="mat-total-price" name="price" type="text" value="3600" readonly>&ensp;元
                     </div>
                 </div>
+
+                <input class="nooo" id="price" name="mat-total-price" type="text" value="3600" readonly style="display:none">
 
 
 
@@ -426,7 +428,7 @@
 
         <div class="custom_total_price d-flex align-items-center">
             共NT.
-            <input class="mtp" id="mat-total-price" name="mat-total-price" type="text" value="2000" readonly>&ensp;元
+            <input class="mtp" id="mat-total-price" name="mat-total-price" type="text" value="3600" readonly>&ensp;元
         </div>
 
         <div class="m_cart_icon_wrap d-flex col-6 justify-content-end p-0">
@@ -720,7 +722,7 @@
         const length = $('#mat-h').val();
         const width = $('#matw').val();
         const color = $('#pick_color').val();
-        const price = $('#mat-total-price').val();
+        const price = $('#price').val();
 
         const dataObj = {
             item,

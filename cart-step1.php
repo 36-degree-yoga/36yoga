@@ -63,8 +63,7 @@
                             <td class="pl-4 need-weight" data-weight="<?= $c['weight'] ?>">
                                 <div class="product-info text-left">
                                     <p><?= $c['product_name'] ?></p>
-                                    <p class="product-info-detail">
-                                        顏色：<?= $c['color'] ?><br />尺寸：<?= $c['length'] ?>*<?= $c['width'] ?><br />重量：<?= $c['weight'] ?>g
+                                    <p class="product-info-detail" style="font-size: 0.8rem;line-height:20px">尺寸：<?= $c['length'] ?>*<?= $c['width'] ?><br />重量：<?= $c['weight'] ?>g
                                     </p>
                                 </div>
                             </td>
@@ -96,6 +95,59 @@
                             </td>
                         </tr>
                     <?php endforeach; ?>
+
+                    <!------------ 客製項目----*-------- -->
+                    <?php foreach ($_SESSION['custom'] as $b) : ?>
+                        <tr class="mt-3 product-edit" id="product_<?= $b['sid'] ?>" data-sid="<?= $b['sid'] ?>">
+                            <td>
+                                <div class="product-img-pc mx-auto " style="background-color: <?= $b['color'] ?>;">
+                                    <img src="./img/customize/design/<?= $b['img'] ?>.png" alt="">
+                                </div>
+
+                            </td>
+                            <td class="pl-4 need-weight" data-weight="<?= $b['weight'] ?>">
+                                <div class="product-info text-left">
+                                    <p><?= $b['product_name'] ?></p>
+                                    <p class="product-info-detail" style="font-size: 0.8rem;line-height:20px">尺寸：<?= $b['length'] ?>*<?= $b['width'] ?><br />重量：<?= $b['weight'] ?>g
+                                    </p>
+                                </div>
+                            </td>
+                            <td class="number-change w-25" data-count="<?= $b['quantity'] ?>">
+
+                                <!-- copy count -->
+                                <div class="cart_count_wrap d-flex justify-content-center col align-items-lg-center">
+                                    <!-- - -->
+                                    <div class="minus c_minus add_cart_icon ">
+                                        <img src="./SVG/custom/minus_g_icon.svg" alt="">
+                                    </div>
+                                    <!-- 數量 -->
+                                    <!-- <div class="count">1</div> -->
+                                    <input name="mat-count" class="count" type="text" data-quantity="<?= $b['quantity'] ?>" value="<?= $b['quantity'] ?>" readonly="readonly">
+                                    <!-- + -->
+                                    <div class="plus c_plus add_cart_icon">
+                                        <img src="./SVG/custom/plus_g_icon.svg" alt="">
+                                    </div>
+                                </div>
+                                <!-- copy count -->
+                            </td>
+                            <td class="price" data-money="<?= $b['price'] * $b['quantity'] ?>">NT.<?= $b['price'] * $b['quantity'] ?></td>
+                            <td class="favorite-icon">
+                                <a href="#"><img src="./SVG/icon_favorite.svg" alt=""></a>
+
+                            </td>
+                            <td class="delete-icon">
+                                <a href="javascript:delCItem(<?= $b['sid'] ?>)"><img src="./SVG/icon_trash.svg" alt=""></a>
+                            </td>
+                            <input type="text" name="" id="" value="" style="display:none">
+                            <input type="text" name="" id="" value="" style="display:none">
+                            <input type="text" name="" id="" value="" style="display:none">
+                            <input type="text" name="" id="" value="" style="display:none">
+                            <input type="text" name="" id="" value="" style="display:none">
+                            <input type="text" name="" id="" value="" style="display:none">
+                            <input type="text" name="" id="" value="" style="display:none">
+                        </tr>
+                    <?php endforeach; ?>
+
 
                 </tbody>
             </table>
@@ -217,6 +269,19 @@
             calcTotal();
         }, 'json');
     }
+    // 客製delete
+    function delCItem(sid) {
+        $.get('handle-custom.php', {
+            sid: sid,
+            action: 'remove'
+        }, function(data) {
+            console.log(data);
+            $('#product_' + sid).remove();
+            $('#product_m' + sid).remove();
+            //刪除商品後重新計算
+            calcTotal();
+        }, 'json');
+    }
     // 連動quantity
     $('.minus').on('click', function() {
         const tr = $(this).closest(".product-edit");
@@ -254,6 +319,51 @@
             const cart = data.cart
             input.attr('data-quantity', quantity);
             updateData(tr, sid, cart)
+            calcTotal();
+        }, 'json')
+
+
+    });
+    // 連動客製化quantity
+    $('.c_minus').on('click', function() {
+        const tr = $(this).closest(".product-edit");
+        const number = tr.find('td.number-change').attr('data-count');
+        const sid = tr.attr('data-sid');
+        const input = $(this).next();
+        const quantity = input.val();
+        console.log(quantity)
+        console.log('看我')
+        $.get('handle-custom.php', {
+            sid,
+            quantity,
+            action: 'add',
+        }, function(data) {
+            const custom = data.custom
+            // console.log(data);
+            // console.log(sid);
+            input.attr('data-quantity', quantity);
+            input.val(quantity);
+            updateCData(tr, sid, custom)
+            calcTotal();
+        }, 'json')
+    });
+
+    $('.c_plus').on('click', function() {
+        const tr = $(this).closest(".product-edit");
+        const number = tr.find('td.number-change').attr('data-count');
+        const sid = tr.attr('data-sid');
+        const input = $(this).prev();
+        const quantity = input.val();
+        console.log(quantity)
+        console.log('看我')
+        $.get('handle-custom.php', {
+            sid,
+            action: 'add',
+            quantity
+        }, function(data) {
+            const custom = data.custom
+            input.attr('data-quantity', quantity);
+            updateCData(tr, sid, custom)
             calcTotal();
         }, 'json')
 
@@ -300,7 +410,7 @@
 
     function updateData(tr, sid, cart) {
         tr.each(function() {
-            if (this.dataset.sid === sid) {
+            if (this.dataset.sid !== 34) {
                 const {
                     quantity,
                     price
@@ -316,6 +426,26 @@
             }
         })
     }
+
+    function updateCData(tr, sid, custom) {
+        tr.each(function() {
+            if (this.dataset.sid === sid) {
+                const {
+                    quantity,
+                    price
+                } = custom[sid]
+
+                // 更新 資料
+                tr.find('td.number-change').attr('data-count', quantity)
+                tr.find('td.price').attr('data-money', quantity * price)
+
+                // 更新 價格 欄位
+                const priceTd = $(this).find('.price')
+                priceTd.html(`NT.${quantity * price}`)
+            }
+        })
+    }
+
 
 
 
