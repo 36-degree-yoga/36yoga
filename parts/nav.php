@@ -148,7 +148,7 @@ foreach ($_SESSION as $k => $v) {
         <!-- Nav for desktop ---------------------->
         <div class="container-fluid d-flex align-items-center nav-desktop">
             <div class="nav-logo col-3 d-flex align-items-center pl-5">
-                <a href="<?= WEB_ROOT ?>home_page.php">
+                <a href="<?= WEB_ROOT ?>homepage.php">
                     <svg id="logo_-_1" data-name="logo - 1" xmlns="http://www.w3.org/2000/svg" width="190.003" height="44.449" viewBox="0 0 190.003 44.449">
                         <g id="Group_464" data-name="Group 464">
                             <g id="Group_405" data-name="Group 405" transform="translate(0 0)">
@@ -268,8 +268,8 @@ foreach ($_SESSION as $k => $v) {
 
                     </div>
                 </div>
-
-                <a class="nav-icon mr-4 align-items-center d-flex" href="">
+                <!-- 我的最愛 -->
+                <a class="nav-icon mr-4 align-items-center d-flex" href="<?= WEB_ROOT ?>member_my_favorite.php">
                     <svg class="" xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28">
                         <g class="" id="Path_321" data-name="Path 321" transform="translate(0 -1.206)" fill="none">
                             <path class="nav-icon" d="M15,29.206C6.935,23.364,2.7,18.049.97,13.6-3.678,1.68,9.6-2.37,15,4.667,20.4-2.37,33.678,1.68,29.03,13.6,27.3,18.049,23.065,23.364,15,29.206Z" stroke="none" />
