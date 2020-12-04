@@ -1,14 +1,35 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 80px 0 5px 0;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: rgb(219, 219, 219);
+}
+
 a:hover {
   text-decoration: none;
 }
-
-.account_side_bar_wrap {
-  position: fixed;
+.account_sidebar_title a {
+  opacity: 1;
 }
 
+/* .account_side_bar_wrap {
+  position: fixed;
+} */
+
 .account_side_bar_wrap.bottomFixed {
-  position: absolute;
+  /* position: absolute; */
   bottom: 10px;
+}
+
+.content-wrap {
+  padding-top: 60px;
 }
 
 .product_img_wrap {
@@ -24,7 +45,7 @@ a:hover {
   object-fit: cover;
 }
 
-.like_fill {
+/* .like_fill {
   fill: none;
 }
 .like_fill.color {
@@ -36,7 +57,7 @@ a:hover {
 }
 .like_stroke.hover {
   opacity: 0.6;
-}
+} */
 
 /* 會員中心side_bar↓↓ */
 .member_img_wrap {
@@ -109,6 +130,7 @@ a:hover {
   }
   .m_account_bar_wrap {
     display: block;
+    padding-top: 110px;
     overflow-x: scroll;
     height: 55px;
   }
@@ -132,6 +154,10 @@ a:hover {
     height: 242px;
   }
 
+  .content-wrap {
+    padding-top: 10px;
+  }
+
   .product_list {
     justify-content: center !important;
     flex: 0 0 100%;
@@ -145,13 +171,27 @@ a:hover {
     padding: 0 3px;
   }
 }
+
+/* 繼續編輯 按鈕 */
+.edit-btn {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* visibility: hidden; */
+  display: none;
+}
 @media (max-width: 540px) {
   /* 手機板橫條bar↓ */
   .m_account_bar_item {
+    padding-top: 110px;
     width: 660px;
     height: 100%;
   }
   /* 手機板橫條bar↑ */
+
+  .content-wrap {
+    padding-top: 10px;
+  }
 
   .product_list {
     padding: 0;

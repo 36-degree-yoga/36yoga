@@ -53,7 +53,7 @@
                     </tr>
                     <!-- one product -->
                     <?php foreach ($_SESSION['cart'] as $c) : ?>
-                        <tr class="mt-3 product-edit" id="product_<?= $c['sid'] ?>">
+                        <tr class="mt-3 product-edit" id="product_<?= $c['sid'] ?>" data-sid="<?= $c['sid'] ?>">
                             <td>
                                 <div class="product-img-pc mx-auto ">
                                     <img src="./img/product_list/<?= explode(",", $c['img'])[1] ?>.jpg" alt="">
@@ -78,7 +78,7 @@
                                     </div>
                                     <!-- 數量 -->
                                     <!-- <div class="count">1</div> -->
-                                    <input id="mat-count" name="mat-count" class="count" type="text" value="<?= $c['quantity'] ?>" readonly="readonly">
+                                    <input name="mat-count" class="count" type="text" data-quantity="<?= $c['quantity'] ?>" value="<?= $c['quantity'] ?>" readonly="readonly">
                                     <!-- + -->
                                     <div class="plus add_cart_icon">
                                         <img src="./SVG/custom/plus_g_icon.svg" alt="">
@@ -92,10 +92,11 @@
 
                             </td>
                             <td class="delete-icon">
-                                <a href="#"><img src="./SVG/icon_trash.svg" alt=""></a>
+                                <a href="javascript:delItem(<?= $c['sid'] ?>)"><img src="./SVG/icon_trash.svg" alt=""></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
+
                 </tbody>
             </table>
 
@@ -103,7 +104,7 @@
         </div>
         <!-- 手機版 -->
         <?php foreach ($_SESSION['cart'] as $c) : ?>
-            <div class="this-one-pc-none w-100">
+            <div class="this-one-pc-none w-100 m-product-edit" data-sid="<?= $c['sid'] ?>" id="product_<?= $c['sid'] ?>">
                 <div class="d-flex col-12">
                     <div class=" col-10 d-flex justify-content-start p-0">
                         <div class="product-img mr-3">
@@ -133,7 +134,7 @@
                             </div>
                             <!-- 數量 -->
                             <!-- <div class="count">1</div> -->
-                            <input id="mat-count" name="mat-count" class="count" type="text" value="<?= $c['quantity'] ?>" readonly="readonly">
+                            <input name="mat-count" class="count" type="text" value="<?= $c['quantity'] ?>" readonly="readonly">
                             <!-- + -->
                             <div class="plus add_cart_icon">
                                 <img src="./SVG/custom/plus_g_icon.svg" alt="">
@@ -144,7 +145,7 @@
                     <div class="col-4 d-flex justify-content-between align-items-center">
                         <a href="#"> <img src="./SVG/icon_favorite.svg" alt=""></a>
 
-                        <a href="#"><img src="./SVG/icon_trash.svg" alt=""></a>
+                        <a href="javascript:delItem(<?= $c['sid'] ?>)"><img src="./SVG/icon_trash.svg" alt=""></a>
                     </div>
                 </div>
                 <div class="dividerline-in-table-no2 mx-auto"></div>
@@ -157,7 +158,7 @@
         <!-- 總計 -->
         <div class="d-flex justify-content-end col-12 col-sm-12 col-md-10 col-lg-10">
             <div class="text-right">
-                <p>共 <span id="totalCountNumber"></span> 件</br><span class=" pc-need-hide-span"> /</span>
+                <p>共 <span id="totalCountNumber"></span> 件</br class="m-display-none"><span class=" pc-need-hide-span"> /</span>
                     總重：<span id="totalWeight"></span>g<br>
                     共計：NT.<span id="totalMoney"></span></p>
             </div>
@@ -178,29 +179,95 @@
 
 <script>
     // ↓↓ 商品數量↓↓// 
-    var t = $('.count'); /*  數量顯示框*/
+
     $('.plus').click(function() {
-        if (t.val() < 10) {
+        let value = $(this).prev()
+        console.log(value)
+        if (value.val() < 10) {
             /* 數量最大不能超過 */
-            t.val(parseInt(t.val()) + 1);
+            value.val(parseInt(value.val()) + 1);
         } else {
-            t.val(10);
+            value.val(10);
         }
-        console.log(t.val());
+        calcTotal();
     })
     $('.minus').click(function() {
-        if (t.val() <= 1) {
+        let value = $(this).next()
+        if (value.val() <= 1) {
             /*數量最少爲1  */
-            t.val(1);
+            value.val(1);
         } else {
-            t.val(parseInt(t.val()) - 1);
+            value.val(parseInt(value.val()) - 1);
         }
-        console.log(t.val());
+        calcTotal();
     })
     // ↑↑ 商品數量↑↑ //
 
+
+    // delete
+    function delItem(sid) {
+        $.get('handle-cart-product.php', {
+            sid: sid,
+            action: 'remove'
+        }, function(data) {
+            console.log(data);
+            $('#product_' + sid).remove();
+            $('#product_m' + sid).remove();
+            //刪除商品後重新計算
+            calcTotal();
+        }, 'json');
+    }
+    // 連動quantity
+    $('.minus').on('click', function() {
+        const tr = $(this).closest(".product-edit");
+        const number = tr.find('td.number-change').attr('data-count');
+        const sid = tr.attr('data-sid');
+        const input = $(this).next();
+        const quantity = input.val();
+        $.get('handle-cart-product.php', {
+            sid,
+            action: 'add',
+            quantity
+        }, function(data) {
+            const cart = data.cart
+            // console.log(data);
+            // console.log(sid);
+            input.attr('data-quantity', quantity);
+            input.val(quantity);
+            updateData(tr, sid, cart)
+            calcTotal();
+        }, 'json')
+    });
+
+    $('.plus').on('click', function() {
+        const tr = $(this).closest(".product-edit");
+        const number = tr.find('td.number-change').attr('data-count');
+        const sid = tr.attr('data-sid');
+        const input = $(this).prev();
+        const quantity = input.val();
+
+        $.get('handle-cart-product.php', {
+            sid,
+            action: 'add',
+            quantity
+        }, function(data) {
+            const cart = data.cart
+            input.attr('data-quantity', quantity);
+            updateData(tr, sid, cart)
+            calcTotal();
+        }, 'json')
+
+
+    });
+
+
+
+
+    // 連動
     //    product-edit" id="product_<//?= $c['sid'] ?>
     function calcTotal() {
+
+        console.log('created ')
         let totalMoney = 0;
         let totalWeight = 0;
         let totalCountNumber = 0;
@@ -209,17 +276,54 @@
             const totalcount = parseInt(tr.find('td.number-change').attr('data-count'));
             const weight = parseInt(tr.find('td.need-weight').attr('data-weight'));
             const hismoney = parseInt(tr.find('td.price').attr('data-money'));
-       
-            totalMoney += hismoney;
-            totalWeight += weight;
-            totalCountNumber += totalcount;
 
+            totalMoney += hismoney;
+            totalWeight += weight * totalcount;
+            totalCountNumber += totalcount;
         });
+
+
+        console.log({
+            totalMoney,
+            totalWeight,
+            totalCountNumber
+        })
         $('#totalMoney').text(totalMoney);
         $('#totalWeight').text(totalWeight);
         $('#totalCountNumber').text(totalCountNumber);
+
     }
     calcTotal();
+
+
+
+
+    function updateData(tr, sid, cart) {
+        tr.each(function() {
+            if (this.dataset.sid === sid) {
+                const {
+                    quantity,
+                    price
+                } = cart[sid]
+
+                // 更新 資料
+                tr.find('td.number-change').attr('data-count', quantity)
+                tr.find('td.price').attr('data-money', quantity * price)
+
+                // 更新 價格 欄位
+                const priceTd = $(this).find('.price')
+                priceTd.html(`NT.${quantity * price}`)
+            }
+        })
+    }
+
+
+
+
+    $('.hope-next-step').on('click', function() {
+
+        $(window).attr('location', 'fillin-info-step2.php');
+    });
 </script>
 
 

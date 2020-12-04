@@ -85,7 +85,8 @@ margin: 34px 0 0 45px;
 .btn-wrapper{
     width: 100%;
     padding: 0 21%;
-    height: 47%;
+    /* height: 47%; */
+    min-height: 500px;
 }
 
 .btn-wrap{

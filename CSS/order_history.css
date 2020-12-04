@@ -228,9 +228,9 @@ li {
 button {
   transition: 0.3s;
 }
-button:hover {
+/* button:hover {
   opacity: 0.6;
-}
+} */
 
 .order_list_history {
   display: flex;
@@ -248,9 +248,9 @@ button:hover {
   padding: 10px;
 }
 .list_option li:hover {
-  color: #c7c7c7;
+  color: #fffefc;
+  background-color: #126930;
 }
-
 .click_green {
   background-color: #004a13;
   color: #fffefc;

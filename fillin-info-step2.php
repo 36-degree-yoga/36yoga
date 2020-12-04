@@ -1,9 +1,19 @@
 <?php include __DIR__ . '/parts/config.php';
 
+// $stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
+// $rows = $stmt->fetch();
 
-$stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
-$rows = $stmt->fetch();
+if (!isset($_SESSION['user'])) {
+    header('Location: login-test01.php');
+    exit;
+}
 
+$member_id = $_SESSION['user']['id'];
+
+$m_sql = "SELECT `id`, `account`, `email`,  `mobile`, `city`, `address`, `nickname` FROM `members`  WHERE `id` = $member_id ";
+$m_row = $pdo->query($m_sql)->fetch();
+// $stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
+// $rows = $stmt->fetch?();
 
 // echo json_encode($rows, JSON_UNESCAPED_UNICODE);
 ?>
@@ -73,7 +83,7 @@ $rows = $stmt->fetch();
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">付款方式</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 pr-2 d-flex">
-                            <select class="form-control6 option-1 px-2 text-center">
+                            <select class="form-control6 option-1 px-2 text-center how-to-pay">
                                 <option value="" disabled selected hidden>
                                     --請選擇--
                                 </option>
@@ -98,6 +108,7 @@ $rows = $stmt->fetch();
                 </div>
             </div>
             <!-- part2 -->
+
             <div class="mt-4">
                 <div class="d-flex justify-content-between which-need-border-bottom">
                     <h6>收件資訊</h6>
@@ -342,24 +353,23 @@ $rows = $stmt->fetch();
 <!-- js連結 -->
 <script>
     $('#member-info').click(() => {
-        $("#email").val("<?= $rows['email'] ?>");
-        $("#name").val("<?= $rows['account'] ?>");
-        $("#phone-number").val("<?= $rows['mobile'] ?>");
+        $("#email").val("<?= $m_row['email'] ?>");
+        $("#name").val("<?= $m_row['account'] ?>");
+        $("#phone-number").val("<?= $m_row['mobile'] ?>");
         $("#city").val("1");
-        $("#city-detail").val("<?= $rows['address'] ?>");
+        $("#city-detail").val("<?= $m_row['address'] ?>");
 
     });
-    //頁面跳轉
+
     $('.hope-next-step').on('click', function() {
-        // console.log($(".how-to-pay").val())
         if ($(".how-to-pay").val() === "cerdit") {
             console.log($(".how-to-pay").val())
             $(window).attr('location', 'credit-card-step3.php');
-           
+
         } else {
             console.log($(".how-to-pay").val())
             $(window).attr('location', 'atm-step3.php');
-         
+
         }
 
     });

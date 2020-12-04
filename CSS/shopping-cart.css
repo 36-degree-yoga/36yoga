@@ -235,7 +235,7 @@ a:hover {
   .pc-need-hide-span {
     padding-right: 2px;
   }
-  .pc-need-hide-span p br:first-child {
+  .m-display-none {
     display: none;
   }
   /* count */

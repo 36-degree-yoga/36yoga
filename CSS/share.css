@@ -50,7 +50,7 @@ p {
 /* 間距↑↑ */
 
 a {
-  transition: 0.5s;
+  transition: 0.3s;
 }
 a:hover {
   opacity: 0.6;
@@ -64,11 +64,11 @@ a:hover {
   height: 38px;
   border: none;
   border-radius: 4px;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .btn_f:hover {
-  opacity: 0.6;
+  background-color: #126930;
 }
 /* 綠底按鈕↑↑ */
 
@@ -81,10 +81,11 @@ a:hover {
   height: 38px;
   border: 2px solid #004a13;
   border-radius: 4px;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 .btn_l:hover {
-  opacity: 0.6;
+  color: #126930;
+  border: 2px solid #126930;
 }
 /* 線按鈕↑↑ */
 
