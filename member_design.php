@@ -177,14 +177,21 @@ $design_rows = $design_stmt->fetchAll();
 
 
         <!-- 右側 -->
+        <div class="contanier-fulid col-9 no-list">
+            <p style="font-size: 30px;width:100%;color:#848484;;text-align:center;margin-top:120px">尚未儲存設計</p>
+        </div>
 
         <div class="product_list col-9 d-flex flex-wrap ">
+
             <?php foreach ($design_rows as $d) : ?>
                 <div class="product mb-5 col-4">
                     <div class="product_img_wrap position-relative" data-toggle="modal" data-target="#exampleModal">
+
                         <div class="d-flex justify-content-center "><img style="background-color: <?= $d['pick_color'] ?>;" src="img/customize/design/<?= $d['design_img'] ?>.png" alt=""></div>
 
-
+                        <button class="edit-btn btn_f position-absolute" id="edit-btn">
+                            繼續編輯
+                        </button>
 
 
                     </div>
