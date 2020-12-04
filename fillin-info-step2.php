@@ -1,9 +1,19 @@
 <?php include __DIR__ . '/parts/config.php';
 
+// $stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
+// $rows = $stmt->fetch();
 
-$stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
-$rows = $stmt->fetch();
+if (!isset($_SESSION['user'])) {
+    header('Location: login-test01.php');
+    exit;
+}
 
+$member_id = $_SESSION['user']['id'];
+
+$m_sql = "SELECT `id`, `account`, `email`,  `mobile`, `city`, `address`, `nickname` FROM `members`  WHERE `id` = $member_id ";
+$m_row = $pdo->query($m_sql)->fetch();
+// $stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
+// $rows = $stmt->fetch?();
 
 // echo json_encode($rows, JSON_UNESCAPED_UNICODE);
 ?>
@@ -98,6 +108,7 @@ $rows = $stmt->fetch();
                 </div>
             </div>
             <!-- part2 -->
+
             <div class="mt-4">
                 <div class="d-flex justify-content-between which-need-border-bottom">
                     <h6>收件資訊</h6>
@@ -342,11 +353,11 @@ $rows = $stmt->fetch();
 <!-- js連結 -->
 <script>
     $('#member-info').click(() => {
-        $("#email").val("<?= $rows['email'] ?>");
-        $("#name").val("<?= $rows['account'] ?>");
-        $("#phone-number").val("<?= $rows['mobile'] ?>");
+        $("#email").val("<?= $m_row['email'] ?>");
+        $("#name").val("<?= $m_row['account'] ?>");
+        $("#phone-number").val("<?= $m_row['mobile'] ?>");
         $("#city").val("1");
-        $("#city-detail").val("<?= $rows['address'] ?>");
+        $("#city-detail").val("<?= $m_row['address'] ?>");
 
     });
 
@@ -354,11 +365,11 @@ $rows = $stmt->fetch();
         if ($(".how-to-pay").val() === "cerdit") {
             console.log($(".how-to-pay").val())
             $(window).attr('location', 'credit-card-step3.php');
-           
+
         } else {
             console.log($(".how-to-pay").val())
             $(window).attr('location', 'atm-step3.php');
-       
+
         }
 
     });

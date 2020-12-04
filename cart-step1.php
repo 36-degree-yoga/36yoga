@@ -96,6 +96,7 @@
                             </td>
                         </tr>
                     <?php endforeach; ?>
+
                 </tbody>
             </table>
 
@@ -205,7 +206,7 @@
 
     // delete
     function delItem(sid) {
-        $.get('handle-cart-api.php', {
+        $.get('handle-cart-product.php', {
             sid: sid,
             action: 'remove'
         }, function(data) {
@@ -223,7 +224,7 @@
         const sid = tr.attr('data-sid');
         const input = $(this).next();
         const quantity = input.val();
-        $.get('handle-cart-api.php', {
+        $.get('handle-cart-product.php', {
             sid,
             action: 'add',
             quantity
@@ -245,7 +246,7 @@
         const input = $(this).prev();
         const quantity = input.val();
 
-        $.get('handle-cart-api.php', {
+        $.get('handle-cart-product.php', {
             sid,
             action: 'add',
             quantity
@@ -315,6 +316,14 @@
             }
         })
     }
+
+
+
+
+    $('.hope-next-step').on('click', function() {
+
+        $(window).attr('location', 'fillin-info-step2.php');
+    });
 </script>
 
 
