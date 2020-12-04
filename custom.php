@@ -5,9 +5,8 @@
 <link rel="stylesheet" href="./CSS/share.css">
 <link rel="stylesheet" href="./CSS/custom.css" />
 <!-- 貼上html -->
-<div style="">
+
     <?php include __DIR__ . '/parts/nav.php'; ?>
-</div>
 
 
 <div class="custom container-fluid">
