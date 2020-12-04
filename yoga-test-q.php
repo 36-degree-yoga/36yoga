@@ -14,8 +14,10 @@ if (!isset($_SESSION['yoga_test'])) {
 //     // echo 'hi referer';
 // };
 
+$rrrrr = count($_SESSION['yoga_test']);
+// echo json_encode($rrrrr, JSON_UNESCAPED_UNICODE);
 
-if (count($_SESSION['yoga_test']) == 4) {
+if (count($_SESSION['yoga_test']) >= 4) {
     // unset($_SESSION['yoga_test']);
     //再轉向到結果頁面
     header('Location: yoga-test-result.php');
@@ -228,15 +230,15 @@ $qqq = intval(count($_SESSION['yoga_test']) + 1);
 
     });
 
-    let hhh = ($('.thermometer_line').height() - 18) / 5;
+    let hhh = ($('.thermometer_line').height() - 24) / 5;
     console.log(hhh);
 
 
     var qqq = <?php echo json_encode($qqq); ?>;
-    var move = hhh * qqq;
+    var move = hhh * qqq + 24;
     console.log(qqq);
     $('.pro-number .number').eq(qqq - 1).css('color', '#db5c00');
-    $('.thermometer_move').css('height', move + "24");
+    $('.thermometer_move').css('height', move);
 
 
     console.log(' move:' + move);

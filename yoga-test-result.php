@@ -1,5 +1,12 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 <?php
+if (count($_SESSION['yoga_test']) < 5) {
+    // unset($_SESSION['yoga_test']);
+    //再轉向到結果頁面
+    header('Location: yoga-test-q.php');
+    // echo 'oh';
+};
+
 $ans = $_SESSION['yoga_test'];
 
 //答案 set 
@@ -60,11 +67,11 @@ $rand2 = rand(0, 2);
 $rand3 = rand(0, 2);
 //
 $qmat_sql = "SELECT * FROM `products` WHERE `sid`= $finalm[$rand1] and `length` = $a0";
-echo $qmat_sql;
+// echo $qmat_sql;
 $qmat_Stmt = $pdo->query($qmat_sql);
 $qmat_row = $qmat_Stmt->fetch();
 $qmat_row['my_imgs'] = explode(",", $qmat_row['img']);
-echo json_encode($qmat_row);
+// echo json_encode($qmat_row);
 // foreach ($qmat_row  as $qmk => $qmr) {
 //     $qmat_row[$qmk]['my_imgs'] = explode(",", $qmr['img']);
 // };
@@ -262,7 +269,7 @@ $qp2_row['my_imgs'] = explode(",", $qp2_row['img']);
 
     <div class="re-take d-flex justify-content-center position-absolute align-items-center">
         <h6>想看其他結果？</h6>
-        <a href="<?= WEB_ROOT ?>yogatest-unset.php"><button type="button" class="btn_f" name="" value="">重新測驗</button></a>
+        <a href="<?= WEB_ROOT ?>yoga-test-unset.php"><button type="button" class="btn_f" name="" value="">重新測驗</button></a>
         <!-- href="?= WEB_ROOT ?>yoga-test-q.php" -->
     </div>
 
