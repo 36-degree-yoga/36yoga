@@ -2,7 +2,17 @@
 
 <?php
 
+// if (!isset($_GET['sid'])) {
+//     // header('Location: product_list.php');
+//     // exit;
+//     $sid = intval($_GET['sid'] ?? 1);
+// }
+
 $sid = intval($_GET['sid'] ?? 1);
+
+// echo json_encode($sid, JSON_UNESCAPED_UNICODE);
+
+
 
 // 產品名稱
 $p_sql = "SELECT `sid`, `product_name`, `price`, `introduction`, `color`, `length`, `img` FROM `products` WHERE `sid`=$sid";
@@ -52,8 +62,6 @@ $others_rows = $others_stmt->fetchAll();
 // echo  json_encode($others_rows, JSON_UNESCAPED_UNICODE);
 // exit;
 
-// 愛心
-
 
 ?>
 
@@ -93,18 +101,18 @@ $others_rows = $others_stmt->fetchAll();
                 <div class="product_sidebar_content">
                     <div class="product_siderbar_title">
                         <div class="title"><a id="plst_top" href="<?= WEB_ROOT ?>product_list.php">瑜珈墊</a></div>
-                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#std">一般</a></div>
-                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#ctm">客製化</a></div>
+                        <div class="subtitle" id="std"><a href="<?= WEB_ROOT ?>product_list.php#std">一般</a></div>
+                        <div class="subtitle" id="ctm"><a href="<?= WEB_ROOT ?>product_list.php#ctm">客製化</a></div>
                     </div>
                     <div class="product_siderbar_title">
                         <div class="title"><a href="<?= WEB_ROOT ?>product_list.php#block">輔具</a></div>
-                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#block">瑜珈磚</a></div>
-                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#pad">支撐墊</a></div>
-                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#roller">滾筒</a></div>
-                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#sand">沙包</a></div>
-                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#strap">伸展帶</a></div>
-                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#band">彈力帶</a></div>
-                        <div class="subtitle"><a href="<?= WEB_ROOT ?>product_list.php#towel">舖巾</a></div>
+                        <div class="subtitle" id="block"><a href="<?= WEB_ROOT ?>product_list.php#block">瑜珈磚</a></div>
+                        <div class="subtitle" id="pad"><a href="<?= WEB_ROOT ?>product_list.php#pad">支撐墊</a></div>
+                        <div class="subtitle" id="roller"><a href="<?= WEB_ROOT ?>product_list.php#roller">滾筒</a></div>
+                        <div class="subtitle" id="sand"><a href="<?= WEB_ROOT ?>product_list.php#sand">沙包</a></div>
+                        <div class="subtitle" id="strap"><a href="<?= WEB_ROOT ?>product_list.php#strap">伸展帶</a></div>
+                        <div class="subtitle" id="band"><a href="<?= WEB_ROOT ?>product_list.php#band">彈力帶</a></div>
+                        <div class="subtitle" id="towel"><a href="<?= WEB_ROOT ?>product_list.php#towel">舖巾</a></div>
                     </div>
                 </div>
             </div>
@@ -255,12 +263,12 @@ $others_rows = $others_stmt->fetchAll();
                         <div class="cta-btn-wrap d-flex justify-content-between">
 
                             <!-- 按鈕：立即購買 -->
-                            <button class="buy-btn btn btn-l w-50 mr-3">
+                            <button class="buy-btn btn btn-l w-50 mr-3" data-sid="<?= $p['sid'] ?>" onclick="javascript: toBuy(event);return false;">
                                 立即購買
                             </button>
 
                             <!-- 按鈕：加入購物車 -->
-                            <button class="addtocart-btn btn btn-f w-50 " data-sid="<?= $p['sid'] ?>" onclick="javascript: addToCart(event);return false;">
+                            <button class="addtocart-btn btn btn-f w-50 " data-sid="<?= $p['sid'] ?>" onclick="javascript: addToCart(event);return false; ">
                                 加入購物車
                             </button>
 
@@ -1936,7 +1944,95 @@ $others_rows = $others_stmt->fetchAll();
 <script src="<?= WEB_ROOT ?>lib/product_mat.js"></script>
 
 <script>
-    // 左側欄互動
+    // 左側欄互動 
+
+    // 如果sid
+
+    $sid = <?php echo $sid ?>;
+    console.log($sid, "hoho");
+
+    $std = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    $ctm = [34];
+    $block = [13, 14, 15, 16];
+    $pad = [17, 18];
+    $roller = [19, 20, 21];
+    $sand = [22, 23, 24, 25];
+    $strap = [26, 27, 28, 29];
+    $band = [30, 31];
+    $towel = [32, 33];
+
+
+
+    if ($std.includes($sid)) {
+        $('#std a').css('color', '#db5c00');
+        // $(this).css('color', '#db5c00');
+        console.log($std.includes($sid), "ho");
+    }
+    if ($block.includes($sid)) {
+        $('#block a').css('color', '#db5c00');
+    }
+    if ($pad.includes($sid)) {
+        $('#pad a').text().css('color', '#db5c00');
+    }
+    if ($roller.includes($sid)) {
+        $('#roller a').css('color', '#db5c00');
+    }
+    if ($sand.includes($sid)) {
+        console.log($sand.includes($sid), "ho");
+        $('#sand a').css('color', '#db5c00');
+    }
+    if ($strap.includes($sid)) {
+        $('#strap a').css('color', '#db5c00');
+    }
+    if ($band.includes($sid)) {
+        $('#band a').css('color', '#db5c00');
+    }
+    if ($towel.includes($sid)) {
+        $('#towel a').css('color', '#db5c00');
+    }
+
+
+    //列表滾動效果↓↓
+    $('.product_siderbar_title a').on('click', function(event) {
+        if (this.hash !== "") {
+            console.log('this.hash !==');
+            event.preventDefault();
+            const hash = this.hash;
+            $('html,body').animate({
+                scrollTop: $(hash).offset().top
+            }, 1000, function() {
+                // window.location.hash = hash;
+            })
+        } else {
+            console.log('hsa hash', this.hash);
+        }
+    });
+    //列表滾動效果↑↑
+
+    // 側bar到一個位置fix住↓↓
+    $(window).on('scroll', function() {
+        let scrollTop = $(this).scrollTop();
+        // console.log(scrollTop)
+        let barFixed = 600;
+        let barUnFixd = 4700;
+
+
+
+        if (scrollTop < barFixed) {
+            $('.product_siderbar_wrap').removeClass('bottomFixed');
+            $('.product_siderbar_wrap').removeClass('fixed');
+
+        } else if (scrollTop < barUnFixd) {
+            $('.product_siderbar_wrap').removeClass('bottomFixed');
+            $('.product_siderbar_wrap').addClass('fixed');
+
+        } else {
+            $('.product_siderbar_wrap').removeClass('fixed');
+            $('.product_siderbar_wrap').addClass('bottomFixed');
+
+        }
+    });
+    // 側bar到一個位置fix住↑↑   
 
 
 
@@ -1988,6 +2084,30 @@ $others_rows = $others_stmt->fetchAll();
             if (window.parent && window.parent.renderSmallCart) {
                 window.parent.renderSmallCart(data.cart);
             }
+        }, 'json');
+    };
+
+    //完成購買
+    function toBuy(event) {
+
+        const sid = $('.buy-btn').attr('data-sid');
+        const qty = $('.amount-number').val();
+
+        console.log({
+            sid: sid,
+            quantity: qty
+        });
+
+        $.get('handle-cart-product.php', {
+            sid: sid,
+            quantity: qty,
+            action: 'add'
+        }, function(data) {
+            console.log(data);
+            if (window.parent && window.parent.renderSmallCart) {
+                window.parent.renderSmallCart(data.cart);
+            }
+            document.location.href = "cart-step1.php";
         }, 'json');
     };
 </script>

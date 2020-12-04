@@ -4,7 +4,7 @@
 
 $member_id = intval($_SESSION['user']['id']);
 
-$mf_sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = `members`.id)  JOIN `products` ON `favorite`.product_sid = `products`.sid ) WHERE `members`.id = $member_id";
+$mf_sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = `members`.id)  JOIN `products` ON `favorite`.product_sid = `products`.sid ) WHERE `members`.id = $member_id ";
 
 // $sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = `members`.id) LEFT JOIN `products` ON `favorite`.product_sid = `products`.sid )";
 
@@ -220,7 +220,7 @@ foreach ($mf_row as $k => $r) {
                     <h6 class="mb-0" style="text-align: center;"><?= $r['product_name'] ?></h6>
                     <p class="p-0" style="text-align: center;">NT.<?= $r['price'] ?></p>
                     <div class="space_30"></div>
-                    <button class="btn_f w-100">加入購物車</button>
+                    <button class="addtocart-btn btn_f w-100 " data-sid="<?= $r['sid'] ?>" onclick="javascript: addToCart(event);return false;">加入購物車</button>
                 </div>
             <?php endforeach; ?>
 
@@ -230,7 +230,8 @@ foreach ($mf_row as $k => $r) {
     </div>
 </div>
 
-<div class="space_120"></div>
+<div class=" space_120">
+</div>
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_my_favorite.js"></script>
@@ -260,15 +261,37 @@ foreach ($mf_row as $k => $r) {
                 // if (!data.add) {
                 //     confirm(`確定要刪除設計嗎?`)   
                 // }
+
+                location.reload();
+                header('Location:member_my_favorite.php');
+
             }, 'json');
-
-            location.reload();
-
-            header('Location:member_my_favorite.php');
 
         }
 
+    };
 
+    //加入購物車
+    function addToCart(event) {
+
+        const sid = $('.addtocart-btn').attr('data-sid');
+        const qty = $('.amount-number').val();
+
+        console.log({
+            sid: sid,
+            quantity: qty
+        });
+
+        $.get('handle-cart-product.php', {
+            sid: sid,
+            quantity: qty,
+            action: 'add'
+        }, function(data) {
+            console.log(data);
+            if (window.parent && window.parent.renderSmallCart) {
+                window.parent.renderSmallCart(data.cart);
+            }
+        }, 'json');
     };
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

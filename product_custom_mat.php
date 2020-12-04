@@ -203,9 +203,15 @@ $others_rows = $others_stmt->fetchAll();
                         <div class="cta-btn-wrap d-flex align-items-end">
 
                             <!-- 按鈕：開始製作 -->
-                            <button class="addtocart-btn btn btn-f w-100 ">
-                                開始製作
-                            </button>
+                            <?php if (isset($_SESSION['user'])) : ?>
+                                <button class="addtocart-btn btn btn-f w-100" onclick="javascript:location.href='custom.php'">
+                                    開始製作
+                                </button>
+                            <?php else : ?>
+                                <button class="addtocart-btn btn btn-f w-100" onclick="javascript:location.href='login_regist.php'">
+                                    請先登入會員
+                                </button>
+                            <?php endif; ?>
 
                         </div>
 
@@ -1905,6 +1911,18 @@ $others_rows = $others_stmt->fetchAll();
 
 
     };
+
+    function doMake() {
+        $.get('buy.php', function(data) {
+            if (data.success) {
+                alert('感謝訂購~');
+                location.reload(); // 重新載入頁面
+            } else {
+                console.log(data);
+            }
+        }, 'json');
+
+    }
 </script>
 
 
