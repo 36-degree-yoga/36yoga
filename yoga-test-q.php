@@ -109,7 +109,7 @@ $qqq = intval(count($_SESSION['yoga_test']) + 1);
 
             <div class="content-title text-center w-100 animate__animated animate__fadeInUp">
                 <h2>
-                    <? echo $t ?>
+                    <?= $t ?>
                 </h2>
             </div>
             <!-- 送出 -->
