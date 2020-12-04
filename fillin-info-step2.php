@@ -146,9 +146,9 @@ $m_row = $pdo->query($m_sql)->fetch();
                                     <option value="" disabled selected hidden>
                                         --請選擇--
                                     </option>
-                                    <option value="1">臺北市</option>
-                                    <option>新北市</option>
-                                    <option>桃園市</option>
+                                    <option value="臺北市">臺北市</option>
+                                    <option value="新北市">新北市</option>
+                                    <option value="桃園市">桃園市</option>
                                     <option>臺中市</option>
                                     <option>臺南市</option>
                                     <option>高雄市</option>
@@ -356,7 +356,7 @@ $m_row = $pdo->query($m_sql)->fetch();
         $("#email").val("<?= $m_row['email'] ?>");
         $("#name").val("<?= $m_row['account'] ?>");
         $("#phone-number").val("<?= $m_row['mobile'] ?>");
-        $("#city").val("1");
+        $("#city").val("<?= $m_row['city'] ?>");
         $("#city-detail").val("<?= $m_row['address'] ?>");
 
     });
