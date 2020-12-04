@@ -2,12 +2,12 @@ a:hover {
   text-decoration: none;
 }
 
-.account_side_bar_wrap {
+/* .account_side_bar_wrap {
   position: fixed;
-}
+} */
 
 .account_side_bar_wrap.bottomFixed {
-  position: absolute;
+  /* position: absolute; */
   bottom: 10px;
 }
 

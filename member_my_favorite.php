@@ -236,27 +236,38 @@ foreach ($mf_row as $k => $r) {
 <script src="<?= WEB_ROOT ?>lib/member_my_favorite.js"></script>
 <script>
     function checkLike() {
+
         const me = $(event.currentTarget);
         const product_sid = me.attr('data-sid');
+
         console.log('product_sid:', {
             product_sid
         });
-        $.post('my_favorite_api.php', {
-            product_sid,
 
-        }, function(data) {
-            console.log(data);
-            if (!data.add) {
+        if (confirm(`確定要移除嗎?`)) {
 
-                me.find('.like_fill').addClass('color');
+            $.post('my_favorite_api.php', {
+                product_sid,
 
-            }
+            }, function(data) {
+                console.log(data);
 
-            // if (!data.add) {
-            //     confirm(`確定要刪除設計嗎?`)
-            //     
-            // }
-        }, 'json')
+                me.find('.like_fill').addClass('color')
+                // if (!data.add) {
+                //     me.find('.like_fill').addClass('color');
+                // }
+
+                // if (!data.add) {
+                //     confirm(`確定要刪除設計嗎?`)   
+                // }
+            }, 'json');
+
+            location.reload();
+
+            header('Location:member_my_favorite.php');
+
+        }
+
 
     };
 </script>

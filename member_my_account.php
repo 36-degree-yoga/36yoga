@@ -1,7 +1,10 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
+<?php include __DIR__ . '/parts/member-required.php'; ?>
 
 <?php
-$id = intval($_GET['id'] ?? 6);
+
+
+$id = intval($_SESSION['user']['id']);
 
 $sql = "SELECT * FROM `members` WHERE `id`=$id";
 
