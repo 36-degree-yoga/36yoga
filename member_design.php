@@ -177,9 +177,7 @@ $design_rows = $design_stmt->fetchAll();
 
 
         <!-- 右側 -->
-        <div class="contanier-fulid col-9 no-list">
-            <p style="font-size: 30px;width:100%;color:#848484;;text-align:center;margin-top:120px">尚未儲存設計</p>
-        </div>
+
 
         <div class="product_list col-9 d-flex flex-wrap ">
 
