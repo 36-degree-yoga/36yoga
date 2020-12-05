@@ -432,102 +432,117 @@
                         <!-- 移動圖片們 -->
                         <div class="movemove prods_left col-5" data-rellax-speed="4" >
                             <div class="prods_box">
-                                <div class="prods_picwrap ppwrap_01" >
-                                    <img class="index_prodspic_h1" src="./img/index/index_04_h.jpg" alt="">
-                                    <img class="index_prodspic01" src="./img/index/index_04.jpg" alt="">   
-                                </div>
-                                <div>
+                                <a href="">
+                                    <div class="prods_picwrap ppwrap_01" >
+                                        <img class="index_prodspic_h1" src="./img/index/index_04_h.jpg" alt="">
+                                        <img class="index_prodspic01" src="./img/index/index_04.jpg" alt="">   
+                                    </div>
+                                    <div>
+                                        <div class="d-flex prod_pp_quick">
+                                            <div class="prod_ppwrap">
+                                                <h6 class="prod">36 pro® 6mm</h6>
+                                                <p class="prod_price">NT.3600</p>
+                                            </div>
+                                            <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                                <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a> 
+                            </div>
+
+                            <div class="prods_box ">
+                                <a href="" class="">
+                                    <div class="prods_picwrap ppwrap_02">
+                                        <img class="index_prodspic_h2" src="./img/index/index_04_h_black.jpg" alt="">
+                                        <img class="index_prodspic02" src="./img/index/index_06.jpg" alt="">
+                                    </div>
                                     <div class="d-flex prod_pp_quick">
                                         <div class="prod_ppwrap">
-                                            <h6 class="prod">環保瑜珈墊</h6>
-                                            <p class="prod_price">$1000</p>
+                                            <h6 class="prod">36 pro® 6mm</h6>
+                                            <p class="prod_price">NT.3600</p>
                                         </div>
                                         <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
                                             <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
                                         </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="prods_box">
+                                <a href="">
+                                    <div class="prods_picwrap ppwrap_03">
+                                        <img class="index_prodspic_h3" src="./img/index/index_04_h_green.jpg" alt="">
+                                        <img class="index_prodspic03" src="./img/index/index_05.jpg" alt="">
+                                    </div>
+                                    <div class="d-flex prod_pp_quick">
+                                        <div class="prod_ppwrap">
+                                            <h6 class="prod">36 pro® 6mm</h6>
+                                            <p class="prod_price">NT.3600</p>
+                                        </div>
+                                        <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                        </div>
+                                    </div>
+                                </a>
                                 
-                                    </div>
-                                </div>
                             </div>
-                            <div class="prods_box ">
-                                <div class="prods_picwrap ppwrap_02">
-                                    <img class="index_prodspic_h2" src="./img/index/index_04_h.jpg" alt="">
-                                    <img class="index_prodspic02" src="./img/index/index_06.jpg" alt="">
-                                </div>
-                                <div class="d-flex prod_pp_quick">
-                                    <div class="prod_ppwrap">
-                                        <h6 class="prod">環保瑜珈墊</h6>
-                                        <p class="prod_price">$1000</p>
-                                    </div>
-                                    <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
-                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="prods_box">
-                                <div class="prods_picwrap ppwrap_03">
-                                    <img class="index_prodspic_h3" src="./img/index/index_04_h.jpg" alt="">
-                                    <img class="index_prodspic03" src="./img/index/index_05.jpg" alt="">
-                                </div>
-                                <div class="d-flex prod_pp_quick">
-                                    <div class="prod_ppwrap">
-                                        <h6 class="prod">環保瑜珈墊</h6>
-                                        <p class="prod_price">$1000</p>
-                                    </div>
-                                    <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
-                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
-                                    </div>
-                                </div>
-                            </div>
-                           
                         </div>
+
                         <div class="movemove prods_right col-5  " data-rellax-speed="5">
-                            <div class="prods_box ">
-                                <div class="prods_picwrap ppwrap_04">
-                                    <img class="index_prodspic_h4" src="./img/index/index_04_h.jpg" alt="">
-                                    <img class="index_prodspic04" src="./img/index/index_03.jpg" alt="">
-                                </div>
-                                <div class="d-flex prod_pp_quick">
-                                    <div class="prod_ppwrap">
-                                        <h6 class="prod">環保瑜珈墊</h6>
-                                        <p class="prod_price">$1000</p>
+                            <div class="prods_box ">3
+                                <a href="">
+                                    <div class="prods_picwrap ppwrap_04">
+                                        <img class="index_prodspic_h4" src="./img/index/index_04_h_red.jpg" alt="">
+                                        <img class="index_prodspic04" src="./img/index/index_03.jpg" alt="">
                                     </div>
-                                    <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
-                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                    <div class="d-flex prod_pp_quick">
+                                        <div class="prod_ppwrap">
+                                            <h6 class="prod">36 prolite® 4.7mm</h6>
+                                            <p class="prod_price">NT.2760</p>
+                                        </div>
+                                        <div href="" class="index_quick quick_right" data-toggle="modal" data-target="#exampleModal">
+                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                        </div>
                                     </div>
-                                </div>
+                                </a>    
                             </div>
+
                             <div class="prods_box">
-                                <div class="prods_picwrap ppwrap_05">
-                                    <img class="index_prodspic_h5" src="./img/index/index_04_h.jpg" alt="">
-                                    <img class="index_prodspic05" src="./img/index/index_07.jpg" alt="">
-                                </div>
-                                <div class="d-flex prod_pp_quick">
-                                    <div class="prod_ppwrap">
-                                        <h6 class="prod">環保瑜珈墊</h6>
-                                        <p class="prod_price">$1000</p>
+                                <a href="">
+                                    <div class="prods_picwrap ppwrap_05">
+                                        <img class="index_prodspic_h5" src="./img/index/index_04_h_black.jpg" alt="">
+                                        <img class="index_prodspic05" src="./img/index/index_07.jpg" alt="">
                                     </div>
-                                    <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
-                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                    <div class="d-flex prod_pp_quick">
+                                        <div class="prod_ppwrap">
+                                            <h6 class="prod">36 prolite® 4.7mm</h6>
+                                            <p class="prod_price">NT.2760</p>
+                                        </div>
+                                        <div href="" class="index_quick quick_right" data-toggle="modal" data-target="#exampleModal">
+                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                        </div>
                                     </div>
-                                </div>
+                                </a>  
                             </div>
+
                             <div class="prods_box">
-                                <div class="prods_picwrap ppwrap_06">
-                                    <img class="index_prodspic_h6" src="./img/index/index_04_h.jpg" alt="">
-                                    <img class="index_prodspic06" src="./img/index/index_08.jpg" alt="">
-                                </div>
-                                <div class="d-flex prod_pp_quick">
-                                    <div class="prod_ppwrap">
-                                        <h6 class="prod">環保瑜珈墊</h6>
-                                        <p class="prod_price">$1000</p>
+                                <a href="">
+                                    <div class="prods_picwrap ppwrap_06">
+                                        <img class="index_prodspic_h6" src="./img/index/index_04_h.jpg" alt="">
+                                        <img class="index_prodspic06" src="./img/index/index_08.jpg" alt="">
                                     </div>
-                                    <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
-                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                    <div class="d-flex prod_pp_quick">
+                                        <div class="prod_ppwrap">
+                                            <h6 class="prod">36 prolite® 4.7mm</h6>
+                                            <p class="prod_price">NT.2760</p>
+                                        </div>
+                                        <div href="" class="index_quick quick_right" data-toggle="modal" data-target="#exampleModal">
+                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
+                                        </div>
                                     </div>
-                                </div>
+                                </a>   
                             </div>
-                            
                         </div>
                     </div>
                 
@@ -718,43 +733,43 @@
             <div class="index_hotitem_area d-flex p-0 justify-content-end">
                 <div class="d-flex">
                            
-                    <div class="index_hotitem_wrap i_hot_w01">
+                    <div class="index_hotitem_wrap i_hot_w01">     
                         <img src="./img/index/index_11_inner01.jpg" alt="" class="index_hotitem hotitem_01">
                         <img src="./img/index/index_11_01.jpg" alt="" class="index_back11">
-
-                        <div class="index_hot_ppwrap hot_ppwrap01 d-flex flex-column text-center">
-                            <a class='index_hot_a' href="">
-                                <h6>好瘦瑜珈磚</h6>
-                            </a>
-                            <p>NT$. 1000</p>
-                        </div>
+                        <a href="">
+                            <div class="index_hot_ppwrap hot_ppwrap01 d-flex flex-column text-center">
+                                <div class='index_hot_a' href="">
+                                    <h6>36 prolite® 4.7mm</h6>
+                                    <p>NT.2760</p>
+                                </div>    
+                            </div>
+                        </a>    
                     </div>
-                    
-                    
-      
+                                  
                     <div class="index_hotitem_wrap i_hot_w02">         
                         <img src="./img/index/index_11_inner02.jpg" alt="" class="index_hotitem hotitem_02">  
                         <img src="./img/index/index_11_02.jpg" alt="" class="index_back11_02">   
-                        
-                        <div class="index_hot_ppwrap hot_ppwrap02 d-flex flex-column text-center">
-                            <a class='index_hot_a' href="">
-                                <h6>好瘦瑜珈磚</h6>
-                            </a>
-                            <p>NT$. 1000</p>
-                        </div>
+                        <a href="">
+                            <div class="index_hot_ppwrap hot_ppwrap02 d-flex flex-column text-center">
+                                <a class='index_hot_a' href="">
+                                    <h6>重量運動手環</h6>
+                                </a>
+                                <p>NT.2280</p>
+                            </div>
+                        </a>
                     </div>
                     
-
                     <div class="index_hotitem_wrap i_hot_w03">     
                         <img src="./img/index/index_11_inner03.jpg" alt="" class="index_hotitem hotitem_03">  
                         <img src="./img/index/index_11_03.jpg" alt="" class="index_back11_03">  
-
-                        <div class="index_hot_ppwrap hot_ppwrap03 d-flex flex-column text-center">
-                            <a class='index_hot_a' href="">
-                                <h6>好瘦瑜珈磚</h6>
-                            </a>
-                            <p>NT$. 1000</p>
-                        </div>
+                        <a href="">
+                            <div class="index_hot_ppwrap hot_ppwrap03 d-flex flex-column text-center">
+                                <a class='index_hot_a' href="">
+                                    <h6>薄軟木瑜珈磚</h6>
+                                </a>
+                                <p>NT.780</p>
+                            </div>
+                        </a>  
                     </div>
                 </div>                
             </div>
@@ -974,87 +989,95 @@
                         <!-- 移動圖片們 -->
                         <div class="m_prods_left m_movemove col-5" data-rellax-speed="2">
                             <div class="m_prods_box">
-                                <div class="m_prods_picwrap">
-                                    <img class="m_index_prodspic01" src="./img/index/index_04.jpg" alt="">
-                                </div>
-                                
-                                <div class="m_prod_pp">
-                                    <div class="m_prod_ppwrap">
-                                        <h6 class="m_prod">環保瑜珈墊</h6>
-                                        <p class="m_prod_price">$1000</p>
+                                <a href="">
+                                    <div class="m_prods_picwrap">
+                                        <img class="m_index_prodspic01" src="./img/index/index_04.jpg" alt="">
                                     </div>
-                                </div>
-                                
-                            </div>
-                            <div class="m_prods_box">
-                                <div class="m_prods_picwrap">
-                                    <img class="m_index_prodspic02" src="./img/index/index_06.jpg" alt="">
-                                </div>
-
-                                <div class="m_prod_pp">
-                                    <div class="m_prod_ppwrap">
-                                        <h6 class="m_prod">環保瑜珈墊</h6>
-                                        <p class="m_prod_price">$1000</p>
+                                    
+                                    <div class="m_prod_pp">
+                                        <div class="m_prod_ppwrap">
+                                            <h6 class="m_prod">36 pro® 6mm</h6>
+                                            <p class="m_prod_price">NT.3600</p>
+                                        </div>
                                     </div>
-                                </div>
-
+                                </a>
                             </div>
 
                             <div class="m_prods_box">
-                                <div class="m_prods_picwrap">
-                                    <img class="m_index_prodspic03" src="./img/index/index_05.jpg" alt="">
-                                </div>
-
-                                <div class="m_prod_pp">
-                                    <div class="m_prod_ppwrap">
-                                        <h6 class="m_prod">環保瑜珈墊</h6>
-                                        <p class="m_prod_price">$1000</p>
+                                <a href="">
+                                    <div class="m_prods_picwrap">
+                                        <img class="m_index_prodspic02" src="./img/index/index_06.jpg" alt="">
                                     </div>
-                                </div>
 
+                                    <div class="m_prod_pp">
+                                        <div class="m_prod_ppwrap">
+                                            <h6 class="m_prod">36 pro® 6mm</h6>
+                                            <p class="m_prod_price">NT.3600</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="m_prods_box">
+                                <a href="">
+                                    <div class="m_prods_picwrap">
+                                        <img class="m_index_prodspic03" src="./img/index/index_05.jpg" alt="">
+                                    </div>
+
+                                    <div class="m_prod_pp">
+                                        <div class="m_prod_ppwrap">
+                                            <h6 class="m_prod">36 pro® 6mm</h6>
+                                            <p class="m_prod_price">NT.3600</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
+
                         <div class="m_prods_right m_movemove col-5" data-rellax-speed="2">
                             <div class="m_prods_box">
-                                <div class="m_prods_picwrap">
-                                    <img class="m_index_prodspic04" src="./img/index/index_03.jpg" alt="">
-                                </div>
-                                
-                                <div class="m_prod_pp">
-                                    <div class="m_prod_ppwrap">
-                                        <h6 class="m_prod">環保瑜珈墊</h6>
-                                        <p class="m_prod_price">$1000</p>
+                                <a href="">
+                                    <div class="m_prods_picwrap">
+                                        <img class="m_index_prodspic04" src="./img/index/index_03.jpg" alt="">
                                     </div>
-                                </div>
-
+                                    
+                                    <div class="m_prod_pp">
+                                        <div class="m_prod_ppwrap">
+                                            <h6 class="m_prod">36 prolite® 4.7mm</h6>
+                                            <p class="m_prod_price">NT.2760</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
 
                             <div class="m_prods_box">
-                                <div class="m_prods_picwrap">
-                                    <img class="m_index_prodspic05" src="./img/index/index_07.jpg" alt="">
-                                </div>
-
-                                <div class="m_prod_pp">
-                                    <div class="m_prod_ppwrap">
-                                        <h6 class="m_prod">環保瑜珈墊</h6>
-                                        <p class="m_prod_price">$1000</p>
+                                <a href="">
+                                    <div class="m_prods_picwrap">
+                                        <img class="m_index_prodspic05" src="./img/index/index_07.jpg" alt="">
                                     </div>
-                                </div>
 
+                                    <div class="m_prod_pp">
+                                        <div class="m_prod_ppwrap">
+                                            <h6 class="m_prod">36 prolite® 4.7mm</h6>
+                                            <p class="m_prod_price">NT.2760</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
 
                             <div class="m_prods_box">
-                                <div class="m_prods_picwrap">
-                                    <img class="m_index_prodspic06" src="./img/index/index_08.jpg" alt="">
-                                </div>
-
-                                <div class="m_prod_pp">
-                                    <div class="m_prod_ppwrap">
-                                        <h6 class="m_prod">環保瑜珈墊</h6>
-                                        <p class="m_prod_price">$1000</p>
+                                <a href="">
+                                    <div class="m_prods_picwrap">
+                                        <img class="m_index_prodspic06" src="./img/index/index_08.jpg" alt="">
                                     </div>
-                                </div>
 
+                                    <div class="m_prod_pp">
+                                        <div class="m_prod_ppwrap">
+                                            <h6 class="m_prod">36 prolite® 4.7mm</h6>
+                                            <p class="m_prod_price">NT.2760</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1224,31 +1247,31 @@
                             <img src="./img/index/index_11_inner01.jpg" alt="" class="m_index_hotitem">
                             <img src="./img/index/index_11_01.jpg" alt="" class="m_index_hotitem">
                         </div>
-                        <div class="mindex_hot_ppwrap mhot_ppwrap01 d-flex flex-column text-center">
+                        <div class="mindex_hot_ppwrap mhot_ppwrap01 ">
                             <a class='mindex_hot_a' href="">
-                                <h6 class='m_hot_h6'>好瘦瑜珈磚</h6>
+                                <h6 class='m_hot_h6'>36 prolite®</br>4.7mm</h6>
                             </a>
-                            <p>NT$. 1000</p>
+                            <p class='m_hot_p'>NT.2760</p>
                         </div>
                         <div class="m_index_hotitem_wrap m_hotwrap02">
                             <img src="./img/index/index_11_inner02.jpg" alt="" class="m_index_hotitem">
                             <img src="./img/index/index_11_02.jpg" alt="" class="m_index_hotitem">
                         </div>
-                        <div class="mindex_hot_ppwrap mhot_ppwrap02 d-flex flex-column text-center">
+                        <div class="mindex_hot_ppwrap mhot_ppwrap02 ">
                             <a class='mindex_hot_a' href="">
-                                <h6 class='m_hot_h6'>好瘦瑜珈磚</h6>
+                                <h6 class='m_hot_h6'>重量運動手環</h6>
                             </a>
-                            <p>NT$. 1000</p>
+                            <p class='m_hot_p'>NT.2280</p>
                         </div>
                         <div class="m_index_hotitem_wrap m_hotwrap03">
                             <img src="./img/index/index_11_inner03.jpg" alt="" class="m_index_hotitem">
                             <img src="./img/index/index_11_03.jpg" alt="" class="m_index_hotitem">
                         </div>     
-                        <div class="mindex_hot_ppwrap mhot_ppwrap03 d-flex flex-column text-center">
+                        <div class="mindex_hot_ppwrap mhot_ppwrap03">
                             <a class='mindex_hot_a' href="">
-                                <h6 class='m_hot_h6'>好瘦瑜珈磚</h6>
+                                <h6 class='m_hot_h6'>薄軟木瑜珈磚</h6>
                             </a>
-                            <p>NT$. 1000</p>
+                            <p class='m_hot_p'>NT.780</p>
                         </div>
                     </div>
                 </div> 
