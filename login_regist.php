@@ -43,7 +43,7 @@ $gotoURL = 'product_list.php';
                         <div class="form-group d-flex justify-content-between space-b36">
                             <input type="text" class="open-sesame" name="checkword" size="10" maxlength="10" placeholder="&nbsp;驗證碼" />
                             <div id="imgcode" src="" onclick="refresh_code()">
-                                <img src="./img/index/random01.svg" alt="" class="randompic">
+                                <div class="randompic"></div>
                                 <!-- <img src="./img/index/random02.svg" alt="" class="randompic">
                                 <img src="./img/index/random03.svg" alt="" class="randompic"> -->
                             </div>
