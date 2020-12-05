@@ -369,7 +369,7 @@ a.size-list-item:hover {
 }
 
 .img-wrap {
-  /* width: 225.7px; */
+  width: 425.7px;
   height: 378px;
   margin-bottom: 30px;
 }
@@ -742,9 +742,14 @@ a.reviews-item:hover {
     transition: 0.5s;
   }
 
-  /* .img-wrap {
-                height: 100%;
-            } */
+  /* .product-pic {
+    object-fit: contain;
+  } */
+
+  .img-wrap {
+    width: 100%;
+    /* height: 100%; */
+  }
 
   .product-zone {
     margin-right: 40px;

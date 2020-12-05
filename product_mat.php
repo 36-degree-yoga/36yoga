@@ -337,7 +337,7 @@ $others_rows = $others_stmt->fetchAll();
                                 <div class="feature-img-area position-relative border-bottom pb-5 line-height">
 
                                     <div class="feature-img-wrap  mx-auto">
-                                        <img class="w-100" src="./img/product/product_info_block_01.jpg" alt="">
+                                        <img class="w-100" src="./img/product_list/b01_0.jpg" alt="">
                                     </div>
 
                                     <div class="img-info">
@@ -509,16 +509,16 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap w-100" href="">
+                                <div class="img-wrap  overflow-hidden" href="<?= WEB_ROOT ?>product_mat.php?sid=13">
                                     <!-- product 的 border 之後取消 -->
-                                    <img class="product-pic w-100 h-100" src="./img/product_list/b01_1.jpg" alt="瑜珈磚">
+                                    <img class="product-pic w-100 h-100" src="./img/product_list/p01_1.jpg" alt="瑜珈支撐墊">
                                 </div>
 
                                 <div class="product-info text-center">
                                     <a href="">
-                                        <h6 class="mb-0">好瘦瑜珈磚</h6>
+                                        <h6 class="mb-0">瑜珈支撐墊</h6>
                                     </a>
-                                    <p>NT$. 1000</p>
+                                    <p>NT$. 179</p>
                                 </div>
                             </div>
                         </div>
@@ -526,16 +526,16 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap w-100" href="">
+                                <div class="img-wrap " href="<?= WEB_ROOT ?>product_mat.php?sid=22">
                                     <!-- product 的 border 之後取消 -->
-                                    <img class="product-pic w-100 h-100 " src="./img/product_list/b01_1.jpg" alt="瑜珈磚">
+                                    <img class="product-pic w-100  h-100" src="./img/product_list/s01_1.jpg" alt="重量運動手環">
                                 </div>
 
                                 <div class="product-info text-center">
                                     <a href="">
-                                        <h6 class="mb-0">好瘦瑜珈磚</h6>
+                                        <h6 class="mb-0">重量運動手環</h6>
                                     </a>
-                                    <p>NT$. 1000</p>
+                                    <p>NT$. 2280</p>
                                 </div>
                             </div>
                         </div>
@@ -543,16 +543,16 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap w-100" href="">
+                                <div class="img-wrap" href="<?= WEB_ROOT ?>product_mat.php?sid=19">
                                     <!-- product 的 border 之後取消 -->
-                                    <img class="product-pic w-100 h-100" src="./img/product_list/b01_1.jpg" alt="瑜珈磚">
+                                    <img class="product-pic w-100 h-100" src="./img/product_list/r01_1.jpg" alt="顆粒按摩滾筒">
                                 </div>
 
                                 <div class="product-info text-center">
                                     <a href="">
-                                        <h6 class="mb-0">好瘦瑜珈磚</h6>
+                                        <h6 class="mb-0">Relex 顆粒按摩滾筒</h6>
                                     </a>
-                                    <p>NT$. 1000</p>
+                                    <p>NT$. 1288</p>
                                 </div>
                             </div>
                         </div>
@@ -1946,7 +1946,7 @@ $others_rows = $others_stmt->fetchAll();
 <script>
     // 左側欄互動 
 
-    // 如果sid
+    // sid 對照各分類的顏色變化 & 溫度計變化
 
     $sid = <?php echo $sid ?>;
     console.log($sid, "hoho");
@@ -1962,52 +1962,91 @@ $others_rows = $others_stmt->fetchAll();
     $towel = [32, 33];
 
 
-
     if ($std.includes($sid)) {
         $('#std a').css('color', '#db5c00');
         // $(this).css('color', '#db5c00');
         console.log($std.includes($sid), "ho");
+
+        let plstTop = $('#plst_top').position().top;
+        let aTop = $('#std').position().top;
+        console.log(aTop)
+        let topMinus = aTop - plstTop;
+        let len = 60 + topMinus;
+        $('.thermometer_move').css('height', len + "px");
     }
     if ($block.includes($sid)) {
         $('#block a').css('color', '#db5c00');
+
+        let plstTop = $('#plst_top').position().top;
+        let aTop = $('#block').position().top;
+        console.log(aTop)
+        let topMinus = aTop - plstTop;
+        let len = 60 + topMinus;
+        $('.thermometer_move').css('height', len + "px");
     }
     if ($pad.includes($sid)) {
-        $('#pad a').text().css('color', '#db5c00');
+        $('#pad a').css('color', '#db5c00');
+
+        let plstTop = $('#plst_top').position().top;
+        let aTop = $('#pad').position().top;
+        console.log(aTop)
+        let topMinus = aTop - plstTop;
+        let len = 60 + topMinus;
+        $('.thermometer_move').css('height', len + "px");
     }
     if ($roller.includes($sid)) {
         $('#roller a').css('color', '#db5c00');
+
+        let plstTop = $('#plst_top').position().top;
+        let aTop = $('#roller').position().top;
+        console.log(aTop)
+        let topMinus = aTop - plstTop;
+        let len = 60 + topMinus;
+        $('.thermometer_move').css('height', len + "px");
+
     }
     if ($sand.includes($sid)) {
         console.log($sand.includes($sid), "ho");
         $('#sand a').css('color', '#db5c00');
+
+        let plstTop = $('#plst_top').position().top;
+        let aTop = $('#sand').position().top;
+        console.log(aTop)
+        let topMinus = aTop - plstTop;
+        let len = 60 + topMinus;
+        $('.thermometer_move').css('height', len + "px");
+
     }
     if ($strap.includes($sid)) {
         $('#strap a').css('color', '#db5c00');
+
+        let plstTop = $('#plst_top').position().top;
+        let aTop = $('#strap').position().top;
+        console.log(aTop)
+        let topMinus = aTop - plstTop;
+        let len = 60 + topMinus;
+        $('.thermometer_move').css('height', len + "px");
     }
     if ($band.includes($sid)) {
         $('#band a').css('color', '#db5c00');
+
+        let plstTop = $('#plst_top').position().top;
+        let aTop = $('#band').position().top;
+        console.log(aTop)
+        let topMinus = aTop - plstTop;
+        let len = 60 + topMinus;
+        $('.thermometer_move').css('height', len + "px");
     }
     if ($towel.includes($sid)) {
         $('#towel a').css('color', '#db5c00');
+
+        let plstTop = $('#plst_top').position().top;
+        let aTop = $('#towel').position().top;
+        console.log(aTop)
+        let topMinus = aTop - plstTop;
+        let len = 60 + topMinus;
+        $('.thermometer_move').css('height', len + "px");
     }
-
-
-    //列表滾動效果↓↓
-    $('.product_siderbar_title a').on('click', function(event) {
-        if (this.hash !== "") {
-            console.log('this.hash !==');
-            event.preventDefault();
-            const hash = this.hash;
-            $('html,body').animate({
-                scrollTop: $(hash).offset().top
-            }, 1000, function() {
-                // window.location.hash = hash;
-            })
-        } else {
-            console.log('hsa hash', this.hash);
-        }
-    });
-    //列表滾動效果↑↑
 
     // 側bar到一個位置fix住↓↓
     $(window).on('scroll', function() {
@@ -2015,7 +2054,6 @@ $others_rows = $others_stmt->fetchAll();
         // console.log(scrollTop)
         let barFixed = 600;
         let barUnFixd = 4700;
-
 
 
         if (scrollTop < barFixed) {
