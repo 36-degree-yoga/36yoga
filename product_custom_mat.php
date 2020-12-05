@@ -1299,7 +1299,7 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- 人像-->
                                 <div class="d-flex ">
                                     <div class="avatar border ">
-                                        <img class="avatar-img w-100" src="" alt="">
+                                        <img class="avatar-img w-100" src="./img/index/member_head_02.jpg" alt="">
                                     </div>
 
                                     <div class="avatar-name pl-3">
@@ -1357,11 +1357,11 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- 人像-->
                                 <div class="d-flex ">
                                     <div class="avatar border ">
-                                        <img class="avatar-img w-100" src="" alt="">
+                                        <img class="avatar-img w-100" src="./img/index/member_head_03.jpg" alt="">
                                     </div>
 
                                     <div class="avatar-name pl-3">
-                                        <p class="nickname">Sunny</p>
+                                        <p class="nickname">Rachel</p>
                                     </div>
                                 </div>
 
@@ -1415,11 +1415,11 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- 人像-->
                                 <div class="d-flex ">
                                     <div class="avatar border ">
-                                        <img class="avatar-img w-100" src="" alt="">
+                                        <img class="avatar-img w-100" src="./img/index/member_head_04.jpg" alt="">
                                     </div>
 
                                     <div class="avatar-name pl-3">
-                                        <p class="nickname">Sunny</p>
+                                        <p class="nickname">John</p>
                                     </div>
                                 </div>
 
@@ -1473,11 +1473,11 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- 人像-->
                                 <div class="d-flex ">
                                     <div class="avatar border ">
-                                        <img class="avatar-img w-100" src="" alt="">
+                                        <img class="avatar-img w-100" src="./img/index/member_head_05.jpg" alt="">
                                     </div>
 
                                     <div class="avatar-name pl-3">
-                                        <p class="nickname">Sunny</p>
+                                        <p class="nickname">Sally</p>
                                     </div>
                                 </div>
 
@@ -1563,7 +1563,7 @@ $others_rows = $others_stmt->fetchAll();
 
                             <!-- 人像-->
                             <div class="avatar border">
-                                <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                <img class="avatar-img w-100" src="./img/index/member_head_02.jpg" class="mr-3" alt="">
                             </div>
 
                             <div class="media-body pl-3">
@@ -1635,13 +1635,13 @@ $others_rows = $others_stmt->fetchAll();
 
                             <!-- 人像-->
                             <div class="avatar border">
-                                <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                <img class="avatar-img w-100" src="./img/index/member_head_03.jpg" class="mr-3" alt="">
                             </div>
 
                             <div class="media-body pl-3">
                                 <!-- 人名-->
                                 <div class="avatar-name line-height d-flex justify-content-between">
-                                    <p class="nickname">Sunny</p>
+                                    <p class="nickname">Rachel</p>
                                     <p>12/02/19</p>
                                 </div>
 
@@ -1707,13 +1707,13 @@ $others_rows = $others_stmt->fetchAll();
 
                             <!-- 人像-->
                             <div class="avatar border">
-                                <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                <img class="avatar-img w-100" src="./img/index/member_head_04.jpg" class="mr-3" alt="">
                             </div>
 
                             <div class="media-body pl-3">
                                 <!-- 人名-->
                                 <div class="avatar-name line-height d-flex justify-content-between">
-                                    <p class="nickname">Sunny</p>
+                                    <p class="nickname">John</p>
                                     <p>12/02/19</p>
                                 </div>
 
@@ -1779,13 +1779,13 @@ $others_rows = $others_stmt->fetchAll();
 
                             <!-- 人像-->
                             <div class="avatar border">
-                                <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                <img class="avatar-img w-100" src="./img/index/member_head_05.jpg" class="mr-3" alt="">
                             </div>
 
                             <div class="media-body pl-3">
                                 <!-- 人名-->
                                 <div class="avatar-name line-height d-flex justify-content-between">
-                                    <p class="nickname">Sunny</p>
+                                    <p class="nickname">Sally</p>
                                     <p>12/02/19</p>
                                 </div>
 

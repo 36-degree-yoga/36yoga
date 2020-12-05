@@ -153,6 +153,24 @@ a:hover {
   }
 }
 @media (max-width: 540px) {
+  /* 間距↓↓ */
+  .space_30 {
+    height: 20px;
+  }
+
+  .space_60 {
+    height: 40px;
+  }
+
+  .space_120 {
+    height: 60px;
+  }
+
+  .line-height {
+    margin-bottom: 20px;
+  }
+
+  /* 間距↑↑ */
   /* 手機板橫條bar↓ */
   .m_account_bar_item {
     width: 660px;
