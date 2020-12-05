@@ -182,4 +182,8 @@ a{
     height: 33px;
     width: 2px;
   }
+
+  .tag-page {
+    margin-top: 3rem;
+  }
 }
