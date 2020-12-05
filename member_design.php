@@ -22,7 +22,7 @@ $member_row = $stmt->fetch();
 <div class="m_account_bar_wrap">
     <div class="m_account_bar_item d-flex align-items-center">
         <div class="m_account_option">
-            <p class="check_border">我的帳號</p>
+            <p>我的帳號</p>
         </div>
         <div class="m_account_option">
             <p>訂單紀錄</p>
@@ -37,7 +37,7 @@ $member_row = $stmt->fetch();
             <p>我的點數</p>
         </div>
         <div class="m_account_option">
-            <p>客製化設計</p>
+            <p class="check_border">客製化設計</p>
         </div>
     </div>
 </div>

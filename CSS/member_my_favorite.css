@@ -116,7 +116,8 @@ a:hover {
   .m_account_bar_wrap {
     display: block;
     overflow-x: scroll;
-    height: 55px;
+    /* height: 55px; */
+    padding-top: 70px;
   }
 
   .m_account_bar_item {

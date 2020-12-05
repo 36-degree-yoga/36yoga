@@ -130,9 +130,9 @@ a:hover {
   }
   .m_account_bar_wrap {
     display: block;
-    padding-top: 110px;
+    padding-top: 70px;
     overflow-x: scroll;
-    height: 55px;
+    /* height: 55px; */
   }
 
   .m_account_bar_item {
@@ -183,7 +183,6 @@ a:hover {
 @media (max-width: 540px) {
   /* 手機板橫條bar↓ */
   .m_account_bar_item {
-    padding-top: 110px;
     width: 660px;
     height: 100%;
   }
