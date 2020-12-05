@@ -45,7 +45,6 @@ $others_rows = $others_stmt->fetchAll();
 // echo  json_encode($others_rows, JSON_UNESCAPED_UNICODE);
 // exit;
 
-// 愛心
 
 
 ?>
@@ -85,19 +84,19 @@ $others_rows = $others_stmt->fetchAll();
                 <!-- 側bar標題 -->
                 <div class="product_sidebar_content">
                     <div class="product_siderbar_title">
-                        <div class="title"><a id="plst_top" href="#">瑜珈墊</a></div>
-                        <div class="subtitle"><a href="#std">一般</a></div>
-                        <div class="subtitle"><a href="#ctm">客製化</a></div>
+                        <div class="title"><a id="plst_top" href="<?= WEB_ROOT ?>product_list.php">瑜珈墊</a></div>
+                        <div class="subtitle" id="std"><a href="<?= WEB_ROOT ?>product_list.php#std">一般</a></div>
+                        <div class="subtitle" id="ctm"><a href="<?= WEB_ROOT ?>product_list.php#ctm">客製化</a></div>
                     </div>
                     <div class="product_siderbar_title">
-                        <div class="title"><a href="#">輔具</a></div>
-                        <div class="subtitle"><a href="#block">瑜珈磚</a></div>
-                        <div class="subtitle"><a href="#pad">支撐墊</a></div>
-                        <div class="subtitle"><a href="#roller">滾筒</a></div>
-                        <div class="subtitle"><a href="#sand">沙包</a></div>
-                        <div class="subtitle"><a href="#strap">伸展帶</a></div>
-                        <div class="subtitle"><a href="#band">彈力帶</a></div>
-                        <div class="subtitle"><a href="#towel">舖巾</a></div>
+                        <div class="title"><a href="<?= WEB_ROOT ?>product_list.php#block">輔具</a></div>
+                        <div class="subtitle" id="block"><a href="<?= WEB_ROOT ?>product_list.php#block">瑜珈磚</a></div>
+                        <div class="subtitle" id="pad"><a href="<?= WEB_ROOT ?>product_list.php#pad">支撐墊</a></div>
+                        <div class="subtitle" id="roller"><a href="<?= WEB_ROOT ?>product_list.php#roller">滾筒</a></div>
+                        <div class="subtitle" id="sand"><a href="<?= WEB_ROOT ?>product_list.php#sand">沙包</a></div>
+                        <div class="subtitle" id="strap"><a href="<?= WEB_ROOT ?>product_list.php#strap">伸展帶</a></div>
+                        <div class="subtitle" id="band"><a href="<?= WEB_ROOT ?>product_list.php#band">彈力帶</a></div>
+                        <div class="subtitle" id="towel"><a href="<?= WEB_ROOT ?>product_list.php#towel">舖巾</a></div>
                     </div>
                 </div>
             </div>
@@ -115,18 +114,18 @@ $others_rows = $others_stmt->fetchAll();
                     <div class="sm-banner-area flex-column align-self-end">
 
                         <div class="sm-banner-wrap">
-                            <img class="sm-banner w-100 h-100" src="./img/product_list/<?= $p['my_imgs'][0] ?>.jpg" alt="">
+                            <img class="sm-banner w-100 h-100" src="./img/customize/custom_mat_01.jpg" alt="">
                         </div>
                         <div class="sm-banner-wrap">
-                            <img class="sm-banner w-100  h-100" src="./img/product_list/<?= $p['my_imgs'][1] ?>.jpg" alt="">
+                            <img class="sm-banner w-100  h-100" src="./img/customize/custom_mat_02.jpg" alt="">
                         </div>
                         <div class="sm-banner-wrap">
-                            <img class="sm-banner w-100  h-100" src="./img/product_list/<?= $p['my_imgs'][2] ?>.jpg" alt="">
+                            <img class="sm-banner w-100  h-100" src="./img/customize/custom_mat_03.jpg" alt="">
                         </div>
                     </div>
 
                     <div class="banner-wrap ">
-                        <img class="big-banner w-100" src="./img/product_list/<?= $p['my_imgs'][0] ?>.jpg" alt="">
+                        <img class="big-banner w-100" src="./img/customize/custom_mat_01.jpg" alt="">
                     </div>
 
                 </div>
@@ -158,7 +157,7 @@ $others_rows = $others_stmt->fetchAll();
                                 </div>
 
                             </div>
-                            <h6 style="color: #DB5C00;">NT$<?= $p['price'] ?></h6>
+                            <h6 style="color: #DB5C00;">NT$<?= $p['price'] ?>起</h6>
                         </div>
 
                         <p class="line-height"><?= $p['introduction'] ?></p>
@@ -170,10 +169,10 @@ $others_rows = $others_stmt->fetchAll();
                                 <p class="text-justify" style="color: #F2A200;font-size: 20px;">防水</p>
                             </div>
 
-                            <div class="icon-favorite">
-                                <!-- <img src="./SVG/icon_favorite.svg" alt=""> -->
+                            <!-- 愛心隱藏 -->
+                            <!-- <div class="icon-favorite">
 
-                                <svg id="" class="btn_like" onclick="checkLike(); return false;" data-sid="<?= $p['sid'] ?>" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
+                                <svg id="" class="btn_like " onclick="checkLike(); return false;" data-sid="<?= $p['sid'] ?>" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
                                     <g id="圖層_2" data-name="圖層 2">
                                         <g id="圖層_1-2" data-name="圖層 1">
                                             <g id="Path_324" data-name="Path 324">
@@ -185,7 +184,7 @@ $others_rows = $others_stmt->fetchAll();
                                 </svg>
 
 
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -273,19 +272,23 @@ $others_rows = $others_stmt->fetchAll();
                             <div class="card-body py-0 ">
 
                                 <!-- 產品特色:上 -->
-                                <h5 class="text-center line-height">漸進提升肌耐力與柔軟度</h5>
+                                <h5 class="text-center line-height">
+                                    獨一無二的瑜珈墊
+                                </h5>
 
                                 <div class="feature-img-area position-relative border-bottom pb-5 line-height">
 
                                     <div class="feature-img-wrap  mx-auto">
-                                        <img class="w-100" src="./img/product/product_info_block_01.jpg" alt="">
+                                        <img class="w-100" src="./img/customize/yoga_custommat_01.jpg" alt="">
                                     </div>
 
                                     <div class="img-info">
-                                        <p class="img-info-1 position-absolute font-weight-bold">＃ 完美邊角</p>
-                                        <p class="img-info-2 position-absolute font-weight-bold text-right">＃ 輕巧好攜帶
+                                        <p class="img-info-1 position-absolute font-weight-bold">＃ 上傳喜歡的花色
                                         </p>
-                                        <p class="img-info-3 position-absolute font-weight-bold">＃ 可滴精油</p>
+                                        <p class="img-info-2 position-absolute font-weight-bold text-right">＃ 印上人生名言
+
+                                        </p>
+                                        <p class="img-info-3 position-absolute font-weight-bold">＃ 多種顏色/尺寸</p>
                                     </div>
 
                                 </div>
@@ -304,7 +307,7 @@ $others_rows = $others_stmt->fetchAll();
                                     </div>
 
                                     <div class="feature-info-img-wrap ">
-                                        <img class="w-100" src="./img/product/product_info_block_02.jpg" alt="">
+                                        <img class="w-100" src="./img/customize/yoga_custommat_02.jpg" alt="">
                                     </div>
                                 </div>
 
@@ -313,7 +316,7 @@ $others_rows = $others_stmt->fetchAll();
                                 <div class="feature-info-area-2  d-flex justify-content-between line-height">
 
                                     <div class="feature-info-img-wrap">
-                                        <img class="w-100" src="./img/product/product_info_block_03.jpg" alt="">
+                                        <img class="w-100" src="./img/customize/yoga_custommat_03.jpg" alt="">
                                     </div>
 
                                     <div class="feature-info-text my-auto">
@@ -450,16 +453,16 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap w-100" href="">
+                                <div class="img-wrap  overflow-hidden" href="<?= WEB_ROOT ?>product_mat.php?sid=13">
                                     <!-- product 的 border 之後取消 -->
-                                    <img class="product-pic w-100 h-100" src="./img/product_list/b01_1.jpg" alt="瑜珈磚">
+                                    <img class="product-pic w-100 h-100" src="./img/product_list/p01_1.jpg" alt="瑜珈支撐墊">
                                 </div>
 
                                 <div class="product-info text-center">
                                     <a href="">
-                                        <h6 class="mb-0">好瘦瑜珈磚</h6>
+                                        <h6 class="mb-0">瑜珈支撐墊</h6>
                                     </a>
-                                    <p>NT$. 1000</p>
+                                    <p>NT$. 179</p>
                                 </div>
                             </div>
                         </div>
@@ -467,16 +470,16 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap w-100" href="">
+                                <div class="img-wrap " href="<?= WEB_ROOT ?>product_mat.php?sid=22">
                                     <!-- product 的 border 之後取消 -->
-                                    <img class="product-pic w-100 h-100 " src="./img/product_list/b01_1.jpg" alt="瑜珈磚">
+                                    <img class="product-pic w-100  h-100" src="./img/product_list/s01_1.jpg" alt="重量運動手環">
                                 </div>
 
                                 <div class="product-info text-center">
                                     <a href="">
-                                        <h6 class="mb-0">好瘦瑜珈磚</h6>
+                                        <h6 class="mb-0">重量運動手環</h6>
                                     </a>
-                                    <p>NT$. 1000</p>
+                                    <p>NT$. 2280</p>
                                 </div>
                             </div>
                         </div>
@@ -484,16 +487,16 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap w-100" href="">
+                                <div class="img-wrap" href="<?= WEB_ROOT ?>product_mat.php?sid=19">
                                     <!-- product 的 border 之後取消 -->
-                                    <img class="product-pic w-100 h-100" src="./img/product_list/b01_1.jpg" alt="瑜珈磚">
+                                    <img class="product-pic w-100 h-100" src="./img/product_list/r01_1.jpg" alt="顆粒按摩滾筒">
                                 </div>
 
                                 <div class="product-info text-center">
                                     <a href="">
-                                        <h6 class="mb-0">好瘦瑜珈磚</h6>
+                                        <h6 class="mb-0">Relex 顆粒按摩滾筒</h6>
                                     </a>
-                                    <p>NT$. 1000</p>
+                                    <p>NT$. 1288</p>
                                 </div>
                             </div>
                         </div>
@@ -1888,6 +1891,45 @@ $others_rows = $others_stmt->fetchAll();
 <script src="<?= WEB_ROOT ?>lib/product_mat.js"></script>
 
 <script>
+    // 左側欄互動 
+
+    $(document).ready(function() {
+        // console.log('load')
+        $('#ctm a').css('color', '#db5c00');
+        let plstTop = $('#plst_top').position().top;
+        let aTop = $('#ctm').position().top;
+        // console.log(aTop)
+        let topMinus = aTop - plstTop;
+        let len = 60 + topMinus;
+        $('.thermometer_move').css('height', len + "px");
+
+    });
+
+
+    // 側bar到一個位置fix住↓↓
+    $(window).on('scroll', function() {
+        let scrollTop = $(this).scrollTop();
+        // console.log(scrollTop)
+        let barFixed = 600;
+        let barUnFixd = 4700;
+
+
+        if (scrollTop < barFixed) {
+            $('.product_siderbar_wrap').removeClass('bottomFixed');
+            $('.product_siderbar_wrap').removeClass('fixed');
+
+        } else if (scrollTop < barUnFixd) {
+            $('.product_siderbar_wrap').removeClass('bottomFixed');
+            $('.product_siderbar_wrap').addClass('fixed');
+
+        } else {
+            $('.product_siderbar_wrap').removeClass('fixed');
+            $('.product_siderbar_wrap').addClass('bottomFixed');
+
+        }
+    });
+    // 側bar到一個位置fix住↑↑  
+
     // 當 .btn_like 的 .like_fill.color 時，checkLike()會傳送資料到 my-favorite_api.php
 
     // const colorFill = $('.like_fill').hasClass('color');

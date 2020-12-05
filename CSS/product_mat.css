@@ -233,6 +233,10 @@ a.size-list-item:hover {
   right: 0; */
 }
 
+.sm-banner {
+  object-fit: cover;
+}
+
 .sm-banner-area {
   bottom: 0px;
   margin-right: 120px;
