@@ -20,6 +20,7 @@ $member_row = $stmt->fetch();
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
+
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/member_my_account.css">
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
@@ -52,6 +53,7 @@ $member_row = $stmt->fetch();
 <div class="container">
     <div class="row">
         <div class="space_120"></div>
+        <div class="space_60"></div>
         <!-- 左側: 選單 -->
         <div class="account_side_bar d-flex col-3 position-relative ">
             <div class="account_side_bar_wrap d-flex justify-content-center justify-content-between">

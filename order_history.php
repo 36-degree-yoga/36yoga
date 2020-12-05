@@ -1,5 +1,6 @@
 <?php
 include __DIR__ . '/parts/config.php';
+include __DIR__ . '/parts/member-required.php';
 
 if (!isset($_SESSION['user'])) {
     header('Location: user-login.php');

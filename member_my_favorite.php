@@ -1,5 +1,5 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
-
+<?php include __DIR__ . '/parts/member-required.php'; ?>
 <?php
 
 $member_id = intval($_SESSION['user']['id']);

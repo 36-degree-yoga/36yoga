@@ -200,8 +200,8 @@ foreach ($towel_row  as $k => $r) {
                         </div>
                     </div>
                     <div class="btn_wrap d-flex justify-content-end mt-4">
-                        <button class="btn_l">了解更多</button>
-                        <button class="btn_f">開始製作</button>
+                        <button class="btn_l" onclick="location.href='product_custom_mat.php'">了解更多</button>
+                        <button class="btn_f" onclick="location.href='custom.php'">開始製作</button>
                     </div>
                 </div>
 
@@ -363,8 +363,8 @@ foreach ($towel_row  as $k => $r) {
                         </div>
                     </div>
                     <div class="btn_wrap d-flex justify-content-end mt-4">
-                        <button class="btn_l">了解更多</button>
-                        <button class="btn_f">開始製作</button>
+                        <button class="btn_l" onclick="location.href='product_custom_mat.php'">了解更多</button>
+                        <button class="btn_f" onclick="location.href='custom.php'">開始製作</button>
                     </div>
                 </div>
 

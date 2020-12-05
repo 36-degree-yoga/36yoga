@@ -1,5 +1,5 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
-
+<?php include __DIR__ . '/parts/member-required.php'; ?>
 <?php
 $member_id = intval($_SESSION['user']['id']);
 $design_sql = "SELECT `sid`, `member_id`, `mat-total-price`, `mat-count`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `created_at` FROM `custom_product` WHERE `member_id` = $member_id AND `save_data`='save'";

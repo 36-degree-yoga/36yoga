@@ -2,14 +2,14 @@ a:hover {
   text-decoration: none;
 }
 
-.account_side_bar_wrap {
+/* .account_side_bar_wrap {
   position: fixed;
 }
 
 .account_side_bar_wrap.bottomFixed {
   position: absolute;
   bottom: 10px;
-}
+} */
 
 .product_img_wrap {
   width: 100%;
