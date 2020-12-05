@@ -490,7 +490,7 @@
                         </div>
 
                         <div class="movemove prods_right col-5  " data-rellax-speed="5">
-                            <div class="prods_box ">3
+                            <div class="prods_box ">
                                 <a href="">
                                     <div class="prods_picwrap ppwrap_04">
                                         <img class="index_prodspic_h4" src="./img/index/index_04_h_red.jpg" alt="">
