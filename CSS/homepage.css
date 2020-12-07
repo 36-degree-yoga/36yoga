@@ -803,7 +803,7 @@ body{
 
     /* 文字加quickview */
     .index_quick{
-        margin-top: 40px;
+        padding-top: 40px;
         margin-left: -120px;
     }
 
