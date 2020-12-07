@@ -50,7 +50,7 @@ $m_row = $pdo->query($m_sql)->fetch();
 
 <div class="container">
     <div class="row justify-content-center flex-sm-column flex-sm-column flex-md-row flex-lg-row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12 i-need-padding">
+        <form name="my_form" class="col-lg-6 col-md-6 col-sm-12 col-12 i-need-padding">
             <!-- part1 -->
             <div>
                 <div class="d-flex justify-content-between which-need-border-bottom">
@@ -71,7 +71,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">運送方式</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 pr-2 d-flex">
-                            <select class="form-control6 option-1 px-2 text-center">
+                            <select class="form-control6 option-1 px-2 text-center logistic">
                                 <option value="" disabled selected hidden>
                                     --請選擇--
                                 </option>
@@ -97,7 +97,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">送達時間</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 pr-2 d-flex">
                             <select class="form-control6 option-1 px-2 text-center">
-                                <option value="" disabled selected hidden>
+                                <option disabled selected hidden>
                                     --請選擇(非必填)--
                                 </option>
                                 <option>上午</option>
@@ -129,7 +129,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="name">收件人姓名</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control6 px-2" id="name" value="" required />
+                            <input type="text" class="form-control6 px-2" id="name" value="" name="name" required />
                         </div>
                     </div>
                     <div class="form-group row mb-2">
@@ -173,7 +173,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">備註</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2">
-                            <textarea name="" id="" cols="30" rows="3" class="form-control9 px-2"></textarea>
+                            <textarea name="" cols="30" rows="3" class="form-control9 px-2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -184,11 +184,11 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <h6>發票明細</h6>
                     <div class="d-flex justify-content-between">
                         <div class="this-one-mobile-none mr-1">
-                            <input type="radio" name="invoice" class="form-check-input" id="" checked />
+                            <input type="radio" name="invoice" class="form-check-input" checked />
                             <label class="form-check-label" for="">電子發票</label>
                         </div>
                         <div class="ml-4 this-one-mobile-none">
-                            <input type="radio" name="invoice" class="form-check-input" id="" />
+                            <input type="radio" name="invoice" class="form-check-input" />
                             <label class="form-check-label" for="">發票證明聯</label>
                         </div>
                     </div>
@@ -199,7 +199,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <div class="this-one-pc-none mb-3">
                         <label class="col-12 pl-0">發票種類</label>
 
-                        <select name="" id="" class="form-control6 option-1 px-2">
+                        <select name="" class="form-control6 option-1 px-2">
                             <option value="">電子發票</option>
                             <option value="">發票證明聯</option>
                         </select>
@@ -207,11 +207,11 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <div class="form-group row mb-2">
                         <div class="d-flex justify-content-start px-4">
                             <div class="mx-3">
-                                <input type="radio" name="vehicle" class="form-check-input" id="" checked />
+                                <input type="radio" name="vehicle" class="form-check-input" checked />
                                 <label class="form-check-label" for="">隨包裹</label>
                             </div>
                             <div class="mx-3">
-                                <input type="radio" name="vehicle" class="form-check-input" id="" />
+                                <input type="radio" name="vehicle" class="form-check-input" />
                                 <label class="form-check-label" for="">電子條碼載具</label>
                             </div>
                         </div>
@@ -235,13 +235,13 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="">優惠代碼</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control4 px-2" id="" />
+                            <input type="text" class="form-control4 px-2" id="bouns" />
                             <a href="#" class="text-center control-his-position ml-3"><u>確認</u></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
 
         <!-- 明細完成 -->
         <div class="col-lg-4 col-md-4 col-sm-12 col-12 order-detail1">
@@ -312,15 +312,15 @@ $m_row = $pdo->query($m_sql)->fetch();
                             </tr>
                             <tr>
                                 <th scope="row">運費</th>
-                                <td>car-money</td>
+                                <td><span id="trans_fee">60</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">優惠折抵</th>
-                                <td>bouns</td>
+                                <td><span id="deduction">100</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">應付金額</th>
-                                <td>total</td>
+                                <td><span id="amount"></span></td>
                             </tr>
                             <tr>
                                 <td colspan="2" class="py-2">
@@ -376,10 +376,17 @@ $m_row = $pdo->query($m_sql)->fetch();
         $('#totalWeight').text(totalWeight);
         $('#totalCountNumber').text(totalCountNumber);
 
+        totalAmount(totalMoney);
     }
     calcTotal();
     //table-info
-
+    function totalAmount(tt) {
+        let lastPay = 0;
+        const transFee = parseInt($('#trans_fee').text());
+        const bouns = parseInt($('#deduction').text());
+        lastPay = tt + transFee - bouns;
+        $('#amount').text(lastPay);
+    }
 
     $('#member-info').click(() => {
         $("#email").val("<?= $m_row['email'] ?>");
@@ -387,21 +394,83 @@ $m_row = $pdo->query($m_sql)->fetch();
         $("#phone-number").val("<?= $m_row['mobile'] ?>");
         $("#city").val("<?= $m_row['city'] ?>");
         $("#city-detail").val("<?= $m_row['address'] ?>");
-
     });
 
-    $('.hope-next-step').on('click', function() {
-        if ($(".how-to-pay").val() === "cerdit") {
-            console.log($(".how-to-pay").val())
-            $(window).attr('location', 'credit-card-step3.php');
 
+
+    //fillinsess
+    // const name = $('#name');
+    // const email = $('#email');
+    // $('.hope-next-step').on('click',
+    //     function checkForm() {
+    //         let isPass = true;
+    //         if (name.val().length < 2) {
+    //             isPass = false;
+    //         }
+    //         if (isPass) {
+    //             $.post('order-info-api.php', $(document.my_form).serialize(), function(data) {
+    //                 console.log("hi");
+    //                 console.log(data);
+
+    //             }, 'json')
+    //             //serialize()讀取form1中所有有效格式
+    //             // 設定回傳為json格式
+
+    //         }
+    //     });
+    //fillinsess
+
+
+
+    $('.hope-next-step').on('click', function(event) {
+        const transFee = parseInt($('#trans_fee').text());
+        const bouns = parseInt($('#deduction').text());
+        const email = $("#email").val();
+        const name = $("#name").val();
+        const mobile = $("#phone-number").val();
+        const address = $("#city").val() + $("#city-detail").val();
+        const amount = parseInt($('#amount').text());
+        const payment = $(".how-to-pay").val();
+        const logistic = $(".logistic").val();
+
+        let payment_status = '';
+        if (!payment === "cerdit") {
+            payment_status === 'no';
         } else {
-            console.log($(".how-to-pay").val())
-            $(window).attr('location', 'atm-step3.php');
-
+            payment_status === 'yes';
         }
+        console.log(transFee, bouns, email, name, mobile, address, amount, payment, logistic, payment_status);
+        $.get('order-info-api.php', {
 
+            amount: amount,
+            logistic: logistic,
+            trans_fee: transFee,
+            payment: payment,
+            deduction: bouns,
+            buyer: name,
+            address: address,
+            mobile: mobile,
+            email: email,
+            points: 10,
+            payment_status: payment_status,
+        }, function(data) {
+            console.log(data);
+
+        }, 'json');
     });
+
+    // $('.hope-next-step').on('click', function() {
+    //     if ($(".how-to-pay").val() === "cerdit") {
+    //         console.log($(".how-to-pay").val())
+    //         $(window).attr('location', 'credit-card-step3.php');
+
+    //     } else {
+    //         console.log($(".how-to-pay").val())
+    //         $(window).attr('location', 'atm-step3.php');
+
+    //     }
+
+    // });
 </script>
 <script src="./lib/checkout-step123.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
