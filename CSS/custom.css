@@ -9,7 +9,7 @@
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  background: rgb(219, 219, 219);
+  background: #fbd296;
 }
 
 input:focus {
@@ -55,6 +55,14 @@ h5 {
   padding-bottom: 60px;
 }
 
+.logo_wrap {
+  left: 50px;
+  top: 50px;
+}
+
+#logo_-_1 {
+}
+
 @media (min-width: 500px) and (max-width: 1400px) {
   .custom_page {
     width: 1400px;
@@ -84,7 +92,7 @@ h5 {
 }
 
 .mat_show_wrap {
-  background-color:rgb(63, 85, 114);
+  background-color: rgb(63, 85, 114);
   border-radius: 4px;
   width: 183px;
   height: 519px;
@@ -299,7 +307,7 @@ h5 {
 
 /* 顏色 */
 .choose.color {
-  background-color:rgb(63, 85, 114);
+  background-color: rgb(63, 85, 114);
 }
 
 .color {
@@ -441,7 +449,6 @@ h5 {
 
   .m_zoom_icon {
     right: 30px;
-    
   }
 
   .m_zoom_icon img {
@@ -450,9 +457,7 @@ h5 {
   }
 
   .m_mat_space {
-    overflow: scroll
-    
-    ;
+    overflow: scroll;
     height: 420px;
   }
 
@@ -466,11 +471,10 @@ h5 {
   }
 
   /* 選項 */
-  .m_bottom{
+  .m_bottom {
     position: absolute;
     bottom: 0;
   }
-
 
   .m_option_item {
     width: 450px;
@@ -538,6 +542,7 @@ h5 {
 /* 彈跳視窗 */
 
 .modal-size {
+  margin-left: 100px;
   width: 600px;
   height: 400px;
 }
