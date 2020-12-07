@@ -4,13 +4,17 @@ include __DIR__ . '/parts/config.php';
 //---------------------------------------------
 // $oh_sql = "INSERT INTO `orders`( `member_sid`, `amount`, `logistic`, `trans_fee`, `payment`, `deduction`, `buyer`, `address`, `mobile`, `email`, `points`, `payment_status`, `order_date`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
 //---------------------------------------------
-// $output = [
-//     'success' => false,
-//     'code' => 0,
-//     'error' => '沒有資料',
-// ];
+$output = [
+    'success' => false,
+    'code' => 0,
+    'error' => '沒有資料',
+];
 // $output = [];
-$output = $_GET['email'];
+// $output = $_GET['email'];
+if (empty($_POST['email'])) {
+    echo json_encode($output, JSON_UNESCAPED_UNICODE);
+    exit;
+}
 
 $member_id = $_SESSION['user']['id'] ?? 1;
 // $o_sql = "SELECT * FROM orders WHERE member_sid=$member_id";
@@ -58,7 +62,7 @@ $oh_stmt->execute([
     // $email,
     // $payment_status
 ]);
-$output['ke'] = $_GET['email'];
+// $output['ke'] = $_GET['email'];
 $output['success'] = true;
 $output['error'] = '';
 // }

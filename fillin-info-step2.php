@@ -88,7 +88,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                                     --請選擇--
                                 </option>
                                 <option value="yoo">貨到付款</option>
-                                <option value="cerdit">信用卡支付</option>
+                                <option value="credit">信用卡支付</option>
                                 <option value="atm">ATM匯款</option>
                             </select>
                         </div>
@@ -423,30 +423,6 @@ $m_row = $pdo->query($m_sql)->fetch();
 
 
 
-    //fillinsess
-    // const name = $('#name');
-    // const email = $('#email');
-    // $('.hope-next-step').on('click',
-    //     function checkForm() {
-    //         let isPass = true;
-    //         if (name.val().length < 2) {
-    //             isPass = false;
-    //         }
-    //         if (isPass) {
-    //             $.post('order-info-api.php', $(document.my_form).serialize(), function(data) {
-    //                 console.log("hi");
-    //                 console.log(data);
-
-    //             }, 'json')
-    //             //serialize()讀取form1中所有有效格式
-    //             // 設定回傳為json格式
-
-    //         }
-    //     });
-    //fillinsess
-
-
-
     $('.hope-next-step').on('click', function(event) {
         const transFee = parseInt($('#trans_fee').text());
         const bouns = parseInt($('#deduction').text());
@@ -459,13 +435,13 @@ $m_row = $pdo->query($m_sql)->fetch();
         const logistic = $(".logistic").val();
 
         let payment_status = '';
-        if (!payment === "cerdit") {
-            payment_status === 'no';
+        if (!payment === "credit") {
+            payment_status = 'no';
         } else {
-            payment_status === 'yes';
+            payment_status = 'yes';
         }
         console.log(transFee, bouns, email, name, mobile, address, amount, payment, logistic, payment_status);
-        $.get('order-info-api.php', {
+        $.post('order-info-api.php', {
 
             amount: amount,
             logistic: logistic,
@@ -484,18 +460,18 @@ $m_row = $pdo->query($m_sql)->fetch();
         }, 'json');
     });
 
-    // $('.hope-next-step').on('click', function() {
-    //     if ($(".how-to-pay").val() === "cerdit") {
-    //         console.log($(".how-to-pay").val())
-    //         $(window).attr('location', 'credit-card-step3.php');
+    $('.hope-next-step').on('click', function() {
+        if ($(".how-to-pay").val() === "credit") {
+            console.log($(".how-to-pay").val())
+            $(window).attr('location', 'credit-card-step3.php');
 
-    //     } else {
-    //         console.log($(".how-to-pay").val())
-    //         $(window).attr('location', 'atm-step3.php');
+        } else {
+            console.log($(".how-to-pay").val())
+            $(window).attr('location', 'atm-step3.php');
 
-    //     }
+        }
 
-    // });
+    });
 </script>
 <script src="./lib/checkout-step123.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
