@@ -223,7 +223,7 @@ foreach ($towel_row  as $k => $r) {
                     <?php foreach ($block_row as $b) : ?>
                         <div class="product mb-5 col-6" onclick="showProductModal(<?= $b['sid'] ?>)">
 
-                            <div class="product_img_wrap" data-toggle="modal" data-target="#exampleModal">
+                            <div class="product_img_wrap">
 
                                 <img src="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $b['my_imgs'][0] ?>.jpg">
                                 <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
@@ -426,6 +426,10 @@ foreach ($towel_row  as $k => $r) {
 
     // 跳出視窗↓↓
     function showProductModal(sid) {
+        if ($(window).width() < 768) {
+            location.href = 'product_mat.php?sid=' + sid;
+            return;
+        }
         $('iframe')[0].src = "modal.php?sid=" + sid;
         $('#exampleModal').modal('show')
     }
@@ -437,7 +441,9 @@ foreach ($towel_row  as $k => $r) {
     //     if (width < 768) {
     //         $('.modal-backdrop').hide();
     //         $('#exampleModal').modal('hide');
+    //         return false;
     //     }
+
     // });
 
 
