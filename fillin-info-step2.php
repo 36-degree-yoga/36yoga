@@ -436,9 +436,9 @@ $m_row = $pdo->query($m_sql)->fetch();
 
         let payment_status = '';
         if (!payment === "credit") {
-            payment_status = 'no';
+            payment_status = '未付款';
         } else {
-            payment_status = 'yes';
+            payment_status = '已付款';
         }
         console.log(transFee, bouns, email, name, mobile, address, amount, payment, logistic, payment_status);
         $.post('order-info-api.php', {
@@ -454,6 +454,8 @@ $m_row = $pdo->query($m_sql)->fetch();
             email: email,
             points: 10,
             payment_status: payment_status,
+            logistic_status: "待出貨",
+            order_status: "待出貨",
         }, function(data) {
             console.log(data);
 
