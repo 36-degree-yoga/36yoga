@@ -3,7 +3,11 @@
 // $p_stmt = $pdo->query("SELECT * FROM `products` ORDER BY `sid` ASC");
 // // $rows=$stmt->fetchAll();
 // $c = $p_stmt->fetch();
+?>
 
+<?php if (!isset($_SESSION['custom'])) {
+    $_SESSION['custom']=[];
+};
 
 ?>
 
@@ -74,14 +78,14 @@
                                 <!-- copy count -->
                                 <div class="cart_count_wrap d-flex justify-content-center col align-items-lg-center">
                                     <!-- - -->
-                                    <div class="minus add_cart_icon ">
+                                    <div class="minus p_minus add_cart_icon ">
                                         <img src="./SVG/custom/minus_g_icon.svg" alt="">
                                     </div>
                                     <!-- 數量 -->
                                     <!-- <div class="count">1</div> -->
                                     <input name="mat-count" class="count" type="text" data-quantity="<?= $c['quantity'] ?>" value="<?= $c['quantity'] ?>" readonly="readonly">
                                     <!-- + -->
-                                    <div class="plus add_cart_icon">
+                                    <div class="plus p_plus add_cart_icon">
                                         <img src="./SVG/custom/plus_g_icon.svg" alt="">
                                     </div>
                                 </div>
@@ -124,19 +128,19 @@
                     <?php foreach ($_SESSION['custom'] as $b) : ?>
                         <tr class="mt-3 product-edit" id="product_<?= $b['sid'] ?>" data-sid="<?= $b['sid'] ?>">
                             <td>
-                                <div class="product-img-pc mx-auto " style="background-color: <?= $b['color'] ?>;">
-                                    <img src="./img/customize/design/<?= $b['img'] ?>.png" alt="">
+                                <div class="product-img-pc mx-auto " style="background-color: <?= $b['pick_color'] ?>;">
+                                    <img src="./img/customize/design/<?= $b['design_img'] ?>.png" alt="">
                                 </div>
 
                             </td>
                             <td class="pl-4 need-weight" data-weight="<?= $b['weight'] ?>">
                                 <div class="product-info text-left">
-                                    <p><?= $b['product_name'] ?></p>
-                                    <p class="product-info-detail" style="font-size: 0.8rem;line-height:20px">尺寸：<?= $b['length'] ?>*<?= $b['width'] ?><br />重量：<?= $b['weight'] ?>g
+                                    <p>客製瑜珈墊</p>
+                                    <p class="product-info-detail" style="font-size: 0.8rem;line-height:20px">尺寸：<?= $b['mat-h'] ?>*<?= $b['matw'] ?><br />重量：<?= $b['weight'] ?>g
                                     </p>
                                 </div>
                             </td>
-                            <td class="number-change w-25" data-count="<?= $b['quantity'] ?>">
+                            <td class="number-change w-25" data-count="<?= $b['mat-count'] ?>">
 
                                 <!-- copy count -->
                                 <div class="cart_count_wrap d-flex justify-content-center col align-items-lg-center">
@@ -146,30 +150,46 @@
                                     </div>
                                     <!-- 數量 -->
                                     <!-- <div class="count">1</div> -->
-                                    <input name="mat-count" class="count" type="text" data-quantity="<?= $b['quantity'] ?>" value="<?= $b['quantity'] ?>" readonly="readonly">
+                                    <input name="mat-count" class="count" type="text" data-quantity="<?= $b['mat-count'] ?>" value="<?= $b['mat-count'] ?>" readonly="readonly">
                                     <!-- + -->
-                                    <div class="plus c_plus add_cart_icon">
+                                    <div class="plus add_cart_icon c_plus">
                                         <img src="./SVG/custom/plus_g_icon.svg" alt="">
                                     </div>
                                 </div>
                                 <!-- copy count -->
                             </td>
-                            <td class="price" data-money="<?= $b['price'] * $b['quantity'] ?>">NT.<?= $b['price'] * $b['quantity'] ?></td>
+                            <td class="price" data_price="<?= $b['mat-total-price'] ?>" data-money="<?= $b['mat-total-price'] * $b['mat-count'] ?>">NT.<?= $b['mat-total-price'] * $b['mat-count'] ?></td>
                             <td class="favorite-icon">
                                 <a href="#"><img src="./SVG/icon_favorite.svg" alt=""></a>
 
                             </td>
                             <td class="delete-icon">
-                                <a href="javascript:delCItem(<?= $b['sid'] ?>)"><img src="./SVG/icon_trash.svg" alt=""></a>
+                                <a data-toggle="modal" data-target="#del_Cprod_warn"><img src="./SVG/icon_trash.svg" alt=""></a>
                             </td>
-                            <input type="text" name="" id="" value="" style="display:none">
-                            <input type="text" name="" id="" value="" style="display:none">
-                            <input type="text" name="" id="" value="" style="display:none">
-                            <input type="text" name="" id="" value="" style="display:none">
-                            <input type="text" name="" id="" value="" style="display:none">
-                            <input type="text" name="" id="" value="" style="display:none">
-                            <input type="text" name="" id="" value="" style="display:none">
+                            
                         </tr>
+
+                        <!-- delete warning modal-->
+                        <div class="modal fade" id="del_Cprod_warn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-content modal-size">
+                                    <div class="modal-header out_header">
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <img class="" src="svg/delete.svg" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="modal-body out_body">
+                                        <p class="mx-auto">確定要刪除商品嗎？</p>
+                                    </div>
+                                    <div class="text-center mb-5">
+                                        <button class="btn btn-leave p-0" data-dismiss="modal">先不要</button>
+                                        <button class="btn btn-leave p-0 del-btn-check" onclick="delCItem(<?= $b['sid'] ?>)" data-dismiss="modal">確認</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- delete warning -->
                     <?php endforeach; ?>
 
 
@@ -192,7 +212,7 @@
                         <div class="product-info  d-flex flex-column">
                             <p><?= $c['product_name'] ?></p>
                             <p class="product-info-detail m-0">
-                                顏色：<?= $c['color'] ?><br />尺寸：<?= $c['length'] ?>*<?= $c['width'] ?><br />重量：<?= $c['weight'] ?>g
+                                尺寸：<?= $c['length'] ?>*<?= $c['width'] ?><br />重量：<?= $c['weight'] ?>g
                             </p>
 
 
@@ -225,6 +245,58 @@
                         <a href="#"> <img src="./SVG/icon_favorite.svg" alt=""></a>
 
                         <a href="javascript:delItem(<?= $c['sid'] ?>)"><img src="./SVG/icon_trash.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="dividerline-in-table-no2 mx-auto"></div>
+
+
+
+            </div>
+        <?php endforeach; ?>
+<!-- 手機客製 -->
+        <?php foreach ($_SESSION['custom'] as $b) : ?>
+            <div class="this-one-pc-none w-100 m-product-edit" data-sid="<?= $b['sid'] ?>" id="product_<?= $b['sid'] ?>">
+                <div class="d-flex col-12">
+                    <div class=" col-10 d-flex justify-content-start p-0">
+                        <div class="product-img mr-3" style="width:115px;height:100px;overflow:hidden;background-color: <?= $b['pick_color'] ?>;">
+                        <img src="./img/customize/design/<?= $b['design_img'] ?>.png" alt="">
+                        </div>
+                        <div class="product-info  d-flex flex-column">
+                            <p>客製瑜珈墊</p>
+                            <p class="product-info-detail m-0">
+                                尺寸：<?= $b['mat-h'] ?>*<?= $b['matw'] ?><br />重量：<?= $b['weight'] ?>g
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-2 d-flex justify-content-end align-items-end">
+                        <p class="m-0">NT.<?= $b['mat-total-price'] * $b['mat-count'] ?></p>
+                    </div>
+                </div>
+                <div class="col-12 d-flex align-items-top mb-2 mt-3 icon-family">
+                    <div class="col-8 d-flex justify-content-start number-change align-items-center p-0">
+                        <!-- copy count -->
+                        <div class="cart_count_wrap d-flex justify-content-start align-items-center">
+                            <!-- - -->
+                            <div class="minus c_plus add_cart_icon ">
+                                <img src="./SVG/custom/minus_g_icon.svg" alt="">
+                            </div>
+                            <!-- 數量 -->
+                            <!-- <div class="count">1</div> -->
+                            <input name="mat-count" class="count" type="text" value="<?= $b['mat-count'] ?>" readonly="readonly">
+                            <!-- + -->
+                            <div class="plus c_plus add_cart_icon">
+                                <img src="./SVG/custom/plus_g_icon.svg" alt="">
+                            </div>
+                        </div>
+                        <!-- copy count -->
+                    </div>
+                    <div class="col-4 d-flex justify-content-between align-items-center">
+                        <a href="#"> <img src="./SVG/icon_favorite.svg" alt=""></a>
+
+                        <a href="javascript:delItem(<?= $b['sid'] ?>)"><img src="./SVG/icon_trash.svg" alt=""></a>
                     </div>
                 </div>
                 <div class="dividerline-in-table-no2 mx-auto"></div>
@@ -298,7 +370,7 @@
     }
     // 客製delete
     function delCItem(sid) {
-        $.get('handle-custom.php', {
+        $.get('handle-custom-remove.php', {
             sid: sid,
             action: 'remove'
         }, function(data) {
@@ -308,9 +380,19 @@
             //刪除商品後重新計算
             calcTotal();
         }, 'json');
+        $.get('handle-custom.php', {
+            sid: 34,
+            action: 'remove'
+        }, function(data) {
+            console.log(data);
+            // $('#product_' + sid).remove();
+            // $('#product_m' + sid).remove();
+            // //刪除商品後重新計算
+            // calcTotal();
+        }, 'json');
     }
     // 連動quantity
-    $('.minus').on('click', function() {
+    $('.p_minus').on('click', function() {
         const tr = $(this).closest(".product-edit");
         const number = tr.find('td.number-change').attr('data-count');
         const sid = tr.attr('data-sid');
@@ -331,7 +413,7 @@
         }, 'json')
     });
 
-    $('.plus').on('click', function() {
+    $('.p_plus').on('click', function() {
         const tr = $(this).closest(".product-edit");
         const number = tr.find('td.number-change').attr('data-count');
         const sid = tr.attr('data-sid');
@@ -360,7 +442,7 @@
         const quantity = input.val();
         console.log(quantity)
         console.log('看我')
-        $.get('handle-custom.php', {
+        $.get('handle-custom-remove.php', {
             sid,
             quantity,
             action: 'add',
@@ -373,6 +455,7 @@
             updateCData(tr, sid, custom)
             calcTotal();
         }, 'json')
+
     });
 
     $('.c_plus').on('click', function() {
@@ -381,18 +464,22 @@
         const sid = tr.attr('data-sid');
         const input = $(this).prev();
         const quantity = input.val();
+        const cprice = $(this).closest(".price");
         console.log(quantity)
-        console.log('看我')
-        $.get('handle-custom.php', {
+        console.log(cprice)
+        $.get('handle-custom-remove.php', {
             sid,
             action: 'add',
             quantity
         }, function(data) {
             const custom = data.custom
             input.attr('data-quantity', quantity);
-            updateCData(tr, sid, custom)
+            updateData(tr, sid, custom)
             calcTotal();
         }, 'json')
+        // let count = intval(quantity);
+        // let total = count *
+        // $('.price').html('NT.'+ intval(quantity))
 
 
     });

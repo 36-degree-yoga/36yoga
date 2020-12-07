@@ -43,7 +43,7 @@
   font-size: 20px;
   margin-bottom: 0;
 }
-.order_step_title #order_s_3 {
+.order_step_title #order_s_2 {
   font-weight: bold;
 }
 .order_step_number {
@@ -54,7 +54,7 @@
   color: #333333;
   font-size: 24px;
 }
-.order_step_number #order_n_3 {
+.order_step_number #order_n_2 {
   color: #f2a200;
 }
 /* 溫度計 */
@@ -64,7 +64,6 @@
   border-radius: 4px;
   height: 32px;
   width: 72%;
-  
 }
 .form-control9 {
   border: 1px solid #333;

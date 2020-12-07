@@ -72,7 +72,7 @@
                                         <!-- 商品尺寸 -->
                                         <div class="product_detail d-flex flex-column align-self-start">
                                             <p class="p_title"><?= $c['product_name'] ?></p>
-                                            <p class="p_detail">顏色:<?= $c['color'] ?></p>
+
                                             <p class="p_detail">尺寸:<?= $c['length'] ?>*<?= $c['width'] ?></p>
                                             <p class="p_detail">
                                                 重量：<span class="weight"><?= $c['weight'] ?></span>g
@@ -88,6 +88,32 @@
                                 <hr />
                             <?php endforeach; ?>
                             <!--商品項目外框↑-->
+                            <!-- 客製商品項目外框 -->
+                            <?php foreach ($_SESSION['custom'] as $b) : ?>
+                                <div class="m_order_product_wrap d-flex align-items-end justify-content-between">
+                                    <div class="product-left d-flex">
+                                        <!-- 訂單商品圖 -->
+                                        <div class="order_img_wrap" style="width:100px;height:100px;overflow:hidden;background-color: <?= $b['pick_color'] ?>;">
+                                            <img class="p_img" src="./img/customize/design/<?= $b['design_img'] ?>.png" style="width: 100%;" alt="" />
+                                        </div>
+                                        <!-- 商品尺寸 -->
+                                        <div class="product_detail d-flex flex-column align-self-start">
+                                            <p class="p_title">客製瑜珈墊</p>
+                                            <p class="p_detail">尺寸：<?= $b['mat-h'] ?>*<?= $b['matw'] ?></p>
+                                            <p class="p_detail">
+                                                重量：<span class="weight"><?= $b['weight'] ?></span>g
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- 件數價錢 -->
+                                    <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
+                                        <p class="m-0">共<span class="count"><?= $b['mat-count'] ?></span>件</p>
+                                        <p class="m-0">NT$ <span class="price"><?= $b['mat-total-price'] * $b['mat-count'] ?></span></p>
+                                    </div>
+                                </div>
+                                <hr />
+                            <?php endforeach; ?>
+                            <!--客製商品項目外框↑-->
 
 
                         </div>

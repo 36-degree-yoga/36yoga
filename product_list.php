@@ -201,7 +201,13 @@ foreach ($towel_row  as $k => $r) {
                     </div>
                     <div class="btn_wrap d-flex justify-content-end mt-4">
                         <button class="btn_l" onclick="location.href='product_custom_mat.php'">了解更多</button>
-                        <button class="btn_f" onclick="location.href='custom.php'">開始製作</button>
+
+                        <?php if (!isset($_SESSION['user'])) : ?>
+                            <button class="btn_f" data-toggle="modal" data-target="#custom-login">開始製作</button>
+                        <?php else : ?>
+                            <button class="btn_f" onclick="location.href='custom.php'">開始製作</button>
+                        <?php endif ?>
+
                     </div>
                 </div>
 
@@ -395,6 +401,27 @@ foreach ($towel_row  as $k => $r) {
         </div>
     </div>
 </div>
+
+
+
+<!-- Modal 客製需登入 -->
+<div class="modal fade" id="custom-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content modal-size" style="width:600px;height:400px;margin-left:200px">
+            <div class="modal-header out_header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img class="" src="svg/delete.svg" alt="">
+                </button>
+            </div>
+            <div class="modal-body out_body" style="text-align:center;">
+                <p class="mt-4" style="font-size:24px;padding-top:50px;">請先 <a href="login_regist.php" style="color:#db5c00;"> 登入會員 </a></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- delete warning -->
 <!-- 彈跳視窗↑↑ -->
 
 
