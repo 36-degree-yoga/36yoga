@@ -218,7 +218,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                     </div>
 
                     <div class="form-group row mb-2">
-                        <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">載據編號</label>
+                        <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">載具編號</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
                             <input type="text" class="form-control6 px-2" aria-describedby="" placeholder="（發票隨包裹不必填寫）" />
                         </div>
@@ -341,7 +341,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                             </tr>
                             <tr>
                                 <th scope="row">優惠折抵</th>
-                                <td><span id="deduction">100</span></td>
+                                <td><span id="deduction">0</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">應付金額</th>

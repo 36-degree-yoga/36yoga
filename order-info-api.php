@@ -17,7 +17,6 @@ if (empty($_POST['email'])) {
 
 $member_id = $_SESSION['user']['id'] ?? 1;
 
-
 //外來資料使用問號
 $oh_stmt = $pdo->prepare("INSERT INTO `orders`( `member_sid`, `amount`, `logistic`, `trans_fee`, `payment`, `deduction`, `buyer`, `address`, `mobile`, `email`, `points`, `payment_status`,`logistic_status`, `order_status`, `order_date`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())");
 
@@ -41,6 +40,36 @@ $oh_stmt->execute([
 ]);
 
 $output['success'] = true;
-$output['error'] = '';
+$output['error'] = 'order';
 
-echo json_encode($output, JSON_UNESCAPED_UNICODE);
+
+
+echo json_encode([
+    'order_id' => $pdo->lastInsertId(),
+], JSON_UNESCAPED_UNICODE);
+// ------------ order detail
+
+$order_sid = $pdo->lastInsertId();
+$od_sql = "INSERT INTO `order_details`(`order_sid`, `product_sid`, `quantity`) VALUES (?,?,?)";
+$od_stmt = $pdo->prepare($od_sql);
+
+foreach ($_SESSION['cart'] as $c) {
+
+    $od_stmt->execute([
+        $order_sid,
+        $c['sid'],
+        $c['quantity'],
+    ]);
+};
+$oc_sql = "INSERT INTO `order_details`(`order_sid`, `custom_id`) VALUES (?,?)";
+$oc_stmt = $pdo->prepare($oc_sql);
+$oc_stmt->execute([
+    $order_sid,
+    $_SESSION['custom_cart']['sid'],
+]);
+
+unset($_SESSION['cart']);
+
+echo json_encode([
+    'order_id' => $pdo->lastInsertId(),
+], JSON_UNESCAPED_UNICODE);
