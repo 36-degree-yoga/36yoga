@@ -9,8 +9,7 @@ $output = [
     'code' => 0,
     'error' => '沒有資料',
 ];
-// $output = [];
-// $output = $_GET['email'];
+
 if (empty($_POST['email'])) {
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
@@ -23,7 +22,7 @@ $member_id = $_SESSION['user']['id'] ?? 1;
 $oh_stmt = $pdo->prepare("INSERT INTO `orders`( `member_sid`, `amount`, `logistic`, `trans_fee`, `payment`, `deduction`, `buyer`, `address`, `mobile`, `email`, `points`, `payment_status`,`logistic_status`, `order_status`, `order_date`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())");
 
 $oh_stmt->execute([
-    // $_SESSION['user']['id'],
+
     $member_id,
     $_POST['amount'],
     $_POST['logistic'],
@@ -40,7 +39,7 @@ $oh_stmt->execute([
     $_POST['order_status'],
 
 ]);
-// $output['ke'] = $_GET['email'];
+
 $output['success'] = true;
 $output['error'] = '';
 
