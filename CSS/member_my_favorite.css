@@ -85,6 +85,70 @@ a:hover {
 }
 /* 會員中心 手機板 side_bar↑↑ */
 
+/* 彈跳視窗 */
+
+.modal-size {
+  margin-left: 100px;
+  width: 600px;
+  height: 400px;
+}
+.out_body {
+  padding-top: 40px;
+  text-align: center;
+}
+.out_body p {
+  font-size: 24px;
+  line-height: 50px;
+}
+.out_body p a {
+  color: #db5c00;
+}
+
+.out_header {
+  padding: 30px;
+}
+
+.m_out_body {
+  padding-top: 40px;
+  text-align: center;
+}
+.m_out_body p {
+  font-size: 24px;
+  line-height: 50px;
+}
+.m_out_body p a {
+  color: #db5c00;
+}
+
+.m_out_header {
+  padding: 30px;
+}
+.m_out_header img {
+  width: 40px;
+  left: -275px;
+}
+
+.m_modal-size {
+  height: 700px;
+}
+
+.m_out_body button {
+  margin-bottom: 60px;
+  height: 60px;
+  width: 150px;
+}
+
+.m_out_hide {
+  display: none;
+}
+
+.m_cart_content p {
+  margin-top: -100px;
+}
+.m_save_wrap {
+  margin-top: -100px;
+}
+
 /* RWD↓↓*/
 @media (max-width: 1440px) {
   .product_list {

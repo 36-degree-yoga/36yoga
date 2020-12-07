@@ -208,17 +208,43 @@ $member_row = $stmt->fetch();
                     <div class="product_img_wrap position-relative" data-toggle="modal" data-target="#exampleModal">
                         <img src="./img/product_list/<?= $r['my_imgs'][1] ?>.jpg" alt="">
 
-                        <svg id="" class="btn_like position-absolute" onclick="checkLike(event); return false;" data-sid="<?= $r['product_sid'] ?>" style="right:15px;bottom:15px" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
-                            <g id="圖層_2" data-name="圖層 2">
-                                <g id="圖層_1-2" data-name="圖層 1">
-                                    <g id="Path_324" data-name="Path 324">
-                                        <path class="like_fill" d="M15,28C6.93,22.16,2.7,16.84,1,12.39-3.68.47,9.6-3.58,15,3.46c5.4-7,18.68-3,14,8.93C27.3,16.84,23.06,22.16,15,28Z" />
-                                        <path class="like_stroke" d="M15,25.51a51.66,51.66,0,0,0,7.88-7.15,23.48,23.48,0,0,0,4.29-6.69c1.15-3,1.11-5.46-.11-7.25a5.94,5.94,0,0,0-5-2.42,6.85,6.85,0,0,0-5.49,2.68L15,6.74,13.41,4.68A6.85,6.85,0,0,0,7.92,2a5.94,5.94,0,0,0-5,2.42c-1.22,1.79-1.26,4.29-.11,7.25a23.48,23.48,0,0,0,4.29,6.69A51.66,51.66,0,0,0,15,25.51M15,28C6.93,22.16,2.7,16.84,1,12.39-2.13,4.45,2.74,0,7.92,0A8.86,8.86,0,0,1,15,3.46,8.86,8.86,0,0,1,22.08,0c5.18,0,10.05,4.45,7,12.39C27.3,16.84,23.07,22.16,15,28Z" />
+                        <div data-toggle="modal" data-target="#delete">
+
+                            <svg id="" class="btn_like position-absolute" style="right:15px;bottom:15px" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
+                                <g id="圖層_2" data-name="圖層 2">
+                                    <g id="圖層_1-2" data-name="圖層 1">
+                                        <g id="Path_324" data-name="Path 324">
+                                            <path class="like_fill" d="M15,28C6.93,22.16,2.7,16.84,1,12.39-3.68.47,9.6-3.58,15,3.46c5.4-7,18.68-3,14,8.93C27.3,16.84,23.06,22.16,15,28Z" />
+                                            <path class="like_stroke" d="M15,25.51a51.66,51.66,0,0,0,7.88-7.15,23.48,23.48,0,0,0,4.29-6.69c1.15-3,1.11-5.46-.11-7.25a5.94,5.94,0,0,0-5-2.42,6.85,6.85,0,0,0-5.49,2.68L15,6.74,13.41,4.68A6.85,6.85,0,0,0,7.92,2a5.94,5.94,0,0,0-5,2.42c-1.22,1.79-1.26,4.29-.11,7.25a23.48,23.48,0,0,0,4.29,6.69A51.66,51.66,0,0,0,15,25.51M15,28C6.93,22.16,2.7,16.84,1,12.39-2.13,4.45,2.74,0,7.92,0A8.86,8.86,0,0,1,15,3.46,8.86,8.86,0,0,1,22.08,0c5.18,0,10.05,4.45,7,12.39C27.3,16.84,23.07,22.16,15,28Z" />
+                                        </g>
                                     </g>
                                 </g>
-                            </g>
-                        </svg>
+                            </svg>
+                        </div>
 
+                        <!-- 確定刪除 modal-->
+                        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-content modal-size">
+                                    <div class="modal-header out_header">
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <img class="" src="svg/delete.svg" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="modal-body out_body">
+                                        <p class="mx-auto">確定要移除我的最愛嗎？</p>
+                                    </div>
+                                    <div class="text-center mb-5">
+                                        <a onclick="checkLike(event); return false;" data-sid="<?= $r['product_sid'] ?>"><button class="btn btn_l p-0 del-btn-check" style="margin-right:10px;">
+                                                確認</button></a>
+                                        <button class="btn btn_f p-0" data-dismiss="modal" aria-label="Close" style="margin-left:10px;">先不要</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- delete warning -->
 
                     </div>
                     <div class="space_30"></div>
@@ -250,29 +276,29 @@ $member_row = $stmt->fetch();
             product_sid
         });
 
-        if (confirm(`確定要移除嗎?`)) {
 
-            $.post('my_favorite_api.php', {
-                product_sid,
 
-            }, function(data) {
-                console.log(data);
+        $.post('my_favorite_api.php', {
+            product_sid,
 
-                me.find('.like_fill').addClass('color')
-                // if (!data.add) {
-                //     me.find('.like_fill').addClass('color');
-                // }
+        }, function(data) {
+            console.log(data);
 
-                // if (!data.add) {
-                //     confirm(`確定要刪除設計嗎?`)   
-                // }
+            me.find('.like_fill').addClass('color')
+            // if (!data.add) {
+            //     me.find('.like_fill').addClass('color');
+            // }
 
-                location.reload();
-                header('Location:member_my_favorite.php');
+            // if (!data.add) {
+            //     confirm(`確定要刪除設計嗎?`)   
+            // }
 
-            }, 'json');
+            location.reload();
+            header('Location:member_my_favorite.php');
 
-        }
+        }, 'json');
+
+
 
     };
 

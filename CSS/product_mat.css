@@ -123,6 +123,13 @@ a.dropdown-item:hover {
   margin-left: 0rem;
 }
 
+/* 左側bar */
+
+.product_siderbar_wrap {
+  -webkit-transition: all 0.6s ease-in-outt;
+  transition: all 0.6s ease-in-outt;
+}
+
 /* 篩選器 ↑ */
 
 /* 愛心 */
@@ -235,6 +242,10 @@ a.size-list-item:hover {
 
 .sm-banner {
   object-fit: cover;
+  transition: 0.5s ease-out;
+}
+.sm-banner:hover {
+  transform: scale(1.2);
 }
 
 .sm-banner-area {
@@ -371,6 +382,12 @@ a.size-list-item:hover {
 .product-info {
   color: #333333;
 }
+.p-name {
+  cursor: pointer;
+}
+.p-name:hover {
+  color: #db5c00;
+}
 
 .img-wrap {
   width: 425.7px;
@@ -381,6 +398,10 @@ a.size-list-item:hover {
 .product-pic {
   object-fit: cover;
   object-position: center;
+  transition: 0.5s ease-out;
+}
+.product-pic:hover {
+  transform: scale(1.2);
 }
 
 .icon-wrap {

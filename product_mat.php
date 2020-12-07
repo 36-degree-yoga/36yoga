@@ -43,7 +43,7 @@ foreach ($l_rows as $l => $v) {
     ];
 };
 
-// echo  json_encode($a, JSON_UNESCAPED_UNICODE);
+// echo  json_encode($l_rows, JSON_UNESCAPED_UNICODE);
 // exit;
 
 // 顏色
@@ -220,8 +220,11 @@ $others_rows = $others_stmt->fetchAll();
                                 <a class="color-selector pl-0 d-flex " href="?sid=<?= $i['sid'] ?>">
 
                                     <div class="color-element border list-unstyled mr-2" style="background-color:<?= $i['color'] ?>">
-                                        <div class="<?= $i['sid'] == $_GET['sid'] ? 'color-element-wrap' : ''; ?>"></div>
+                                        <?php if (!empty($i['color'])) : ?>
+                                            <div class="<?= $i['sid'] == $_GET['sid'] ? 'color-element-wrap' : ''; ?>"></div>
+                                        <?php endif; ?>
                                     </div>
+
 
                                 </a>
                             <?php endforeach; ?>
@@ -518,7 +521,7 @@ $others_rows = $others_stmt->fetchAll();
 
                                 <div class="product-info text-center">
                                     <a href="<?= WEB_ROOT ?>product_mat.php?sid=13">
-                                        <h6 class="mb-0">瑜珈支撐墊</h6>
+                                        <h6 class="p-name mb-0">瑜珈支撐墊</h6>
                                     </a>
                                     <p>NT$. 179</p>
                                 </div>
@@ -528,7 +531,7 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap ">
+                                <div class="img-wrap overflow-hidden">
                                     <a href="<?= WEB_ROOT ?>product_mat.php?sid=22">
                                         <!-- product 的 border 之後取消 -->
                                         <img class="product-pic w-100  h-100" src="./img/product_list/s01_1.jpg" alt="重量運動手環">
@@ -537,7 +540,7 @@ $others_rows = $others_stmt->fetchAll();
 
                                 <div class="product-info text-center">
                                     <a href="<?= WEB_ROOT ?>product_mat.php?sid=22">
-                                        <h6 class="mb-0">重量運動手環</h6>
+                                        <h6 class="p-name mb-0">重量運動手環</h6>
                                     </a>
                                     <p>NT$. 2280</p>
                                 </div>
@@ -547,7 +550,7 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap">
+                                <div class="img-wrap overflow-hidden">
                                     <a href="<?= WEB_ROOT ?>product_mat.php?sid=19">
                                         <!-- product 的 border 之後取消 -->
                                         <img class="product-pic w-100 h-100" src="./img/product_list/r01_1.jpg" alt="顆粒按摩滾筒">
@@ -556,7 +559,7 @@ $others_rows = $others_stmt->fetchAll();
 
                                 <div class="product-info text-center">
                                     <a href="<?= WEB_ROOT ?>product_mat.php?sid=19">
-                                        <h6 class="mb-0">Relex 顆粒按摩滾筒</h6>
+                                        <h6 class="p-name mb-0">Relex 顆粒按摩滾筒</h6>
                                     </a>
                                     <p>NT$. 1288</p>
                                 </div>
@@ -2057,9 +2060,9 @@ $others_rows = $others_stmt->fetchAll();
     // 側bar到一個位置fix住↓↓
     $(window).on('scroll', function() {
         let scrollTop = $(this).scrollTop();
-        // console.log(scrollTop)
-        let barFixed = 600;
-        let barUnFixd = 4700;
+        console.log(scrollTop)
+        let barFixed = 205;
+        let barUnFixd = 4780;
 
 
         if (scrollTop < barFixed) {
