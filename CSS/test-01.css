@@ -32,7 +32,8 @@ margin: 1.875rem 1.875rem 0 0;
 .logo{
 width: 198px;
 height: 47px;
-margin: 34px 0 0 45px;
+padding: 34px 0 0 45px;
+margin-right: auto;
 }
 
 /* ---內文 ---------- */
@@ -74,6 +75,10 @@ margin: 34px 0 0 45px;
     width: 8.125rem;
     transition:.5s;
 
+}
+
+form{
+    padding-top:40px;
 }
 
 .btn_f:hover{
@@ -216,6 +221,11 @@ transition:0.5s!important;
 
 h2{
     font-size: 24px;
+    margin-top: 40px!important;
+}
+
+.btn-wrapper{
+    min-height:300px;
 }
 
 .delete{
@@ -241,7 +251,8 @@ h2{
 .pro-bar{
     width: 100%;
     margin: 7.5rem 0 2rem 0;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-direction: column!important;
     justify-content: center!important;
     /* padding-top:50px; */
     height: 35px;
@@ -251,7 +262,7 @@ h2{
     height: auto;
     display: flex;
     width: 325px;
-    margin-top: 0;
+    margin: 0 auto!important;
     order:2;
 }
 
@@ -318,6 +329,10 @@ h2{
     padding: 0;
 }
 
+form{
+    padding-top:0px;
+}
+
 .number{
     height: 30px;
     width: 65px;
@@ -345,6 +360,7 @@ h2{
 .choice{
     margin: 0 10px!important;
 }
+
 
 
 }

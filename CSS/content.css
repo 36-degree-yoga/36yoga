@@ -745,7 +745,7 @@ a:hover {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 992px) {
   /* scroll down 按鈕 */
   .scrolldown_btn {
     display: none;

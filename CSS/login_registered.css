@@ -154,14 +154,22 @@ a{
 }
 
 .form-regis {
-  margin-top: 62px;
+  /* margin-top: 62px; */
 }
+
+.btn-primary:focus{
+  background-color:#004A13!important;
+  border-color:#db5c00!important;
+  box-shadow:none!important;
+}
+
+
 /* rwd */
 @media (max-width: 576px) {
   .login-floor,
   .regist-floor {
     top: -3px;
-    height: 430px;
+    /* height: 430px; */
     padding-left: 15px;
     padding-right: 15px;
   }

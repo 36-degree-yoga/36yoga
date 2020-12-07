@@ -262,8 +262,8 @@ foreach ($_SESSION as $k => $v) {
                             <a class="" href="<?= WEB_ROOT ?>member_my_account.php">會員中心</a>
                             <a class="" href="<?= WEB_ROOT ?>logout.php">登出</a>
                         <?php else : ?>
-                            <a class="" href="<?= WEB_ROOT ?>login_regist.php">註冊</a>
-                            <a class="" href="<?= WEB_ROOT ?>login_regist.php">登入</a>
+                            <a class="" href="<?= WEB_ROOT ?>login_regist.php#regist">註冊</a>
+                            <a class="" href="<?= WEB_ROOT ?>login_regist.php#login">登入</a>
                         <?php endif ?>
 
                     </div>

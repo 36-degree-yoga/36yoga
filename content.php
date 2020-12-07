@@ -130,35 +130,36 @@ foreach ($rec2_row  as $k2 => $r2) {
             <div class="guessyoullike d-flex justify-content-center position-relative">
 
                 <?php foreach ($rec1_row as $b) : ?>
-                    <a href="">
+                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=<?= $b['sid'] ?>">
                         <div class="product-zone px-0 rec-ani-1">
                             <div class="product-wrap">
                                 <div class="img-wrap">
                                     <img src="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" alt="" style="height: 100%;width: 100%; object-fit: cover;">
                                 </div>
-
-                                <div class="product-info text-center">
-                                    <a href="">
-                                        <h6 class="mb-0"><?= $b['product_name'] ?></h6>
-                                    </a>
-                                    <p>NT.<?= $b['price'] ?></p>
-                                </div>
-                            </div>
-                        </div>
                     </a>
-                <?php endforeach; ?>
 
-
+                    <div class="product-info text-center">
+                        <a href="<?= WEB_ROOT ?>product_mat.php?sid=<?= $b['sid'] ?>">
+                            <h6 class="mb-0"><?= $b['product_name'] ?></h6>
+                        </a>
+                        <p>NT.<?= $b['price'] ?></p>
+                    </div>
             </div>
-
-            <div class="mobile" style="height: 418px;"></div>
-
         </div>
 
-        <div class="col-2 px-0"></div>
+    <?php endforeach; ?>
+
+
     </div>
-    <div class="w-100 d-flex justify-content-center rec-ani-1"><button class="btn_f">看更多商品</button>
-    </div>
+
+    <div class="mobile" style="height: 418px;"></div>
+
+</div>
+
+<div class="col-2 px-0"></div>
+</div>
+<div class="w-100 d-flex justify-content-center rec-ani-1"><button class="btn_f">看更多商品</button>
+</div>
 </div>
 
 <!-- content區塊2 -->
@@ -213,7 +214,7 @@ foreach ($rec2_row  as $k2 => $r2) {
             <div class="guessyoullike d-flex justify-content-center position-relative">
 
                 <?php foreach ($rec2_row as $b2) : ?>
-                    <a href="">
+                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=<?= $b2['sid'] ?>">
                         <div class="product-zone px-0 rec-ani-1">
                             <div class="product-wrap">
                                 <div class="img-wrap">
@@ -221,7 +222,7 @@ foreach ($rec2_row  as $k2 => $r2) {
                                 </div>
 
                                 <div class="product-info text-center">
-                                    <a href="">
+                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=<?= $b2['sid'] ?>">
                                         <h6 class="mb-0"><?= $b2['product_name'] ?></h6>
                                     </a>
                                     <p>NT.<?= $b2['price'] ?></p>
@@ -270,7 +271,9 @@ foreach ($rec2_row  as $k2 => $r2) {
             <div class="mobile last-sec-text-ani">
                 <h3>36度，<br>與人類共感的溫度</h3>
             </div>
-            <div class="last-sec-btn last-sec-text-ani"><button class="btn_l">進入測驗</button></div>
+            <a href="<?= WEB_ROOT ?>yoga-test.php">
+                <div class="last-sec-btn last-sec-text-ani"><button class="btn_l">進入測驗</button></div>
+            </a>
         </div>
     </div>
 
