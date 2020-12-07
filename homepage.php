@@ -417,7 +417,7 @@
                 </div>
                 <!-- 移動區 -->
                 <div class="row index_prod_btm d-flex justify-content-center">
-
+                    
                     <!-- 移動區範圍 -->
                     <div class="testline"></div>
                     <div class="prod_line d-flex col-10 justify-content-between align-content-center">
@@ -430,118 +430,131 @@
                         </div>
 
                         <!-- 移動圖片們 -->
-                        <div class="movemove prods_left col-5" data-rellax-speed="4" >
-                            <div class="prods_box">
-                                <a href="">
-                                    <div class="prods_picwrap ppwrap_01" >
-                                        <img class="index_prodspic_h1" src="./img/index/index_04_h.jpg" alt="">
-                                        <img class="index_prodspic01" src="./img/index/index_04.jpg" alt="">   
-                                    </div>
+                        <div class="movemove prods_left col-5" data-rellax-speed="4"  >
+                            
+                                <div class="prods_box">
+                                    <a href='<?= WEB_ROOT ?>product_mat.php?sid=1'>
+                                        <div class="prods_picwrap ppwrap_01" >
+                                            <img class="index_prodspic_h1" src="./img/index/index_04_h.jpg" alt="">
+                                            <img class="index_prodspic01" src="./img/index/index_04.jpg" alt="">   
+                                        </div>
+                                    </a>
+                                 
                                     <div>
                                         <div class="d-flex prod_pp_quick">
+                                            <a href='<?= WEB_ROOT ?>product_mat.php?sid=1'>
+                                                <div class="prod_ppwrap">
+                                                    <h6 class="prod">36 pro® 6mm</h6>
+                                                    <p class="prod_price">NT.3600</p>
+                                                </div>
+                                            </a>    
+                                            <div class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                                <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" onclick="showProductModal(1)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="prods_box ">
+                                    <a href='<?= WEB_ROOT ?>product_mat.php?sid=6'>
+                                        <div class="prods_picwrap ppwrap_02">
+                                            <img class="index_prodspic_h2" src="./img/index/index_04_h_black.jpg" alt="">
+                                            <img class="index_prodspic02" src="./img/index/index_06.jpg" alt="">
+                                        </div>
+                                    </a> 
+                                    <div class="d-flex prod_pp_quick">
+                                        <a href='<?= WEB_ROOT ?>product_mat.php?sid=6'>
                                             <div class="prod_ppwrap">
                                                 <h6 class="prod">36 pro® 6mm</h6>
                                                 <p class="prod_price">NT.3600</p>
                                             </div>
-                                            <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
-                                                <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
-                                            </div>
+                                        </a> 
+                                        <div class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" onclick="showProductModal(6)">
                                         </div>
                                     </div>
-                                </a> 
-                            </div>
+                                </div>
 
-                            <div class="prods_box ">
-                                <a href="" class="">
-                                    <div class="prods_picwrap ppwrap_02">
-                                        <img class="index_prodspic_h2" src="./img/index/index_04_h_black.jpg" alt="">
-                                        <img class="index_prodspic02" src="./img/index/index_06.jpg" alt="">
-                                    </div>
+                                <div class="prods_box">
+                                    <a href='<?= WEB_ROOT ?>product_mat.php?sid=2'>
+                                        <div class="prods_picwrap ppwrap_03">
+                                            <img class="index_prodspic_h3" src="./img/index/index_04_h_green.jpg" alt="">
+                                            <img class="index_prodspic03" src="./img/index/index_05.jpg" alt="">
+                                        </div>
+                                    </a>
                                     <div class="d-flex prod_pp_quick">
-                                        <div class="prod_ppwrap">
-                                            <h6 class="prod">36 pro® 6mm</h6>
-                                            <p class="prod_price">NT.3600</p>
+                                        <a href='<?= WEB_ROOT ?>product_mat.php?sid=2'>
+                                            <div class="prod_ppwrap">
+                                                <h6 class="prod">36 pro® 6mm</h6>
+                                                <p class="prod_price">NT.3600</p>
+                                            </div>  
+                                        </a>
+                                        <div class="index_quick" data-toggle="modal" data-target="#exampleModal">
+                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" onclick="showProductModal(2)">
                                         </div>
-                                        <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
-                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="prods_box">
-                                <a href="">
-                                    <div class="prods_picwrap ppwrap_03">
-                                        <img class="index_prodspic_h3" src="./img/index/index_04_h_green.jpg" alt="">
-                                        <img class="index_prodspic03" src="./img/index/index_05.jpg" alt="">
-                                    </div>
-                                    <div class="d-flex prod_pp_quick">
-                                        <div class="prod_ppwrap">
-                                            <h6 class="prod">36 pro® 6mm</h6>
-                                            <p class="prod_price">NT.3600</p>
-                                        </div>
-                                        <div href="" class="index_quick" data-toggle="modal" data-target="#exampleModal">
-                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
-                                        </div>
-                                    </div>
-                                </a>
-                                
-                            </div>
+                                    </div>    
+                                </div>   
                         </div>
 
                         <div class="movemove prods_right col-5  " data-rellax-speed="5">
                             <div class="prods_box ">
-                                <a href="">
+                                <a href='<?= WEB_ROOT ?>product_mat.php?sid=10'>
                                     <div class="prods_picwrap ppwrap_04">
                                         <img class="index_prodspic_h4" src="./img/index/index_04_h_red.jpg" alt="">
                                         <img class="index_prodspic04" src="./img/index/index_03.jpg" alt="">
                                     </div>
-                                    <div class="d-flex prod_pp_quick">
-                                        <div class="prod_ppwrap">
+                                </a>
+                                <div class="d-flex prod_pp_quick">
+                                    <div class="prod_ppwrap">
+                                        <a href='<?= WEB_ROOT ?>product_mat.php?sid=10'>
                                             <h6 class="prod">36 prolite® 4.7mm</h6>
                                             <p class="prod_price">NT.2760</p>
-                                        </div>
-                                        <div href="" class="index_quick quick_right" data-toggle="modal" data-target="#exampleModal">
-                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>    
+                                    <div href="" class="index_quick quick_right" data-toggle="modal" data-target="#exampleModal">
+                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" onclick="showProductModal(10)">
+                                    </div>
+                                </div>    
                             </div>
 
                             <div class="prods_box">
-                                <a href="">
+                                <a href='<?= WEB_ROOT ?>product_mat.php?sid=12'>
                                     <div class="prods_picwrap ppwrap_05">
                                         <img class="index_prodspic_h5" src="./img/index/index_04_h_black.jpg" alt="">
                                         <img class="index_prodspic05" src="./img/index/index_07.jpg" alt="">
                                     </div>
-                                    <div class="d-flex prod_pp_quick">
+                                </a>
+                                <div class="d-flex prod_pp_quick">
+                                    <a href='<?= WEB_ROOT ?>product_mat.php?sid=12'>
                                         <div class="prod_ppwrap">
                                             <h6 class="prod">36 prolite® 4.7mm</h6>
                                             <p class="prod_price">NT.2760</p>
                                         </div>
-                                        <div href="" class="index_quick quick_right" data-toggle="modal" data-target="#exampleModal">
-                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
-                                        </div>
+                                    </a>
+                                    <div href="" class="index_quick quick_right" data-toggle="modal" data-target="#exampleModal">
+                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" onclick="showProductModal(12)">
                                     </div>
-                                </a>  
+                                </div>
                             </div>
 
                             <div class="prods_box">
-                                <a href="">
+                                <a href='<?= WEB_ROOT ?>product_mat.php?sid=11'>
                                     <div class="prods_picwrap ppwrap_06">
                                         <img class="index_prodspic_h6" src="./img/index/index_04_h.jpg" alt="">
                                         <img class="index_prodspic06" src="./img/index/index_08.jpg" alt="">
                                     </div>
-                                    <div class="d-flex prod_pp_quick">
+                                </a>
+                                <div class="d-flex prod_pp_quick">
+                                    <a href='<?= WEB_ROOT ?>product_mat.php?sid=11'>
                                         <div class="prod_ppwrap">
                                             <h6 class="prod">36 prolite® 4.7mm</h6>
                                             <p class="prod_price">NT.2760</p>
                                         </div>
-                                        <div href="" class="index_quick quick_right" data-toggle="modal" data-target="#exampleModal">
-                                            <img src="./SVG/index_quickview.svg" alt="" class="prod_quick">
-                                        </div>
+                                    </a>
+                                    <div href="" class="index_quick quick_right" data-toggle="modal" data-target="#exampleModal">
+                                        <img src="./SVG/index_quickview.svg" alt="" class="prod_quick" onclick="showProductModal(11)">
                                     </div>
-                                </a>   
+                                </div>   
                             </div>
                         </div>
                     </div>
@@ -551,6 +564,7 @@
                 
             </div>
         </div>
+
        <!-- 彈跳視窗↓↓ -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -572,6 +586,7 @@
             </div>
         </div>
         <!-- 彈跳視窗↑↑ -->
+        
 
         <!-- Customer Reviews -->
         <div id="index_reviews" class="index_reviews container-fluid p-0">
@@ -733,12 +748,14 @@
             <div class="index_hotitem_area d-flex p-0 justify-content-end">
                 <div class="d-flex">
                            
-                    <div class="index_hotitem_wrap i_hot_w01">     
-                        <img src="./img/index/index_11_inner01.jpg" alt="" class="index_hotitem hotitem_01">
-                        <img src="./img/index/index_11_01.jpg" alt="" class="index_back11">
-                        <a href="">
+                    <div class="index_hotitem_wrap i_hot_w01"> 
+                        <a href='<?= WEB_ROOT ?>product_mat.php?sid=11'>    
+                            <img src="./img/index/index_11_inner01.jpg" alt="" class="index_hotitem hotitem_01">
+                            <img src="./img/index/index_11_01.jpg" alt="" class="index_back11">
+                        </a>
+                        <a href='<?= WEB_ROOT ?>product_mat.php?sid=11'>
                             <div class="index_hot_ppwrap hot_ppwrap01 d-flex flex-column text-center">
-                                <div class='index_hot_a' href="">
+                                <div class='index_hot_a'>
                                     <h6>36 prolite® 4.7mm</h6>
                                     <p>NT.2760</p>
                                 </div>    
@@ -746,27 +763,31 @@
                         </a>    
                     </div>
                                   
-                    <div class="index_hotitem_wrap i_hot_w02">         
-                        <img src="./img/index/index_11_inner02.jpg" alt="" class="index_hotitem hotitem_02">  
-                        <img src="./img/index/index_11_02.jpg" alt="" class="index_back11_02">   
-                        <a href="">
+                    <div class="index_hotitem_wrap i_hot_w02">    
+                        <a href='<?= WEB_ROOT ?>product_mat.php?sid=25'>     
+                            <img src="./img/index/index_11_inner02.jpg" alt="" class="index_hotitem hotitem_02">  
+                            <img src="./img/index/index_11_02.jpg" alt="" class="index_back11_02">   
+                        </a>
+                        <a href='<?= WEB_ROOT ?>product_mat.php?sid=25'>  
                             <div class="index_hot_ppwrap hot_ppwrap02 d-flex flex-column text-center">
-                                <a class='index_hot_a' href="">
+                                <div class='index_hot_a' >
                                     <h6>重量運動手環</h6>
-                                </a>
+                                </div>
                                 <p>NT.2280</p>
                             </div>
                         </a>
                     </div>
                     
-                    <div class="index_hotitem_wrap i_hot_w03">     
-                        <img src="./img/index/index_11_inner03.jpg" alt="" class="index_hotitem hotitem_03">  
-                        <img src="./img/index/index_11_03.jpg" alt="" class="index_back11_03">  
-                        <a href="">
+                    <div class="index_hotitem_wrap i_hot_w03">  
+                        <a href='<?= WEB_ROOT ?>product_mat.php?sid=16'>    
+                            <img src="./img/index/index_11_inner03.jpg" alt="" class="index_hotitem hotitem_03">  
+                            <img src="./img/index/index_11_03.jpg" alt="" class="index_back11_03">  
+                        </a>
+                        <a href='<?= WEB_ROOT ?>product_mat.php?sid=16'> 
                             <div class="index_hot_ppwrap hot_ppwrap03 d-flex flex-column text-center">
-                                <a class='index_hot_a' href="">
+                                <div class='index_hot_a'>
                                     <h6>薄軟木瑜珈磚</h6>
-                                </a>
+                                </div>
                                 <p>NT.780</p>
                             </div>
                         </a>  
@@ -989,7 +1010,7 @@
                         <!-- 移動圖片們 -->
                         <div class="m_prods_left m_movemove col-5" data-rellax-speed="2">
                             <div class="m_prods_box">
-                                <a href="">
+                                <a href='<?= WEB_ROOT ?>product_mat.php?sid=1'>
                                     <div class="m_prods_picwrap">
                                         <img class="m_index_prodspic01" src="./img/index/index_04.jpg" alt="">
                                     </div>
@@ -1004,7 +1025,7 @@
                             </div>
 
                             <div class="m_prods_box">
-                                <a href="">
+                                <a href='<?= WEB_ROOT ?>product_mat.php?sid=6'>
                                     <div class="m_prods_picwrap">
                                         <img class="m_index_prodspic02" src="./img/index/index_06.jpg" alt="">
                                     </div>
@@ -1019,7 +1040,7 @@
                             </div>
 
                             <div class="m_prods_box">
-                                <a href="">
+                                <a href='<?= WEB_ROOT ?>product_mat.php?sid=2'>
                                     <div class="m_prods_picwrap">
                                         <img class="m_index_prodspic03" src="./img/index/index_05.jpg" alt="">
                                     </div>
@@ -1036,7 +1057,7 @@
 
                         <div class="m_prods_right m_movemove col-5" data-rellax-speed="2">
                             <div class="m_prods_box">
-                                <a href="">
+                                <a href='<?= WEB_ROOT ?>product_mat.php?sid=10'>
                                     <div class="m_prods_picwrap">
                                         <img class="m_index_prodspic04" src="./img/index/index_03.jpg" alt="">
                                     </div>
@@ -1051,7 +1072,7 @@
                             </div>
 
                             <div class="m_prods_box">
-                                <a href="">
+                                <a href='<?= WEB_ROOT ?>product_mat.php?sid=12'>
                                     <div class="m_prods_picwrap">
                                         <img class="m_index_prodspic05" src="./img/index/index_07.jpg" alt="">
                                     </div>
@@ -1066,7 +1087,7 @@
                             </div>
 
                             <div class="m_prods_box">
-                                <a href="">
+                                <a href='<?= WEB_ROOT ?>product_mat.php?sid=11'>
                                     <div class="m_prods_picwrap">
                                         <img class="m_index_prodspic06" src="./img/index/index_08.jpg" alt="">
                                     </div>
@@ -1248,7 +1269,7 @@
                             <img src="./img/index/index_11_01.jpg" alt="" class="m_index_hotitem">
                         </div>
                         <div class="mindex_hot_ppwrap mhot_ppwrap01 ">
-                            <a class='mindex_hot_a' href="">
+                            <a class='mindex_hot_a' href='<?= WEB_ROOT ?>product_mat.php?sid=11'>
                                 <h6 class='m_hot_h6'>36 prolite®</br>4.7mm</h6>
                             </a>
                             <p class='m_hot_p'>NT.2760</p>
@@ -1258,7 +1279,7 @@
                             <img src="./img/index/index_11_02.jpg" alt="" class="m_index_hotitem">
                         </div>
                         <div class="mindex_hot_ppwrap mhot_ppwrap02 ">
-                            <a class='mindex_hot_a' href="">
+                            <a class='mindex_hot_a' href='<?= WEB_ROOT ?>product_mat.php?sid=25'>
                                 <h6 class='m_hot_h6'>重量運動手環</h6>
                             </a>
                             <p class='m_hot_p'>NT.2280</p>
@@ -1268,7 +1289,7 @@
                             <img src="./img/index/index_11_03.jpg" alt="" class="m_index_hotitem">
                         </div>     
                         <div class="mindex_hot_ppwrap mhot_ppwrap03">
-                            <a class='mindex_hot_a' href="">
+                            <a class='mindex_hot_a' href='<?= WEB_ROOT ?>product_mat.php?sid=16 '>
                                 <h6 class='m_hot_h6'>薄軟木瑜珈磚</h6>
                             </a>
                             <p class='m_hot_p'>NT.780</p>
@@ -1295,5 +1316,14 @@
 <script src="./lib/rellax.min.js"></script>
 <script src="./lib/slick.min.js"></script>
 <script src="./lib/homepage.js"></script>
+
+<script>
+    // 跳出視窗↓↓
+    function showProductModal(sid) {
+    $('iframe')[0].src = "modal.php?sid=" + sid;
+    $('#exampleModal').modal('show')
+    }
+    // 跳出視窗↑↑
+</script>
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>
