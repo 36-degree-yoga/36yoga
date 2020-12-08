@@ -17,6 +17,7 @@
 .product_siderbar_wrap.bottomFixed {
   position: absolute;
   bottom: 10px;
+  top: auto;
 }
 
 /* 溫度計 */
