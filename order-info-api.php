@@ -71,7 +71,7 @@ $oc_stmt = $pdo->prepare($oc_sql);
 foreach ($_SESSION['custom'] as $cu) {
     $oc_stmt->execute([
         $order_sid,
-        0,
+        34,
         $cu['mat-count'],
         $cu['sid'],
     ]);

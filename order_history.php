@@ -24,11 +24,11 @@ foreach ($o_rows as $o) {
     $order_sids[] = $o['sid'];
 }
 
-
+echo json_encode($order_sids, JSON_UNESCAPED_UNICODE);
 
 $d_sql = sprintf("SELECT d.*, p.product_name, p.color, p.weight, p.length, p.width, p.img, p.price FROM `order_details` d 
 JOIN `products` p ON p.sid=d.product_sid
-WHERE d.`order_sid` IN (%s)", implode(',', $order_sids));
+WHERE d.`order_sid` IN (%s) AND d.product_sid NOT IN (34)" , implode(',', $order_sids));
 
 $d_rows = $pdo->query($d_sql)->fetchAll();
 
@@ -42,6 +42,22 @@ foreach ($d_rows as $kk => $k) {
 foreach ($d_rows  as $k => $r) {
     $d_rows[$k]['my_imgs'] = explode(",", $r['img']);
 };
+
+//Custom
+
+$design_sql = sprintf("SELECT d.`order_sid`, c.sid, c.`mat-total-price`, c.pick_color, c.`mat-h`, c.`matw`, c.`weight`, c.`mat-count`, c.`mat-total-price`, c.design_img FROM `custom_product` c JOIN `order_details` d 
+ON c.`sid` = d.`custom_id` 
+WHERE d.`order_sid` IN (%s)" , implode(',', $order_sids));
+
+$design_rows = $pdo->query($design_sql)->fetchAll();
+// echo "<br>";
+// echo json_encode($design_sql, JSON_UNESCAPED_UNICODE);exit;
+
+//
+
+
+// echo "<br>";
+// echo json_encode($d_rows, JSON_UNESCAPED_UNICODE);exit;
 
 //order_status給javascript
 $order_status = [];
@@ -677,6 +693,32 @@ $member_row = $stmt->fetch();
                                                 <div class="count_price d-flex justify-content-start col-5">
                                                     <p class="col-6">共<span class="count"><?= $ddd['quantity'] ?></span>件</p>
                                                     <p class="col-6">NT$ <span class="price"><?= $ddd['ttl'] ?></span></p>
+                                                </div>
+                                            </div>
+                                        <?php endif ?>
+                                    <?php endforeach ?>
+
+                                     <!-- Custom商品 -->
+                                     <?php foreach ($design_rows as $ddds) : ?>
+                                        <?php if ($a['sid'] == $ddds['order_sid']) : ?>
+                                            <div class="order_product_wrap d-flex align-items-center">
+                                                <div class="product-left d-flex col-8">
+                                                    <!-- 訂單商品圖 -->
+                                                    <div class="order_img_wrap" style="overflow:hidden;">
+                                                        <img class="p_img" src="img/customize/design/<?= $ddds['design_img'] ?>.png" alt="" style="width: 100%;object-fit: cover; background-color: <?= $ddds['pick_color'] ?>"/>
+                                                    </div>
+                                                    <!-- 商品尺寸 -->
+                                                    <div class="product_detail d-flex flex-column align-self-start">
+                                                        <p class="p_title">客製化商品</p>
+
+                                                        <p class="p_detail">尺寸:<span id="size"><?= $ddds['mat-h'] ?> x <?= $ddds['matw'] ?> cm</span></p>
+                                                        <p class="p_detail">重量:<span id="weight"><?= $ddds['weight'] ?></span>g</p>
+                                                    </div>
+                                                </div>
+                                                <!-- 件數價錢 -->
+                                                <div class="count_price d-flex justify-content-start col-5">
+                                                    <p class="col-6">共<span class="count"><?= $ddds['mat-count'] ?></span>件</p>
+                                                    <p class="col-6">NT$ <span class="price"><?= $ddds['mat-total-price'] ?></span></p>
                                                 </div>
                                             </div>
                                         <?php endif ?>
