@@ -67,7 +67,7 @@ $others_rows = $others_stmt->fetchAll();
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
-<link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/product_sidebar.css">
+
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/product_mat.css">
 
 
@@ -2062,19 +2062,19 @@ $others_rows = $others_stmt->fetchAll();
         let scrollTop = $(this).scrollTop();
         console.log(scrollTop)
         let barFixed = 205;
-        let barUnFixd = 4780;
+        let barUnFixd = 5140;
 
 
         if (scrollTop < barFixed) {
             $('.product_siderbar_wrap').removeClass('bottomFixed');
-            $('.product_siderbar_wrap').removeClass('fixed');
+
 
         } else if (scrollTop < barUnFixd) {
             $('.product_siderbar_wrap').removeClass('bottomFixed');
-            $('.product_siderbar_wrap').addClass('fixed');
+
 
         } else {
-            $('.product_siderbar_wrap').removeClass('fixed');
+
             $('.product_siderbar_wrap').addClass('bottomFixed');
 
         }
