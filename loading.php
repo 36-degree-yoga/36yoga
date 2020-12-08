@@ -75,7 +75,7 @@
         </div>
     </div>
 
-    <img class='logo_green' src="./SVG/icon_green.svg" alt="">
+    <img class='logo_green' src="./SVG/about_logo.svg" alt="">
     
 </div>
 
@@ -90,7 +90,7 @@
 // loading girls
 
   setTimeout(fadeImages,1);
-    setInterval(fadeImages, 1500);
+    setInterval(fadeImages, 1000);
     
     function fadeImages(){
       setTimeout(fadeIn, 500);
@@ -139,14 +139,14 @@
     };
 
 // loading counter number and girls fadeout
-    $('.number').jQuerySimpleCounter({end: 36,duration: 6000});
+    $('.number').jQuerySimpleCounter({end: 36,duration: 4000});
 
     setTimeout(function(){
-      $('.loading-graphic').fadeOut(8000);
+      $('.loading-graphic').fadeOut(6000);
     });
 
     setTimeout(function(){
-      $('.number').fadeOut(8000);
+      $('.number').fadeOut(6000);
     });
 
     
@@ -155,17 +155,17 @@
 
         setTimeout(function(){
         
-          $('.logo_green').delay(6500).fadeIn(3000);
+          $('.logo_green').delay(4500).fadeIn(1000);
           setTimeout(() => {
             $('.loading-graphic').html('');
             $('#number36').html('');
-          }, 6000);
+          }, 4000);
           
         });
 
         setTimeout(() => {
           location.href='homepage.php';
-        }, 8000);
+        }, 6000);
     })
 
 
