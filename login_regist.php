@@ -76,7 +76,7 @@ $gotoURL = 'product_list.php';
                         </div>
                         <!-- 驗證碼 -->
                         <div class="form-group d-flex justify-content-between space-b20">
-                            <input type="text" name="checkword" id="regiscod2" class="open-sesame" size="10" maxlength="10" placeholder="驗證碼" />
+                            <input type="text" name="checkword" id="regiscod2" class="open-sesame" size="10" maxlength="10" placeholder="&nbsp;驗證碼" />
                             <div class="randompic"></div>
                         </div>
 
@@ -118,7 +118,7 @@ $gotoURL = 'product_list.php';
                     <div class="edit_info d-flex align-items-center justify-content-center">
 
 
-                        <h6 id="login-alert-f" href="#" style="color: red;"></h6>
+                        <h6 id="login-alert-f" href="#" style="color: #db5c00;"></h6>
                         <h5 id="login-alert-s" href="#" style="color: #135F39;"></h5>
 
 

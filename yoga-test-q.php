@@ -143,7 +143,7 @@ $qqq = intval(count($_SESSION['yoga_test']) + 1);
                             <button class="btn_f choice mx-5" id="btnv">下一步</button>
 
                             <?php if (isset($resultErr)) : ?>
-                                <span class="mx-5 text-center" style="color:red; width: 8.125rem;"><?= $resultErr ?></span>
+                                <span class="mx-5 text-center result-err" style="color:#db5c00;"><?= $resultErr ?></span>
                             <?php endif; ?>
 
                         </div>
@@ -257,7 +257,7 @@ $qqq = intval(count($_SESSION['yoga_test']) + 1);
         $(window).trigger('resize');
     });
     $('.choice').on('click', function() {
-        $(this).css('color', 'white').css('background', 'darkgreen').parent().siblings().find('.choice').css('background', 'white').css('color', 'green');
+        $(this).css('color', 'white').css('background', 'darkgreen').parent().siblings().find('.choice').css('background', 'transparent').css('color', '#004A13');
 
     });
 

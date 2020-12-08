@@ -141,6 +141,12 @@ transition:0.5s!important;
     height: 22%;
     padding-bottom: 7.5rem;
 }
+
+.result-err{
+    width: 8.125rem;
+}
+
+
 /* -------進度條 */
 .pro-bar{
     width: 16%;
@@ -361,7 +367,10 @@ form{
     margin: 0 10px!important;
 }
 
-
+.result-err{
+    width: 130px;
+    margin: 0 10px!important;
+}
 
 }
 

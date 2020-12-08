@@ -11,9 +11,9 @@ isset($_SESSION['yoga_test_referer']) ? $_SESSION['yoga_test_referer'] : '[]';
 
 // echo json_encode(parse_url($_SERVER['HTTP_REFERER']), JSON_UNESCAPED_UNICODE);
 
-if ($_SERVER["HTTP_REFERER"] === WEB_ROOT . "yoga-test-result.php") {
-    echo "yoyoyo";
-}
+// if ($_SERVER["HTTP_REFERER"] === WEB_ROOT . "yoga-test-result.php") {
+//     // echo "yoyoyo";
+// }
 
 $test_ref = "";
 if (isset($_SERVER["HTTP_REFERER"])) {
@@ -30,18 +30,18 @@ if (isset($_SERVER["HTTP_REFERER"])) {
     } else {
         $_SESSION['yoga_test_referer'] = $_SERVER["HTTP_REFERER"];
         $test_ref = $_SESSION['yoga_test_referer'];
-        echo "測驗以外來ㄉ 要把它存入session裡面";
+        // echo "測驗以外來ㄉ 要把它存入session裡面";
     }
 } else {
     $test_ref = WEB_ROOT . "product_list.php";
-    echo "沒有referer 看session裡面有沒有東西";
+    // echo "沒有referer 看session裡面有沒有東西";
     if (!empty($_SESSION['yoga_test_referer'])) {
         $test_ref = $_SESSION['yoga_test_referer'];
-        echo "從測驗來ㄉ 要導入到session裡面存的：";
+        // echo "從測驗來ㄉ 要導入到session裡面存的：";
     } else {
         $test_ref = WEB_ROOT . "product_list.php";
-        echo "從測驗來ㄉ 要導入到session裡面存的：";
-        echo "session裡面沒東西要導入到某個頁面";
+        // echo "從測驗來ㄉ 要導入到session裡面存的：";
+        // echo "session裡面沒東西要導入到某個頁面";
     }
 };
 

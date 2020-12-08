@@ -31,23 +31,24 @@ width: 100%;
 .nav-desktop.hide{
 transform: translateY(-7.5rem);
 }
-
+.nav-mobile-side a,
 nav a{
   text-decoration:none;
   color: #004A13;
   font-size: 1.25rem;
 }
-
+.nav-mobile-side p,
 nav p{
   color: #004A13;
 
 }
-
+.nav-mobile-side p:hover,
 nav p:hover{
   color: #DB5C00;
 transition: .5s;
 }
 
+nav a:hover,
 nav a:hover{
 text-decoration:none;
 color: #DB5C00;

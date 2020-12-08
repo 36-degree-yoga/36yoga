@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
+
 </head>
 <?php
 // session_start();
@@ -14,6 +16,7 @@ foreach ($_SESSION as $k => $v) {
 // exit;
 ?>
 
+
 <body>
     <!----- Side Nav for mobile ------------------>
     <div class="nav-mobile-side d-flex flex-column align-items-end position-fixed">
@@ -28,14 +31,14 @@ foreach ($_SESSION as $k => $v) {
         </div>
         <div class="side-content">
             <div class="side-content-item">
-                <a>
-                    <h5 href="<?= WEB_ROOT ?>product_list.php">瑜珈墊</h5>
+                <a href="<?= WEB_ROOT ?>product_list.php">
+                    <h5>瑜珈墊</h5>
                 </a>
-                <a>
-                    <h6 href="<?= WEB_ROOT ?>product_list.php#ctm">一般</h6>
+                <a href="<?= WEB_ROOT ?>product_list.php#ctm">
+                    <h6>一般</h6>
                 </a>
-                <a>
-                    <h6 href="<?= WEB_ROOT ?>product_list.php#block">客製化</h6>
+                <a href="<?= WEB_ROOT ?>product_list.php#block">
+                    <h6>客製化</h6>
                 </a>
             </div>
             <div class="side-content-item">
@@ -289,7 +292,7 @@ foreach ($_SESSION as $k => $v) {
                         <!-- 小購物車 -->
                         <a class="d-flex " href="product_mat.php?sid=${a.sid} ?>">
 
-                            
+
                         </a>
                     </div>
 
@@ -395,12 +398,12 @@ foreach ($_SESSION as $k => $v) {
 
     <!----- Bottom Nav for mobile ------------------>
     <div class="nav-mobile nav-bottom container-fluid d-flex align-items-center justify-content-between">
-        <a class="nav-icon col-3 d-flex justify-content-center" href="#">
+        <a class="nav-icon col-3 d-flex justify-content-center" href="<?= WEB_ROOT ?>member_my_account.php">
             <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
                 <path class="nav-icon-stroke" id="icon_-_member" data-name="icon - member" d="M0,27V23.625c0-3.713,6.075-6.751,13.5-6.751S27,19.912,27,23.625V27ZM6.749,6.751A6.75,6.75,0,1,1,13.5,13.5,6.751,6.751,0,0,1,6.749,6.751Z" transform="translate(1 1)" fill="none" stroke="#004a13" stroke-width="2" />
             </svg>
         </a>
-        <a class="nav-icon col-3 d-flex justify-content-center" href="#">
+        <a class="nav-icon col-3 d-flex justify-content-center" href="<?= WEB_ROOT ?>member_my_favorite.php">
             <svg class="" xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28">
                 <g class="" id="Path_321" data-name="Path 321" transform="translate(0 -1.206)" fill="none">
                     <path class="nav-icon" d="M15,29.206C6.935,23.364,2.7,18.049.97,13.6-3.678,1.68,9.6-2.37,15,4.667,20.4-2.37,33.678,1.68,29.03,13.6,27.3,18.049,23.065,23.364,15,29.206Z" stroke="none" />
@@ -409,7 +412,7 @@ foreach ($_SESSION as $k => $v) {
             </svg>
         </a>
 
-        <a class="nav-icon col-3 d-flex justify-content-center" href="#" href="" class="nav-text mr-5" class="dropdown-toggle" data-toggle="dropdown">
+        <a class="nav-icon col-3 d-flex justify-content-center" href="<?= WEB_ROOT ?>cart-step1.php" class="nav-text mr-5" class="dropdown-toggle" data-toggle="dropdown">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                 <path class="nav-icon-line" id="Path_310" data-name="Path 310" d="M7.469,18.7H28.18a.879.879,0,0,0,.877-.816L30,4.708a.879.879,0,0,0-.877-.941H18.7V1.821a.879.879,0,1,0-1.758,0V3.767H7.179L6.932.807A.879.879,0,0,0,6.057,0H.879a.879.879,0,0,0,0,1.758H5.248l.257,3.088L6.524,17.069a3.7,3.7,0,0,0,.945,7.284h.146a3.7,3.7,0,1,0,6.3,0h8.293a3.7,3.7,0,1,0,6.266-.051.878.878,0,0,0-.292-1.707H7.469a1.945,1.945,0,0,1,0-3.891Zm9.477-13.18V11L15.621,9.673a.879.879,0,1,0-1.243,1.243L17.2,13.74a.879.879,0,0,0,1.243,0l2.824-2.824a.879.879,0,0,0-1.243-1.243L18.7,11V5.524h9.474l-.816,11.422H8.278L7.326,5.524Zm8.41,18.828A1.945,1.945,0,1,1,23.41,26.3,1.948,1.948,0,0,1,25.355,24.353Zm-14.592,0A1.945,1.945,0,1,1,8.819,26.3,1.947,1.947,0,0,1,10.764,24.353Z" transform="translate(0 -0.001)" fill="#004a13" />
             </svg>

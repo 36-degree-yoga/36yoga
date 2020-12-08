@@ -416,7 +416,7 @@ $member_row = $stmt->fetch();
                                 </ul>
                                 <ul class="d-flex order_title_content">
                                     <li class="col" id="order_id">YA-<?= $a['sid'] ?></li>
-                                    <li class="col" id="order_at"><?= $a['order_date'] ?></li>
+                                    <li class="col" id="order_at"><?= substr($a['order_date'], 0, 10) ?></li>
                                     <li class="col" id="order_pay"><?= $a['payment_status'] ?></li>
                                     <li class="col" id="order_transport"><?= $a['logistic_status'] ?></li>
                                     <li class="col" id="order_moneny">NT$ <?= $a['amount'] ?></li>
@@ -455,7 +455,7 @@ $member_row = $stmt->fetch();
                                                     <div class="product_detail d-flex flex-column align-self-start">
                                                         <p class="p_title"><?= $ddd['product_name'] ?></p>
 
-                                                        <p class="p_detail">尺寸:<span id="size"><?= $dd['length'] ?> x <?= $dd['width'] ?> cm</span></p>
+                                                        <p class="p_detail">尺寸:<span id="size"><?= $ddd['length'] ?> x <?= $ddd['width'] ?> cm</span></p>
                                                         <p class="p_detail">重量:<span id="weight"><?= $ddd['weight'] ?></span>g</p>
                                                     </div>
                                                 </div>
@@ -523,7 +523,7 @@ $member_row = $stmt->fetch();
                                 </ul>
                                 <ul class="d-flex order_title_content">
                                     <li class="col" id="order_id">YA-<?= $a['sid'] ?></li>
-                                    <li class="col" id="order_at"><?= $a['order_date'] ?></li>
+                                    <li class="col" id="order_at"><?= substr($a['order_date'], 0, 10) ?></li>
                                     <li class="col" id="order_pay"><?= $a['payment_status'] ?></li>
                                     <li class="col" id="order_transport"><?= $a['logistic_status'] ?></li>
                                     <li class="col" id="order_moneny">NT$ <?= $a['amount'] ?></li>
@@ -562,7 +562,7 @@ $member_row = $stmt->fetch();
                                                     <div class="product_detail d-flex flex-column align-self-start">
                                                         <p class="p_title"><?= $ddd['product_name'] ?></p>
 
-                                                        <p class="p_detail">尺寸:<span id="size"><?= $dd['length'] ?> x <?= $dd['width'] ?> cm</span></p>
+                                                        <p class="p_detail">尺寸:<span id="size"><?= $ddd['length'] ?> x <?= $ddd['width'] ?> cm</span></p>
                                                         <p class="p_detail">重量:<span id="weight"><?= $ddd['weight'] ?></span>g</p>
                                                     </div>
                                                 </div>
@@ -630,7 +630,7 @@ $member_row = $stmt->fetch();
                                 </ul>
                                 <ul class="d-flex order_title_content">
                                     <li class="col" id="order_id">YA-<?= $a['sid'] ?></li>
-                                    <li class="col" id="order_at"><?= $a['order_date'] ?></li>
+                                    <li class="col" id="order_at"><?= substr($a['order_date'], 0, 10) ?></li>
                                     <li class="col" id="order_pay"><?= $a['payment_status'] ?></li>
                                     <li class="col" id="order_transport"><?= $a['logistic_status'] ?></li>
                                     <li class="col" id="order_moneny">NT$ <?= $a['amount'] ?></li>
@@ -669,7 +669,7 @@ $member_row = $stmt->fetch();
                                                     <div class="product_detail d-flex flex-column align-self-start">
                                                         <p class="p_title"><?= $ddd['product_name'] ?></p>
 
-                                                        <p class="p_detail">尺寸:<span id="size"><?= $dd['length'] ?> x <?= $dd['width'] ?> cm</span></p>
+                                                        <p class="p_detail">尺寸:<span id="size"><?= $ddd['length'] ?> x <?= $ddd['width'] ?> cm</span></p>
                                                         <p class="p_detail">重量:<span id="weight"><?= $ddd['weight'] ?></span>g</p>
                                                     </div>
                                                 </div>

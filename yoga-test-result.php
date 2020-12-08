@@ -109,9 +109,9 @@ $qp2_row['my_imgs'] = explode(",", $qp2_row['img']);
 
 //when close redirect
 
-if ($_SERVER['HTTP_REFERER']) {
+if (isset($_SERVER['HTTP_REFERER'])) {
 
-    if ($_SESSION['yoga_test_referer']) {
+    if (isset($_SESSION['yoga_test_referer'])) {
         $test_ref = $_SESSION['yoga_test_referer'];
     } else {
         $_SESSION['yoga_test_referer'] = $_SERVER['HTTP_REFERER'];
@@ -207,7 +207,7 @@ if ($_SERVER['HTTP_REFERER']) {
                 <!-- 推薦輔具 -->
                 <div class="result-content-wrapper content-product d-flex flex-wrap justify-content-center align-content-between" style="width: 60%;">
                     <div class="w-100 mobile-text" style="margin-top: 65px;font-size:16px;line-height:22px; margin-right: 10%; margin-left:10%">
-                        &nbsp; &nbsp; &nbsp; &nbsp;你的Soulmat為<span style="color: #db5c00">長度<?php echo $ans[0] ?>cm</span>，<span style="color: #db5c00">厚度<?= round($qmat_row['thickness'], 2) ?>mm</span>的<span style="color: #db5c00">瑜珈墊<?= $qmat_row['product_name'] ?></span>，並搭配輔具：<span style="color: #db5c00"> <?= $qp1_row['product_name'] ?></span>和<span style="color: #db5c00"><?= $qp2_row['product_name'] ?></span>，讓你在<?php echo $ans[2] ?>的時候，身體能夠<?php echo $ans[1] ?>。
+                        你的Soulmat為<span style="color: #db5c00">長度<?php echo $ans[0] ?>cm</span>，<span style="color: #db5c00">厚度<?= round($qmat_row['thickness'], 2) ?>mm</span>的<span style="color: #db5c00">瑜珈墊<?= $qmat_row['product_name'] ?></span>，並搭配輔具：<span style="color: #db5c00"> <?= $qp1_row['product_name'] ?></span>和<span style="color: #db5c00"><?= $qp2_row['product_name'] ?></span>，讓你在<?php echo $ans[2] ?>的時候，身體能夠<?php echo $ans[1] ?>。
 
                     </div>
                     <div class="d-flex w-100 result-content-wrapper">
@@ -232,7 +232,7 @@ if ($_SERVER['HTTP_REFERER']) {
                                         <div class="product-info text-center position-absolute d-flex align-items-center" style="height: 90px;">
                                             <a class="w-100" href="<?= WEB_ROOT ?>product_mat.php?sid=<?= $qp1_row['sid'] ?>">
                                                 <h6 class="" style="font-size: 1rem; margin-top:1rem"><?= $qp1_row['product_name'] ?></h6>
-                                                <p class="" style="margin-bottom:0;">NT$ <?= $qp1_row['price'] ?></p>
+                                                <p class="" style="margin-bottom:1rem;">NT$ <?= $qp1_row['price'] ?></p>
                                             </a>
 
                                         </div>
@@ -265,7 +265,7 @@ if ($_SERVER['HTTP_REFERER']) {
                                         <div class="product-info text-center position-absolute d-flex align-items-center" style="height: 90px;">
                                             <a class="w-100" href="<?= WEB_ROOT ?>product_mat.php?sid=<?= $qp2_row['sid'] ?>">
                                                 <h6 style="font-size: 1rem; margin-top:1rem"><?= $qp2_row['product_name'] ?></h6>
-                                                <p class="margin-bottom:0;">NT$ <?= $qp2_row['price'] ?></p>
+                                                <p class="margin-bottom:1rem;">NT$ <?= $qp2_row['price'] ?></p>
                                             </a>
 
                                         </div>
@@ -289,9 +289,9 @@ if ($_SERVER['HTTP_REFERER']) {
 
             </div>
             <!-- 看更多商品 -->
-            <a href="<?= WEB_ROOT ?>product_list.php">
-                <div class="w-100 d-flex justify-content-center mobile-more-btn"><button type="button" class="btn_f mx-5" name="" value="">看更多商品</button></div>
-            </a>
+
+            <div class="w-100 d-flex justify-content-center mobile-more-btn"> <a href="<?= WEB_ROOT ?>product_list.php"><button type="button" class="btn_f mx-5" name="" value="">看更多商品</button></a></div>
+
         </div>
 
     </div>
