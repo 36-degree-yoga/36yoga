@@ -15,14 +15,34 @@
     <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/quick_view.css">
     <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/nav.css">
     <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/footer.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 <!-- css連結 -->
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 
+<div id="loading_screen" class="loading-screen text-center d-flex justify-content-center">
+      <div>
+        <div id="number36" class="number">36</div>
+      </div>
+     
+    <div class="loader">
+        <div class="loading-graphic d-flex flex-row">
+            <img src="./SVG/SVG/yoga_pose01.svg" alt="logo"/>
+            <img src="./SVG/SVG/yoga_pose02.svg" alt="logo"/>
+            <img src="./SVG/SVG/yoga_pose03.svg" alt="logo"/>
+        </div>
+    </div>
+
+    <img class='logo_green' src="./SVG/icon_green.svg" alt="">
+    
+</div>
+
 <!-- 貼上html -->
 <!-- index computer -->
 
-<div class="index_computer">
+<div id='index_computer' class="index_computer">
         <!-- Hero -->
         <header id='index_home' class="index_header"> 
             
@@ -214,7 +234,7 @@
                                 <div class="prods_box ">
                                     <a href='<?= WEB_ROOT ?>product_mat.php?sid=6'>
                                         <div class="prods_picwrap ppwrap_02">
-                                            <img class="index_prodspic_h2" src="./img/index/index_04_h_black.jpg" alt="">
+                                            <img class="index_prodspic_h2" src="./img/index/index_04_h_purple.jpg" alt="">
                                             <img class="index_prodspic02" src="./img/index/index_06.jpg" alt="">
                                         </div>
                                     </a> 
