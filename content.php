@@ -207,7 +207,7 @@ foreach ($rec2_row  as $k2 => $r2) {
                 <a class="icon-right"><img src="<?= WEB_ROOT ?>SVG/icon_right.svg" alt=""></a>
             </div>
         </div>
-        <div class="col-lg-8 coi-sm-12 px-0">
+        <div class="col-lg-8 col-sm-12 px-0">
 
             <h2 class="text-center rec-ani-2" style="animation-delay: .8s;">商品推薦</h2>
 

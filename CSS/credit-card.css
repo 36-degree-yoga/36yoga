@@ -354,6 +354,9 @@ input:focus {
   display: none;
 }
 @media (max-width: 576px) {
+  .nav-place-zone {
+    height: 60px;
+  }
   .order_step_title {
     text-align: center;
     margin-left: 0px;

@@ -297,6 +297,9 @@ a:hover {
   color: #fffefc;
 }
 @media (max-width: 576px) {
+  .nav-place-zone {
+    height: 60px;
+  }
   .order_step_title {
     text-align: center;
     margin-left: 0px;
@@ -359,6 +362,7 @@ a:hover {
   .btn-leave {
     width: 130px;
     line-height: 40px;
-    margin: 0px 10px;
+    margin: 0 10px;
+    margin-bottom: 60px;
   }
 }

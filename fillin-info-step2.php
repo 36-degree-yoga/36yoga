@@ -347,11 +347,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                                 <th scope="row">應付金額</th>
                                 <td><span id="amount"></span></td>
                             </tr>
-                            <tr>
-                                <td colspan="2" class="py-2">
-                                    <a href="#" class="close-features"><i class="fas fa-plus-circle"></i> 收起訂單明細</a>
-                                </td>
-                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>

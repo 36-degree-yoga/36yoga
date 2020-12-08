@@ -1,12 +1,23 @@
 <?php include __DIR__ . '/parts/config.php';
+//熱門商品
+$rec1_sql = "SELECT * FROM `products` WHERE `sid` IN (1 , 2 ,14)";
+$rec1_Stmt = $pdo->query($rec1_sql);
+$rec1_row = $rec1_Stmt->fetchAll();
+foreach ($rec1_row  as $k => $r) {
+    $rec1_row[$k]['my_imgs'] = explode(",", $r['img']);
+};
 
-// $p_stmt = $pdo->query("SELECT * FROM `products` ORDER BY `sid` ASC");
-// // $rows=$stmt->fetchAll();
-// $c = $p_stmt->fetch();
+$rec2_sql = "SELECT * FROM `products` WHERE `sid` IN (9 , 18 , 22)";
+$rec2_Stmt = $pdo->query($rec2_sql);
+$rec2_row = $rec2_Stmt->fetchAll();
+foreach ($rec2_row  as $k2 => $r2) {
+    $rec2_row[$k2]['my_imgs'] = explode(",", $r2['img']);
+};
+
 ?>
 
 <?php if (!isset($_SESSION['custom'])) {
-    $_SESSION['custom']=[];
+    $_SESSION['custom'] = [];
 };
 
 ?>
@@ -166,7 +177,7 @@
                             <td class="delete-icon">
                                 <a data-toggle="modal" data-target="#del_Cprod_warn"><img src="./SVG/icon_trash.svg" alt=""></a>
                             </td>
-                            
+
                         </tr>
 
                         <!-- delete warning modal-->
@@ -253,13 +264,13 @@
 
             </div>
         <?php endforeach; ?>
-<!-- 手機客製 -->
+        <!-- 手機客製 -->
         <?php foreach ($_SESSION['custom'] as $b) : ?>
             <div class="this-one-pc-none w-100 m-product-edit" data-sid="<?= $b['sid'] ?>" id="product_<?= $b['sid'] ?>">
                 <div class="d-flex col-12">
                     <div class=" col-10 d-flex justify-content-start p-0">
                         <div class="product-img mr-3" style="width:115px;height:100px;overflow:hidden;background-color: <?= $b['pick_color'] ?>;">
-                        <img src="./img/customize/design/<?= $b['design_img'] ?>.png" alt="">
+                            <img src="./img/customize/design/<?= $b['design_img'] ?>.png" alt="">
                         </div>
                         <div class="product-info  d-flex flex-column">
                             <p>客製瑜珈墊</p>
@@ -322,7 +333,45 @@
 </div>
 
 <!--  hot products -->
-<div class="container hot-products-zone">這裡是熱門商品的位置呦</div>
+<div class="container hot-products-zone content-product position-relative">
+
+    <div class="row justify-content-center">
+
+        <div class="col-12 px-0 mobile-hidden">
+
+            <h3 class="text-center rec-ani-2" style="color:#004a13;">商品推薦</h3>
+
+            <div class="guessyoullike d-flex justify-content-center position-relative">
+
+                <?php foreach ($rec2_row as $b2) : ?>
+                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=<?= $b2['sid'] ?>">
+                        <div class="product-zone px-0 rec-ani-1">
+                            <div class="product-wrap">
+                                <div class="img-wrap">
+                                    <img src="./img/product_list/<?= $b2['my_imgs'][1] ?>.jpg" alt="" style="height: 100%;width: 100%; object-fit: cover;">
+                                </div>
+
+                                <div class="hot-product-info text-center">
+                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=<?= $b2['sid'] ?>">
+                                        <h6 class="mb-0"><?= $b2['product_name'] ?></h6>
+                                    </a>
+                                    <p>NT.<?= $b2['price'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</div>
 <!-- foooterrrrrrrr -->
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>

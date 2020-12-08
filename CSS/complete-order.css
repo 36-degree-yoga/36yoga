@@ -135,6 +135,9 @@ body {
   color: #fffefc;
 }
 @media (max-width: 576px) {
+  .nav-place-zone {
+    height: 60px;
+  }
   /* 溫度計 */
   .order_step_title {
     text-align: center;
@@ -167,7 +170,6 @@ body {
   .btn-leave {
     width: 130px;
     line-height: 40px;
-
     margin: 60px 10px;
   }
 }
