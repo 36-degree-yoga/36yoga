@@ -1,0 +1,498 @@
+.yellow_back {
+  margin-left: -6 0px;
+  background: url(../img/about/texture-sunset-01.jpg) no-repeat;
+  background-size: cover;
+}
+
+.scroll_down {
+  transform: rotate(90deg);
+  /* margin-left: 100px; */
+  z-index: 6;
+  top: 890px;
+  right: 480px;
+}
+.scroll_down p {
+  font-size: 20px;
+  width: 130px;
+}
+
+.scroll_down div {
+  background-color: #333;
+  width: 160px;
+  height: 2px;
+}
+
+.about_wrap {
+  height: 1100px;
+}
+
+.about_banner {
+  overflow: hidden;
+}
+
+.banner_img_wrap {
+  height: 620px;
+  width: 1600px;
+  z-index: 5;
+  margin-top: 100px;
+
+  /* background:url(img/about/hatha-yoga-classes2.jpg) left -350px no-repeat; 
+   background-size:cover;   */
+}
+
+.banner_img_wrap img {
+  width: 1600px;
+  height: 620px;
+}
+
+.yellow_back h2 {
+  margin-top: 550px;
+  color: #fffefc;
+}
+
+.slogan p {
+  font-size: 24px;
+}
+
+.slogan p:nth-child(1) {
+  margin-right: 100px;
+  margin-bottom: 22px;
+}
+.slogan p:nth-child(2) {
+  margin-left: 150px;
+}
+.slogan {
+  margin-top: 650px;
+}
+
+.orange_line {
+  width: 60%;
+  height: 8px;
+  background-color: #db5c00;
+  margin-top: 30px;
+  margin-bottom: 66px;
+}
+
+/* 第二區 */
+
+.about_section2 {
+  margin-top: 30px;
+  background: url(../img/about/about_bg_01.png) no-repeat top right;
+  background-size: cover;
+}
+
+.about_logo_wrap {
+  margin-top: 150px;
+  overflow: hidden;
+}
+
+.logo_img img {
+  width: 250px;
+}
+
+.logo_title {
+  margin-top: 120px;
+  margin-left: 50px;
+  height: 70px;
+}
+
+.logo_title p {
+  margin-top: 10px;
+  font-size: 70px;
+}
+.logo_title p span {
+  font-size: 40px;
+}
+
+.typing {
+  width: 0px;
+  white-space: nowrap;
+  animation: typing 5s steps(200, end);
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  overflow: hidden;
+}
+/* 列印效果 */
+@keyframes typing {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 700px;
+  }
+}
+
+.title_line {
+  left: -1px;
+  z-index: 6;
+}
+
+.O {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #f2a200;
+}
+
+.line {
+  height: 5px;
+  width: 1500px;
+  background-color: #f2a200;
+}
+
+.spirit {
+  margin-top: 150px;
+  background: url(../img/about/texture-forest-01.jpg) no-repeat;
+  background-size: cover;
+}
+.spirit img {
+  width: 50%;
+}
+
+.letter {
+  padding: 60px 100px;
+}
+.letter p {
+  font-size: 20px;
+  color: #fffefc;
+}
+.letter h3 {
+  color: #fffefc;
+}
+
+/* 第三區 */
+
+.about_srction3 {
+  padding: 120px 0;
+}
+
+.page {
+  margin: 0 auto;
+  padding: 60px 80px 80px 80px;
+  background: url(../img/about/texture-cream-02-01.jpg) no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #c7c7c7;
+}
+
+.point {
+  text-align: center;
+  margin: 0 60px 60px 60px;
+}
+.point h2 {
+  color: #004a13;
+  text-emphasis: nowrap;
+}
+
+.point_letter p {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.point_img {
+  height: 380px;
+  margin-top: 80px;
+}
+.point_img img {
+  height: 100%;
+}
+
+.point_line_l {
+  width: 30%;
+  height: 5px;
+  background-color: #f2a200;
+}
+.point_line_r {
+  width: 30%;
+  height: 5px;
+  background-color: #f2a200;
+  /* transform: translateX(880px); */
+}
+
+/* 第四區 */
+
+.content_4 {
+  background: url(../img/about/about_bg_02.jpg) right center no-repeat;
+  background-size: cover;
+
+  background-attachment: fixed;
+  height: 800px;
+  /* background-color: rgba(0, 0, 0, .2);
+    background-blend-mode: multiply; */
+}
+
+.content_4 h2 {
+  margin-top: 120px;
+  text-align: center;
+  color: #333333;
+}
+.content_4 div {
+  color: #fffefc;
+  margin-left: 120px;
+  margin-top: 120px;
+  padding: 60px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.m_about {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  /* /* .hide{
+        display: none;
+    } */
+
+  .about {
+    display: none;
+  }
+
+  .m_about {
+    display: block;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .banner_img_wrap {
+    height: 400px;
+    z-index: 5;
+    margin-top: 120px;
+
+    /* background:url(img/about/hatha-yoga-classes2.jpg) left -350px no-repeat; 
+       background-size:cover;   */
+  }
+
+  .banner_img_wrap img {
+    height: 100%;
+    width: 900px;
+  }
+
+  .about_wrap {
+    height: 850px;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .m_scroll {
+    margin-top: 550px;
+  }
+
+  .scroll_down {
+    transform: translateY();
+
+    margin-left: -40px;
+    z-index: 6;
+  }
+  .scroll_down p {
+    display: inline-block;
+    font-size: 14px;
+    width: 130px;
+  }
+
+  .scroll_down div {
+    display: inline-block;
+    background-color: #333;
+    height: 2px;
+  }
+
+  .yellow_back h2 {
+    font-size: 2rem;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    color: #fffefc;
+  }
+
+  .slogan p {
+    font-size: 1rem;
+    color: #fffefc;
+  }
+
+  .slogan p:nth-child(1) {
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+  .slogan p:nth-child(2) {
+    margin-left: 0px;
+  }
+  .slogan {
+    margin-top: 0px;
+  }
+
+  .orange_line {
+    width: 100%;
+    height: 8px;
+    background-color: #db5c00;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .scroll_down {
+    transform: rotate(90deg);
+    /* margin-left: 100px; */
+    z-index: 6;
+  }
+  .scroll_down p {
+    font-size: 20px;
+    width: 130px;
+  }
+
+  .scroll_down div {
+    background-color: #333;
+    width: 160px;
+    height: 2px;
+  }
+
+  .m_title_wrap {
+    margin-bottom: 150px;
+  }
+
+  /* 2 */
+
+  .about_section2 {
+    margin-top: 0px;
+    background: none no-repeat top right;
+    background-size: cover;
+  }
+
+  .about_logo_wrap {
+    margin-top: 20px;
+    overflow: hidden;
+  }
+
+  .logo_title {
+    text-align: center;
+  }
+
+  .logo_title p {
+    margin-top: 10px;
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+  .logo_title p span {
+    font-size: 1.25rem;
+  }
+  .title_line {
+    left: 20px;
+    z-index: 6;
+  }
+
+  .O {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #f2a200;
+  }
+
+  .line {
+    margin-left: -2px;
+    height: 5px;
+    width: 1500px;
+    background-color: #f2a200;
+  }
+
+  .letter {
+    padding: 30px;
+  }
+  .letter p {
+    font-size: 14px;
+    color: #fffefc;
+  }
+  .letter h3 {
+    font-size: 1.75rem;
+    color: #fffefc;
+  }
+
+  .spirit {
+    margin-top: 40px;
+  }
+
+  /* 3 */
+
+  .about_srction3 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .page {
+    margin: 0 auto;
+    padding: 30px;
+  }
+
+  .point_letter {
+    margin: 15px 0;
+  }
+
+  .point {
+    text-align: center;
+    margin: 0;
+  }
+  .point h2 {
+    font-size: 1.75rem;
+    color: #004a13;
+  }
+
+  .point_letter p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .point_img {
+    height: 380px;
+    margin-top: 30px;
+  }
+  .point_img img {
+    height: 100%;
+  }
+
+  .point_line_l {
+    width: 30%;
+    height: 5px;
+    background-color: #f2a200;
+  }
+  .point_line_r {
+    width: 30%;
+    height: 5px;
+    background-color: #f2a200;
+    /* transform: translateX(880px); */
+  }
+
+  .identify_box {
+    width: 50px;
+  }
+  .identify_wrap p {
+    font-size: 12px;
+  }
+
+  .point_img {
+    height: 200px;
+    margin-top: 30px;
+  }
+
+  /* 4 */
+
+  .content_4 {
+    background: url(../img/about/about_bg_02.jpg) center no-repeat;
+    background-size: cover;
+
+    background-attachment: fixed;
+    height: 580px;
+    /* background-color: rgba(0, 0, 0, .2);
+    background-blend-mode: multiply; */
+  }
+
+  .content_4 h2 {
+    font-size: 2rem;
+    margin-left: 30px;
+    margin-top: 120px;
+    text-align: left;
+    color: #333333;
+  }
+  .content_4 div {
+    font-size: 14px;
+    color: #fffefc;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
