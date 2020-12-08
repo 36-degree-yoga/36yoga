@@ -551,17 +551,17 @@ $others_rows = $others_stmt->fetchAll();
                             <div class="product-wrap">
 
                                 <div class="img-wrap overflow-hidden">
-                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=19">
+                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=26">
                                         <!-- product 的 border 之後取消 -->
-                                        <img class="product-pic w-100 h-100" src="./img/product_list/r01_1.jpg" alt="顆粒按摩滾筒">
+                                        <img class="product-pic w-100 h-100" src="./img/product_list/a01_1.jpg" alt="棉質舖巾">
                                     </a>
                                 </div>
 
                                 <div class="product-info text-center">
-                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=19">
-                                        <h6 class="p-name mb-0">Relex 顆粒按摩滾筒</h6>
+                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=26">
+                                        <h6 class="p-name mb-0">Thunder伸展帶</h6>
                                     </a>
-                                    <p>NT$. 1288</p>
+                                    <p>NT$. 550</p>
                                 </div>
                             </div>
                         </div>
