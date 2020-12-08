@@ -1,4 +1,9 @@
-<?php include __DIR__ . '/parts/config.php'; ?>
+<?php include __DIR__ . '/parts/config.php';
+unset($_SESSION['cart']);
+unset($_SESSION['custom']);
+unset($_SESSION['custom_cart']);
+?>
+
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 <link rel="stylesheet" href="./CSS/complete-order.css" />

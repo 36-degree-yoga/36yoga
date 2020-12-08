@@ -1,6 +1,9 @@
 <?php
 include __DIR__ . '/parts/config.php';
 
+// $output = $_SESSION['custom']['sid'];
+// exit;
+
 //---------------------------------------------
 // $oh_sql = "INSERT INTO `orders`( `member_sid`, `amount`, `logistic`, `trans_fee`, `payment`, `deduction`, `buyer`, `address`, `mobile`, `email`, `points`, `payment_status`, `order_date`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
 //---------------------------------------------
@@ -59,16 +62,26 @@ foreach ($_SESSION['cart'] as $c) {
         $order_sid,
         $c['sid'],
         $c['quantity'],
+        // $_SESSION['custom']['sid'],
     ]);
 };
-$oc_sql = "INSERT INTO `order_details`(`order_sid`, `custom_id`) VALUES (?,?)";
-$oc_stmt = $pdo->prepare($oc_sql);
-$oc_stmt->execute([
-    $order_sid,
-    $_SESSION['custom_cart']['sid'],
-]);
 
-unset($_SESSION['cart']);
+$oc_sql = "INSERT INTO `order_details`(`order_sid`, `product_sid`, `quantity`,`custom_id`) VALUES (?,?,?,?)";
+$oc_stmt = $pdo->prepare($oc_sql);
+foreach ($_SESSION['custom'] as $cu) {
+    $oc_stmt->execute([
+        $order_sid,
+        0,
+        $cu['mat-count'],
+        $cu['sid'],
+    ]);
+};
+
+
+
+
+// unset($_SESSION['cart']);
+// unset($_SESSION['custom']);
 
 echo json_encode([
     'order_id' => $pdo->lastInsertId(),
