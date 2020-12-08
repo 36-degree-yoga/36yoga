@@ -8,4 +8,4 @@
     <link rel="stylesheet" href="<?= WEB_ROOT ?>fontawesome/css/all.css">
     <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/nav.css">
     <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/footer.css" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../SVG/SVG/favicon-16x16.png">
+    <link rel="shortcut icon" href="../SVG/icon_green.svg" type="image/x-icon" />
