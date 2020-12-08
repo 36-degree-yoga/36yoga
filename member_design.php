@@ -58,7 +58,7 @@ $member_row = $stmt->fetch();
 
                         </div>
                         <div class="ml-3">
-                            <p class="m-0">yoga_team</p>
+                            <p class="m-0"><?= $member_row['account'] ?></p>
                             <p class="m-0">點數: 500點</p>
                             <button class="log_out mt-2 px-2 py-1" onclick="location.href='<?= WEB_ROOT ?>logout.php'">登出</button>
                         </div>
@@ -202,7 +202,7 @@ $member_row = $stmt->fetch();
                     <h6 class="mb-0" style="text-align: center;">我的設計</h6>
                     <p class="p-0" style="text-align: center;">NT.<?= $d['mat-total-price'] ?></p>
                     <div class="d-flex justify-content-between">
-                        <a href="" data-toggle="modal" data-target="#delete"  class="py-1 ml-2 mr-3">
+                        <a href="" data-toggle="modal" data-target="#delete" class="py-1 ml-2 mr-3">
                             <img src="SVG/icon_trash.svg" alt="">
                         </a>
                         <button class="btn_f  mr-3" style="width:72%">加入購物車</button>
@@ -210,32 +210,32 @@ $member_row = $stmt->fetch();
 
                 </div>
 
-                 <!-- 確定刪除 modal-->
-            <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                <div class="modal-content modal-size">
-                                    <div class="modal-header out_header">
+                <!-- 確定刪除 modal-->
+                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content modal-size">
+                            <div class="modal-header out_header">
 
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <img class="" src="svg/delete.svg" alt="">
-                                        </button>
-                                    </div>
-                                    <div class="modal-body out_body">
-                                        <p class="mx-auto">確定要刪除設計？</p>
-                                    </div>
-                                    <div class="text-center mb-5">
-                                         <a href="javascript: delete_it(<?= $d['sid'] ?>)"><button class="btn btn_l p-0 del-btn-check"  style="margin-right:10px;">
-                                   確認</button></a>
-                                        <button class="btn btn_f p-0" data-dismiss="modal" aria-label="Close" style="margin-left:10px;">先不要</button>
-                                        
-                                    </div>
-                                </div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <img class="" src="svg/delete.svg" alt="">
+                                </button>
+                            </div>
+                            <div class="modal-body out_body">
+                                <p class="mx-auto">確定要刪除設計？</p>
+                            </div>
+                            <div class="text-center mb-5">
+                                <a href="javascript: delete_it(<?= $d['sid'] ?>)"><button class="btn btn_l p-0 del-btn-check" style="margin-right:10px;">
+                                        確認</button></a>
+                                <button class="btn btn_f p-0" data-dismiss="modal" aria-label="Close" style="margin-left:10px;">先不要</button>
+
                             </div>
                         </div>
-                        <!-- delete warning -->
+                    </div>
+                </div>
+                <!-- delete warning -->
             <?php endforeach; ?>
 
-            
+
 
         </div>
 
@@ -248,8 +248,8 @@ $member_row = $stmt->fetch();
 <script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
 <script>
     function delete_it(sid) {
-            location.href = "member_desgin_delete.php?sid=" + sid;
-        
+        location.href = "member_desgin_delete.php?sid=" + sid;
+
     }
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

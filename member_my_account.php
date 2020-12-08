@@ -66,7 +66,7 @@ $member_row = $stmt->fetch();
 
                         </div>
                         <div class="ml-3">
-                            <p class="m-0">yoga_team</p>
+                            <p class="m-0"><?= $member_row['account'] ?></p>
                             <p class="m-0">點數: 500點</p>
                             <button class="log_out mt-2 px-2 py-1" onclick="location.href='<?= WEB_ROOT ?>logout.php'">登出</button>
                         </div>
