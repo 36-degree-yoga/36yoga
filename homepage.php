@@ -22,22 +22,7 @@
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 
-<div id="loading_screen" class="loading-screen text-center d-flex justify-content-center">
-      <div>
-        <div id="number36" class="number">36</div>
-      </div>
-     
-    <div class="loader">
-        <div class="loading-graphic d-flex flex-row">
-            <img src="./SVG/SVG/yoga_pose01.svg" alt="logo"/>
-            <img src="./SVG/SVG/yoga_pose02.svg" alt="logo"/>
-            <img src="./SVG/SVG/yoga_pose03.svg" alt="logo"/>
-        </div>
-    </div>
 
-    <img class='logo_green' src="./SVG/icon_green.svg" alt="">
-    
-</div>
 
 <!-- 貼上html -->
 <!-- index computer -->
