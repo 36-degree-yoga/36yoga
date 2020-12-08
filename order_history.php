@@ -24,7 +24,7 @@ foreach ($o_rows as $o) {
     $order_sids[] = $o['sid'];
 }
 
-echo json_encode($order_sids, JSON_UNESCAPED_UNICODE);
+// echo json_encode($order_sids, JSON_UNESCAPED_UNICODE);
 
 $d_sql = sprintf("SELECT d.*, p.product_name, p.color, p.weight, p.length, p.width, p.img, p.price FROM `order_details` d 
 JOIN `products` p ON p.sid=d.product_sid

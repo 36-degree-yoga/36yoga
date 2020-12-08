@@ -75,8 +75,8 @@ $m_row = $pdo->query($m_sql)->fetch();
                                 <option value="" disabled selected hidden>
                                     --請選擇--
                                 </option>
-                                <option value="home">宅配到府</option>
-                                <option value="store">超商取貨</option>
+                                <option value="宅配">宅配到府</option>
+                                <option value="超商">超商取貨</option>
                             </select>
                         </div>
                     </div>
@@ -87,9 +87,9 @@ $m_row = $pdo->query($m_sql)->fetch();
                                 <option value="" disabled selected hidden>
                                     --請選擇--
                                 </option>
-                                <option value="yoo">貨到付款</option>
-                                <option value="credit">信用卡支付</option>
-                                <option value="atm">ATM匯款</option>
+                                <option value="貨到付款">貨到付款</option>
+                                <option value="信用卡">信用卡支付</option>
+                                <option value="ATM">ATM匯款</option>
                             </select>
                         </div>
                     </div>
@@ -435,7 +435,7 @@ $m_row = $pdo->query($m_sql)->fetch();
         const logistic = $(".logistic").val();
 
         let payment_status = '';
-        if (!payment === "credit") {
+        if (!payment === "信用卡") {
             payment_status = '未付款';
         } else {
             payment_status = '已付款';
@@ -463,7 +463,7 @@ $m_row = $pdo->query($m_sql)->fetch();
     });
 
     $('.hope-next-step').on('click', function() {
-        if ($(".how-to-pay").val() === "credit") {
+        if ($(".how-to-pay").val() === '信用卡') {
             console.log($(".how-to-pay").val())
             $(window).attr('location', 'credit-card-step3.php');
 

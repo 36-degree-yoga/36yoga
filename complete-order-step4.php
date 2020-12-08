@@ -1,7 +1,12 @@
 <?php include __DIR__ . '/parts/config.php';
-unset($_SESSION['cart']);
-unset($_SESSION['custom']);
-unset($_SESSION['custom_cart']);
+// unset($_SESSION['cart']);
+// unset($_SESSION['custom']);
+// unset($_SESSION['custom_cart']);
+
+$member_id = $_SESSION['user']['id'];
+$ooo_sql = "SELECT * FROM `orders`  WHERE 1 ORDER BY `order_date` DESC LIMIT 1 ";
+$ooo_stmt = $pdo->QUERY($ooo_sql)->fetchAll();
+
 ?>
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>
@@ -53,10 +58,10 @@ unset($_SESSION['custom_cart']);
         </div>
         <h5>已完成訂單</h5>
         <div>
-          <p>訂單編號：<span>s124454</span></p>
+          <p>訂單編號：YA-<span class="order-number"><?= $ooo_stmt[0]['sid'] ?></span></p>
           <!-- <p>選擇貨到付款</p> -->
           <p class="m-0 important-info-order">
-            可至會員中心查詢訂單資訊
+            可至會員中心查詢<span class="order-history" style="cursor:pointer;color:#db5c00">訂單資訊</span>
             <span class="m-0">謝謝</span>
           </p>
         </div>
@@ -71,5 +76,10 @@ unset($_SESSION['custom_cart']);
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
+<script>
+  $('.order-history').on('click', function() {
+    $(window).attr('location', 'order_history.php');
+  });
+</script>
 <script src="./lib/complete-order-step4.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
