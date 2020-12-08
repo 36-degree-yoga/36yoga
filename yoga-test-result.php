@@ -206,7 +206,7 @@ if (isset($_SERVER['HTTP_REFERER'])) {
                 </div>
                 <!-- 推薦輔具 -->
                 <div class="result-content-wrapper content-product d-flex flex-wrap justify-content-center align-content-between" style="width: 60%;">
-                    <div class="w-100 mobile-text" style="margin-top: 65px;font-size:16px;line-height:22px; margin-right: 10%; margin-left:10%">
+                    <div class="w-100 mobile-text" style="margin-top: 65px;font-size:16px;line-height:22px; margin-right: 12%; margin-left:10%">
                         你的Soulmat為<span style="color: #db5c00">長度<?php echo $ans[0] ?>cm</span>，<span style="color: #db5c00">厚度<?= round($qmat_row['thickness'], 2) ?>mm</span>的<span style="color: #db5c00">瑜珈墊<?= $qmat_row['product_name'] ?></span>，並搭配輔具：<span style="color: #db5c00"> <?= $qp1_row['product_name'] ?></span>和<span style="color: #db5c00"><?= $qp2_row['product_name'] ?></span>，讓你在<?php echo $ans[2] ?>的時候，身體能夠<?php echo $ans[1] ?>。
 
                     </div>

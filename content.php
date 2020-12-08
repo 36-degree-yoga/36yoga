@@ -158,7 +158,7 @@ foreach ($rec2_row  as $k2 => $r2) {
 
 <div class="col-2 px-0"></div>
 </div>
-<div class="w-100 d-flex justify-content-center rec-ani-1"><a href="<?= WEB_ROOT ?>product_list.php"><button class="btn_f">看更多商品</button></a>
+<div class="w-100 d-flex justify-content-center rec-ani-1"><a href="<?= WEB_ROOT ?>product_list.php"><button class="btn_f btn_more">看更多商品</button></a>
 </div>
 </div>
 
@@ -241,7 +241,7 @@ foreach ($rec2_row  as $k2 => $r2) {
 
         <div class="col-2 px-0"></div>
     </div>
-    <div class="w-100 d-flex justify-content-center rec-ani-2"><a href="<?= WEB_ROOT ?>product_list.php"><button class="btn_f btn-product">看更多商品</button></a>
+    <div class="w-100 d-flex justify-content-center rec-ani-2"><a href="<?= WEB_ROOT ?>product_list.php"><button class="btn_f btn-product btn_more">看更多商品</button></a>
     </div>
 
 </div>

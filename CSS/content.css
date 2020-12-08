@@ -265,9 +265,14 @@ a:hover {
 }
 
 .btn_f {
-  width: 21.375rem;
+  width: 21.375rem ;
   margin: 60px 0 60px 0;
   transition: 0.5s;
+}
+
+.btn_more{
+  width: 21.375rem!important;
+
 }
 
 .btn_f:hover {
@@ -667,6 +672,11 @@ a:hover {
 
   .btn_f {
     width: 18rem;
+  }
+
+  .btn_more{
+    width: 18rem!important;
+
   }
 
   /* scroll down 按鈕 */
