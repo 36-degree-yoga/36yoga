@@ -457,6 +457,7 @@ $member_row = $stmt->fetch();
 
             }, 'json')
         }
+        location.reload();
     };
 
     // 回傳密碼

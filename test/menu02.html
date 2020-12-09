@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #d8ebfa;
+        }
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #fa4f3e;
+            color: white;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+        .button-ball {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #9359fa;
+            /*background-color: #663eae;*/
+            color: white;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid black;
+            left: 370px;
+            top: 270px;
+        }
+    </style>
+</head>
+<body>
+<div class="rect">
+    <div class="button-ball">closed</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    let rect = $('.rect');
+    let b, i, x, y;
+
+
+    let ballNum = 12;
+    let angUnit = Math.PI*2 / ballNum;
+    const centerX = 400-20,
+        centerY = 300-20,
+        radius = 240
+
+
+    for(i=0; i<ballNum; i++) {
+        b = $('<div class="ball"></div>'); // 建立一個 tag 元素
+        b.html(i);
+
+        let ang = angUnit*i;  // 角度 (單位 radian )
+        x = centerX + Math.cos(ang) * radius;
+        y = centerY + Math.sin(ang) * radius;
+        b.css({
+            left: x,
+            top: y
+        });
+
+        rect.append(b);
+
+    }
+  
+</script>
+</body>
+
+</html>

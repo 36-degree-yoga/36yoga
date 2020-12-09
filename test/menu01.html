@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #d8ebfa;
+        }
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #fa4f3e;
+            color: white;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+        .button-ball {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #9359fa;
+            /*background-color: #663eae;*/
+            color: white;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid black;
+            left: 370px;
+            top: 270px;
+        }
+    </style>
+</head>
+<body>
+<div class="rect">
+    <div class="button-ball">closed</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    let rect = $('.rect');
+    let b, i, x, y;
+    let ballNum = 12;
+    let angUnit = Math.PI*2 / ballNum;
+    const centerX = 400-20,
+        centerY = 300-20,
+        radius = 240,
+        bButton = $('.button-ball'),
+        balls = [];
+    let isOpened = false; // 選單一開始的狀態
+
+
+    for(i=0; i<6; i++) {
+        b = $('<div class="ball"></div>'); // 建立一個 tag 元素
+        b.html(i+1);
+        let ang = angUnit*i -Math.PI*11/12;  // 角度 (單位 radian )
+        x = centerX + Math.cos(ang) * radius;
+        y = centerY + Math.sin(ang) * radius;
+        b.css({
+            left: centerX,
+            top: centerY
+        });
+        b.attr('data-bx', centerX);
+        b.attr('data-by', centerY);
+        b.attr('data-ex', Math.floor(x));
+        b.attr('data-ey', Math.floor(y));
+        rect.append(b);
+        balls.push(b); // 放到陣列裡
+    }
+    rect.append(bButton); // 抽出來再放一次
+    // easing: https://easings.net/
+
+
+    bButton.click(function(){
+        let x, y;
+        isOpened = !isOpened;
+
+        bButton.css('background-color', isOpened ? '#663eae' : '#9359fa');
+        bButton.text(isOpened ? 'opened' : 'closed');
+        // if(isOpened){
+        //     bButton.css('background-color', '#663eae');
+        //     bButton.text('opened');
+        // } else {
+        //     bButton.css('background-color', '#9359fa');
+        //     bButton.text('closed');
+        // }
+
+        balls.forEach(function(b, i){
+            if(isOpened) {
+                x = b.attr('data-ex');
+                y = b.attr('data-ey');
+            } else {
+                x = b.attr('data-bx');
+                y = b.attr('data-by');
+            }
+            b.delay(200*i).animate({
+                left: x,
+                top: y
+            }, 800, 'easeOutBack');
+        });
+    });
+</script>
+</body>
+
+</html>

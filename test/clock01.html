@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clock {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: #d8ebfa;
+            border: 1px solid black;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+        .hand {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+        .sec-hand {
+            position: absolute;
+            background-image: url(img/mario.gif);
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            left: -50px;
+            top: -300px;
+        }
+        .min-hand {
+            position: absolute;
+            width: 10px;
+            height: 180px;
+            background-color: #353bfa;
+            left: -5px;
+            top: -175px;
+            border-radius: 5px;
+        }
+        .hr-hand {
+            position: absolute;
+            width: 20px;
+            height: 120px;
+            background-color: #276011;
+            left: -10px;
+            top: -110px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+    <div class="hand">
+        <div class="hr-hand"></div>
+    </div>
+    <div class="hand">
+        <div class="min-hand"></div>
+    </div>
+    <div class="hand">
+        <div class="sec-hand"></div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    const hands = $('.hand');
+    const hr_hand = hands.eq(0);
+    const min_hand = hands.eq(1);
+    const sec_hand = hands.eq(2);
+
+    function doAction(){
+        let now = new Date;
+        let ms = now.getMilliseconds();
+        let s = now.getSeconds();
+        let m = now.getMinutes();
+        let h = now.getHours();
+        sec_hand.css('transform', `rotate(${s*6+ms*0.006}deg)`);
+        min_hand.css('transform', `rotate(${m*6}deg)`);
+        hr_hand.css('transform', `rotate(${h*30+m*.5}deg)`);
+        setTimeout(doAction, 30);
+    }
+    doAction();
+
+</script>
+</body>
+
+</html>
