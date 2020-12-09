@@ -71,7 +71,7 @@ foreach ($_SESSION as $k => $v) {
             </div>
             <div class="side-content-item">
                 <a href="<?= WEB_ROOT ?>content.php">
-                    <h5>提案</h5>
+                    <h5>瑜珈指南</h5>
                 </a>
             </div>
             <div class="side-content-item">
@@ -241,16 +241,17 @@ foreach ($_SESSION as $k => $v) {
 
                 </div>
                 <div class="btn-group d-flex align-items-center nav-left-text">
-                    <a href="" class="nav-text mr-5 ml-4 mt-2" class="dropdown-toggle" data-toggle="dropdown">提案</a>
+                    <a href="" class="nav-text mr-5  mt-2" class="dropdown-toggle" data-toggle="dropdown">瑜珈指南</a>
                     <div class="dropdown-menu">
-                        <a class="" href="<?= WEB_ROOT ?>content.php">一般</a>
-                        <a class="" href="<?= WEB_ROOT ?>content.php">客製化</a>
+                        <a class="" href="<?= WEB_ROOT ?>content.php">關於瑜珈</a>
+                        <a class="" href="<?= WEB_ROOT ?>content.php">輔具介紹</a>
+                        <a class="" href="<?= WEB_ROOT ?>content.php">如何客製</a>
                     </div>
 
                 </div>
 
                 <div class="d-flex align-items-center nav-left-text">
-                    <div class="nav-text ml-4 mt-2"><a href="" class="nav-text mr-5">問與答</a></div>
+                    <div class="nav-text ml-4 mt-2"><a href="about.php" class="nav-text mr-5">關於我們</a></div>
                 </div>
             </div>
             <div class="nav-right d-flex align-items-center col-lg-3 justify-content-end">
