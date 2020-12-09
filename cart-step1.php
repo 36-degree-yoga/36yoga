@@ -378,6 +378,10 @@ foreach ($rec2_row  as $k2 => $r2) {
 <!-- js連結 -->
 
 <script>
+    $('.hope-next-step').on('click', function() {
+
+        $(window).attr('location', 'fillin-info-step2.php');
+    });
     // ↓↓ 商品數量↓↓// 
 
     $('.plus').click(function() {
@@ -565,7 +569,7 @@ foreach ($rec2_row  as $k2 => $r2) {
 
     }
     calcTotal();
-
+    updateData(tr, sid, cart);
 
 
 
@@ -591,7 +595,7 @@ foreach ($rec2_row  as $k2 => $r2) {
         $('#totalWeight').html(totalWeight);
         $('#totalCountNumber').html(num);
 
-        console.log(`total: ${total}, num: ${num}, totalWeight: ${totalWeight}`);
+        console.log(`total: ${total}, num:${num}, totalWeight:${totalWeight}`);
     }
 
     // function updateCData(tr, sid, custom) {
@@ -617,10 +621,10 @@ foreach ($rec2_row  as $k2 => $r2) {
 
 
 
-    $('.hope-next-step').on('click', function() {
-
-        $(window).attr('location', 'fillin-info-step2.php');
-    });
+    // $('.hope-next-step').on('click', function() {
+    //     location.href = 'fillin-info-step2.php';
+    //     // $(window).attr('location', 'fillin-info-step2.php');
+    // });
 </script>
 
 
