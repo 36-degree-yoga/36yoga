@@ -274,7 +274,7 @@ $member_row = $stmt->fetch();
                 <div class="space_60"></div>
                 <div class="col-12 d-flex justify-content-center align-items-center">
                     <button class="btn_l" type="reset">取消變更</button>
-                    <button class="btn_f" type="submit">儲存</button>
+                    <button class="btn_f" type="submit" data-toggle="modal" data-target="#saveModal">儲存</button>
 
                 </div>
 
@@ -352,14 +352,15 @@ $member_row = $stmt->fetch();
                 <div class="modal-body d-flex justify-content-center flex-column">
 
                     <div class=" d-flex align-items-center justify-content-center">
-                        <h6 style="color: #f2a200;">確定刪除密碼</h6>
+                        <h6 style="color: #f2a200;">確定刪除帳號</h6>
 
                     </div>
                     <div class="space_30"></div>
                     <div class="w-100 d-flex justify-content-center">
-                        <button id="" class="btn_l" type="submit" onclick="delete_it(<?= $id ?>)">確認刪除</button>
+                        <button id="" class="btn_l" type="button" onclick="delete_it(<?= $id ?>)">確認刪除</button>
                         <button id="" class="btn_f" type="button" class="close" data-dismiss="modal" aria-label="Close">取消刪除</button>
                     </div>
+                </div>
             </form>
             <div class="modal-footer">
                 <div class="space_30"></div>
@@ -369,7 +370,41 @@ $member_row = $stmt->fetch();
 </div>
 <!-- 刪除密碼彈跳↑↑ -->
 
+<!-- 儲存確認↓↓ -->
+<div class="modal fade" id="saveModal" tabindex="-1" aria-labelledby="saveModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <img src="./SVG/delete.svg" alt="" class="btn_delete">
+                    </span>
+                </button>
+            </div>
+            <form action="">
+                <div class="modal-body d-flex justify-content-center flex-column">
+
+                    <div class=" d-flex align-items-center justify-content-center">
+                        <h6 style="color: #f2a200;">更新完成</h6>
+
+                    </div>
+
+                </div>
+            </form>
+            <div class="modal-footer">
+                <div class="space_30"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 儲存確認↑↑ -->
+
+
+
 <div class="space_120"></div>
+
+
+
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_my_account.js"></script>
