@@ -628,6 +628,7 @@
             <!-- 顏色 -->
             <div class="m_item_button pt-3">
                 <div class="color_wrap d-flex align-items-center justify-content-between  mt-4 mr-3">
+                   
                     <!-- <div class="color"></div>
             <div class="color"></div>
             <div class="color"></div>
@@ -647,10 +648,14 @@
 
                 <div class="color_defining d-flex align-items-center mt-5">
                     <div class="color self_color"></div>
-                    <input class="btn_f" id="m_picker" type="color" value="" style="opacity: 0;width: 0;">
-                    <!-- oninput="changeBackground(m_picker.value)" -->
+
 
                     <button type="button" class="btn_f" id="m_picker_btn">自定義顏色</button>
+                    <!-- <div class="color self_color"></div>
+                    <input class="btn_f" id="m_picker" type="color" value="" style="opacity: 0;width: 0;">
+                    oninput="changeBackground(m_picker.value)"
+
+                    <button type="button" class="btn_f" id="m_picker_btn">自定義顏色</button> -->
                 </div>
             </div>
 
@@ -659,11 +664,21 @@
 
                 <div class="img-scroll-wrap w-100 ">
                     <div class="m_img_item_wrap d-flex mt-4">
-                        <div class="img_item"></div>
-                        <div class="img_item"></div>
-                        <div class="img_item"></div>
-                        <div class="img_item"></div>
-                        <div class="img_item"></div>
+                        <div class="img_item">
+                            <img id="img001" src="img/customize/custom_item_01.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img id="img002" src="img/customize/custom_item_02.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img id="img003" src="img/customize/custom_item_03.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img style="height:250%;" id="img004" src="img/customize/custom_item_04.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img style="height:250%;" id="img005" src="img/customize/custom_item_05.png" alt="">
+                        </div>
                     </div>
                 </div>
 

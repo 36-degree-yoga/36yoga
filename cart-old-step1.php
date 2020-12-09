@@ -102,7 +102,7 @@ foreach ($rec2_row  as $k2 => $r2) {
                                 </div>
                                 <!-- copy count -->
                             </td>
-                            <td class="price" data_price="<?= $c['price'] ?>" data-money="<?= $c['price'] * $c['quantity'] ?>">NT.<?= $c['price'] * $c['quantity'] ?></td>
+                            <td class="price" data-money="<?= $c['price'] * $c['quantity'] ?>">NT.<?= $c['price'] * $c['quantity'] ?></td>
                             <td class="favorite-icon">
                                 <a href="#"><img src="./SVG/icon_favorite.svg" alt=""></a>
 
@@ -307,7 +307,7 @@ foreach ($rec2_row  as $k2 => $r2) {
                     <div class="col-4 d-flex justify-content-between align-items-center">
                         <a href="#"> <img src="./SVG/icon_favorite.svg" alt=""></a>
 
-                        <a href="javascript:delCItem(<?= $b['sid'] ?>)"><img src="./SVG/icon_trash.svg" alt=""></a>
+                        <a href="javascript:delItem(<?= $b['sid'] ?>)"><img src="./SVG/icon_trash.svg" alt=""></a>
                     </div>
                 </div>
                 <div class="dividerline-in-table-no2 mx-auto"></div>
@@ -501,7 +501,7 @@ foreach ($rec2_row  as $k2 => $r2) {
             // console.log(sid);
             input.attr('data-quantity', quantity);
             input.val(quantity);
-            updateData(tr, sid, custom)
+            updateCData(tr, sid, custom)
             calcTotal();
         }, 'json')
 
@@ -513,7 +513,7 @@ foreach ($rec2_row  as $k2 => $r2) {
         const sid = tr.attr('data-sid');
         const input = $(this).prev();
         const quantity = input.val();
-        const cprice = tr.closest(".price");
+        const cprice = $(this).closest(".price");
         console.log(quantity)
         console.log(cprice)
         $.get('handle-custom-remove.php', {
@@ -570,48 +570,42 @@ foreach ($rec2_row  as $k2 => $r2) {
 
 
     function updateData(tr, sid, cart) {
-        let total = 0;
-        let num = 0;
-        let totalWeight = 0;
-        const trs = $('tr.product-edit');
+        tr.each(function() {
+            if (this.dataset.sid !== 34) {
+                const {
+                    quantity,
+                    price
+                } = cart[sid]
 
+                // 更新 資料
+                tr.find('td.number-change').attr('data-count', quantity)
+                tr.find('td.price').attr('data-money', quantity * price)
 
-        trs.each(function() {
-            let qty = $(this).find('input.count').val();
-            num += qty * 1;
-            let price = $(this).find('td.price').attr('data_price') * 1;
-            $(this).find('td.price').text('NT. ' + (qty * price));
-            total += (qty * price);
-            weight = $(this).find('.need-weight').attr('data-weight');
-            totalWeight += (qty * weight);
-
+                // 更新 價格 欄位
+                const priceTd = $(this).find('.price')
+                priceTd.html(`NT.${quantity * price}`)
+            }
         })
-
-        $('#totalMoney').html(total);
-        $('#totalWeight').html(totalWeight);
-        $('#totalCountNumber').html(num);
-
-        console.log(`total: ${total}, num: ${num}, totalWeight: ${totalWeight}`);
     }
 
-    // function updateCData(tr, sid, custom) {
-    //     tr.each(function() {
-    //         if (this.dataset.sid === sid) {
-    //             const {
-    //                 quantity,
-    //                 price
-    //             } = custom[sid]
+    function updateCData(tr, sid, custom) {
+        tr.each(function() {
+            if (this.dataset.sid === sid) {
+                const {
+                    quantity,
+                    price
+                } = custom[sid]
 
-    //             // 更新 資料
-    //             tr.find('td.number-change').attr('data-count', quantity)
-    //             tr.find('td.price').attr('data-money', quantity * price)
+                // 更新 資料
+                tr.find('td.number-change').attr('data-count', quantity)
+                tr.find('td.price').attr('data-money', quantity * price)
 
-    //             // 更新 價格 欄位
-    //             const priceTd = $(this).find('.price')
-    //             priceTd.html(`NT.${quantity * price}`)
-    //         }
-    //     })
-    // }
+                // 更新 價格 欄位
+                const priceTd = $(this).find('.price')
+                priceTd.html(`NT.${quantity * price}`)
+            }
+        })
+    }
 
 
 
