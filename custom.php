@@ -628,7 +628,7 @@
             <!-- 顏色 -->
             <div class="m_item_button pt-3">
                 <div class="color_wrap d-flex align-items-center justify-content-between  mt-4 mr-3">
-                   
+
                     <!-- <div class="color"></div>
             <div class="color"></div>
             <div class="color"></div>
@@ -653,7 +653,7 @@
                     <button type="button" class="btn_f" id="m_picker_btn">自定義顏色</button>
                     <!-- <div class="color self_color"></div>
                     <input class="btn_f" id="m_picker" type="color" value="" style="opacity: 0;width: 0;">
-                    oninput="changeBackground(m_picker.value)"
+                    oninput="changeBackground(m_picker.value)">
 
                     <button type="button" class="btn_f" id="m_picker_btn">自定義顏色</button> -->
                 </div>
