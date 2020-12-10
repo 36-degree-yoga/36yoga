@@ -298,7 +298,7 @@ foreach ($_SESSION as $k => $v) {
                     </a>
                     <div class="dropdown-menu cart-badge">
                         <!-- 小購物車 -->
-                        <a class="d-flex " href="product_mat.php?sid=${a.sid} ?>">
+                        <a class="sally" href="product_mat.php?sid=${a.sid} ?>">
 
 
                         </a>
