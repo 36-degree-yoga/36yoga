@@ -438,7 +438,7 @@ $member_row = $stmt->fetch();
                         <?php if ($a['order_status'] == '已完成訂單') : ?>
                             <div class="order_item_wrap">
                                 <div class="order_top_word">
-                                    <p>已於 <span id="top_date"><?= $a['order_date'] ?></span> 完成訂單</p>
+                                    <p>已於 <span id="top_date"><?= date('Y-m-d', strtotime($a['order_date'] . '+3 day')) ?></span> 完成訂單</p>
                                 </div>
 
                                 <ul class="d-flex order_title">
@@ -516,8 +516,8 @@ $member_row = $stmt->fetch();
                                             </li>
                                             <li class="data_statu d-flex justify-content-start">
                                                 <p>
-                                                    <span id="data">2020-11-02</span>&ensp;
-                                                    <span id="time">09:00</span>&ensp;
+                                                    <span id="data"><?= date('Y-m-d  H:i:s', strtotime($a['order_date'] . '+1 day')) ?></span>&ensp;
+                                                    <!-- <span id="time">09:00</span>&ensp; -->
                                                     <span id="order_event">出貨</span>
                                                 </p>
                                             </li>
@@ -545,7 +545,7 @@ $member_row = $stmt->fetch();
                         <?php if ($a['order_status'] == '待付款') : ?>
                             <div class="order_item_wrap">
                                 <div class="order_top_word">
-                                    <p>已於 <span id="top_date"><?= $a['order_date'] ?></span> 完成訂單</p>
+                                    <p>已於 <span id="top_date"><?= date('Y-m-d  H:i:s', strtotime($a['order_date'] . '+3 day')) ?></span> 完成訂單</p>
                                 </div>
 
                                 <ul class="d-flex order_title">
@@ -623,8 +623,8 @@ $member_row = $stmt->fetch();
                                             </li>
                                             <li class="data_statu d-flex justify-content-start">
                                                 <p>
-                                                    <span id="data">2020-11-02</span>&ensp;
-                                                    <span id="time">09:00</span>&ensp;
+                                                    <span id="data"><?= date('Y-m-d  H:i:s', strtotime($a['order_date'] . '+1 day')) ?></span>&ensp;
+                                                    <!-- <span id="time">09:00</span>&ensp; -->
                                                     <span id="order_event">出貨</span>
                                                 </p>
                                             </li>
@@ -652,7 +652,7 @@ $member_row = $stmt->fetch();
                         <?php if ($a['order_status'] == '待出貨') : ?>
                             <div class="order_item_wrap">
                                 <div class="order_top_word">
-                                    <p>已於 <span id="top_date"><?= $a['order_date'] ?></span> 完成訂單</p>
+                                    <p>已於 <span id="top_date"><?= $a['order_date'] ?></span> 下單</p>
                                 </div>
 
                                 <ul class="d-flex order_title">
@@ -682,7 +682,7 @@ $member_row = $stmt->fetch();
                                     <div class="order_money_detail d-flex justify-content-end">
                                         <p>
                                             商品總額: $<span id="order_total_pay">
-                                                <?= $a['amount'] ?> </span>&ensp; /&ensp;
+                                                <?= $a['amount'] - $a['trans_fee'] ?> </span>&ensp; /&ensp;
                                         </p>
                                         <p>運費: $<span id="order_total_pay">
                                                 <?= $a['trans_fee'] ?></span>&ensp; /&ensp;</p>
