@@ -1,7 +1,6 @@
 <?php include __DIR__ . '/parts/config.php';
 
-// $stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
-// $rows = $stmt->fetch();
+
 
 if (!isset($_SESSION['user'])) {
     header('Location: login_regist.php');
@@ -12,10 +11,8 @@ $member_id = $_SESSION['user']['id'];
 
 $m_sql = "SELECT `id`, `account`, `email`,  `mobile`, `city`, `address`, `nickname` FROM `members`  WHERE `id` = $member_id ";
 $m_row = $pdo->query($m_sql)->fetch();
-// $stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
-// $rows = $stmt->fetch?();
 
-// echo json_encode($rows, JSON_UNESCAPED_UNICODE);
+// echo json_encode($m_row, JSON_UNESCAPED_UNICODE);
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
@@ -431,10 +428,10 @@ $m_row = $pdo->query($m_sql)->fetch();
         const logistic = $(".logistic").val();
 
         let payment_status = '';
-        if (!payment === "信用卡") {
-            payment_status = '未付款';
-        } else {
+        if (payment === "信用卡") {
             payment_status = '已付款';
+        } else {
+            payment_status = '未付款';
         }
         console.log(transFee, bouns, email, name, mobile, address, amount, payment, logistic, payment_status);
         $.post('order-info-api.php', {
