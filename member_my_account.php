@@ -219,16 +219,16 @@ $member_row = $stmt->fetch();
                 <div>
                     <!-- 姓名 -->
                     <input type="hidden" name="id" value="<?= $member_row['id'] ?>">
-                    <div class="edit_info my-4 d-flex align-items-center">
-                        <p>姓名</p>
+                    <div class="edit_info my-5 d-flex align-items-center">
+                        <p class="my-0">姓名</p>
                         <div class="input_line ml-3">
                             <input type="text" id="name" name="nickname" value="<?= htmlentities($member_row['nickname']) ?>">
                         </div>
                     </div>
 
                     <!-- 帳號 -->
-                    <div class="edit_info my-4 d-flex align-items-center w-100 justify-content-between">
-                        <p>帳號</p>
+                    <div class="edit_info my-5 d-flex align-items-center w-100 justify-content-between">
+                        <p class="my-0">帳號</p>
                         <div class="input_line ml-3">
                             <input type="account" id="account" name="account" value="<?= htmlentities($member_row['account']) ?>">
                             <a href="#" style="color: #135F39;" data-toggle="modal" data-target="#checkModal">刪除帳號</a>
@@ -236,8 +236,8 @@ $member_row = $stmt->fetch();
 
                     </div>
                     <!-- 密碼 -->
-                    <div class="my-4 d-flex align-items-center">
-                        <p>密碼</p>
+                    <div class="my-5 d-flex align-items-center">
+                        <p class="my-0">密碼</p>
                         <div>
                             <a class="ml-3" href="#" style="border-bottom: 1px solid #135F39;color:#135F39;" data-toggle="modal" data-target="#exampleModal">設定新密碼</a>
                             <input id="sentPass" type="hidden" name="password" value="<?= $member_row['password'] ?>">
@@ -245,16 +245,16 @@ $member_row = $stmt->fetch();
                     </div>
 
                     <!-- 手機 -->
-                    <div class="edit_info my-4 d-flex align-items-center">
-                        <p>手機</p>
+                    <div class="edit_info my-5 d-flex align-items-center">
+                        <p class="my-0">手機</p>
                         <div class="input_line ml-3">
                             <input type="text" id="mobile" name="mobile" pattern="09\d{2}-?\d{3}-?\d{3}" value="<?= htmlentities($member_row['mobile']) ?>">
                         </div>
                     </div>
 
                     <!-- 信箱 -->
-                    <div class="edit_info my-4 d-flex align-items-center">
-                        <p>信箱</p>
+                    <div class="edit_info my-5 d-flex align-items-center">
+                        <p class="my-0">信箱</p>
                         <div class="input_line ml-3">
                             <input type="email" id="email" name="email" value="<?= htmlentities($member_row['email']) ?>">
                         </div>
@@ -262,7 +262,7 @@ $member_row = $stmt->fetch();
 
                     <!-- 生日 -->
                     <div class="edit_info mt-4 d-flex align-items-center">
-                        <p>生日</p>
+                        <p class="my-0">生日</p>
                         <div class="input_line ml-3">
                             <input type="date" id="birthday" name="birthday" value="<?= htmlentities($member_row['birthday']) ?>" style="width:300px;">
                         </div>
@@ -303,7 +303,7 @@ $member_row = $stmt->fetch();
                 <div class="modal-body d-flex justify-content-center flex-column">
 
                     <div class="edit_info d-flex align-items-center justify-content-center">
-                        <p>現在密碼</p>
+                        <p class="my-0">現在密碼</p>
                         <div class="input_line ml-3">
                             <input type="text" id="nowPass">
                             <a href="#" style="color: #135F39;">忘記密碼</a>
@@ -312,14 +312,14 @@ $member_row = $stmt->fetch();
                     </div>
                     <div class="space_30"></div>
                     <div class="edit_info d-flex align-items-center justify-content-center">
-                        <p>新的密碼</p>
+                        <p class="my-0">新的密碼</p>
                         <div class="input_line ml-3">
                             <input type="text" id="newPass1">
                         </div>
                     </div>
                     <div class="space_30"></div>
                     <div class="edit_info d-flex align-items-center justify-content-center">
-                        <p>確認密碼</p>
+                        <p class="my-0">確認密碼</p>
                         <div class="input_line ml-3">
                             <input type="text" id="newPass2">
                         </div>
