@@ -480,7 +480,7 @@ $member_row = $stmt->fetch();
                                     <?php foreach ($d_rows as $ddd) : ?>
                                         <?php if ($a['sid'] == $ddd['order_sid']) : ?>
                                             <div class="order_product_wrap d-flex align-items-center">
-                                                <div class="product-left d-flex col-8">
+                                                <div class="product-left d-flex col-7">
                                                     <!-- 訂單商品圖 -->
                                                     <div class="order_img_wrap">
                                                         <img class="p_img" src="./img/product_list/<?= $ddd['my_imgs'][1] ?>.jpg" alt="" style="width: 100%;height: 100%;object-fit: cover;" />
@@ -587,7 +587,7 @@ $member_row = $stmt->fetch();
                                     <?php foreach ($d_rows as $ddd) : ?>
                                         <?php if ($a['sid'] == $ddd['order_sid']) : ?>
                                             <div class="order_product_wrap d-flex align-items-center">
-                                                <div class="product-left d-flex col-8">
+                                                <div class="product-left d-flex col-7">
                                                     <!-- 訂單商品圖 -->
                                                     <div class="order_img_wrap">
                                                         <img class="p_img" src="./img/product_list/<?= $ddd['my_imgs'][1] ?>.jpg" alt="" style="width: 100%;height: 100%;object-fit: cover;" />
@@ -694,7 +694,7 @@ $member_row = $stmt->fetch();
                                     <?php foreach ($d_rows as $ddd) : ?>
                                         <?php if ($a['sid'] == $ddd['order_sid']) : ?>
                                             <div class="order_product_wrap d-flex align-items-center">
-                                                <div class="product-left d-flex col-8">
+                                                <div class="product-left d-flex col-7">
                                                     <!-- 訂單商品圖 -->
                                                     <div class="order_img_wrap">
                                                         <img class="p_img" src="./img/product_list/<?= $ddd['my_imgs'][1] ?>.jpg" alt="" style="width: 100%;height: 100%;object-fit: cover;" />
@@ -720,7 +720,7 @@ $member_row = $stmt->fetch();
                                     <?php foreach ($design_rows as $ddds) : ?>
                                         <?php if ($a['sid'] == $ddds['order_sid']) : ?>
                                             <div class="order_product_wrap d-flex align-items-center">
-                                                <div class="product-left d-flex col-8">
+                                                <div class="product-left d-flex col-7">
                                                     <!-- 訂單商品圖 -->
                                                     <div class="order_img_wrap" style="overflow:hidden;">
                                                         <img class="p_img" src="img/customize/design/<?= $ddds['design_img'] ?>.png" alt="" style="width: 100%;object-fit: cover; background-color: <?= $ddds['pick_color'] ?>" />
@@ -766,7 +766,7 @@ $member_row = $stmt->fetch();
                                         <!-- 按鈕 -->
                                         <div class="btn-wrap d-flex">
                                             <!-- <button class="btn_l">button</button> -->
-                                            <button class="btn_s" id="buy_again">馬上付款</button>
+                                            <button class="btn_s" id="buy_again">查看物流</button>
                                         </div>
                                     </div>
                                 </div>
