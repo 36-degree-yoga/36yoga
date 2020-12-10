@@ -453,14 +453,16 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap  overflow-hidden" href="<?= WEB_ROOT ?>product_mat.php?sid=13">
-                                    <!-- product 的 border 之後取消 -->
-                                    <img class="product-pic w-100 h-100" src="./img/product_list/p01_1.jpg" alt="瑜珈支撐墊">
+                                <div class="img-wrap  overflow-hidden">
+                                    <a href="  <?= WEB_ROOT ?>product_mat.php?sid=13">
+                                        <!-- product 的 border 之後取消 -->
+                                        <img class="product-pic w-100 h-100" src="./img/product_list/p01_1.jpg" alt="瑜珈支撐墊">
+                                    </a>
                                 </div>
 
                                 <div class="product-info text-center">
-                                    <a href="">
-                                        <h6 class="mb-0">瑜珈支撐墊</h6>
+                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=13">
+                                        <h6 class="p-name mb-0">瑜珈支撐墊</h6>
                                     </a>
                                     <p>NT$. 179</p>
                                 </div>
@@ -470,14 +472,16 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap " href="<?= WEB_ROOT ?>product_mat.php?sid=22">
-                                    <!-- product 的 border 之後取消 -->
-                                    <img class="product-pic w-100  h-100" src="./img/product_list/s01_1.jpg" alt="重量運動手環">
+                                <div class="img-wrap overflow-hidden">
+                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=22">
+                                        <!-- product 的 border 之後取消 -->
+                                        <img class="product-pic w-100  h-100" src="./img/product_list/s01_1.jpg" alt="重量運動手環">
+                                    </a>
                                 </div>
 
                                 <div class="product-info text-center">
-                                    <a href="">
-                                        <h6 class="mb-0">重量運動手環</h6>
+                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=22">
+                                        <h6 class="p-name mb-0">重量運動手環</h6>
                                     </a>
                                     <p>NT$. 2280</p>
                                 </div>
@@ -487,16 +491,18 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="product-wrap">
 
-                                <div class="img-wrap" href="<?= WEB_ROOT ?>product_mat.php?sid=19">
-                                    <!-- product 的 border 之後取消 -->
-                                    <img class="product-pic w-100 h-100" src="./img/product_list/r01_1.jpg" alt="顆粒按摩滾筒">
+                                <div class="img-wrap overflow-hidden">
+                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=26">
+                                        <!-- product 的 border 之後取消 -->
+                                        <img class="product-pic w-100 h-100" src="./img/product_list/a01_1.jpg" alt="棉質舖巾">
+                                    </a>
                                 </div>
 
                                 <div class="product-info text-center">
-                                    <a href="">
-                                        <h6 class="mb-0">Relex 顆粒按摩滾筒</h6>
+                                    <a href="<?= WEB_ROOT ?>product_mat.php?sid=26">
+                                        <h6 class="p-name mb-0">Thunder伸展帶</h6>
                                     </a>
-                                    <p>NT$. 1288</p>
+                                    <p>NT$. 550</p>
                                 </div>
                             </div>
                         </div>
