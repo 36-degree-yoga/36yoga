@@ -295,6 +295,16 @@ foreach ($_SESSION as $k => $v) {
 
 
                         </a>
+                        <?php foreach ($_SESSION['custom'] as $b) : ?>
+                            <a class="d-flex " href="#">
+                                <div class="img-wrap border" style="background-color: <?= $b['pick_color'] ?>">
+                                    <img class="product-pic" style="" src="img/customize/design/<?= $b['design_img'] ?>.png" alt="">
+                                </div>
+                                <div class="product-info ml-3">
+                                    <p>客製瑜珈墊 <br>NT$ <?= $b['mat-total-price'] ?></br> </p>
+                                </div>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
 
                 </div>
