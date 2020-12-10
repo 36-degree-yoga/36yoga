@@ -45,7 +45,6 @@ foreach ($d_rows  as $k => $r) {
 
 
 
-
 //Custom
 
 $design_sql = sprintf("SELECT d.`order_sid`, c.sid, c.`mat-total-price`, c.pick_color, c.`mat-h`, c.`matw`, c.`weight`, c.`mat-count`, c.`mat-total-price`, c.design_img FROM `custom_product` c JOIN `order_details` d 
@@ -60,18 +59,17 @@ $taco_sql = sprintf("SELECT `custom_id`, `quantity` FROM `order_details`
 WHERE `product_sid` IN (34)");
 $taco_rows = $pdo->query($taco_sql)->fetchAll();
 
-// echo json_encode($taco_rows, JSON_UNESCAPED_UNICODE);
-// echo "<br>";
 
+foreach ($design_rows as $ha => $haha) {
+    foreach ($taco_rows as $ta => $taco) {
+        if ($haha['sid'] == $taco['custom_id']) {
+            $design_rows[$ha]['quantity'] = $taco['quantity'];
+        }
+    }
+}
 
-
-// foreach ($design_rows as $taco => $haha) {
-//     if ($haha['sid'] == $ddds['order_sid']) :
-//     $design_rows[$tako]['quantity'] = ;
-// }
-
-// echo "<br>";
-// echo json_encode($design_sql, JSON_UNESCAPED_UNICODE);exit;
+// echo json_encode($design_rows, JSON_UNESCAPED_UNICODE);
+// exit;
 
 //
 
@@ -737,8 +735,8 @@ $member_row = $stmt->fetch();
                                                 </div>
                                                 <!-- 件數價錢 -->
                                                 <div class="count_price d-flex justify-content-start col-5">
-                                                    <p class="col-6">共<span class="count"><?= $ddds['mat-count'] ?></span>件</p>
-                                                    <p class="col-6">NT$ <span class="price"><?= $ddds['mat-total-price'] ?></span></p>
+                                                    <p class="col-6">共<span class="count"><?= $ddds['quantity'] ?></span>件</p>
+                                                    <p class="col-6">NT$ <span class="price"><?= $ddds['mat-total-price'] * $ddds['quantity'] ?></span></p>
                                                 </div>
                                             </div>
                                         <?php endif ?>
@@ -756,13 +754,13 @@ $member_row = $stmt->fetch();
                                                 <p>付費方式: <span id="pay_way">
                                                         <?= $a['payment'] ?></span>&ensp;</p>
                                             </li>
-                                            <li class="data_statu d-flex justify-content-start">
+                                            <!-- <li class="data_statu d-flex justify-content-start">
                                                 <p>
                                                     <span id="data">2020-11-02</span>&ensp;
                                                     <span id="time">09:00</span>&ensp;
                                                     <span id="order_event">出貨</span>
                                                 </p>
-                                            </li>
+                                            </li> -->
                                         </ul>
 
                                         <!-- 按鈕 -->
