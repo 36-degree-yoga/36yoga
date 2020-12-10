@@ -11,10 +11,8 @@ $member_id = $_SESSION['user']['id'];
 
 $m_sql = "SELECT `id`, `account`, `email`,  `mobile`, `city`, `address`, `nickname` FROM `members`  WHERE `id` = $member_id ";
 $m_row = $pdo->query($m_sql)->fetch();
-// $stmt = $pdo->query("SELECT * FROM `members` ORDER BY `id` ASC");
-// $rows = $stmt->fetch?();
 
-echo json_encode($m_row, JSON_UNESCAPED_UNICODE);
+// echo json_encode($m_row, JSON_UNESCAPED_UNICODE);
 ?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
@@ -409,8 +407,7 @@ echo json_encode($m_row, JSON_UNESCAPED_UNICODE);
     }
 
     $('#member-info').click(() => {
-        $("#email").val("<? echo $m_row['email'] ?>");
-        // $("#email").val("111s");
+        $("#email").val("<?= $m_row['email'] ?>");
         $("#name").val("<?= $m_row['account'] ?>");
         $("#phone-number").val("<?= $m_row['mobile'] ?>");
         $("#city").val("<?= $m_row['city'] ?>");
