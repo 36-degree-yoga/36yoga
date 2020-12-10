@@ -144,23 +144,17 @@
                         </tr>
                         <tr>
                             <th scope="row">運費</th>
-                            <td>car-money</td>
+                            <td><span id="trans_fee">60</span></td>
                         </tr>
                         <tr>
                             <th scope="row">優惠折抵</th>
-                            <td>bouns</td>
+                            <td><span id="deduction">0</span></td>
                         </tr>
                         <tr>
                             <th scope="row">應付金額</th>
-                            <td>total</td>
+                            <td>NT.<span id="amount"></span></td>
                         </tr>
-                        <!-- <tr>
-                  <td colspan="2" class="py-2">
-                    <a href="#" class="close-features"
-                      ><i class="fas fa-plus-circle"></i> 收起訂單明細</a
-                    >
-                  </td>
-                </tr> -->
+
                     </tbody>
                 </table>
             </div>
@@ -176,4 +170,5 @@
 <!-- js連結 -->
 
 <script src="./lib/checkout-step123.js"></script>
+
 <?php include __DIR__ . '/parts/html-end.php'; ?>

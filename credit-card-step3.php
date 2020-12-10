@@ -188,15 +188,15 @@
                         </tr>
                         <tr>
                             <th scope="row">運費</th>
-                            <td>car-money</td>
+                            <td><span id="trans_fee">60</span></td>
                         </tr>
                         <tr>
                             <th scope="row">優惠折抵</th>
-                            <td>bouns</td>
+                            <td><span id="deduction">0</span></td>
                         </tr>
                         <tr>
                             <th scope="row">應付金額</th>
-                            <td>total</td>
+                            <td>NT.<span id="amount"></span></td>
                         </tr>
                     </tbody>
                 </table>

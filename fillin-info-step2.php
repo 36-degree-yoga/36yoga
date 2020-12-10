@@ -345,7 +345,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                             </tr>
                             <tr>
                                 <th scope="row">應付金額</th>
-                                <td><span id="amount"></span></td>
+                                <td>NT.<span id="amount"></span></td>
                             </tr>
                         
                         </tbody>

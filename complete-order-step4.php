@@ -1,7 +1,7 @@
 <?php include __DIR__ . '/parts/config.php';
-// unset($_SESSION['cart']);
-// unset($_SESSION['custom']);
-// unset($_SESSION['custom_cart']);
+unset($_SESSION['cart']);
+unset($_SESSION['custom']);
+unset($_SESSION['custom_cart']);
 
 $member_id = $_SESSION['user']['id'];
 $ooo_sql = "SELECT * FROM `orders`  WHERE 1 ORDER BY `order_date` DESC LIMIT 1 ";
