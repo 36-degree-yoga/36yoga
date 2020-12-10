@@ -10,5 +10,5 @@ if (isset($_SESSION['user']) and $_SESSION['user']['id']) {
 
     unset($_SESSION['user']);
     echo "我刪囉";
-    header('Location: product_list.php');
+    header('Location: homepage.php');
 };

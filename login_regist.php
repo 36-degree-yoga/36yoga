@@ -49,10 +49,11 @@ $gotoURL = 'product_list.php';
                                 <div class="randompic"></div>
                                 <!-- <img src="./img/index/random02.svg" alt="" class="randompic">
                                 <img src="./img/index/random03.svg" alt="" class="randompic"> -->
+
                             </div>
                         </div>
                         <div class="form-group form-check d-flex space-b60">
-                            <input type="checkbox" class="form-check-input" id="logincheck">
+                            <input type="checkbox" class="form-check-input" id="logincheck" value="">
                             <div class="form-check-label" for="logincheck">記住帳密</div>
                             <a href="#" class=" ml-auto">忘記密碼？</a>
                         </div>
@@ -274,7 +275,7 @@ $gotoURL = 'product_list.php';
                     console.log('hi');
                     $('#login-alert-s').text('註冊成功！');
                     setTimeout(function() {
-                        location.href = '<?= $_SERVER['HTTP_REFERER'] ?>';
+                        location.href = '<?= WEB_ROOT ?>/member_my_account.php';
                     }, 2000);
                 } else {
                     $('#login-alert-f').text('註冊失敗！');
