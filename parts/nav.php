@@ -298,10 +298,10 @@ foreach ($_SESSION as $k => $v) {
                     </a>
                     <div class="dropdown-menu cart-badge">
                         <!-- 小購物車 -->
-                        <a class="sally" href="product_mat.php?sid=${a.sid} ?>">
+                        <div class=" sally" href="product_mat.php?sid=${a.sid} ?>">
 
 
-                        </a>
+                        </div>
                         <?php foreach ($_SESSION['custom'] as $b) : ?>
                             <a class="d-flex " href="#">
                                 <div class="img-wrap border" style="background-color: <?= $b['pick_color'] ?>">
