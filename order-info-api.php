@@ -76,7 +76,29 @@ foreach ($_SESSION['custom'] as $cu) {
         $cu['sid'],
     ]);
 };
+$custom_count = $_SESSION['custom']['mat-count'];
+$custom_id = $_SESSION['custom']['sid'];
+$c_sql = "UPDATE `custom_product` SET 
+`mat-count`=?,
+WHERE `sid`=$custom_id";
 
+$c_stmt = $pdo->prepare($c_sql);
+$c_stmt->execute([
+    $custom_count,
+]);
+
+echo $c_stmt;
+
+// $my_sql = "UPDATE `custom_product`(`mat-count`) VALUES (?)";
+// $oc_stmt = $pdo->prepare($oc_sql);
+// foreach ($_SESSION['custom'] as $cu) {
+//     $oc_stmt->execute([
+//         $order_sid,
+//         34,
+//         $cu['mat-count'],
+//         $cu['sid'],
+//     ]);
+// };
 
 
 
@@ -85,4 +107,5 @@ foreach ($_SESSION['custom'] as $cu) {
 
 echo json_encode([
     'order_id' => $pdo->lastInsertId(),
+    $_SESSION['custom']['mat-count'],
 ], JSON_UNESCAPED_UNICODE);

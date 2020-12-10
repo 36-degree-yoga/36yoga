@@ -28,7 +28,7 @@ foreach ($o_rows as $o) {
 
 $d_sql = sprintf("SELECT d.*, p.product_name, p.color, p.weight, p.length, p.width, p.img, p.price FROM `order_details` d 
 JOIN `products` p ON p.sid=d.product_sid
-WHERE d.`order_sid` IN (%s) AND d.product_sid NOT IN (34)" , implode(',', $order_sids));
+WHERE d.`order_sid` IN (%s) AND d.product_sid NOT IN (34)", implode(',', $order_sids));
 
 $d_rows = $pdo->query($d_sql)->fetchAll();
 
@@ -43,13 +43,33 @@ foreach ($d_rows  as $k => $r) {
     $d_rows[$k]['my_imgs'] = explode(",", $r['img']);
 };
 
+
+
+
 //Custom
 
 $design_sql = sprintf("SELECT d.`order_sid`, c.sid, c.`mat-total-price`, c.pick_color, c.`mat-h`, c.`matw`, c.`weight`, c.`mat-count`, c.`mat-total-price`, c.design_img FROM `custom_product` c JOIN `order_details` d 
 ON c.`sid` = d.`custom_id` 
-WHERE d.`order_sid` IN (%s)" , implode(',', $order_sids));
+WHERE d.`order_sid` IN (%s)", implode(',', $order_sids));
 
 $design_rows = $pdo->query($design_sql)->fetchAll();
+// echo json_encode($design_rows, JSON_UNESCAPED_UNICODE);
+
+//Custom quantity
+$taco_sql = sprintf("SELECT `custom_id`, `quantity` FROM `order_details`
+WHERE `product_sid` IN (34)");
+$taco_rows = $pdo->query($taco_sql)->fetchAll();
+
+// echo json_encode($taco_rows, JSON_UNESCAPED_UNICODE);
+// echo "<br>";
+
+
+
+// foreach ($design_rows as $taco => $haha) {
+//     if ($haha['sid'] == $ddds['order_sid']) :
+//     $design_rows[$tako]['quantity'] = ;
+// }
+
 // echo "<br>";
 // echo json_encode($design_sql, JSON_UNESCAPED_UNICODE);exit;
 
@@ -698,18 +718,18 @@ $member_row = $stmt->fetch();
                                         <?php endif ?>
                                     <?php endforeach ?>
 
-                                     <!-- Custom商品 -->
-                                     <?php foreach ($design_rows as $ddds) : ?>
+                                    <!-- Custom商品 -->
+                                    <?php foreach ($design_rows as $ddds) : ?>
                                         <?php if ($a['sid'] == $ddds['order_sid']) : ?>
                                             <div class="order_product_wrap d-flex align-items-center">
                                                 <div class="product-left d-flex col-8">
                                                     <!-- 訂單商品圖 -->
                                                     <div class="order_img_wrap" style="overflow:hidden;">
-                                                        <img class="p_img" src="img/customize/design/<?= $ddds['design_img'] ?>.png" alt="" style="width: 100%;object-fit: cover; background-color: <?= $ddds['pick_color'] ?>"/>
+                                                        <img class="p_img" src="img/customize/design/<?= $ddds['design_img'] ?>.png" alt="" style="width: 100%;object-fit: cover; background-color: <?= $ddds['pick_color'] ?>" />
                                                     </div>
                                                     <!-- 商品尺寸 -->
                                                     <div class="product_detail d-flex flex-column align-self-start">
-                                                        <p class="p_title">客製化商品</p>
+                                                        <p class="p_title">客製瑜珈墊</p>
 
                                                         <p class="p_detail">尺寸:<span id="size"><?= $ddds['mat-h'] ?> x <?= $ddds['matw'] ?> cm</span></p>
                                                         <p class="p_detail">重量:<span id="weight"><?= $ddds['weight'] ?></span>g</p>

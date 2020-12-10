@@ -441,7 +441,7 @@ foreach ($rec2_row  as $k2 => $r2) {
             // $('#product_' + sid).remove();
             // $('#product_m' + sid).remove();
             // //刪除商品後重新計算
-            // calcTotal();
+            calcTotal();
         }, 'json');
     }
     // 連動quantity
@@ -462,7 +462,7 @@ foreach ($rec2_row  as $k2 => $r2) {
             input.attr('data-quantity', quantity);
             input.val(quantity);
             updateData(tr, sid, cart)
-            calcTotal();
+            // calcTotal();
         }, 'json')
     });
 
@@ -481,7 +481,7 @@ foreach ($rec2_row  as $k2 => $r2) {
             const cart = data.cart
             input.attr('data-quantity', quantity);
             updateData(tr, sid, cart)
-            calcTotal();
+            // calcTotal();
         }, 'json')
 
 
@@ -506,7 +506,7 @@ foreach ($rec2_row  as $k2 => $r2) {
             input.attr('data-quantity', quantity);
             input.val(quantity);
             updateData(tr, sid, custom)
-            calcTotal();
+            // calcTotal();
         }, 'json')
 
     });
@@ -528,7 +528,7 @@ foreach ($rec2_row  as $k2 => $r2) {
             const custom = data.custom
             input.attr('data-quantity', quantity);
             updateData(tr, sid, custom)
-            calcTotal();
+            // calcTotal();
         }, 'json')
         // let count = intval(quantity);
         // let total = count *
@@ -591,9 +591,9 @@ foreach ($rec2_row  as $k2 => $r2) {
 
         })
 
-        $('#totalMoney').html(total);
-        $('#totalWeight').html(totalWeight);
-        $('#totalCountNumber').html(num);
+        $('#totalMoney').text(total);
+        $('#totalWeight').text(totalWeight);
+        $('#totalCountNumber').text(num);
 
         console.log(`total: ${total}, num:${num}, totalWeight:${totalWeight}`);
     }
