@@ -71,7 +71,7 @@ $member_row = $stmt->fetch();
                     <!-- 照片與登出區 -->
                     <div class="d-flex align-items-center justify-content-start">
                         <div class="member_img_wrap">
-                            <img class="member_pic" src="./img/member/<?= isset($member_row['avatar']) ? $member_row['avatar'] : 'avatar00' ?>.jpg" alt="">
+                            <img class="member_pic" src="./img/member/<?= $member_row['avatar'] ?>" alt="">
 
                         </div>
                         <div class="ml-3">
