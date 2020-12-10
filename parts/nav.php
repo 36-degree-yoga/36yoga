@@ -12,10 +12,17 @@ foreach ($_SESSION as $k => $v) {
 
 
 
+
+
 // echo json_encode($row, JSON_UNESCAPED_UNICODE);
 // exit;
 ?>
 
+<?php if (!isset($_SESSION['custom'])) {
+    $_SESSION['custom'] = [];
+};
+
+?>
 
 <body>
     <!----- Side Nav for mobile ------------------>
