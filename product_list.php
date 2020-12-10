@@ -76,6 +76,11 @@ foreach ($towel_row  as $k => $r) {
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/product_list.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/product_sidebar.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/quick_view.css">
+<style>
+    .product h6 {
+        cursor: pointer;
+    }
+</style>
 <?php include __DIR__ . '/parts/nav.php'; ?>
 
 
@@ -165,15 +170,15 @@ foreach ($towel_row  as $k => $r) {
 
             <div class="product_list d-flex justify-content-between flex-wrap" name="std">
                 <?php foreach ($m_rows as $m) : ?>
-                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $m['sid'] ?>)">
-                        <div class="product_img_wrap" data-toggle="modal" data-target="#exampleModal">
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap" onclick="showProductModal(<?= $m['sid'] ?>)">
 
                             <img src="./img/product_list/<?= $m['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $m['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $m['my_imgs'][0] ?>.jpg">
                             <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
                             <img src="./img/product_list/<?= $m['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
                         </div>
                         <div class="space_30"></div>
-                        <h6 class="mb-0" style="text-align: center;"><?= $m['product_name'] ?></h6>
+                        <h6 class="mb-0" style="text-align: center;" onclick="toDetail(<?= $m['sid'] ?>)"><?= $m['product_name'] ?></h6>
                         <p class="p-0" style="text-align: center;">NT.<?= $m['price'] ?></p>
                     </div>
 
@@ -227,15 +232,15 @@ foreach ($towel_row  as $k => $r) {
                 <!-- 瑜珈磚列表 -->
                 <div class="product_list col-6 p-0 d-flex flex-wrap justify-content-around">
                     <?php foreach ($block_row as $b) : ?>
-                        <div class="product mb-5 col-6" onclick="showProductModal(<?= $b['sid'] ?>)">
+                        <div class="product mb-5 col-6">
 
-                            <div class="product_img_wrap">
+                            <div class="product_img_wrap" onclick="showProductModal(<?= $b['sid'] ?>)">
 
                                 <img src="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $b['my_imgs'][0] ?>.jpg">
                                 <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
                                 <img src="./img/product_list/<?= $b['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
                             </div>
-                            <h6 class="mt-4 mb-0" style="text-align: center;"><?= $b['product_name'] ?></h6>
+                            <h6 class="mt-4 mb-0" style="text-align: center;" onclick="toDetail(<?= $b['sid'] ?>)"><?= $b['product_name'] ?></h6>
                             <p style="text-align: center;">NT.<?= $b['price'] ?></p>
 
                         </div>
@@ -246,13 +251,13 @@ foreach ($towel_row  as $k => $r) {
             <div class="space_120" id="pad"></div>
             <div class="d-flex justify-content-between flex-wrap">
                 <?php foreach ($pad_row as $p) : ?>
-                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $p['sid'] ?>)">
-                        <div class="product_img_wrap">
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap" onclick="showProductModal(<?= $p['sid'] ?>)">
                             <img src="./img/product_list/<?= $p['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $p['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $p['my_imgs'][0] ?>.jpg">
                             <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
                             <img src="./img/product_list/<?= $p['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
                         </div>
-                        <h6 class="mt-4 mb-0 w-100 justify-content-center" style="text-align: center;"><?= $p['product_name'] ?></h6>
+                        <h6 class="mt-4 mb-0 w-100 justify-content-center" style="text-align: center;" onclick="toDetail(<?= $p['sid'] ?>)"><?= $p['product_name'] ?></h6>
                         <p class="p-0" style="text-align: center;">NT.<?= $p['price'] ?></p>
                     </div>
                 <?php endforeach; ?>
@@ -262,13 +267,13 @@ foreach ($towel_row  as $k => $r) {
             <div class="space_120" id="roller"></div>
             <div class="d-flex justify-content-between flex-wrap">
                 <?php foreach ($roller_row as $r) : ?>
-                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $r['sid'] ?>)">
-                        <div class="product_img_wrap">
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap" onclick="showProductModal(<?= $r['sid'] ?>)">
                             <img src="./img/product_list/<?= $r['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $r['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $r['my_imgs'][0] ?>.jpg">
                             <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
                             <img src="./img/product_list/<?= $r['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
                         </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;"><?= $r['product_name'] ?></h6>
+                        <h6 class="mt-4 mb-0" style="text-align: center;" onclick="toDetail(<?= $r['sid'] ?>)"><?= $r['product_name'] ?></h6>
                         <p class="p-0" style="text-align: center;">NT.<?= $r['price'] ?></p>
                     </div>
                 <?php endforeach; ?>
@@ -283,13 +288,13 @@ foreach ($towel_row  as $k => $r) {
                 <!-- 沙包列表 -->
                 <div class="product_list col-6 p-0 d-flex flex-wrap justify-content-around">
                     <?php foreach ($sand_row as $s) : ?>
-                        <div class="product mb-5 col-6" onclick="showProductModal(<?= $s['sid'] ?>)">
-                            <div class="product_img_wrap">
+                        <div class="product mb-5 col-6">
+                            <div class="product_img_wrap" onclick="showProductModal(<?= $s['sid'] ?>)">
                                 <img src="./img/product_list/<?= $s['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $s['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $s['my_imgs'][0] ?>.jpg">
                                 <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
                                 <img src="./img/product_list/<?= $s['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
                             </div>
-                            <h6 class="mt-4 mb-0" style="text-align: center;"><?= $s['product_name'] ?></h6>
+                            <h6 class="mt-4 mb-0" style="text-align: center;" onclick="toDetail(<?= $s['sid'] ?>)"><?= $s['product_name'] ?></h6>
                             <p style="text-align: center;"><?= $s['price'] ?></p>
                         </div>
                     <?php endforeach; ?>
@@ -305,13 +310,13 @@ foreach ($towel_row  as $k => $r) {
             <div class="space_120" id="strap"></div>
             <div class="d-flex justify-content-between flex-wrap">
                 <?php foreach ($strap_row as $a) : ?>
-                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $a['sid'] ?>)">
-                        <div class="product_img_wrap">
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap" onclick="showProductModal(<?= $a['sid'] ?>)">
                             <img src="./img/product_list/<?= $a['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $a['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $a['my_imgs'][0] ?>.jpg">
                             <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
                             <img src="./img/product_list/<?= $a['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
                         </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;"><?= $a['product_name'] ?></h6>
+                        <h6 class="mt-4 mb-0" style="text-align: center;" onclick="toDetail(<?= $a['sid'] ?>)"><?= $a['product_name'] ?></h6>
                         <p class="p-0" style="text-align: center;">NT.<?= $a['price'] ?></p>
 
                     </div>
@@ -321,13 +326,13 @@ foreach ($towel_row  as $k => $r) {
             <div class="space_120" id="band"></div>
             <div class="d-flex justify-content-between flex-wrap">
                 <?php foreach ($band_row as $b) : ?>
-                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $b['sid'] ?>)">
-                        <div class="product_img_wrap">
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap" onclick="showProductModal(<?= $b['sid'] ?>)">
                             <img src="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $b['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $b['my_imgs'][0] ?>.jpg">
                             <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
                             <img src="./img/product_list/<?= $b['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
                         </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;"><?= $b['product_name'] ?></h6>
+                        <h6 class="mt-4 mb-0" style="text-align: center;" onclick="toDetail(<?= $b['sid'] ?>)"><?= $b['product_name'] ?></h6>
                         <p class="p-0" style="text-align: center;">NT.<?= $b['price'] ?></p>
 
                     </div>
@@ -338,13 +343,13 @@ foreach ($towel_row  as $k => $r) {
             <div class="space_120" id="towel"></div>
             <div class="d-flex justify-content-between flex-wrap">
                 <?php foreach ($towel_row as $w) : ?>
-                    <div class="product mb-5 col-3" onclick="showProductModal(<?= $w['sid'] ?>)">
-                        <div class="product_img_wrap">
+                    <div class="product mb-5 col-3">
+                        <div class="product_img_wrap" onclick="showProductModal(<?= $w['sid'] ?>)">
                             <img src="./img/product_list/<?= $w['my_imgs'][1] ?>.jpg" alt="" data-src1="./img/product_list/<?= $w['my_imgs'][1] ?>.jpg" data-src2="./img/product_list/<?= $w['my_imgs'][0] ?>.jpg">
                             <!-- 先把圖片存到瀏覽器，hover速度比較快 -->
                             <img src="./img/product_list/<?= $w['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
                         </div>
-                        <h6 class="mt-4 mb-0" style="text-align: center;"><?= $w['product_name'] ?></h6>
+                        <h6 class="mt-4 mb-0" style="text-align: center;" onclick="toDetail(<?= $w['sid'] ?>)"><?= $w['product_name'] ?></h6>
                         <p class="p-0" style="text-align: center;">NT.<?= $w['price'] ?></p>
 
                     </div>
@@ -462,19 +467,12 @@ foreach ($towel_row  as $k => $r) {
     }
     // 跳出視窗↑↑
 
-    // 手機板沒有modal↓↓
-    // $('#exampleModal').on('shown.bs.modal', function() {
-    //     var width = $(window).width();
-    //     if (width < 768) {
-    //         $('.modal-backdrop').hide();
-    //         $('#exampleModal').modal('hide');
-    //     }
-    // });
-
-
-
-
-    // 手機板沒有modal↑↑
+    // 按文字進入詳細頁↓↓
+    function toDetail(sid) {
+        location.href = 'product_mat.php?sid=' + sid;
+        return;
+    };
+    // 按文字進入詳細頁↑↑
 </script>
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>
