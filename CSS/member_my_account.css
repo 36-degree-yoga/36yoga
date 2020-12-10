@@ -13,7 +13,6 @@ a:hover {
 .member_img_wrap {
   height: 100px;
   width: 100px;
-  background-color: aqua;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -56,13 +55,18 @@ a:hover {
   width: 180px;
   border-radius: 50%;
   overflow: hidden;
+  background: white;
 }
-.member_account_img_wrap p {
+.upload {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #004a13;
+  border: none;
+  background: none;
 }
+
 .mask {
   height: 180px;
   width: 180px;

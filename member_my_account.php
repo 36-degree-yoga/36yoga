@@ -62,7 +62,7 @@ $member_row = $stmt->fetch();
                     <!-- 照片與登出區 -->
                     <div class="edit_info d-flex align-items-center justify-content-start">
                         <div class="member_img_wrap">
-                            <img class="member_pic" src="./img/member/<?= isset($member_row['avatar']) ? $member_row['avatar'] : 'avatar00' ?>.jpg" alt="">
+                            <img class="member_pic" src="./img/member/<?= $member_row['avatar'] ?>" alt="">
 
                         </div>
                         <div class="ml-3">
@@ -191,25 +191,28 @@ $member_row = $stmt->fetch();
         <!-- 右側 -->
         <div class="right_area col-9 d-flex flex-wrap">
             <!-- 變更照片區 -->
-            <div class="change_picture_area col-5 d-flex flex-column justify-content-center align-items-center">
-                <div class="member_account_img_wrap position-relative">
-                    <!-- hover出現 -->
-                    <div class="mask" style="display:none">
-                        <p>
-                            <a href="" style="color: #004A13;">變更</a>
-                        </p>
+            <div class="change_picture_area col-5 d-flex flex-column justify-content-center align-items-center ">
+                <div>
+                    <div class="member_account_img_wrap position-relative">
+                        <!-- hover出現 -->
+                        <div class="mask" style="display:none"></div>
+                        <button onclick="field.click()" class="upload" style="display:none">上傳</button>
+                        <img class="member_pic" id="myimg" src="./img/member/<?= $member_row['avatar'] ?>" alt="">
                     </div>
-
-                    <!-- 照片 -->
-                    <img class="member_pic" src="./img/member/<?= isset($member_row['avatar']) ? $member_row['avatar'] : 'avatar00' ?>.jpg" alt="">
-
                 </div>
+
+                <form name="form1" style="display: none">
+                    <input type="hidden" name="id" value="<?= $member_row['id'] ?>">
+                    <input type="file" name="avatar" accept="image/*">
+                </form>
+
                 <div class="space_30"></div>
                 <p>
                     檔案大小 : 最大1MB
                     <br>
                     檔案限制：JPEG , PNG
                 </p>
+
             </div>
             <!-- 填資料區 -->
             <form name="member_info_form" onsubmit="checkForm(); return false; " class="edit_area col-7 d-flex flex-column justify-content-center align-items-center" novalidate>
@@ -489,6 +492,33 @@ $member_row = $stmt->fetch();
         location.href = "member_my_account_del_api.php?id=" + id;
 
     }
+
+
+    //上傳照片↓↓
+
+    const field = document.querySelector('input[name=avatar]');
+
+    field.addEventListener('change', function() {
+
+        const fd = new FormData(document.form1);
+
+        fetch('member_avatar_upload.php', {
+                method: 'POST',
+                body: fd
+            })
+            //.then(r=>r.json())
+            .then(function(r) {
+                return r.json();
+            })
+            .then(obj => {
+                console.log(obj);
+                document.querySelector('#myimg').src = obj.img;
+
+                location.reload();
+            })
+
+
+    });
 </script>
 
 
