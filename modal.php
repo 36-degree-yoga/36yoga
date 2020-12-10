@@ -24,7 +24,7 @@ $others_rows = $others_stmt->fetchAll();
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/quick_view.css">
 
 
-<div class="modal_wrap d-flex align-items-center justify-content-center" data-sid="<?= $modal_rows['sid'] ?>">
+<div class="modal_wrap d-flex align-items-center justify-content-center" data-sid="<?= $modal_rows['sid'] ?>" id="endformodal">
     <div class="quick_view_img_wrap">
         <img src="./img/product_list/<?= $pic ?>.jpg" alt="">
     </div>
@@ -67,9 +67,36 @@ $others_rows = $others_stmt->fetchAll();
 
 
 <?php include __DIR__ . '/parts/script.php'; ?>
+<script src="<?= WEB_ROOT ?>lib/jquery.fly.min.js"></script>
+
 <!-- js連結 -->
 <script>
     const others = <?= json_encode($others_rows, JSON_UNESCAPED_UNICODE) ?>;
+
+    //購物車動畫
+    $('.buy_btn').on('click', addProduct);
+
+
+    function addProduct(event) {
+        var offset = $("#endformodal").offset(),
+            img = "./img/product_list/<?= $pic ?>.jpg"
+        flyer = $(`<img class="u-flyer" src="${img}" style="width: 100px; height: 100px;"/>`);
+        flyer.fly({
+            start: {
+                left: event.pageX,
+                top: event.pageY
+            },
+            end: {
+                left: 900,
+                top: offset.top,
+                width: 0,
+                height: 0
+            },
+            autoPlay: true, //是否直接运动,默认true
+            speed: 1.8 //越大越快，默认1.2
+
+        });
+    }
 
     $('.buy_btn').on('click', function(event) {
         const sid = $('.modal_wrap').attr('data-sid');

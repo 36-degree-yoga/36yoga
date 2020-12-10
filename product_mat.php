@@ -1951,8 +1951,35 @@ $others_rows = $others_stmt->fetchAll();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script src="<?= WEB_ROOT ?>lib/product_mat.js"></script>
+<script src="<?= WEB_ROOT ?>lib/jquery.fly.min.js"></script>
 
 <script>
+    //購物車動畫
+    $('.addtocart-btn').on('click', addProduct);
+
+
+    function addProduct(event) {
+        var offset = $("#end").offset(),
+            img = "./img/product_list/<?= $p['my_imgs'][1] ?>.jpg"
+        flyer = $(`<img class="u-flyer" src="${img}" style="width: 100px; height: 100px;"/>`);
+        flyer.fly({
+            start: {
+                left: event.pageX,
+                top: event.pageY
+            },
+            end: {
+                left: offset.left,
+                top: offset.top,
+                width: 0,
+                height: 0
+            },
+            autoPlay: true, //是否直接运动,默认true
+            speed: 1.8 //越大越快，默认1.2
+
+        });
+    }
+
+
     // 左側欄互動 
 
     // sid 對照各分類的顏色變化 & 溫度計變化
