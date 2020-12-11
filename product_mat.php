@@ -164,7 +164,7 @@ $others_rows = $others_stmt->fetchAll();
 
                                 <div class="review-link">
                                     <a class="pl-2" href="#write-review">
-                                        (1051）評論
+                                        (16）評論
                                     </a>
                                     <span>｜</span>
                                     <a href="#write-review">
@@ -187,18 +187,29 @@ $others_rows = $others_stmt->fetchAll();
 
                             <div class="icon-favorite">
                                 <!-- <img src="./SVG/icon_favorite.svg" alt=""> -->
-
-                                <svg id="" class="btn_like" onclick="checkLike(event); return false;" data-sid="<?= $p['sid'] ?>" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
-                                    <g id="圖層_2" data-name="圖層 2">
-                                        <g id="圖層_1-2" data-name="圖層 1">
-                                            <g id="Path_324" data-name="Path 324">
-                                                <path class="like_fill" d="M15,28C6.93,22.16,2.7,16.84,1,12.39-3.68.47,9.6-3.58,15,3.46c5.4-7,18.68-3,14,8.93C27.3,16.84,23.06,22.16,15,28Z" />
-                                                <path class="like_stroke" d="M15,25.51a51.66,51.66,0,0,0,7.88-7.15,23.48,23.48,0,0,0,4.29-6.69c1.15-3,1.11-5.46-.11-7.25a5.94,5.94,0,0,0-5-2.42,6.85,6.85,0,0,0-5.49,2.68L15,6.74,13.41,4.68A6.85,6.85,0,0,0,7.92,2a5.94,5.94,0,0,0-5,2.42c-1.22,1.79-1.26,4.29-.11,7.25a23.48,23.48,0,0,0,4.29,6.69A51.66,51.66,0,0,0,15,25.51M15,28C6.93,22.16,2.7,16.84,1,12.39-2.13,4.45,2.74,0,7.92,0A8.86,8.86,0,0,1,15,3.46,8.86,8.86,0,0,1,22.08,0c5.18,0,10.05,4.45,7,12.39C27.3,16.84,23.07,22.16,15,28Z" />
+                                <?php if (isset($_SESSION['user'])) : ?>
+                                    <svg id="" class="btn_like" onclick="checkLike(event); return false;" data-sid="<?= $p['sid'] ?>" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
+                                        <g id="圖層_2" data-name="圖層 2">
+                                            <g id="圖層_1-2" data-name="圖層 1">
+                                                <g id="Path_324" data-name="Path 324">
+                                                    <path class="like_fill" d="M15,28C6.93,22.16,2.7,16.84,1,12.39-3.68.47,9.6-3.58,15,3.46c5.4-7,18.68-3,14,8.93C27.3,16.84,23.06,22.16,15,28Z" />
+                                                    <path class="like_stroke" d="M15,25.51a51.66,51.66,0,0,0,7.88-7.15,23.48,23.48,0,0,0,4.29-6.69c1.15-3,1.11-5.46-.11-7.25a5.94,5.94,0,0,0-5-2.42,6.85,6.85,0,0,0-5.49,2.68L15,6.74,13.41,4.68A6.85,6.85,0,0,0,7.92,2a5.94,5.94,0,0,0-5,2.42c-1.22,1.79-1.26,4.29-.11,7.25a23.48,23.48,0,0,0,4.29,6.69A51.66,51.66,0,0,0,15,25.51M15,28C6.93,22.16,2.7,16.84,1,12.39-2.13,4.45,2.74,0,7.92,0A8.86,8.86,0,0,1,15,3.46,8.86,8.86,0,0,1,22.08,0c5.18,0,10.05,4.45,7,12.39C27.3,16.84,23.07,22.16,15,28Z" />
+                                                </g>
                                             </g>
                                         </g>
-                                    </g>
-                                </svg>
-
+                                    </svg>
+                                <?php else : ?>
+                                    <svg id="" class="btn_like" onclick="javascript:location.href='login_regist.php'" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
+                                        <g id="圖層_2" data-name="圖層 2">
+                                            <g id="圖層_1-2" data-name="圖層 1">
+                                                <g id="Path_324" data-name="Path 324">
+                                                    <path class="like_fill" d="M15,28C6.93,22.16,2.7,16.84,1,12.39-3.68.47,9.6-3.58,15,3.46c5.4-7,18.68-3,14,8.93C27.3,16.84,23.06,22.16,15,28Z" />
+                                                    <path class="like_stroke" d="M15,25.51a51.66,51.66,0,0,0,7.88-7.15,23.48,23.48,0,0,0,4.29-6.69c1.15-3,1.11-5.46-.11-7.25a5.94,5.94,0,0,0-5-2.42,6.85,6.85,0,0,0-5.49,2.68L15,6.74,13.41,4.68A6.85,6.85,0,0,0,7.92,2a5.94,5.94,0,0,0-5,2.42c-1.22,1.79-1.26,4.29-.11,7.25a23.48,23.48,0,0,0,4.29,6.69A51.66,51.66,0,0,0,15,25.51M15,28C6.93,22.16,2.7,16.84,1,12.39-2.13,4.45,2.74,0,7.92,0A8.86,8.86,0,0,1,15,3.46,8.86,8.86,0,0,1,22.08,0c5.18,0,10.05,4.45,7,12.39C27.3,16.84,23.07,22.16,15,28Z" />
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                <?php endif; ?>
 
                             </div>
 
@@ -1336,7 +1347,7 @@ $others_rows = $others_stmt->fetchAll();
 
                         <div class="sort-by-wrap d-flex justify-content-between line-height">
                             <a class="pl-2" href="">
-                                (1051）評論
+                                (16）評論
                             </a>
 
                             <!-- 分類選擇：篩選器 -->
@@ -1358,7 +1369,9 @@ $others_rows = $others_stmt->fetchAll();
                         </div>
 
                         <!-- 評論 -->
-                        <div class="comment-message">
+                        
+                        <!-- sunny -->
+                        <div class="comment-message sunny">
                             <!-- 人名 -->
                             <div class="d-flex justify-content-between ">
                                 <!-- 人像-->
@@ -1373,7 +1386,7 @@ $others_rows = $others_stmt->fetchAll();
                                 </div>
 
                                 <div class="avatar-date">
-                                    <p>11/02/20</p>
+                                    <p>12/18/20</p>
                                 </div>
                             </div>
                             <!-- 留言 -->
@@ -1382,13 +1395,13 @@ $others_rows = $others_stmt->fetchAll();
 
                                 <div class="content-area">
                                     <p class="filter-info line-height">
-                                        練習頻率：每週5次以上 <br>
-                                        瑜伽經驗：高級 <br>
-                                        我最喜歡的功能：防滑 <br>
+                                        練習頻率：一週2-4次 <br>
+                                        瑜伽經驗：中段班 <br>
+                                        我最喜歡的功能：無毒 <br>
                                     </p>
-
+                                    <p class="font-weight-bold">運動不擔心肌膚過敏</p>
                                     <p>
-                                        跪著時，我可以做瑜伽姿勢而左膝不再疼痛。善待自己，充實自己的生活並享受練習。
+                                        親膚好安心！
                                     </p>
                                 </div>
                             </div>
@@ -1416,6 +1429,7 @@ $others_rows = $others_stmt->fetchAll();
 
                             </div>
                         </div>
+                        <!-- sunny -->
                         <div class="comment-message">
                             <!-- 人名 -->
                             <div class="d-flex justify-content-between ">
@@ -1440,13 +1454,13 @@ $others_rows = $others_stmt->fetchAll();
 
                                 <div class="content-area">
                                     <p class="filter-info line-height">
-                                        練習頻率：每週5次以上 <br>
-                                        瑜伽經驗：高級 <br>
-                                        我最喜歡的功能：防滑 <br>
+                                        練習頻率：ㄧ週超過 5 次 <br>
+                                        瑜伽經驗：中段班 <br>
+                                        我最喜歡的功能：專利防滑 <br>
                                     </p>
-
+                                    <p class="font-weight-bold">超愛！！防滑功能好強！！</p>
                                     <p>
-                                        跪著時，我可以做瑜伽姿勢而左膝不再疼痛。善待自己，充實自己的生活並享受練習。
+                                        抓地力很棒，自從買墊子我就更加享受練習的樂趣，最重要的是可以幫助我保持平衡:)
                                     </p>
                                 </div>
                             </div>
@@ -1489,7 +1503,7 @@ $others_rows = $others_stmt->fetchAll();
                                 </div>
 
                                 <div class="avatar-date">
-                                    <p>11/02/20</p>
+                                    <p>10/18/20</p>
                                 </div>
                             </div>
                             <!-- 留言 -->
@@ -1498,13 +1512,13 @@ $others_rows = $others_stmt->fetchAll();
 
                                 <div class="content-area">
                                     <p class="filter-info line-height">
-                                        練習頻率：每週5次以上 <br>
-                                        瑜伽經驗：高級 <br>
-                                        我最喜歡的功能：防滑 <br>
+                                        練習頻率：一週2-4次 <br>
+                                        瑜伽經驗：初學者 <br>
+                                        我最喜歡的功能：環保 <br>
                                     </p>
-
+                                    <p class="font-weight-bold">環保、重量很輕～</p>
                                     <p>
-                                        跪著時，我可以做瑜伽姿勢而左膝不再疼痛。善待自己，充實自己的生活並享受練習。
+                                        味道沒有很濃，最重要的是很環保，對環境非常友善！
                                     </p>
                                 </div>
                             </div>
@@ -1547,7 +1561,7 @@ $others_rows = $others_stmt->fetchAll();
                                 </div>
 
                                 <div class="avatar-date">
-                                    <p>11/02/20</p>
+                                    <p>09/27/20</p>
                                 </div>
                             </div>
                             <!-- 留言 -->
@@ -1556,14 +1570,15 @@ $others_rows = $others_stmt->fetchAll();
 
                                 <div class="content-area">
                                     <p class="filter-info line-height">
-                                        練習頻率：每週5次以上 <br>
-                                        瑜伽經驗：高級 <br>
-                                        我最喜歡的功能：防滑 <br>
+                                        練習頻率：ㄧ週超過5次 <br>
+                                        瑜伽經驗：瑜珈老師 <br>
+                                        我最喜歡的功能：客製化選擇 <br>
                                     </p>
-
+                                    <p class="font-weight-bold">高質感、客製化選擇多又防滑</p>
                                     <p>
-                                        跪著時，我可以做瑜伽姿勢而左膝不再疼痛。善待自己，充實自己的生活並享受練習。
-                                    </p>
+                                        <p>
+                                            有超多顏色可以選，剛買回來味道都不會有塑膠味，大推我學生們來買瑜珈墊。
+                                        </p>
                                 </div>
                             </div>
                             <!-- 分享 -->
@@ -1635,7 +1650,7 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- 人名-->
                                 <div class="avatar-name line-height d-flex justify-content-between">
                                     <p class="nickname">Sunny</p>
-                                    <p>12/02/19</p>
+                                    <p>12/02/20</p>
                                 </div>
 
                                 <!-- Q:問題 -->
@@ -1651,16 +1666,16 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- A:回覆 -->
                                 <div class="media-yoga media mt-3">
                                     <!-- 人像-->
-                                    <a href="#">
-                                        <div class="avatar border">
-                                            <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                    <a href="<?= WEB_ROOT ?>homepage.php">
+                                        <div class="avatar">
+                                            <img class="avatar-img w-100 h-100" src="./SVG/icon_logo.svg" class="mr-3" alt="">
                                         </div>
                                     </a>
                                     <div class="media-body pl-3">
                                         <!-- 人名-->
                                         <div class="avatar-name line-height d-flex justify-content-between">
                                             <p class="nickname">36度 瑜珈</p>
-                                            <p>12/02/19</p>
+                                            <p>12/02/20</p>
                                         </div>
 
                                         <!-- 解答 -->
@@ -1707,7 +1722,7 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- 人名-->
                                 <div class="avatar-name line-height d-flex justify-content-between">
                                     <p class="nickname">Rachel</p>
-                                    <p>12/02/19</p>
+                                    <p>10/15/20</p>
                                 </div>
 
                                 <!-- Q:問題 -->
@@ -1717,22 +1732,22 @@ $others_rows = $others_stmt->fetchAll();
                                     </p>
 
                                     <p style="font-weight: 500;">
-                                        我重68公斤，想要在瓷磚地面上使用墊子。這足夠緩衝嗎？我是初學者。
+                                        我可以將瑜伽墊取代運動墊嗎？
                                     </p>
                                 </div>
                                 <!-- A:回覆 -->
                                 <div class="media-yoga media mt-3">
                                     <!-- 人像-->
-                                    <a href="#">
-                                        <div class="avatar border">
-                                            <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                    <a href="<?= WEB_ROOT ?>homepage.php">
+                                        <div class="avatar">
+                                            <img class="avatar-img w-100 h-100" src="./SVG/icon_logo.svg" class="mr-3" alt="">
                                         </div>
                                     </a>
                                     <div class="media-body pl-3">
                                         <!-- 人名-->
                                         <div class="avatar-name line-height d-flex justify-content-between">
                                             <p class="nickname">36度 瑜珈</p>
-                                            <p>12/02/19</p>
+                                            <p>10/15/20</p>
                                         </div>
 
                                         <!-- 解答 -->
@@ -1742,9 +1757,9 @@ $others_rows = $others_stmt->fetchAll();
                                             </p>
 
                                             <p>
-                                                謝謝您的留言！<br>
+                                                感謝您的提問！<br>
 
-                                                我們的墊子經過精心設計，可為膝蓋和肘部提供出色的緩衝性，並具有出色的穩定性和抓地力。它們主要設計用於硬地板，因為這些往往是瑜伽工作室中的地板。我們將底層設計為由天然且可持續資源的天然橡膠製成，該橡膠非常緻密，因此可以在地面上很好地跟踪:)這意味著該墊子將在大多數表面上保持穩定。<br>
+                                                我們的墊子也適合普拉提練習，HIIT鍛煉和許多其他形式的運動，建議不要在使用該墊子時穿運動鞋或穿任何鞋。<br>
 
                                                 希望對您有所幫助，如果還有其他問題，請告訴我們，並給我們發送電子郵件至info@yoga36.com。<br>
                                             </p>
@@ -1779,7 +1794,7 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- 人名-->
                                 <div class="avatar-name line-height d-flex justify-content-between">
                                     <p class="nickname">John</p>
-                                    <p>12/02/19</p>
+                                    <p>09/08/20</p>
                                 </div>
 
                                 <!-- Q:問題 -->
@@ -1789,22 +1804,22 @@ $others_rows = $others_stmt->fetchAll();
                                     </p>
 
                                     <p style="font-weight: 500;">
-                                        我重68公斤，想要在瓷磚地面上使用墊子。這足夠緩衝嗎？我是初學者。
+                                        劇烈運動中穿鞋是否適合使用此款瑜珈墊？
                                     </p>
                                 </div>
                                 <!-- A:回覆 -->
                                 <div class="media-yoga media mt-3">
                                     <!-- 人像-->
-                                    <a href="#">
-                                        <div class="avatar border">
-                                            <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                    <a href="<?= WEB_ROOT ?>homepage.php">
+                                        <div class="avatar">
+                                            <img class="avatar-img w-100 h-100" src="./SVG/icon_logo.svg" class="mr-3" alt="">
                                         </div>
                                     </a>
                                     <div class="media-body pl-3">
                                         <!-- 人名-->
                                         <div class="avatar-name line-height d-flex justify-content-between">
                                             <p class="nickname">36度 瑜珈</p>
-                                            <p>12/02/19</p>
+                                            <p>09/08/20</p>
                                         </div>
 
                                         <!-- 解答 -->
@@ -1816,7 +1831,7 @@ $others_rows = $others_stmt->fetchAll();
                                             <p>
                                                 謝謝您的留言！<br>
 
-                                                我們的墊子經過精心設計，可為膝蓋和肘部提供出色的緩衝性，並具有出色的穩定性和抓地力。它們主要設計用於硬地板，因為這些往往是瑜伽工作室中的地板。我們將底層設計為由天然且可持續資源的天然橡膠製成，該橡膠非常緻密，因此可以在地面上很好地跟踪:)這意味著該墊子將在大多數表面上保持穩定。<br>
+                                                我們的墊子是由環保且可生物分解的材料製成。我們使用的材料質量高，耐久用，因此我們的墊子適合瑜伽運動。但是，我們不建議在穿鞋時使用該墊子，因為它可能會磨蝕並導致墊子磨損得比其他方法快！<br>
 
                                                 希望對您有所幫助，如果還有其他問題，請告訴我們，並給我們發送電子郵件至info@yoga36.com。<br>
                                             </p>
@@ -1861,15 +1876,15 @@ $others_rows = $others_stmt->fetchAll();
                                     </p>
 
                                     <p style="font-weight: 500;">
-                                        我重68公斤，想要在瓷磚地面上使用墊子。這足夠緩衝嗎？我是初學者。
+                                        這是我的第一個瑜珈墊。是否建議旅行或平時瑜珈課使用即可呢？
                                     </p>
                                 </div>
                                 <!-- A:回覆 -->
                                 <div class="media-yoga media mt-3">
                                     <!-- 人像-->
-                                    <a href="#">
-                                        <div class="avatar border">
-                                            <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                    <a href="<?= WEB_ROOT ?>homepage.php">
+                                        <div class="avatar">
+                                            <img class="avatar-img w-100 h-100" src="./SVG/icon_logo.svg" class="mr-3" alt="">
                                         </div>
                                     </a>
                                     <div class="media-body pl-3">
@@ -1888,7 +1903,7 @@ $others_rows = $others_stmt->fetchAll();
                                             <p>
                                                 謝謝您的留言！<br>
 
-                                                我們的墊子經過精心設計，可為膝蓋和肘部提供出色的緩衝性，並具有出色的穩定性和抓地力。它們主要設計用於硬地板，因為這些往往是瑜伽工作室中的地板。我們將底層設計為由天然且可持續資源的天然橡膠製成，該橡膠非常緻密，因此可以在地面上很好地跟踪:)這意味著該墊子將在大多數表面上保持穩定。<br>
+                                                您可以加購墊子袋，可以在旅途中它可以確保安全。 。<br>
 
                                                 希望對您有所幫助，如果還有其他問題，請告訴我們，並給我們發送電子郵件至info@yoga36.com。<br>
                                             </p>

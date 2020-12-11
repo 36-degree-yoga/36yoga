@@ -1576,7 +1576,7 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- 人名-->
                                 <div class="avatar-name line-height d-flex justify-content-between">
                                     <p class="nickname">Sunny</p>
-                                    <p>12/02/19</p>
+                                    <p>12/02/20</p>
                                 </div>
 
                                 <!-- Q:問題 -->
@@ -1592,16 +1592,16 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- A:回覆 -->
                                 <div class="media-yoga media mt-3">
                                     <!-- 人像-->
-                                    <a href="#">
-                                        <div class="avatar border">
-                                            <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                    <a href="<?= WEB_ROOT ?>homepage.php">
+                                        <div class="avatar">
+                                            <img class="avatar-img w-100 h-100" src="./SVG/icon_logo.svg" class="mr-3" alt="">
                                         </div>
                                     </a>
                                     <div class="media-body pl-3">
                                         <!-- 人名-->
                                         <div class="avatar-name line-height d-flex justify-content-between">
                                             <p class="nickname">36度 瑜珈</p>
-                                            <p>12/02/19</p>
+                                            <p>12/02/20</p>
                                         </div>
 
                                         <!-- 解答 -->
@@ -1648,7 +1648,7 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- 人名-->
                                 <div class="avatar-name line-height d-flex justify-content-between">
                                     <p class="nickname">Rachel</p>
-                                    <p>12/02/19</p>
+                                    <p>10/15/20</p>
                                 </div>
 
                                 <!-- Q:問題 -->
@@ -1658,22 +1658,22 @@ $others_rows = $others_stmt->fetchAll();
                                     </p>
 
                                     <p style="font-weight: 500;">
-                                        我重68公斤，想要在瓷磚地面上使用墊子。這足夠緩衝嗎？我是初學者。
+                                        我可以將瑜伽墊取代運動墊嗎？
                                     </p>
                                 </div>
                                 <!-- A:回覆 -->
                                 <div class="media-yoga media mt-3">
                                     <!-- 人像-->
-                                    <a href="#">
-                                        <div class="avatar border">
-                                            <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                    <a href="<?= WEB_ROOT ?>homepage.php">
+                                        <div class="avatar">
+                                            <img class="avatar-img w-100 h-100" src="./SVG/icon_logo.svg" class="mr-3" alt="">
                                         </div>
                                     </a>
                                     <div class="media-body pl-3">
                                         <!-- 人名-->
                                         <div class="avatar-name line-height d-flex justify-content-between">
                                             <p class="nickname">36度 瑜珈</p>
-                                            <p>12/02/19</p>
+                                            <p>10/15/20</p>
                                         </div>
 
                                         <!-- 解答 -->
@@ -1683,9 +1683,9 @@ $others_rows = $others_stmt->fetchAll();
                                             </p>
 
                                             <p>
-                                                謝謝您的留言！<br>
+                                                感謝您的提問！<br>
 
-                                                我們的墊子經過精心設計，可為膝蓋和肘部提供出色的緩衝性，並具有出色的穩定性和抓地力。它們主要設計用於硬地板，因為這些往往是瑜伽工作室中的地板。我們將底層設計為由天然且可持續資源的天然橡膠製成，該橡膠非常緻密，因此可以在地面上很好地跟踪:)這意味著該墊子將在大多數表面上保持穩定。<br>
+                                                我們的墊子也適合普拉提練習，HIIT鍛煉和許多其他形式的運動，建議不要在使用該墊子時穿運動鞋或穿任何鞋。<br>
 
                                                 希望對您有所幫助，如果還有其他問題，請告訴我們，並給我們發送電子郵件至info@yoga36.com。<br>
                                             </p>
@@ -1720,7 +1720,7 @@ $others_rows = $others_stmt->fetchAll();
                                 <!-- 人名-->
                                 <div class="avatar-name line-height d-flex justify-content-between">
                                     <p class="nickname">John</p>
-                                    <p>12/02/19</p>
+                                    <p>09/08/20</p>
                                 </div>
 
                                 <!-- Q:問題 -->
@@ -1730,22 +1730,22 @@ $others_rows = $others_stmt->fetchAll();
                                     </p>
 
                                     <p style="font-weight: 500;">
-                                        我重68公斤，想要在瓷磚地面上使用墊子。這足夠緩衝嗎？我是初學者。
+                                        劇烈運動中穿鞋是否適合使用此款瑜珈墊？
                                     </p>
                                 </div>
                                 <!-- A:回覆 -->
                                 <div class="media-yoga media mt-3">
                                     <!-- 人像-->
-                                    <a href="#">
-                                        <div class="avatar border">
-                                            <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                    <a href="<?= WEB_ROOT ?>homepage.php">
+                                        <div class="avatar">
+                                            <img class="avatar-img w-100 h-100" src="./SVG/icon_logo.svg" class="mr-3" alt="">
                                         </div>
                                     </a>
                                     <div class="media-body pl-3">
                                         <!-- 人名-->
                                         <div class="avatar-name line-height d-flex justify-content-between">
                                             <p class="nickname">36度 瑜珈</p>
-                                            <p>12/02/19</p>
+                                            <p>09/08/20</p>
                                         </div>
 
                                         <!-- 解答 -->
@@ -1757,7 +1757,7 @@ $others_rows = $others_stmt->fetchAll();
                                             <p>
                                                 謝謝您的留言！<br>
 
-                                                我們的墊子經過精心設計，可為膝蓋和肘部提供出色的緩衝性，並具有出色的穩定性和抓地力。它們主要設計用於硬地板，因為這些往往是瑜伽工作室中的地板。我們將底層設計為由天然且可持續資源的天然橡膠製成，該橡膠非常緻密，因此可以在地面上很好地跟踪:)這意味著該墊子將在大多數表面上保持穩定。<br>
+                                                我們的墊子是由環保且可生物分解的材料製成。我們使用的材料質量高，耐久用，因此我們的墊子適合瑜伽運動。但是，我們不建議在穿鞋時使用該墊子，因為它可能會磨蝕並導致墊子磨損得比其他方法快！<br>
 
                                                 希望對您有所幫助，如果還有其他問題，請告訴我們，並給我們發送電子郵件至info@yoga36.com。<br>
                                             </p>
@@ -1802,15 +1802,15 @@ $others_rows = $others_stmt->fetchAll();
                                     </p>
 
                                     <p style="font-weight: 500;">
-                                        我重68公斤，想要在瓷磚地面上使用墊子。這足夠緩衝嗎？我是初學者。
+                                        這是我的第一個瑜珈墊。是否建議旅行或平時瑜珈課使用即可呢？
                                     </p>
                                 </div>
                                 <!-- A:回覆 -->
                                 <div class="media-yoga media mt-3">
                                     <!-- 人像-->
-                                    <a href="#">
-                                        <div class="avatar border">
-                                            <img class="avatar-img w-100" src="" class="mr-3" alt="">
+                                    <a href="<?= WEB_ROOT ?>homepage.php">
+                                        <div class="avatar">
+                                            <img class="avatar-img w-100 h-100" src="./SVG/icon_logo.svg" class="mr-3" alt="">
                                         </div>
                                     </a>
                                     <div class="media-body pl-3">
@@ -1829,7 +1829,7 @@ $others_rows = $others_stmt->fetchAll();
                                             <p>
                                                 謝謝您的留言！<br>
 
-                                                我們的墊子經過精心設計，可為膝蓋和肘部提供出色的緩衝性，並具有出色的穩定性和抓地力。它們主要設計用於硬地板，因為這些往往是瑜伽工作室中的地板。我們將底層設計為由天然且可持續資源的天然橡膠製成，該橡膠非常緻密，因此可以在地面上很好地跟踪:)這意味著該墊子將在大多數表面上保持穩定。<br>
+                                                您可以加購墊子袋，可以在旅途中它可以確保安全。 。<br>
 
                                                 希望對您有所幫助，如果還有其他問題，請告訴我們，並給我們發送電子郵件至info@yoga36.com。<br>
                                             </p>
