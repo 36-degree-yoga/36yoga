@@ -644,7 +644,7 @@ a.reviews-item:hover {
   }
 
   .space_120 {
-    height: 60px;
+    height: 60px !important;
   }
 
   .line-height {
