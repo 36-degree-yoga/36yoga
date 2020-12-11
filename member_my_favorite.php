@@ -159,7 +159,7 @@ $member_row = $stmt->fetch();
                                         </g>
                                     </g>
                                 </svg>
-                                <a href="#" class="mb-0 ml-4">我的折價券</a>
+                                <a href="member_my_coupon.php" class="mb-0 ml-4">我的折價券</a>
                             </li>
                             <li class="account_sidebar_title d-flex align-items-center">
                                 <svg id="point" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
@@ -208,22 +208,22 @@ $member_row = $stmt->fetch();
                     <div class="product_img_wrap position-relative" data-toggle="modal" data-target="#exampleModal">
 
                         <img src="./img/product_list/<?= $r['my_imgs'][1] ?>.jpg" alt="">
-                        
-                            <div data-toggle="modal" data-target="#delete">
 
-                                <svg id="" class="btn_like position-absolute" style="right:15px;bottom:15px" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
-                                    <g id="圖層_2" data-name="圖層 2">
-                                        <g id="圖層_1-2" data-name="圖層 1">
-                                            <g id="Path_324" data-name="Path 324">
-                                                <path class="like_fill" d="M15,28C6.93,22.16,2.7,16.84,1,12.39-3.68.47,9.6-3.58,15,3.46c5.4-7,18.68-3,14,8.93C27.3,16.84,23.06,22.16,15,28Z" />
-                                                <path class="like_stroke" d="M15,25.51a51.66,51.66,0,0,0,7.88-7.15,23.48,23.48,0,0,0,4.29-6.69c1.15-3,1.11-5.46-.11-7.25a5.94,5.94,0,0,0-5-2.42,6.85,6.85,0,0,0-5.49,2.68L15,6.74,13.41,4.68A6.85,6.85,0,0,0,7.92,2a5.94,5.94,0,0,0-5,2.42c-1.22,1.79-1.26,4.29-.11,7.25a23.48,23.48,0,0,0,4.29,6.69A51.66,51.66,0,0,0,15,25.51M15,28C6.93,22.16,2.7,16.84,1,12.39-2.13,4.45,2.74,0,7.92,0A8.86,8.86,0,0,1,15,3.46,8.86,8.86,0,0,1,22.08,0c5.18,0,10.05,4.45,7,12.39C27.3,16.84,23.07,22.16,15,28Z" />
-                                            </g>
+                        <div data-toggle="modal" data-target="#delete">
+
+                            <svg id="" class="btn_like position-absolute" style="right:15px;bottom:15px" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
+                                <g id="圖層_2" data-name="圖層 2">
+                                    <g id="圖層_1-2" data-name="圖層 1">
+                                        <g id="Path_324" data-name="Path 324">
+                                            <path class="like_fill" d="M15,28C6.93,22.16,2.7,16.84,1,12.39-3.68.47,9.6-3.58,15,3.46c5.4-7,18.68-3,14,8.93C27.3,16.84,23.06,22.16,15,28Z" />
+                                            <path class="like_stroke" d="M15,25.51a51.66,51.66,0,0,0,7.88-7.15,23.48,23.48,0,0,0,4.29-6.69c1.15-3,1.11-5.46-.11-7.25a5.94,5.94,0,0,0-5-2.42,6.85,6.85,0,0,0-5.49,2.68L15,6.74,13.41,4.68A6.85,6.85,0,0,0,7.92,2a5.94,5.94,0,0,0-5,2.42c-1.22,1.79-1.26,4.29-.11,7.25a23.48,23.48,0,0,0,4.29,6.69A51.66,51.66,0,0,0,15,25.51M15,28C6.93,22.16,2.7,16.84,1,12.39-2.13,4.45,2.74,0,7.92,0A8.86,8.86,0,0,1,15,3.46,8.86,8.86,0,0,1,22.08,0c5.18,0,10.05,4.45,7,12.39C27.3,16.84,23.07,22.16,15,28Z" />
                                         </g>
                                     </g>
-                                </svg>
+                                </g>
+                            </svg>
 
-                            </div>
-                      
+                        </div>
+
 
                         <!-- 確定刪除 modal-->
                         <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
