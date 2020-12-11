@@ -6,6 +6,10 @@ if (!isset($_SESSION['user'])) {
     header('Location: login_regist.php');
     exit;
 }
+if (empty($_SESSION['cart']) && empty($_SESSION['custom'])) {
+    header('Location: product_list.php');
+    exit;
+}
 
 $member_id = $_SESSION['user']['id'];
 
@@ -232,8 +236,8 @@ $m_row = $pdo->query($m_sql)->fetch();
                     <div class="form-group row mb-2">
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="">優惠代碼</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
-                            <input type="text" class="form-control4 px-2" id="bouns" />
-                            <a href="#" class="text-center control-his-position ml-3"><u>確認</u></a>
+                            <input type="text" class="form-control4 px-2" id="bouns" value="" />
+                            <div class="text-center control-his-position ml-3"><u>確認</u></div>
                         </div>
                     </div>
                 </div>
@@ -370,6 +374,19 @@ $m_row = $pdo->query($m_sql)->fetch();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script>
+    // 優惠
+    $('u').on('click', function() {
+        if (!$("#bouns").val() === '') {
+            $('#deduction').text('0');
+
+        } else {
+            $('#deduction').text('100');
+        }
+        calcTotal();
+    });
+    // 優惠
+
+
     function calcTotal() {
 
         let totalMoney = 0;

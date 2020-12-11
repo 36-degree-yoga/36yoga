@@ -4,18 +4,14 @@
 
 $member_id = intval($_SESSION['user']['id']);
 
-$mf_sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = `members`.id)  JOIN `products` ON `favorite`.product_sid = `products`.sid ) WHERE `members`.id = $member_id ";
+$mc_sql = "SELECT * FROM `my_coupon` WHERE `member_sid` = $member_id";
 
-// $sql = "SELECT * FROM ((`favorite` LEFT JOIN `members` ON `favorite`.member_id = `members`.id) LEFT JOIN `products` ON `favorite`.product_sid = `products`.sid )";
 
-// 怎麼加上排序!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+$mc_stmt = $pdo->query($mc_sql);
+$mc_row = $mc_stmt->fetchAll();
 
-$mf_stmt = $pdo->query($mf_sql);
-$mf_row = $mf_stmt->fetchAll();
 
-foreach ($mf_row as $k => $r) {
-    $mf_row[$k]['my_imgs']  = explode(",", $r['img']);
-};
+
 // 照片用
 $sql = "SELECT * FROM `members` WHERE `id`=$member_id";
 $stmt = $pdo->query($sql);
@@ -34,6 +30,19 @@ $member_row = $stmt->fetch();
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/member_my_favorite.css">
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
+<style>
+    input {
+        outline: none;
+        width: 368px;
+    }
+
+    input:focus {
+        border: 2px solid #f2a200;
+        border-radius: 4px;
+    }
+</style>
+
+
 <!-- 會員中心選單橫條bar↓↓ -->
 <div class="m_account_bar_wrap">
     <div class="m_account_bar_item d-flex align-items-center">
@@ -46,7 +55,7 @@ $member_row = $stmt->fetch();
         <div class="m_account_option">
             <p class="check_border">我的最愛</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_coupon">
             <p>我的折價券</p>
         </div>
         <div class="m_account_option">
@@ -150,7 +159,7 @@ $member_row = $stmt->fetch();
                                 </svg>
                                 <a href="member_my_favorite.php" class="mb-0 ml-4">我的最愛</a>
                             </li>
-                            <li class="account_sidebar_title d-flex align-items-center">
+                            <li id="bar_coupon" class="account_sidebar_title d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
                                     <g id="Layer_2" data-name="Layer 2">
                                         <g id="Layer_1-2" data-name="Layer 1">
@@ -201,160 +210,159 @@ $member_row = $stmt->fetch();
         <!-- 右側 -->
 
 
-        <div class="product_list col-9 d-flex flex-wrap ">
+        <div class="product_list col-9" style="padding-left: 120px;">
 
-            <?php foreach ($mf_row as $r) : ?>
-                <div class="product mb-5 col-4">
-                    <div class="product_img_wrap position-relative" data-toggle="modal" data-target="#exampleModal">
+            <div class="d-flex order flex-column" style="height:40px; width: 80%">
+                <div class="d-flex justify-content-between">
+                    <input type="text" class="coupon_type" id="coupon_code" placeholder="&nbsp;輸入折扣碼" value="">
+                    <button class="btn_l" type="submit" onclick="sendCoupon($('#coupon_code').val()); return false;">送出折扣碼</button>
+                </div>
 
-                        <img src="./img/product_list/<?= $r['my_imgs'][1] ?>.jpg" alt="">
+                <div class="w-100 text-right coupon-alert" style="color:#db5c00; font-size:14px;"></div>
 
-                        <div data-toggle="modal" data-target="#delete">
+            </div>
 
-                            <svg id="" class="btn_like position-absolute" style="right:15px;bottom:15px" width="30" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28">
-                                <g id="圖層_2" data-name="圖層 2">
-                                    <g id="圖層_1-2" data-name="圖層 1">
-                                        <g id="Path_324" data-name="Path 324">
-                                            <path class="like_fill" d="M15,28C6.93,22.16,2.7,16.84,1,12.39-3.68.47,9.6-3.58,15,3.46c5.4-7,18.68-3,14,8.93C27.3,16.84,23.06,22.16,15,28Z" />
-                                            <path class="like_stroke" d="M15,25.51a51.66,51.66,0,0,0,7.88-7.15,23.48,23.48,0,0,0,4.29-6.69c1.15-3,1.11-5.46-.11-7.25a5.94,5.94,0,0,0-5-2.42,6.85,6.85,0,0,0-5.49,2.68L15,6.74,13.41,4.68A6.85,6.85,0,0,0,7.92,2a5.94,5.94,0,0,0-5,2.42c-1.22,1.79-1.26,4.29-.11,7.25a23.48,23.48,0,0,0,4.29,6.69A51.66,51.66,0,0,0,15,25.51M15,28C6.93,22.16,2.7,16.84,1,12.39-2.13,4.45,2.74,0,7.92,0A8.86,8.86,0,0,1,15,3.46,8.86,8.86,0,0,1,22.08,0c5.18,0,10.05,4.45,7,12.39C27.3,16.84,23.07,22.16,15,28Z" />
-                                        </g>
-                                    </g>
-                                </g>
-                            </svg>
+            <?php foreach ($mc_row as $c) : ?>
+                <a class="add-coupon" href="javascript:void(0)" onclick="CopyTextToClipboard('<?= $c['coupon_code'] ?>'); return false;">
+                    <div class="coupon-wrapper border mt-5" style="width: 80%;">
+                        <div class="coupon-t-wrapper d-flex justify-content-center w-100" style="background: url(./img/coupon/coupon.png) right top no-repeat; background-size: cover; height: 182px;">
+                            <div class="coupon position-relative d-flex flex-column align-items-center mt-4 mb-2" style="background: rgba(255,255,255,.3);width: 50%;">
+                                <div class="coupon-text text-center mb-2" style="border-bottom:1px solid #F2A200; width:288px; font-size: 24px; color: #FFFEFC;">折扣碼： <span id="<?= $c['coupon_code'] ?>"><?= $c['coupon_code'] ?></span></div>
+                                <div class="coupon-text text-center mt-1" style="width:288px; font-size: 24px; color: #FFFEFC "><?= $c['description'] ?></div>
+                                <div class="coupon-text mt-auto mb-1" style="font-size: 14px; color: #FFFEFC ">使用期限 : <?= $c['deadline'] ?></div>
 
-                        </div>
-
-
-                        <!-- 確定刪除 modal-->
-                        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                <div class="modal-content modal-size">
-                                    <div class="modal-header out_header">
-
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <img class="" src="svg/delete.svg" alt="">
-                                        </button>
-                                    </div>
-                                    <div class="modal-body out_body">
-                                        <p class="mx-auto">確定要移除我的最愛嗎？</p>
-                                    </div>
-                                    <div class="text-center mb-5">
-                                        <a onclick="checkLike(event); return false;" data-sid="<?= $r['product_sid'] ?>"><button class="btn btn_l p-0 del-btn-check" style="margin-right:10px;">
-                                                確認</button></a>
-                                        <button class="btn btn_f p-0" data-dismiss="modal" aria-label="Close" style="margin-left:10px;">先不要</button>
-
-                                    </div>
-                                </div>
                             </div>
+
                         </div>
-                        <!-- delete warning -->
 
                     </div>
-                    <div class="space_30"></div>
-                    <h6 class="mb-0" style="text-align: center;"><?= $r['product_name'] ?></h6>
-                    <p class="p-0" style="text-align: center;">NT.<?= $r['price'] ?></p>
-                    <div class="space_30"></div>
+                </a>
+            <?php endforeach ?>
 
-                    <button class="addtocart-btn btn_f w-100 " data-sid="<?= $r['sid'] ?>" onclick="javascript: addToCart(event);return false;">加入購物車</button>
 
-                </div>
-            <?php endforeach; ?>
 
 
         </div>
 
+
+
     </div>
+
+</div>
 </div>
 
 <div class=" space_120">
 </div>
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
-<script src="<?= WEB_ROOT ?>lib/member_my_favorite.js"></script>
-<script src="<?= WEB_ROOT ?>lib/jquery.fly.min.js"></script>
-
 <script>
-    // 點擊愛心 出現是否移除
-    function checkLike() {
-
-        const me = $(event.currentTarget);
-        const product_sid = me.attr('data-sid');
-
-        console.log('product_sid:', {
-            product_sid
-        });
-
-
-
-        $.post('my_favorite_api.php', {
-            product_sid,
-
-        }, function(data) {
-            console.log(data);
-
-            me.find('.like_fill').addClass('color')
-            // if (!data.add) {
-            //     me.find('.like_fill').addClass('color');
-            // }
-
-            // if (!data.add) {
-            //     confirm(`確定要刪除設計嗎?`)   
-            // }
-
-            location.reload();
-            header('Location: member_my_favorite.php');
-
-        }, 'json');
-
-
+    //Coupon物件
+    var myCoupon = {
+        best_yoga_mat: 'best_yoga_mat',
+        welcome_36degyoga: 'welcome_36degyoga'
 
     };
 
-    //加入購物車
-    function addToCart(event) {
 
-        const sid = $('.addtocart-btn').attr('data-sid');
-        const qty = $('.amount-number').val();
+    //按下增加折扣碼
 
-        console.log({
-            sid: sid,
-            quantity: qty
-        });
 
-        $.get('handle-cart-product.php', {
-            sid: sid,
-            quantity: qty,
-            action: 'add'
-        }, function(data) {
-            console.log(data);
-            if (window.parent && window.parent.renderSmallCart) {
-                window.parent.renderSmallCart(data.cart);
-            }
-        }, 'json');
-    };
+    function sendCoupon(coupon) {
+        let content = $('.add-coupon').html();
+        let tacorice = String($('#coupon_code').val());
+        let coupon_check = myCoupon[tacorice];
+        // console.log("tacorice: " + tacorice);
+        // console.log("coupon_check:" + coupon_check);
+        str = `<div class="coupon-wrapper border mt-5" style="width: 80%;">
+                    <div class="coupon-t-wrapper d-flex justify-content-center w-100" style="background: url(./img/coupon/coupon.png) right top no-repeat; background-size: cover; height: 182px;">
+                        <div class="coupon position-relative d-flex flex-column align-items-center mt-4 mb-2" style="background: rgba(255,255,255,.3);width: 50%;">
+                            <div class="coupon-text text-center mb-2" style="border-bottom:1px solid #F2A200; width:288px; font-size: 30px; color: #FFFEFC;">折扣碼： <span id="${coupon}">${coupon}</span></div>
+                            <div class="coupon-text text-center mt-1" style="width:288px; font-size: 35px; color: #FFFEFC ">滿 $1000 折$50</div>
+                            <div class="coupon-text mt-auto mb-1" style="font-size: 16px; color: #FFFEFC ">使用期限 : 2020年12月31日</div>
 
-    //購物車動畫
-    $('.addtocart-btn').on('click', addProduct);
+                        </div>
 
-    function addProduct(event) {
-        var offset = $("#end").offset(),
-            img = "./img/product_list/<?= $r['my_imgs'][1] ?>.jpg"
-        flyer = $(`<img class="u-flyer" src="${img}" style="width: 100px; height: 100px;"/>`);
-        flyer.fly({
-            start: {
-                left: event.pageX,
-                top: event.pageY
-            },
-            end: {
-                left: offset.left,
-                top: offset.top,
-                width: 0,
-                height: 0
-            },
-            autoPlay: true, //是否直接运动,默认true
-            speed: 1.8 //越大越快，默认1.2
+                    </div>
 
-        });
+                </div>`;
+
+        if (!coupon_check) {
+            console.log('no such coupon');
+            $('.coupon-alert').html("折扣碼不存在&nbsp;&nbsp;&nbsp;&nbsp;");
+
+
+
+        } else {
+            $('.coupon-alert').html("");
+            $('.add-coupon').html(content + str);
+
+            $.post('my_coupon_api.php', {
+                coupon_code: $('#coupon_code').val(),
+                description: "滿 $1000 折$50",
+                deadline: "2020-12-31",
+            }, function(data) {
+                console.log(data);
+
+            }, 'json');
+
+        }
+
+
+
+
+
     }
+
+
+
+    //複製
+    function CopyTextToClipboard(id) {
+
+        var TextRange = document.createRange();
+
+        TextRange.selectNode(document.getElementById(id));
+
+        sel = window.getSelection();
+
+        sel.removeAllRanges();
+
+        sel.addRange(TextRange);
+
+        document.execCommand("copy");
+
+        alert("折扣碼複製成功！");
+
+
+    }
+
+    // 會員中心sidebar hover標題:文字與icon變色↓↓
+
+    $('#bar_coupon a').css('color', '#db5c00');
+    $('#bar_coupon').find('.cls-1').css('fill', '#db5c00')
+
+    $('.account_sidebar_title  a').on('mouseenter', function() {
+        console.log('hi')
+        $(this).css('color', '#db5c00');
+        $(this).siblings().find('.cls-1').css('fill', '#db5c00');
+        $('#bar_coupon a').css('color', '#db5c00');
+        $('#bar_coupon').find('.cls-1').css('fill', '#db5c00')
+    });
+    $('.account_sidebar_title  a').on('mouseleave', function() {
+        console.log('hi')
+        $(this).css('color', '#333333');
+        $('.cls-1').css('fill', '#333333');
+        $('#bar_coupon a').css('color', '#db5c00');
+        $('#bar_coupon').find('.cls-1').css('fill', '#db5c00')
+    });
+    // 會員中心sidebar hover標題:文字與icon變色↑↑
+
+
+
+    // 手機板side bar動畫↓↓
+    $('.m_account_option').on('click', function() {
+        $(this).children().addClass('check_border').parent().siblings().children().removeClass('check_border');
+
+    });
+    // 手機板side bar動畫↑↑
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

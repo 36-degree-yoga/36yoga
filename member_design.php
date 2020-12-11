@@ -142,7 +142,7 @@ $member_row = $stmt->fetch();
                                         </g>
                                     </g>
                                 </svg>
-                                <a href="#" class="mb-0 ml-4">我的折價券</a>
+                                <a href="member_my_coupon.php" class="mb-0 ml-4">我的折價券</a>
                             </li>
                             <li class="account_sidebar_title d-flex align-items-center">
                                 <svg id="point" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
@@ -202,7 +202,7 @@ $member_row = $stmt->fetch();
                     <h6 class="mb-0" style="text-align: center;">我的設計</h6>
                     <p class="p-0" style="text-align: center;">NT.<?= $d['mat-total-price'] ?></p>
                     <div class="d-flex justify-content-between">
-                        <a href="" data-toggle="modal" data-target="#delete" class="py-1 ml-2 mr-3">
+                        <a href="" data-toggle="modal" data-target="#delete<?= $d['sid'] ?>" class="py-1 ml-2 mr-3">
                             <img src="SVG/icon_trash.svg" alt="">
                         </a>
                         <button class="btn_f  mr-3" style="width:72%">加入購物車</button>
@@ -211,7 +211,7 @@ $member_row = $stmt->fetch();
                 </div>
 
                 <!-- 確定刪除 modal-->
-                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="delete<?= $d['sid'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content modal-size">
                             <div class="modal-header out_header">
@@ -248,6 +248,7 @@ $member_row = $stmt->fetch();
 <script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
 <script>
     function delete_it(sid) {
+        console.log(sid);
         location.href = "member_desgin_delete.php?sid=" + sid;
 
     }
