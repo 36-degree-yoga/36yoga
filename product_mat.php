@@ -1096,7 +1096,7 @@ $others_rows = $others_stmt->fetchAll();
                             </button>
 
                             <!-- Modal -->
-                            <div class="reviews-filter-modal modal fade" id="reviewsFilterModal" tabindex="-1" role="dialog" aria-labelledby="reviewsFilterTitle" aria-hidden="true">
+                            <div class="mobile-modal reviews-filter-modal modal fade" id="reviewsFilterModal" tabindex="-1" role="dialog" aria-labelledby="reviewsFilterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
 
                                     <div class="modal-content">
