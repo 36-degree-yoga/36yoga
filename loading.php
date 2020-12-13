@@ -13,7 +13,7 @@
 
   .loading-screen {
     /* background-color: #d9d9d9; */
-    background-image: url('./img/index/index_back_white.jpg');
+    background-image: url('/img/index/index_back_white.jpg');
     /* display: block; */
     height: 100vh;
     margin-top: 0 !important;
@@ -53,7 +53,7 @@
           font-family: 'Josefin Sans', sans-serif;
           font-size: 60px;
           padding: 0;
-          font-weight: 300;
+          font-weight: 300!important;
           color: #333333;
           }
   </style>

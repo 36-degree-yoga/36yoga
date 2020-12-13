@@ -136,6 +136,7 @@
                                 <h5 class="about_h5">讓每個人都能</h5></br>
                                 <h5 class="about_h5">找到最適合自己的產品</h5>
                         </div>
+                        <button class="btn_w" onclick="location.href='about.php'">了解更多</button>
                     </div>      
                 </div>
 
@@ -723,6 +724,7 @@
                     <h6 class="m_about_h6">讓每個人都能</h6></br>
                     <h6 class="m_about_h6">找到最適合自己的產品</h6>
                 </div>
+                <button class="m_btn_w" onclick="location.href='about.php'">了解更多</button>
             </div>      
 
             
