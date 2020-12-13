@@ -31,6 +31,7 @@ $member_row = $stmt->fetch();
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <style>
+    /* input */
     input {
         outline: none;
         width: 368px;
@@ -39,6 +40,49 @@ $member_row = $stmt->fetch();
     input:focus {
         border: 2px solid #f2a200;
         border-radius: 4px;
+    }
+
+    .product_list {
+        padding-left: 120px;
+    }
+
+    .input-wrap {
+        height: 40px;
+        width: 80%;
+    }
+
+    .coupon-wrapper {
+        width: 80%;
+    }
+
+    .coupon {
+        width: 50%;
+    }
+
+    /* 手機版 */
+    @media only screen and (max-width: 768px) {
+        .space_120 {
+            display: none;
+        }
+
+        .product_list {
+            padding: 30px;
+        }
+
+        .input-wrap {
+            height: 40px;
+            width: 100%;
+        }
+
+        .coupon-wrapper {
+            width: 100%;
+        }
+
+        .coupon {
+            width: auto;
+        }
+
+
     }
 </style>
 
@@ -53,10 +97,10 @@ $member_row = $stmt->fetch();
             <p>訂單紀錄</p>
         </div>
         <div class="m_account_option">
-            <p class="check_border">我的最愛</p>
+            <p>我的最愛</p>
         </div>
         <div class="m_account_coupon">
-            <p>我的折價券</p>
+            <p class="check_border">我的折價券</p>
         </div>
         <div class="m_account_option">
             <p>我的點數</p>
@@ -210,12 +254,12 @@ $member_row = $stmt->fetch();
         <!-- 右側 -->
 
 
-        <div class="product_list col-9" style="padding-left: 120px;">
+        <div class="product_list col-9">
 
-            <div class="d-flex order flex-column" style="height:40px; width: 80%">
+            <div class="d-flex order flex-column input-wrap">
                 <div class="d-flex justify-content-between">
-                    <input type="text" class="coupon_type" id="coupon_code" placeholder="&nbsp;輸入折扣碼" value="">
-                    <button class="btn_l" type="submit" onclick="sendCoupon($('#coupon_code').val()); return false;">送出折扣碼</button>
+                    <input type="text" class="coupon_type mr-1" id="coupon_code" placeholder="&nbsp;輸入折扣碼" value="">
+                    <button class="btn_l" type="submit" onclick="sendCoupon($('#coupon_code').val()); return false;">送出</button>
                 </div>
 
                 <div class="w-100 text-right coupon-alert" style="color:#db5c00; font-size:14px;"></div>
@@ -224,9 +268,9 @@ $member_row = $stmt->fetch();
 
             <?php foreach ($mc_row as $c) : ?>
                 <a class="add-coupon" href="javascript:void(0)" onclick="CopyTextToClipboard('<?= $c['coupon_code'] ?>'); return false;">
-                    <div class="coupon-wrapper border mt-5" style="width: 80%;">
+                    <div class="coupon-wrapper border mt-5">
                         <div class="coupon-t-wrapper d-flex justify-content-center w-100" style="background: url(./img/coupon/coupon.png) right top no-repeat; background-size: cover; height: 182px;">
-                            <div class="coupon position-relative d-flex flex-column align-items-center mt-4 mb-2" style="background: rgba(255,255,255,.3);width: 50%;">
+                            <div class="coupon position-relative d-flex flex-column align-items-center mt-4 mb-2" style="background: rgba(255,255,255,.3);">
                                 <div class="coupon-text text-center mb-2" style="border-bottom:1px solid #F2A200; width:288px; font-size: 24px; color: #FFFEFC;">折扣碼： <span id="<?= $c['coupon_code'] ?>"><?= $c['coupon_code'] ?></span></div>
                                 <div class="coupon-text text-center mt-1" style="width:288px; font-size: 24px; color: #FFFEFC "><?= $c['description'] ?></div>
                                 <div class="coupon-text mt-auto mb-1" style="font-size: 14px; color: #FFFEFC ">使用期限 : <?= $c['deadline'] ?></div>
@@ -273,11 +317,11 @@ $member_row = $stmt->fetch();
         let coupon_check = myCoupon[tacorice];
         // console.log("tacorice: " + tacorice);
         // console.log("coupon_check:" + coupon_check);
-        str = `<div class="coupon-wrapper border mt-5" style="width: 80%;">
+        str = `<div class="coupon-wrapper border mt-5">
                     <div class="coupon-t-wrapper d-flex justify-content-center w-100" style="background: url(./img/coupon/coupon.png) right top no-repeat; background-size: cover; height: 182px;">
-                        <div class="coupon position-relative d-flex flex-column align-items-center mt-4 mb-2" style="background: rgba(255,255,255,.3);width: 50%;">
-                            <div class="coupon-text text-center mb-2" style="border-bottom:1px solid #F2A200; width:288px; font-size: 30px; color: #FFFEFC;">折扣碼： <span id="${coupon}">${coupon}</span></div>
-                            <div class="coupon-text text-center mt-1" style="width:288px; font-size: 35px; color: #FFFEFC ">滿 $1000 折$50</div>
+                        <div class="coupon position-relative d-flex flex-column align-items-center mt-4 mb-2" style="background: rgba(255,255,255,.3);">
+                            <div class="coupon-text text-center mb-2" style="border-bottom:1px solid #F2A200; width:288px; font-size: 24px; color: #FFFEFC;">折扣碼： <span id="${coupon}">${coupon}</span></div>
+                            <div class="coupon-text text-center mt-1" style="width:288px; font-size: 24px; color: #FFFEFC ">全站免運費</div>
                             <div class="coupon-text mt-auto mb-1" style="font-size: 16px; color: #FFFEFC ">使用期限 : 2020年12月31日</div>
 
                         </div>
@@ -295,13 +339,15 @@ $member_row = $stmt->fetch();
         } else {
             $('.coupon-alert').html("");
             $('.add-coupon').html(content + str);
+            setTimeout($('.coupon-alert').html("折扣碼新增成功！"), 3000);
 
             $.post('my_coupon_api.php', {
                 coupon_code: $('#coupon_code').val(),
-                description: "滿 $1000 折$50",
+                description: "全站免運費",
                 deadline: "2020-12-31",
             }, function(data) {
                 console.log(data);
+
 
             }, 'json');
 
