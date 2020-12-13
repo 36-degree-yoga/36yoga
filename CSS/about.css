@@ -1,16 +1,23 @@
 .yellow_back {
+  margin-bottom: 1100px;
   margin-left: -6 0px;
   background: url(../img/about/texture-sunset-01.jpg) no-repeat;
   background-size: cover;
+  transition: 0.8s;
+  overflow: hidden;
 }
 
 .scroll_down {
+  cursor: pointer;
   transform: rotate(90deg);
   /* margin-left: 100px; */
   z-index: 6;
-  top: 890px;
-  right: 480px;
+  top: -210px;
+  right: 400px;
+  padding-left: 80px;
+  transition: 0.8s;
 }
+
 .scroll_down p {
   font-size: 20px;
   width: 130px;
@@ -35,6 +42,8 @@
   width: 1600px;
   z-index: 5;
   margin-top: 100px;
+  margin-right: 3550px;
+  transition: 0.8s;
 
   /* background:url(img/about/hatha-yoga-classes2.jpg) left -350px no-repeat; 
    background-size:cover;   */
@@ -51,7 +60,13 @@
 }
 
 .slogan p {
+
   font-size: 24px;
+}
+.slogan {
+  opacity: 0;
+  transition: 0.8s;
+ 
 }
 
 .slogan p:nth-child(1) {
@@ -66,11 +81,12 @@
 }
 
 .orange_line {
-  width: 60%;
+  width: 0%;
   height: 8px;
   background-color: #db5c00;
   margin-top: 30px;
   margin-bottom: 66px;
+  transition: 0.8s;
 }
 
 /* 第二區 */
@@ -87,13 +103,16 @@
 }
 
 .logo_img img {
+  opacity: 0;
   width: 250px;
+  transition: 0.8s;
 }
 
 .logo_title {
   margin-top: 120px;
   margin-left: 50px;
   height: 70px;
+  opacity: 0;
 }
 
 .logo_title p {
@@ -107,8 +126,8 @@
 .typing {
   width: 0px;
   white-space: nowrap;
-  animation: typing 5s steps(200, end);
-  animation-delay: 1s;
+  animation: typing 2.5s steps(200, end);
+  animation-delay: 0.5s;
   animation-fill-mode: forwards;
   overflow: hidden;
 }
@@ -128,6 +147,8 @@
 }
 
 .O {
+  opacity: 0;
+  transition: 0.5s;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -136,14 +157,17 @@
 
 .line {
   height: 5px;
-  width: 1500px;
+  width: 0px;
   background-color: #f2a200;
+  transition: 5s;
 }
 
 .spirit {
   margin-top: 150px;
   background: url(../img/about/texture-forest-01.jpg) no-repeat;
   background-size: cover;
+  transform: translateX(-2000px);
+  transition: 0.8s;
 }
 .spirit img {
   width: 50%;
@@ -173,6 +197,9 @@
   background-size: cover;
   overflow: hidden;
   box-shadow: 0 5px 15px #c7c7c7;
+  transform:translateY(300px);
+  transition:0.3s;
+  
 }
 
 .point {
@@ -182,6 +209,15 @@
 .point h2 {
   color: #004a13;
   text-emphasis: nowrap;
+  transform:translateY(50px);
+  opacity: 0;
+  transition:0.4s;
+}
+
+.third{
+  transform:translateY(50px);
+  opacity: 0;
+  transition:0.4s;
 }
 
 .point_letter p {
@@ -192,20 +228,25 @@
 .point_img {
   height: 380px;
   margin-top: 80px;
+  transition:0.4s;
+  transform:translateY(100px);
+  opacity: 0;
 }
 .point_img img {
   height: 100%;
 }
 
 .point_line_l {
-  width: 30%;
+  width: 0%;
   height: 5px;
   background-color: #f2a200;
+  transition:0.5s;
 }
 .point_line_r {
-  width: 30%;
+  width: 0%;
   height: 5px;
   background-color: #f2a200;
+  transition:0.5s;
   /* transform: translateX(880px); */
 }
 
@@ -223,15 +264,19 @@
 
 .content_4 h2 {
   margin-top: 120px;
-  text-align: center;
+  margin-left: 120px;
   color: #333333;
+  transform:translateX(-1000px);
+  transition:0.6s;
 }
 .content_4 div {
   color: #fffefc;
   margin-left: 120px;
-  margin-top: 120px;
+  margin-top: 60px;
   padding: 60px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
+  transform:translateX(-1000px);
+  transition:0.6s;
 }
 
 .m_about {
@@ -256,8 +301,8 @@
   .banner_img_wrap {
     height: 400px;
     z-index: 5;
-    margin-top: 120px;
-
+    margin-top: 75px;
+    transform: translateX(0px);
     /* background:url(img/about/hatha-yoga-classes2.jpg) left -350px no-repeat; 
        background-size:cover;   */
   }
@@ -268,7 +313,7 @@
   }
 
   .about_wrap {
-    height: 850px;
+    height: 770px;
     width: 100vw;
     overflow: hidden;
   }
@@ -278,14 +323,14 @@
   }
 
   .scroll_down {
-    transform: translateY();
-
+    /* transform: translateX(200px); */
+    margin-bottom:1700px;
     margin-left: -40px;
     z-index: 6;
   }
   .scroll_down p {
     display: inline-block;
-    font-size: 14px;
+    font-size: 11px;
     width: 130px;
   }
 
@@ -319,7 +364,7 @@
   }
 
   .orange_line {
-    width: 100%;
+    width: 0%;
     height: 8px;
     background-color: #db5c00;
     margin-top: 0px;
@@ -329,11 +374,13 @@
   .scroll_down {
     transform: rotate(90deg);
     /* margin-left: 100px; */
+    padding-left:0px;
     z-index: 6;
   }
   .scroll_down p {
     font-size: 20px;
-    width: 130px;
+    width: 110px;
+    text-align: center;
   }
 
   .scroll_down div {
@@ -343,7 +390,7 @@
   }
 
   .m_title_wrap {
-    margin-bottom: 150px;
+    margin-bottom: 80px;
   }
 
   /* 2 */
@@ -359,8 +406,30 @@
     overflow: hidden;
   }
 
+
+  .typing {
+    text-align:center;
+      width: 0px;
+      white-space: nowrap;
+      animation: typing 2.5s steps(200, end);
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      overflow: hidden;
+    }
+  
+    @keyframes typing {
+      from {
+        width: 0px;
+      }
+      to {
+        width: 500px;
+      }
+    }
+
   .logo_title {
     text-align: center;
+    margin-top: 60px;
+    transition:0.3s;
   }
 
   .logo_title p {
@@ -386,7 +455,9 @@
   .line {
     margin-left: -2px;
     height: 5px;
-    width: 1500px;
+    width: 0px;
+    opacity:1;
+    transition:0.3;
     background-color: #f2a200;
   }
 
@@ -445,12 +516,15 @@
   }
 
   .point_line_l {
-    width: 30%;
+    transition:0.3s;
+    transform: scaleX(0);
     height: 5px;
     background-color: #f2a200;
   }
   .point_line_r {
-    width: 30%;
+    transition:0.3s;
+    transform: scaleX(0);
+    width: 0%;
     height: 5px;
     background-color: #f2a200;
     /* transform: translateX(880px); */
@@ -483,7 +557,7 @@
   .content_4 h2 {
     font-size: 2rem;
     margin-left: 30px;
-    margin-top: 120px;
+    margin-top: 90px;
     text-align: left;
     color: #333333;
   }
