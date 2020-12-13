@@ -129,6 +129,19 @@ if (isset($_SERVER['HTTP_REFERER'])) {
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/animate.min.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/test-06.css">
+<style>
+    .modal-header {
+        display: flex;
+        justify-content: end;
+
+
+    }
+
+    .close img {
+        width: 30px;
+        height: 30px;
+    }
+</style>
 
 <!-- include __DIR__ . '/parts/nav.php'; -->
 <!-- 貼上html -->
