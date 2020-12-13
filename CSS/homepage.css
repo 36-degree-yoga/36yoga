@@ -1267,13 +1267,9 @@ body{
     }
 
 /* section_products */
-    .index_quick{
-        margin-left: -30px;
-    }
+   
 
-    .quick_right{
-        margin-left: -100px;
-    }
+   
 }
 
 /* section_products */
@@ -1343,6 +1339,21 @@ body{
     .prod_quick{
         width: 170px;
         margin-top: -15px;
+    }
+
+
+     /* 文字加quickview */
+     .prod_quick{
+        width: 155px;
+        margin-top: -15px;
+    }
+
+     .index_quick{
+        margin-left: -30px;
+    }
+
+    .quick_right{
+        margin-left: -100px;
     }
 
     /*文*/
@@ -1531,6 +1542,14 @@ body{
         margin-top: -15px;
     }
 
+     .index_quick{
+        margin-left: -30px;
+    }
+
+    .quick_right{
+        margin-left: -100px;
+    }
+
     /*文*/
     .prod_ppwrap{
         margin-right: 175px;
@@ -1543,6 +1562,8 @@ body{
         overflow: hidden;
         position: relative;
     }
+
+
 
 /* Customer Reviews*/
     .index_reviews{
