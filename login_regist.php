@@ -45,8 +45,7 @@ $gotoURL = 'product_list.php';
                         <!-- 驗證碼 -->
                         <div class="form-group d-flex justify-content-between space-b36">
                             <input type="text" class="open-sesame" name="checkword" size="10" maxlength="10" id="login_code" placeholder="&nbsp;驗證碼" />
-                            <div id="imgcode" src="">
-                                <!-- onclick="refresh_code()" -->
+                            <div id="imgcode" src="" onclick="refresh_code()">
                                 <div class="randompic"></div>
                                 <!-- <img src="./img/index/random02.svg" alt="" class="randompic">
                                 <img src="./img/index/random03.svg" alt="" class="randompic"> -->
@@ -59,7 +58,7 @@ $gotoURL = 'product_list.php';
                             <a href="#" class=" ml-auto">忘記密碼？</a>
                         </div>
                         <div class="w-100 d-flex justify-content-center">
-                            <input onclick="checkForm();" type="submit" class="btn btn_f" value="登入" data-toggle="modal" data-target="#exampleModal">
+                            <input type="submit" class="btn btn_f" value="登入" data-toggle="modal" data-target="#exampleModal">
                             <span id="warn_login" style="color:red;"></span>
                         </div>
                     </form>
@@ -89,6 +88,7 @@ $gotoURL = 'product_list.php';
                         </div>
                         <div class="w-100 d-flex justify-content-center">
                             <input type="submit" class="btn btn-primary btn_f" value="註冊" data-toggle="modal" data-target="#exampleModal">
+
                         </div>
                         <!-- <p id="regis_alert" style="color:red;"></p> -->
                     </form>
@@ -102,8 +102,8 @@ $gotoURL = 'product_list.php';
 
 </div>
 
-<!-- 彈跳視窗註冊↓↓ -->
-<div class="modal fade" id="login-alert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- 彈跳視窗登入↓↓ -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -120,42 +120,7 @@ $gotoURL = 'product_list.php';
 
 
                         <h6 id="login-alert-f" href="#" style="color: #db5c00;"></h6>
-                        <h5 id="login-alert-s" href="#" style="color: #135F39;">登入成功!</h5>
-
-
-                    </div>
-
-
-
-                </div>
-            </form>
-            <div class="modal-footer">
-                <div class="space_30"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- 彈跳視窗↑↑ -->
-
-<!-- 彈跳視窗登入↓↓ -->
-<div class="modal fade" id="regist-alert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                        <img src="./SVG/delete.svg" alt="" class="btn_delete">
-                    </span>
-                </button>
-            </div>
-            <form action="">
-                <div class="modal-body d-flex justify-content-center flex-column">
-
-                    <div class="edit_info d-flex align-items-center justify-content-center">
-
-
-                        <h6 id="regist-alert-f" href="#" style="color: #db5c00;"></h6>
-                        <h5 id="regist-alert-s" href="#" style="color: #135F39;">註冊成功！</h5>
+                        <h5 id="login-alert-s" href="#" style="color: #135F39;"></h5>
 
 
                     </div>
@@ -186,10 +151,10 @@ $gotoURL = 'product_list.php';
 
     function checkForm() {
         $('#login-alert-f').text('');
-
+        $('#login-alert-s').text('');
 
         let isPass = true;
-        let error = '';
+        let error = ''
 
         if (loginemail.val()) {
             if (!email_re.test(loginemail.val())) {
@@ -219,8 +184,6 @@ $gotoURL = 'product_list.php';
 
         if (error) {
             isPass = false;
-            $('#login-alert').modal('show');
-            $('#login-alert-s').text('');
             $('#login-alert-f').html("請填寫" + error);
         }
 
@@ -235,15 +198,12 @@ $gotoURL = 'product_list.php';
             }, function(data) {
                 if (data.success) {
                     console.log('hi');
-                    $('#login-alert').modal('show');
                     $('#login-alert-s').text('登入成功');
                     setTimeout(function() {
                         location.href = '<?= $_SERVER['HTTP_REFERER'] ?>';
                     }, 2000);
                 } else {
                     console.log('error');
-                    $('#login-alert').modal('show');
-                    $('#login-alert-s').text('');
                     $('#login-alert-f').text('登入失敗');
                 }
 
@@ -263,10 +223,10 @@ $gotoURL = 'product_list.php';
 
 
     function checkForm2() {
-        $('#regist-alert-f').text('');
-
+        $('#login-alert-f').text('');
+        $('#login-alert-s').text('');
         let isPass = true;
-        let error = '';
+        let error = ''
 
 
         if (regis_email.val()) {
@@ -302,9 +262,7 @@ $gotoURL = 'product_list.php';
 
         if (error) {
             isPass = false;
-            $('#regist-alert').modal('show');
-            $('#regist-alert-s').text('');
-            $('#regist-alert-f').html("請填寫" + error);
+            $('#login-alert-f').html("請填寫" + error);
         }
 
 
@@ -315,15 +273,18 @@ $gotoURL = 'product_list.php';
             }, function(d) {
                 if (d.success) {
                     console.log('hi');
-                    $('#regist-alert').modal('show');
-                    $('#regist-alert-s').text('註冊成功！');
+                    $('#login-alert-s').text('註冊成功！');
                     setTimeout(function() {
                         location.href = '<?= WEB_ROOT ?>/member_my_account.php';
                     }, 2000);
                 } else {
+<<<<<<< HEAD
                     $('#regist-alert').modal('show');
                     $('#regist-alert-s').text('');
                     $('#regist-alert-f').text('註冊失敗！ ');
+=======
+                    $('#login-alert-f').text('註冊失敗！');
+>>>>>>> c7fd09dc4f2e837ee9b759ba738ff6a601c634b3
                     console.log('error fail to register');
                 }
             }, 'json');
