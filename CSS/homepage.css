@@ -296,6 +296,7 @@ body{
     .soulmat{
         cursor: pointer;
         /* z-index: 2; */
+        margin-top: -20px;
     }
 
     .soulmat:hover{
