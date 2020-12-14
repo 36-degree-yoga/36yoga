@@ -8,12 +8,23 @@ if (!isset($_SESSION['custom'])) {
 $output = [];
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'read';
-$sid = isset($_GET['sid']);
-$save = isset($_GET['save']);
+$sid = isset($_GET['sid']) ? $_GET['sid'] : 0 ;
+$save = isset($_GET['save'])? $_GET['save'] : 'no' ;
 
-$design_sql = "SELECT * WHERE `sid` = $sid";
+// $output = $save;
+// echo json_encode($output, JSON_UNESCAPED_UNICODE);
+// exit;
+
+
+$design_sql = "SELECT * FROM `custom_product` WHERE `sid` = $sid";
 $design_stmt = $pdo->query($design_sql);
-$design_rows = $design_stmt->fetchAll();
+$design_rows = $design_stmt->fetch();
+
+
+// $output = $design_rows['mat-count'];
+// echo json_encode($output, JSON_UNESCAPED_UNICODE);
+// exit;
+
 
 $sql = "INSERT INTO `custom_product`( `member_id`, `mat-count`, `weight`, `mat-total-price`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `save_data`, `created_at`
         ) VALUES (
@@ -23,8 +34,10 @@ $sql = "INSERT INTO `custom_product`( `member_id`, `mat-count`, `weight`, `mat-t
 
 
 
+
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
+    
     $_SESSION['user']['id'],
     $design_rows['mat-count'],
     $design_rows['weight'],
@@ -44,13 +57,11 @@ $stmt->execute([
 
 $custom_sid = $pdo->lastInsertId();
 
-$sql = "UPDATE `custom_product` SET  `save_data`=? WHERE `sid`= $sid";
 
-
-$stmt = $pdo->prepare($sql);
-$stmt->execute([
-    $save,
-]);
+// $stmt = $pdo->prepare($sql);
+// $stmt->execute([
+//     $save,
+// ]);
 
 
 switch ($action) {
@@ -64,18 +75,10 @@ switch ($action) {
         if (!'sid') {
             $output['code'] = 401;
         } else {
-            if (isset($_SESSION['cart'][$sid])) {
-                $_SESSION['cart'][$sid]['quantity'] = $quantity;
-            } else {
-                $sql = "SELECT * FROM custom_product WHERE `sid` = $sid AND ";
+            
+                $sql = "SELECT * FROM custom_product WHERE `sid` = $custom_sid ";
                 $row = $pdo->query($sql)->fetch();
-                if (empty($row)) {
-                    $output['code'] = 410;
-                } else {
-                    $row['quantity'] = $quantity;
-                    $_SESSION['cart'][$row['sid']] = $row;
-                }
-            }
+                $_SESSION['custom'][$row['sid']] =$row;  
         }
         break;
 
@@ -87,6 +90,7 @@ switch ($action) {
         }
         break;
 }
-$output['cart'] = $_SESSION['cart'];
+
+$output['custom'] = $_SESSION['custom'];
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
