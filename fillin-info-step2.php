@@ -438,7 +438,7 @@ $m_row = $pdo->query($m_sql)->fetch();
             $('#deduction').text('0');
 
         } else {
-            $('#deduction').text('100');
+            $('#deduction').text('60');
         }
         calcTotal();
     });
@@ -489,47 +489,6 @@ $m_row = $pdo->query($m_sql)->fetch();
         $("#city-detail").val("<?= $m_row['address'] ?>");
     });
 
-
-
-    $('.hope-next-step').on('click', function(event) {
-        const transFee = parseInt($('#trans_fee').text());
-        const bouns = parseInt($('#deduction').text());
-        const email = $("#email").val();
-        const name = $("#name").val();
-        const mobile = $("#phone-number").val();
-        const address = $("#city").val() + $("#city-detail").val();
-        const amount = parseInt($('#amount').text());
-        const payment = $(".how-to-pay").val();
-        const logistic = $(".logistic").val();
-
-        let payment_status = '';
-        if (payment === "信用卡") {
-            payment_status = '已付款';
-        } else {
-            payment_status = '未付款';
-        }
-        console.log(transFee, bouns, email, name, mobile, address, amount, payment, logistic, payment_status);
-        $.post('order-info-api.php', {
-
-            amount: amount,
-            logistic: logistic,
-            trans_fee: transFee,
-            payment: payment,
-            deduction: bouns,
-            buyer: name,
-            address: address,
-            mobile: mobile,
-            email: email,
-            points: 10,
-            payment_status: payment_status,
-            logistic_status: "待出貨",
-            order_status: "待出貨",
-        }, function(data) {
-            console.log(data);
-
-        }, 'json');
-    });
-
     $(".how-to-pay").click(function() {
         $(".how-to-pay").removeClass("error-border");
     })
@@ -537,20 +496,56 @@ $m_row = $pdo->query($m_sql)->fetch();
         $(".logistic").removeClass("error-border");
     })
 
-    $('.hope-next-step').on('click', function() {
-        console.log($(".how-to-pay").val())
-        console.log($(".logistic").val())
+    $('.hope-next-step').on('click', function(event) {
+        let isPass = true;
+        if ($(".how-to-pay").val() == "null") {
+            isPass = false;
+            $(".how-to-pay").addClass("error-border");
+            scrollTop: $(".how-to-pay").offset().top
+        }
+        if ($(".logistic").val() == "null") {
+            isPass = false;
+            $(".logistic").addClass("error-border");
+            scrollTop: $(".how-to-pay").offset().top
+        }
+        if (isPass) {
+            const transFee = parseInt($('#trans_fee').text());
+            const bouns = parseInt($('#deduction').text());
+            const email = $("#email").val();
+            const name = $("#name").val();
+            const mobile = $("#phone-number").val();
+            const address = $("#city").val() + $("#city-detail").val();
+            const amount = parseInt($('#amount').text());
+            const payment = $(".how-to-pay").val();
+            const logistic = $(".logistic").val();
 
-        if ($(".how-to-pay").val() == "null" || $(".logistic").val() == "null") {
-            if ($(".how-to-pay").val() == "null") {
-                $(".how-to-pay").addClass("error-border");
-                
+            let payment_status = '';
+            if (payment === "信用卡") {
+                payment_status = '已付款';
+            } else {
+                payment_status = '未付款';
             }
-            if ($(".logistic").val() == "null") {
-                $(".logistic").addClass("error-border");
-            }
+            console.log(transFee, bouns, email, name, mobile, address, amount, payment, logistic, payment_status);
+            $.post('order-info-api.php', {
 
-        } else {
+                amount: amount,
+                logistic: logistic,
+                trans_fee: transFee,
+                payment: payment,
+                deduction: bouns,
+                buyer: name,
+                address: address,
+                mobile: mobile,
+                email: email,
+                points: 10,
+                payment_status: payment_status,
+                logistic_status: "待出貨",
+                order_status: "待出貨",
+            }, function(data) {
+                console.log(data);
+            }, 'json');
+        }
+        if (isPass) {
             if ($(".how-to-pay").val() === '信用卡') {
                 console.log($(".how-to-pay").val())
                 $(window).attr('location', 'credit-card-step3.php');
@@ -560,11 +555,40 @@ $m_row = $pdo->query($m_sql)->fetch();
                 $(window).attr('location', 'atm-step3.php');
 
             }
-        };
-
-
+        }
 
     });
+
+
+
+    // $('.hope-next-step').on('click', function() {
+    //     console.log($(".how-to-pay").val())
+    //     console.log($(".logistic").val())
+
+    //     if ($(".how-to-pay").val() == "null" || $(".logistic").val() == "null") {
+    //         if ($(".how-to-pay").val() == "null") {
+    //             $(".how-to-pay").addClass("error-border");
+
+    //         }
+    //         if ($(".logistic").val() == "null") {
+    //             $(".logistic").addClass("error-border");
+    //         }
+
+    //     } else {
+    // if ($(".how-to-pay").val() === '信用卡') {
+    //     console.log($(".how-to-pay").val())
+    //     $(window).attr('location', 'credit-card-step3.php');
+
+    // } else {
+    //     console.log($(".how-to-pay").val())
+    //     $(window).attr('location', 'atm-step3.php');
+
+    // }
+    //     };
+
+
+
+    // });
 </script>
 <script src="./lib/checkout-step123.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

@@ -76,6 +76,8 @@ foreach ($towel_row  as $k => $r) {
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/product_list.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/product_sidebar.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/quick_view.css">
+
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 <style>
     .product h6 {
         cursor: pointer;

@@ -279,12 +279,16 @@ $gotoURL = 'product_list.php';
                     }, 2000);
                 } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     $('#regist-alert').modal('show');
                     $('#regist-alert-s').text('');
                     $('#regist-alert-f').text('註冊失敗！ ');
 =======
                     $('#login-alert-f').text('註冊失敗！');
 >>>>>>> c7fd09dc4f2e837ee9b759ba738ff6a601c634b3
+=======
+                    $('#login-alert-f').text('註冊失敗！');
+>>>>>>> 24bd1e7a23c7f4bd5e575935c2e5e0058b63fc40
                     console.log('error fail to register');
                 }
             }, 'json');

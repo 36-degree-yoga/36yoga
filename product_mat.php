@@ -66,6 +66,7 @@ $others_rows = $others_stmt->fetchAll();
 ?>
 
 <?php include __DIR__ . '/parts/html-head.php'; ?>
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 <!-- css連結 -->
 
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/product_mat.css">
