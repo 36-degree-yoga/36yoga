@@ -207,7 +207,7 @@ $member_row = $stmt->fetch();
                 </form>
 
                 <div class="space_30"></div>
-                <p>
+                <p class="autoFill">
                     檔案大小 : 最大1MB
                     <br>
                     檔案限制：JPEG , PNG
@@ -340,7 +340,7 @@ $member_row = $stmt->fetch();
 </div>
 <!-- 彈跳視窗↑↑ -->
 
-<!-- 刪除密碼彈跳↓↓ -->
+<!-- 刪除帳號彈跳↓↓ -->
 <div class="modal fade" id="checkModal" tabindex="-1" aria-labelledby="checkModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -355,7 +355,7 @@ $member_row = $stmt->fetch();
                 <div class="modal-body d-flex justify-content-center flex-column">
 
                     <div class=" d-flex align-items-center justify-content-center">
-                        <h6 style="color: #f2a200;">確定刪除帳號</h6>
+                        <h6 style="color: #333;">確定刪除帳號</h6>
 
                     </div>
                     <div class="space_30"></div>
@@ -516,6 +516,19 @@ $member_row = $stmt->fetch();
 
                 location.reload();
             })
+
+
+    });
+
+
+
+    // 自動填寫
+    $('.autoFill').on('click', function() {
+        $('#name').val('小明');
+        $('#account').val('smallLight123');
+        $('#mobile').val('0968175986');
+        $('#birthday').val('1995-10-10');
+
 
 
     });
