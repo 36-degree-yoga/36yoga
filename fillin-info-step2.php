@@ -483,7 +483,7 @@ $m_row = $pdo->query($m_sql)->fetch();
 
     $('#member-info').click(() => {
         $("#email").val("<?= $m_row['email'] ?>");
-        $("#name").val("<?= $m_row['account'] ?>");
+        $("#name").val("<?= $m_row['nickname'] ?>");
         $("#phone-number").val("<?= $m_row['mobile'] ?>");
         $("#city").val("<?= $m_row['city'] ?>");
         $("#city-detail").val("<?= $m_row['address'] ?>");
