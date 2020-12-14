@@ -73,7 +73,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">運送方式</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 pr-2 d-flex">
                             <select class="form-control6 option-1 px-2 text-center logistic">
-                                <option value="" disabled selected hidden>
+                                <option value="null" selected hidden>
                                     --請選擇--
                                 </option>
                                 <option value="宅配">宅配到府</option>
@@ -85,7 +85,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label">付款方式</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 pr-2 d-flex">
                             <select class="form-control6 option-1 px-2 text-center how-to-pay">
-                                <option value="" disabled selected hidden>
+                                <option value="null" selected hidden>
                                     --請選擇--
                                 </option>
                                 <option value="貨到付款">貨到付款</option>
@@ -530,16 +530,39 @@ $m_row = $pdo->query($m_sql)->fetch();
         }, 'json');
     });
 
+    $(".how-to-pay").click(function() {
+        $(".how-to-pay").removeClass("error-border");
+    })
+    $(".logistic").click(function() {
+        $(".logistic").removeClass("error-border");
+    })
+
     $('.hope-next-step').on('click', function() {
-        if ($(".how-to-pay").val() === '信用卡') {
-            console.log($(".how-to-pay").val())
-            $(window).attr('location', 'credit-card-step3.php');
+        console.log($(".how-to-pay").val())
+        console.log($(".logistic").val())
+
+        if ($(".how-to-pay").val() == "null" || $(".logistic").val() == "null") {
+            if ($(".how-to-pay").val() == "null") {
+                $(".how-to-pay").addClass("error-border");
+                
+            }
+            if ($(".logistic").val() == "null") {
+                $(".logistic").addClass("error-border");
+            }
 
         } else {
-            console.log($(".how-to-pay").val())
-            $(window).attr('location', 'atm-step3.php');
+            if ($(".how-to-pay").val() === '信用卡') {
+                console.log($(".how-to-pay").val())
+                $(window).attr('location', 'credit-card-step3.php');
 
-        }
+            } else {
+                console.log($(".how-to-pay").val())
+                $(window).attr('location', 'atm-step3.php');
+
+            }
+        };
+
+
 
     });
 </script>
