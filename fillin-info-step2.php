@@ -427,11 +427,6 @@ $m_row = $pdo->query($m_sql)->fetch();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script>
-    // 除錯
-
-    // 除錯
-
-
     // 優惠
     $('u').on('click', function() {
         if (!$("#bouns").val() === '') {
@@ -489,13 +484,14 @@ $m_row = $pdo->query($m_sql)->fetch();
         $("#city-detail").val("<?= $m_row['address'] ?>");
     });
 
+    // 自動填入
     $(".how-to-pay").click(function() {
         $(".how-to-pay").removeClass("error-border");
     })
     $(".logistic").click(function() {
         $(".logistic").removeClass("error-border");
     })
-
+    // 除錯
     $('.hope-next-step').on('click', function(event) {
         let isPass = true;
         if ($(".how-to-pay").val() == "null") {
@@ -504,7 +500,6 @@ $m_row = $pdo->query($m_sql)->fetch();
             $('html, body').animate({
                 scrollTop: $(".how-to-pay").offset().top - 200
             }, 500);
-
         }
         if ($(".logistic").val() == "null") {
             isPass = false;

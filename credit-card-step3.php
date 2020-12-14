@@ -248,7 +248,9 @@
             }, 0);
         };
     }
-
+    $(".demo-hidden-trigger").focus(function() {
+        $(".there-need-hidden").css("opacity", "1");
+    });
     //鍵盤輸入練習
 </script>
 <script src="./lib/checkout-step123.js"></script>
