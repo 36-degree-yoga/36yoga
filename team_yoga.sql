@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-12-14 04:10:09
+-- 產生時間： 2020-12-14 07:57:34
 -- 伺服器版本： 10.4.14-MariaDB
 -- PHP 版本： 7.3.23
 
@@ -49,20 +49,8 @@ CREATE TABLE `custom_product` (
 --
 
 INSERT INTO `custom_product` (`sid`, `member_id`, `mat-total-price`, `mat-count`, `weight`, `matw`, `mat-h`, `mat-thickness`, `mat-texture`, `pick_color`, `design_img`, `mat-print`, `save_data`, `created_at`) VALUES
-(71, 5, 2150, 1, 340, 61, 183, '5.0', 'NR', 'rgb(201, 139, 153)', '234248688', '印刷', 'no', '2020-12-03 14:48:56'),
-(72, 5, 2150, 1, 340, 61, 183, '5.0', 'NR', 'rgb(201, 139, 153)', '161574989', '印刷', 'save', '2020-12-03 14:49:19'),
-(73, 5, 2150, 1, 340, 61, 183, '5.0', 'NR', 'rgb(201, 139, 153)', '167518286', '印刷', 'no', '2020-12-03 14:51:13'),
-(74, 1, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(90, 66, 66)', '302282108', '', 'no', '2020-12-03 15:30:21'),
-(75, 1, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(90, 66, 66)', '264997236', '', 'no', '2020-12-03 15:30:34'),
-(76, 5, 4000, 2, 680, 61, 173, '3.5', 'TPE', 'rgb(63, 63, 63)', '460631370', '', 'no', '2020-12-03 15:32:32'),
-(77, 5, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(201, 139, 153)', '749882848', '', 'no', '2020-12-03 15:36:10'),
-(78, 5, 8000, 4, 1360, 61, 173, '3.5', 'TPE', 'rgb(90, 66, 66)', '186751155', '', 'no', '2020-12-03 15:38:54'),
-(79, 2, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(63, 85, 114)', '105475097', '', 'save', '2020-12-04 17:22:19'),
-(80, 2, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(63, 85, 114)', '575918097', '', 'no', '2020-12-04 17:22:20'),
-(81, 2, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(63, 85, 114)', '77726206', '', 'no', '2020-12-04 17:34:43'),
-(82, 1, 3800, 1, 340, 180, 183, '3.5', 'TPE', 'rgb(63, 85, 114)', '', '', '', '2020-12-07 16:01:15'),
-(87, 1, 3600, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(63, 85, 114)', '249905813', '', 'no', '2020-12-07 16:07:23'),
-(88, 1, 3830, 1, 340, 61, 173, '5.0', 'NR', 'rgb(205, 173, 226)', '486929921', '鋼印', 'no', '2020-12-10 16:17:22');
+(94, 1, 3600, 1, 340, 61, 173, '3.5', 'TPE', '#c18a8a', '338480688', '', 'save', '2020-12-14 14:49:42'),
+(95, 1, 3600, 1, 340, 61, 173, '3.5', 'TPE', '#eedc68', '602131571', '', 'no', '2020-12-14 14:50:47');
 
 -- --------------------------------------------------------
 
@@ -117,14 +105,28 @@ INSERT INTO `members` (`id`, `account`, `email`, `password`, `mobile`, `city`, `
 (2, 'chrome2416', 'chrome2416@yahoo.com.tw', '123', '0983-118-742', '臺北市', '大安區信義路三段123號', '2000-11-11', 0, 'Kelly', 'avatar02.jpg', '2019-12-13 00:00:00'),
 (3, 'sally123', 'sally123@gmail.com', '123', '0912-345-678', '臺北市', '大安區信義路三段123號', '2000-02-17', 0, 'Sally', 'avatar03.jpg', '2020-11-24 00:00:00'),
 (4, 'yujuwk357', 'yujuwk@gmail.com', '123', '0953-319-458', '臺北市', '汐止區水源路', '2000-02-18', 0, 'Ruan', 'avatar04.jpg', '2020-11-24 00:00:00'),
-(5, 'taco123', 'taco123@gmail.com', '123', '0935-318-343', '臺北市', '文山區興隆路三段號', '2012-11-30', 0, 'taco', 'avatar05.jpg', '2020-11-25 00:00:00'),
-(10, 'bob159', 'aaa111@gmail.com', '111111', '0911111111', '臺北市', '深海鳳梨裡', '2020-12-02', 0, 'BBB', 'avatar00.jpg', NULL),
-(17, 'test2', 'test2@mail.com', '111', '0965897531', NULL, NULL, '2020-12-08', 0, 'test', 'avatar00.jpg', '2020-12-09 15:21:12'),
-(18, 'test3', 'test3@mail.com', '123', 'rewgesrhtesh', NULL, NULL, '2020-12-13', 0, 'wegtweg', '5fd1d1fab98e6810.jpg', '2020-12-09 15:26:37'),
-(21, NULL, 'test4@gmail.com', '111', NULL, NULL, NULL, NULL, 0, NULL, '5fd1d163171fb827.jpg', '2020-12-10 15:06:28'),
-(24, 'test5', 'test5@gmail.com', '111', '0214123451', NULL, NULL, '2020-12-08', 0, 'test5', '5fd30bb893d08989.jpg', '2020-12-10 20:01:14'),
-(28, 'test5', 'test@gmail.com', '111', '0912456787', NULL, NULL, '2020-12-02', 0, 'test5', '5fd30b0e999a8820.jpg', '2020-12-11 13:57:32'),
-(29, 'smallLight123', 'qq@mail.com', '123', '0968175986', NULL, NULL, '1995-10-10', 0, '小明', '5fd6c3a6b316c110.jpg', '2020-12-14 09:43:52');
+(5, 'taco123', 'taco123@gmail.com', '123', '0935-318-343', '臺北市', '文山區興隆路三段號', '2012-11-30', 0, 'taco', 'avatar05.jpg', '2020-11-25 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `my_coupon`
+--
+
+CREATE TABLE `my_coupon` (
+  `sid` int(11) NOT NULL,
+  `member_sid` varchar(255) NOT NULL,
+  `coupon_code` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `deadline` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `my_coupon`
+--
+
+INSERT INTO `my_coupon` (`sid`, `member_sid`, `coupon_code`, `description`, `deadline`) VALUES
+(1, '1', '36deg_welcome', '新用戶限定！滿千折百', '2020-12-31');
 
 -- --------------------------------------------------------
 
@@ -310,6 +312,12 @@ ALTER TABLE `members`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- 資料表索引 `my_coupon`
+--
+ALTER TABLE `my_coupon`
+  ADD PRIMARY KEY (`sid`);
+
+--
 -- 資料表索引 `orders`
 --
 ALTER TABLE `orders`
@@ -341,7 +349,7 @@ ALTER TABLE `yoga_test`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `custom_product`
 --
 ALTER TABLE `custom_product`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `favorite`
@@ -353,7 +361,13 @@ ALTER TABLE `favorite`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `my_coupon`
+--
+ALTER TABLE `my_coupon`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orders`
