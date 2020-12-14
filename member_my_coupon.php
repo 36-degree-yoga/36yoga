@@ -301,6 +301,10 @@ $member_row = $stmt->fetch();
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script>
+
+let bar = $('.check_border').offset().left
+  console.log(bar)
+ $('.m_account_bar_wrap').scrollLeft(bar-20);
     //Coupon物件
     var myCoupon = {
         best_yoga_mat: 'best_yoga_mat',

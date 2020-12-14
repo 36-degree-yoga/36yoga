@@ -37,8 +37,8 @@ $member_row = $stmt->fetch();
         <div class="m_account_option">
             <p>我的點數</p>
         </div>
-        <div class="m_account_option" onclick="javascript:location.href='member_design.php'">
-            <p class="check_border">客製化設計</p>
+        <div id="set" class="m_account_option" onclick="javascript:location.href='member_design.php'">
+            <p class="check_border" >客製化設計</p>
         </div>
     </div>
 </div>
@@ -248,10 +248,7 @@ $member_row = $stmt->fetch();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
 <script>
-     $(document).ready(
-        $('.m_account_bar_wrap ').scrollleft
-     );
-    
+   
     function delete_it(sid) {
         // console.log(sid);
         location.href = "member_desgin_delete.php?sid=" + sid;
