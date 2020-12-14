@@ -501,11 +501,12 @@ $m_row = $pdo->query($m_sql)->fetch();
         if ($(".how-to-pay").val() == "null") {
             isPass = false;
             $(".how-to-pay").addClass("error-border");
-            
+            scrollTop: $(".how-to-pay").offset().top
         }
         if ($(".logistic").val() == "null") {
             isPass = false;
             $(".logistic").addClass("error-border");
+            scrollTop: $(".how-to-pay").offset().top
         }
         if (isPass) {
             const transFee = parseInt($('#trans_fee').text());
