@@ -2,6 +2,10 @@ a:hover {
   text-decoration: none;
 }
 
+.btn_f:hover {
+  color: #fffefc;
+}
+
 /* .account_side_bar_wrap {
   position: fixed;
 }
