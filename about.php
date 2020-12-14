@@ -326,159 +326,159 @@ third  d-flex p-0 align-items-center justify-content-center">
 <?php include __DIR__ . '/parts/script.php'; ?>
 
 <script>
-// transform: translateX(-3550px);
-$(document).ready(
-    
-    function(){
-        if($(window).width()>1000){
-    $('.banner_img_wrap').css('margin-right','0px');
-    $('.yellow_back').css('margin-bottom','0px');
-    $('.scroll_down').css('top','850px');
-    setTimeout(() => {
-        $('.slogan').css('opacity','1')
-        $('.orange_line').css('width','60%')
-        
-    }, 1000);
-    setInterval(() => {
-        $('.scroll_down').css('top','880px'); 
-        setTimeout(() => {
-            $('.scroll_down').css('top','850px');
-        }, 500);
-    }, 2200);}
+    // transform: translateX(-3550px);
+    $(document).ready(
 
-    if($(window).width()<1000){
-    $('.banner_img_wrap').css('margin-right','0px');
-    $('.yellow_back').css('margin-bottom','0px');
-    $('.scroll_down').css('margin-bottom','0px');
-    $('.scroll_down p').css('font-size','12px');
-    $('.scroll_down div').css('width','200px');
-    setTimeout(() => {
-        $('.slogan').css('opacity','1')
-        $('.orange_line').css('width','100%')
-        
-    }, 1000);
-    setInterval(() => {
-        $('.scroll_down').css('top','880px'); 
-        setTimeout(() => {
-            $('.scroll_down').css('top','850px');
-        }, 500);
-    }, 2200);}
-})
+        function() {
+            if ($(window).width() > 1000) {
+                $('.banner_img_wrap').css('margin-right', '0px');
+                $('.yellow_back').css('margin-bottom', '0px');
+                $('.scroll_down').css('top', '880px');
+                setTimeout(() => {
+                    $('.slogan').css('opacity', '1')
+                    $('.orange_line').css('width', '60%')
 
-$('.scroll_down').on('mouseenter',function(){
-    $('.scroll_down').css('transition','0.3s');
-    $('.scroll_down').css('top','910px');  
-})
-$('.scroll_down').on('mouseleave',function(){
-    $('.scroll_down').css('transition','0.3s');
-    $('.scroll_down').css('top','850px');  
-})
+                }, 1000);
+                setInterval(() => {
+                    $('.scroll_down').css('top', '880px');
+                    setTimeout(() => {
+                        $('.scroll_down').css('top', '900px');
+                    }, 500);
+                }, 2200);
+            }
 
-$('.scroll_down').on('click',function(){  
-    if($(window).width()>1000){
-        $('html, body').animate({
-    scrollTop: $('#second').offset().top+100
-}, 500); // 2000 是指滾動的秒數
-    }    
+            if ($(window).width() < 1000) {
+                $('.banner_img_wrap').css('margin-right', '0px');
+                $('.yellow_back').css('margin-bottom', '0px');
+                $('.scroll_down').css('margin-bottom', '0px');
+                $('.scroll_down p').css('font-size', '12px');
+                $('.scroll_down div').css('width', '200px');
+                setTimeout(() => {
+                    $('.slogan').css('opacity', '1')
+                    $('.orange_line').css('width', '100%')
 
-    if($(window).width()<1000){
-        $('html, body').animate({
-    scrollTop: 753
-}, 500); // 2000 是指滾動的秒數
-    }    
-    
-})
+                }, 1000);
+                setInterval(() => {
+                    $('.scroll_down').css('top', '880px');
+                    setTimeout(() => {
+                        $('.scroll_down').css('top', '850px');
+                    }, 500);
+                }, 2200);
+            }
+        })
 
-$(document).on('scroll',function(){
-    if($(window).width()>1000){
-    let second=$('#second').offset().top
-    if($(document).scrollTop()>700){
-        // console.log('je')
-        $('.O').css('opacity','1')
-        $('.line').css('width','1500px')
-        $('.logo_title').addClass('typing')
-        $('.logo_title').css('opacity','1')
-        setTimeout(() => {
-            $('.logo_img img').css('opacity','1');
-        }, 2300);
-        setTimeout(() => {
-            $('.spirit').css('transform','translateX(0px)');
-        }, 2500);
-    
-}
-if($(document).scrollTop()>1600){
-        // console.log('je')
-        $('.page').css('transform','translateX(0px)')
-        
-        setTimeout(() => {
-        $('.point h2').css('opacity','1');
-        $('.point h2').css('transform','translateX(0px)');
-        $('.point_line_l').css('width','30%');
-        $('.point_line_r').css('width','30%');
-        $('.third').css('opacity','1');
-        $('.third').css('transform','translateX(0px)');
-        $('.point_img').css('opacity','1');
-        $('.point_img').css('transform','translateX(0px)');
-        }, 600);
-       
-    
-}
+    $('.scroll_down').on('mouseenter', function() {
+        $('.scroll_down').css('transition', '0.3s');
+        $('.scroll_down').css('top', '930px');
+    })
+    $('.scroll_down').on('mouseleave', function() {
+        $('.scroll_down').css('transition', '0.3s');
+        $('.scroll_down').css('top', '880px');
+    })
 
-if($(document).scrollTop()>3000){
-        // console.log('je')
-        $('.content_4 h2').css('transform','translateX(0px)')
-        $('.content_4 div').css('transform','translateX(0px)')
-      
-}}
+    $('.scroll_down').on('click', function() {
+        if ($(window).width() > 1000) {
+            $('html, body').animate({
+                scrollTop: $('#second').offset().top + 100
+            }, 500); // 2000 是指滾動的秒數
+        }
 
-if($(window).width()<1000){
-    // let second=790
-    if($(document).scrollTop()>300){
-        // console.log('je')
-        $('.O').css('opacity','1')
-        $('.line').css('width','500px')
-        $('.logo_title').addClass('typing')
-        $('.logo_title').css('opacity','1')
-        setTimeout(() => {
-            $('.logo_img img').css('opacity','1');
-        }, 2300);
-        setTimeout(() => {
-            $('.spirit').css('transform','translateX(0px)');
-        }, 2500);
-    
-}
-if($(document).scrollTop()>1000){
-        // console.log('je')
-        $('.page').css('transform','translateX(0px)')
-        
-        setTimeout(() => {
-        $('.point h2').css('opacity','1');
-        $('.point h2').css('transform','translateX(0px)');
-        $('.third').css('opacity','1');
-        $('.third').css('transform','translateX(0px)');
-        $('.point_img').css('opacity','1');
-        $('.point_img').css('transform','translateX(0px)');
-        }, 600);
-       
-        setTimeout(() => {
-        $('.point_line_l').css('transform','scaleX(1)');
-        $('.point_line_r').css('transform','scaleX(1)');
-        }, 800);
-       
-    
-}
+        if ($(window).width() < 1000) {
+            $('html, body').animate({
+                scrollTop: 753
+            }, 500); // 2000 是指滾動的秒數
+        }
 
-if($(document).scrollTop()>1800){
-        // console.log('je')
-        $('.content_4 h2').css('transform','translateX(0px)')
-        $('.content_4 div').css('transform','translateX(0px)')
-      
-}
-}
-})
+    })
+
+    $(document).on('scroll', function() {
+        if ($(window).width() > 1000) {
+            let second = $('#second').offset().top
+            if ($(document).scrollTop() > 700) {
+                // console.log('je')
+                $('.O').css('opacity', '1')
+                $('.line').css('width', '1500px')
+                $('.logo_title').addClass('typing')
+                $('.logo_title').css('opacity', '1')
+                setTimeout(() => {
+                    $('.logo_img img').css('opacity', '1');
+                }, 2000);
+                setTimeout(() => {
+                    $('.spirit').css('transform', 'translateX(0px)');
+                }, 2200);
+
+            }
+            if ($(document).scrollTop() > 1600) {
+                // console.log('je')
+                $('.page').css('transform', 'translateX(0px)')
+
+                setTimeout(() => {
+                    $('.point h2').css('opacity', '1');
+                    $('.point h2').css('transform', 'translateX(0px)');
+                    $('.point_line_l').css('width', '30%');
+                    $('.point_line_r').css('width', '30%');
+                    $('.third').css('opacity', '1');
+                    $('.third').css('transform', 'translateX(0px)');
+                    $('.point_img').css('opacity', '1');
+                    $('.point_img').css('transform', 'translateX(0px)');
+                }, 600);
 
 
+            }
 
+            if ($(document).scrollTop() > 3000) {
+                // console.log('je')
+                $('.content_4 h2').css('transform', 'translateX(0px)')
+                $('.content_4 div').css('transform', 'translateX(0px)')
+
+            }
+        }
+
+        if ($(window).width() < 1000) {
+            // let second=790
+            if ($(document).scrollTop() > 300) {
+                // console.log('je')
+                $('.O').css('opacity', '1')
+                $('.line').css('width', '500px')
+                $('.logo_title').addClass('typing')
+                $('.logo_title').css('opacity', '1')
+                setTimeout(() => {
+                    $('.logo_img img').css('opacity', '1');
+                }, 2300);
+                setTimeout(() => {
+                    $('.spirit').css('transform', 'translateX(0px)');
+                }, 2500);
+
+            }
+            if ($(document).scrollTop() > 1000) {
+                // console.log('je')
+                $('.page').css('transform', 'translateX(0px)')
+
+                setTimeout(() => {
+                    $('.point h2').css('opacity', '1');
+                    $('.point h2').css('transform', 'translateX(0px)');
+                    $('.third').css('opacity', '1');
+                    $('.third').css('transform', 'translateX(0px)');
+                    $('.point_img').css('opacity', '1');
+                    $('.point_img').css('transform', 'translateX(0px)');
+                }, 600);
+
+                setTimeout(() => {
+                    $('.point_line_l').css('transform', 'scaleX(1)');
+                    $('.point_line_r').css('transform', 'scaleX(1)');
+                }, 800);
+
+
+            }
+
+            if ($(document).scrollTop() > 1800) {
+                // console.log('je')
+                $('.content_4 h2').css('transform', 'translateX(0px)')
+                $('.content_4 div').css('transform', 'translateX(0px)')
+
+            }
+        }
+    })
 </script>
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>
