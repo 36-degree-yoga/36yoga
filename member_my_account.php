@@ -305,7 +305,7 @@ $member_row = $stmt->fetch();
                     <div class="edit_info d-flex align-items-center justify-content-center">
                         <p class="my-0">現在密碼</p>
                         <div class="input_line ml-3">
-                            <input type="text" id="nowPass">
+                            <input type="password" id="nowPass">
                             <a href="#" style="color: #135F39;">忘記密碼</a>
                         </div>
 
@@ -314,14 +314,14 @@ $member_row = $stmt->fetch();
                     <div class="edit_info d-flex align-items-center justify-content-center">
                         <p class="my-0">新的密碼</p>
                         <div class="input_line ml-3">
-                            <input type="text" id="newPass1">
+                            <input type="password" id="newPass1">
                         </div>
                     </div>
                     <div class="space_30"></div>
                     <div class="edit_info d-flex align-items-center justify-content-center">
                         <p class="my-0">確認密碼</p>
                         <div class="input_line ml-3">
-                            <input type="text" id="newPass2">
+                            <input type="password" id="newPass2">
                         </div>
                     </div>
                     <div class="errorMsg text-center" style="color: #f2a200;"></div>
