@@ -189,7 +189,7 @@ $gotoURL = 'product_list.php';
 
 
         let isPass = true;
-        let error = ''
+        let error = '';
 
         if (loginemail.val()) {
             if (!email_re.test(loginemail.val())) {
@@ -266,7 +266,7 @@ $gotoURL = 'product_list.php';
         $('#regist-alert-f').text('');
 
         let isPass = true;
-        let error = ''
+        let error = '';
 
 
         if (regis_email.val()) {
