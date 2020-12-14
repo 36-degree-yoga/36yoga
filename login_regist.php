@@ -103,7 +103,7 @@ $gotoURL = 'product_list.php';
 </div>
 
 <!-- 彈跳視窗登入↓↓ -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="login-alert">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -184,6 +184,7 @@ $gotoURL = 'product_list.php';
 
         if (error) {
             isPass = false;
+            $('#login-alert').modal('show');
             $('#login-alert-f').html("請填寫" + error);
         }
 
@@ -198,12 +199,14 @@ $gotoURL = 'product_list.php';
             }, function(data) {
                 if (data.success) {
                     console.log('hi');
+                    $('#login-alert').modal('show');
                     $('#login-alert-s').text('登入成功');
                     setTimeout(function() {
                         location.href = '<?= $_SERVER['HTTP_REFERER'] ?>';
                     }, 2000);
                 } else {
                     console.log('error');
+                    $('#login-alert').modal('show');
                     $('#login-alert-f').text('登入失敗');
                 }
 
@@ -262,6 +265,7 @@ $gotoURL = 'product_list.php';
 
         if (error) {
             isPass = false;
+            $('#login-alert').modal('show');
             $('#login-alert-f').html("請填寫" + error);
         }
 
@@ -273,12 +277,14 @@ $gotoURL = 'product_list.php';
             }, function(d) {
                 if (d.success) {
                     console.log('hi');
+                    $('#login-alert').modal('show');
                     $('#login-alert-s').text('註冊成功！');
                     setTimeout(function() {
                         location.href = '<?= WEB_ROOT ?>/member_my_account.php';
                     }, 2000);
                 } else {
-                    $('#login-alert-f').text('註冊失敗！');
+                    $('#login-alert').modal('show');
+                    $('#login-alert-f').text('註冊失敗！')gi;
                     console.log('error fail to register');
                 }
             }, 'json');
