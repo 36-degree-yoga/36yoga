@@ -182,6 +182,9 @@ button:focus {
   .space_120 {
     height: 60px;
   }
+  .mobile_space {
+    height: 0 !important;
+  }
 
   .change_picture_area {
     flex: 0 0 100%;
