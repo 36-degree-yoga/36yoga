@@ -91,22 +91,22 @@ $member_row = $stmt->fetch();
 <!-- 會員中心選單橫條bar↓↓ -->
 <div class="m_account_bar_wrap">
     <div class="m_account_bar_item d-flex align-items-center">
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='member_my_account.php'">
             <p>我的帳號</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='order_history.php'">
             <p>訂單紀錄</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='member_my_favorite.php'">
             <p>我的最愛</p>
         </div>
-        <div class="m_account_coupon">
+        <div class="m_account_coupon" onclick="javascript:location.href='member_my_coupon.php'">
             <p class="check_border">我的折價券</p>
         </div>
         <div class="m_account_option">
             <p>我的點數</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='member_design.php'">
             <p>客製化設計</p>
         </div>
     </div>

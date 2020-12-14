@@ -22,22 +22,22 @@ $member_row = $stmt->fetch();
 <!-- 會員中心選單橫條bar↓↓ -->
 <div class="m_account_bar_wrap">
     <div class="m_account_bar_item d-flex align-items-center">
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='member_my_account.php'">
             <p>我的帳號</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='order_history.php'">
             <p>訂單紀錄</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='member_my_favorite.php'">
             <p>我的最愛</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='member_my_coupon.php'">
             <p>我的折價券</p>
         </div>
         <div class="m_account_option">
             <p>我的點數</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='member_design.php'">
             <p class="check_border">客製化設計</p>
         </div>
     </div>
@@ -248,6 +248,10 @@ $member_row = $stmt->fetch();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
 <script>
+     $(document).ready(
+        $('.m_account_bar_wrap ').scrollleft
+     );
+    
     function delete_it(sid) {
         // console.log(sid);
         location.href = "member_desgin_delete.php?sid=" + sid;
@@ -272,5 +276,7 @@ $member_row = $stmt->fetch();
             // }
         }, 'json');
     };
+
+    
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
