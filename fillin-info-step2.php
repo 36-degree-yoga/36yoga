@@ -503,14 +503,15 @@ $m_row = $pdo->query($m_sql)->fetch();
             $(".how-to-pay").addClass("error-border");
             $('html, body').animate({
                 scrollTop: $(".how-to-pay").offset().top - 200
-            }, 600);
+            }, 500);
 
         }
         if ($(".logistic").val() == "null") {
             isPass = false;
+            $(".logistic").addClass("error-border");
             $('html, body').animate({
                 scrollTop: $(".how-to-pay").offset().top - 200
-            }, 600);
+            }, 500);
         }
         if (isPass) {
             const transFee = parseInt($('#trans_fee').text());
@@ -531,7 +532,6 @@ $m_row = $pdo->query($m_sql)->fetch();
             }
             console.log(transFee, bouns, email, name, mobile, address, amount, payment, logistic, payment_status);
             $.post('order-info-api.php', {
-
                 amount: amount,
                 logistic: logistic,
                 trans_fee: transFee,
