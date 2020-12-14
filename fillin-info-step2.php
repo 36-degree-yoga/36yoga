@@ -501,12 +501,16 @@ $m_row = $pdo->query($m_sql)->fetch();
         if ($(".how-to-pay").val() == "null") {
             isPass = false;
             $(".how-to-pay").addClass("error-border");
-            scrollTop: $(".how-to-pay").offset().top
+            $('html, body').animate({
+                scrollTop: $(".how-to-pay").offset().top - 200
+            }, 600);
+
         }
         if ($(".logistic").val() == "null") {
             isPass = false;
-            $(".logistic").addClass("error-border");
-            scrollTop: $(".how-to-pay").offset().top
+            $('html, body').animate({
+                scrollTop: $(".how-to-pay").offset().top - 200
+            }, 600);
         }
         if (isPass) {
             const transFee = parseInt($('#trans_fee').text());
