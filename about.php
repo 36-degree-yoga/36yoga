@@ -55,7 +55,7 @@
     </div>
 
     <!-- 第二 -->
-    <div class="about_section2 d-flex flex-column">
+    <div class="about_section2 d-flex flex-column" id="second">
         <!-- logo -->
         <div class="about_logo_wrap d-flex align-item-center">
             <div class="logo_img col-5 d-flex justify-content-center ">
@@ -63,7 +63,7 @@
             </div>
 
             <div class="test  position-relative">
-                <div class="logo_title typing  ">
+                <div class="logo_title  ">
                     <p>36度&emsp;<span>與人類共感的溫度</span></p>
 
 
@@ -105,7 +105,8 @@
                 <div class="point_line_r"></div>
             </div>
 
-            <div class="d-flex p-0 align-items-center justify-content-center">
+            <div class="
+third  d-flex p-0 align-items-center justify-content-center">
                 <!-- 內容 -->
                 <div class="point_letter col-4">
                     <p>研發創新、優質的瑜珈墊，比起市面上的更加長、更加寬一些的尺寸，選擇並創造最適合您的瑜珈墊，強化墊子的功能，防滑穩定各種瑜珈姿勢，讓練習更自在寫意。
@@ -147,7 +148,7 @@
         <div class="content_4 col-10 align-items-center">
             <h2 class="col-5">願景目標</h2>
 
-            <div class="col-5">
+            <div class="col-lg-4 col-md-5">
                 一個企業想對自己的品牌有所期許，或對一個喜愛的品牌有所期待， 必須先看到一個品牌除了產品本身之外，為生活帶來更高價值的東西。
                 <br>
                 <br>
@@ -204,7 +205,7 @@
     </div>
 
     <!-- 第二 -->
-    <div class="about_section2">
+    <div class="about_section2" id="m_second">
 
         <!-- logo -->
         <div class="about_logo_wrap align-item-center">
@@ -223,7 +224,7 @@
             </div>
 
             <div class="logo_img d-flex justify-content-center mt-5">
-                <img class="col-5" src="svg/about/about_logo.svg" alt="">
+                <img class="col-5" src="svg/about_logo.svg" alt="">
             </div>
 
         </div>
@@ -256,7 +257,7 @@
 
 
             <!-- 內容 -->
-            <div class="point_letter ">
+            <div class="point_letter third">
                 <p>研發創新、優質的瑜珈墊，比起市面上的更加長、更加寬一些的尺寸，選擇並創造最適合您的瑜珈墊，強化墊子的功能，防滑穩定各種瑜珈姿勢，讓練習更自在寫意。
                 </p>
 
@@ -325,136 +326,159 @@
 <?php include __DIR__ . '/parts/script.php'; ?>
 
 <script>
-    //nav icon hover 效果//
-    $('.nav-icon').hover(function() {
-        $(this).find('.nav-icon-line').css('fill', '#DB5C00').css('transition', '.5s');
-        $(this).find('.nav-icon-stroke').css('stroke', '#DB5C00').css('transition', '.5s');
+// transform: translateX(-3550px);
+$(document).ready(
+    
+    function(){
+        if($(window).width()>1000){
+    $('.banner_img_wrap').css('margin-right','0px');
+    $('.yellow_back').css('margin-bottom','0px');
+    $('.scroll_down').css('top','850px');
+    setTimeout(() => {
+        $('.slogan').css('opacity','1')
+        $('.orange_line').css('width','60%')
+        
+    }, 1000);
+    setInterval(() => {
+        $('.scroll_down').css('top','880px'); 
+        setTimeout(() => {
+            $('.scroll_down').css('top','850px');
+        }, 500);
+    }, 2200);}
 
-    })
+    if($(window).width()<1000){
+    $('.banner_img_wrap').css('margin-right','0px');
+    $('.yellow_back').css('margin-bottom','0px');
+    $('.scroll_down').css('margin-bottom','0px');
+    $('.scroll_down p').css('font-size','12px');
+    $('.scroll_down div').css('width','200px');
+    setTimeout(() => {
+        $('.slogan').css('opacity','1')
+        $('.orange_line').css('width','100%')
+        
+    }, 1000);
+    setInterval(() => {
+        $('.scroll_down').css('top','880px'); 
+        setTimeout(() => {
+            $('.scroll_down').css('top','850px');
+        }, 500);
+    }, 2200);}
+})
 
-    $('.nav-icon').click(function() {
-        $(this).find('.nav-icon-line').css('fill', '#DB5C00').css('transition', '.5s');
-        $(this).find('.nav-icon-stroke').css('stroke', '#DB5C00').css('transition', '.5s');
+$('.scroll_down').on('mouseenter',function(){
+    $('.scroll_down').css('transition','0.3s');
+    $('.scroll_down').css('top','910px');  
+})
+$('.scroll_down').on('mouseleave',function(){
+    $('.scroll_down').css('transition','0.3s');
+    $('.scroll_down').css('top','850px');  
+})
 
-    })
+$('.scroll_down').on('click',function(){  
+    if($(window).width()>1000){
+        $('html, body').animate({
+    scrollTop: $('#second').offset().top+100
+}, 500); // 2000 是指滾動的秒數
+    }    
 
-    $('.nav-icon').mouseleave(function() {
-        $('.nav-icon-line').css('fill', '#004a13').css('transition', '.5s');
-        $('.nav-icon-stroke').css('stroke', '#004a13').css('transition', '.5s');
-    })
+    if($(window).width()<1000){
+        $('html, body').animate({
+    scrollTop: 753
+}, 500); // 2000 是指滾動的秒數
+    }    
+    
+})
 
-    $('.nav-logo').hover(function() {
-        $(this).find('path').css('fill', '#DB5C00').css('transition', '.5s');
+$(document).on('scroll',function(){
+    if($(window).width()>1000){
+    let second=$('#second').offset().top
+    if($(document).scrollTop()>700){
+        // console.log('je')
+        $('.O').css('opacity','1')
+        $('.line').css('width','1500px')
+        $('.logo_title').addClass('typing')
+        $('.logo_title').css('opacity','1')
+        setTimeout(() => {
+            $('.logo_img img').css('opacity','1');
+        }, 2300);
+        setTimeout(() => {
+            $('.spirit').css('transform','translateX(0px)');
+        }, 2500);
+    
+}
+if($(document).scrollTop()>1600){
+        // console.log('je')
+        $('.page').css('transform','translateX(0px)')
+        
+        setTimeout(() => {
+        $('.point h2').css('opacity','1');
+        $('.point h2').css('transform','translateX(0px)');
+        $('.point_line_l').css('width','30%');
+        $('.point_line_r').css('width','30%');
+        $('.third').css('opacity','1');
+        $('.third').css('transform','translateX(0px)');
+        $('.point_img').css('opacity','1');
+        $('.point_img').css('transform','translateX(0px)');
+        }, 600);
+       
+    
+}
 
-    })
+if($(document).scrollTop()>3000){
+        // console.log('je')
+        $('.content_4 h2').css('transform','translateX(0px)')
+        $('.content_4 div').css('transform','translateX(0px)')
+      
+}}
 
-    $('.nav-logo').click(function() {
-        $(this).find('path').css('fill', '#DB5C00').css('transition', '.5s');
+if($(window).width()<1000){
+    // let second=790
+    if($(document).scrollTop()>300){
+        // console.log('je')
+        $('.O').css('opacity','1')
+        $('.line').css('width','500px')
+        $('.logo_title').addClass('typing')
+        $('.logo_title').css('opacity','1')
+        setTimeout(() => {
+            $('.logo_img img').css('opacity','1');
+        }, 2300);
+        setTimeout(() => {
+            $('.spirit').css('transform','translateX(0px)');
+        }, 2500);
+    
+}
+if($(document).scrollTop()>1000){
+        // console.log('je')
+        $('.page').css('transform','translateX(0px)')
+        
+        setTimeout(() => {
+        $('.point h2').css('opacity','1');
+        $('.point h2').css('transform','translateX(0px)');
+        $('.third').css('opacity','1');
+        $('.third').css('transform','translateX(0px)');
+        $('.point_img').css('opacity','1');
+        $('.point_img').css('transform','translateX(0px)');
+        }, 600);
+       
+        setTimeout(() => {
+        $('.point_line_l').css('transform','scaleX(1)');
+        $('.point_line_r').css('transform','scaleX(1)');
+        }, 800);
+       
+    
+}
 
-    })
-
-
-    $('.nav-logo').mouseleave(function() {
-        $('.nav-logo').find('path').css('fill', '#004a13').css('transition', '.5s');
-
-    })
-
-
-    // navbar捲動消失//
-    let scrollLast = 0;
-
-    $(document).ready(function() {
-        let device = $(window).width();
-        if (device < 992) {
-            $('.nav-desktop').removeClass('d-flex').css('display', 'none');
-            $('.nav-mobile').addClass('d-flex').css('display', 'inline-block');
-
-
-        } else {
-            $('.nav-desktop').css('display', 'inline-block').addClass('d-flex');
-            $('.nav-mobile').removeClass('d-flex').css('display', 'none');
-
-            $(window).scroll(function() {
-
-                let scrollNow = $(this).scrollTop();
-
-                if (scrollLast < scrollNow) {
-                    $('.nav-desktop').addClass('hide');
-                } else {
-                    $('.nav-desktop').removeClass('hide');
-                }
-
-                scrollLast = scrollNow;
-
-            })
-
-        }
-    });
-    ///判斷手機版顯示Navbar
-    $(window).resize(function() {
-
-        let device = $(window).width();
-        if (device < 992) {
-            $('.nav-desktop').removeClass('d-flex').css('display', 'none');
-            $('.nav-mobile').addClass('d-flex').css('display', 'none');
-            //inline-block
-
-
-        } else {
-            $('.nav-desktop').css('display', 'inline-block').addClass('d-flex');
-            $('.nav-mobile').removeClass('d-flex').css('display', 'none');
-            $('.nav-search-area').removeClass('show');
-            $(window).scroll(function() {
-
-                let scrollNow = $(this).scrollTop();
-
-                if (scrollLast < scrollNow) {
-                    $('nav').addClass('hide');
-                } else {
-                    $('nav').removeClass('hide');
-                }
-
-                scrollLast = scrollNow;
-
-            })
-
-        }
-
-    });
-
-    ///手機版搜尋點擊顯示   切換其他地方會隱藏
-    $('.nav-search').on('click', function(e) {
-        e.stopPropagation();
-        $('.nav-search-area').toggleClass('show');
-        $('.nav-icon-mobile').toggleClass('hide');
-        $('.nav-logo').toggleClass('hide');
-    })
-
-
-
-    $(document).click(function(e) {
-        var target = $(e.target);
-        if (target.closest("nav").length != 0) return;
-        $('.nav-search-area.show').removeClass('show');
-        $('.nav-icon-mobile.hide').removeClass('hide');
-        $('.nav-logo.hide').removeClass('hide');
-    })
-
-    //https://www.jianshu.com/p/42d9bc59e25a
+if($(document).scrollTop()>1800){
+        // console.log('je')
+        $('.content_4 h2').css('transform','translateX(0px)')
+        $('.content_4 div').css('transform','translateX(0px)')
+      
+}
+}
+})
 
 
-    //
-    $('.menu-icon').on('click', function() {
-        $('.nav-mobile-side').css('right', '0%').css('display', 'flex').css('opacity', '1');
-        $('.side-top').css('display', 'block');
 
-    })
-
-    $('.close-btn').on('click', function() {
-        $('.nav-mobile-side').css('right', '100%').css('display', 'none').css('opacity', '0');
-        $('.side-top').css('display', 'none');
-
-    });
 </script>
 
 <?php include __DIR__ . '/parts/html-end.php'; ?>

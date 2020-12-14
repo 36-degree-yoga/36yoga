@@ -35,6 +35,68 @@ foreach ($rec2_row  as $k2 => $r2) {
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/animate.min.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/content.css">
+<style>
+    .btn-ani {
+        position: relative;
+        width: 342px !important;
+        height: 38px !important;
+        background-color: #004a13 !important;
+        border-radius: 4px !important;
+        padding: 2px;
+        animation: oxxo ease-in-out 5s infinite;
+        border: 0 transparent !important;
+        /* background-clip: padding-box; */
+    }
+
+    .btn2 {
+
+        width: 100%;
+        height: 100%;
+        border: 1px solid transparent;
+        background: #fffefc;
+        border-radius: 2px;
+        color: #004a13;
+    }
+
+    .btn2 span {
+
+        background-color: #004a13;
+        animation: oxxo ease-in-out 5s infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /* font-weight: bold; */
+
+
+    }
+
+
+    @keyframes oxxo {
+        from {
+            /*     background-image: linear-gradient(23deg, rgba(0,74,19,1) 0%, rgba(242,162,0,1) 53%, rgba(0,74,19,1) 100%); */
+            background-image: -webkit-linear-gradient(top left,
+                    rgba(242, 162, 0, 0.0) 0%,
+                    rgba(242, 162, 0, 0.0) 45%,
+                    rgba(242, 162, 0, 0.5) 48%,
+                    rgba(242, 162, 0, 0.8) 50%,
+                    rgba(242, 162, 0, 0.5) 52%,
+                    rgba(242, 162, 0, 0.0) 57%,
+                    rgba(242, 162, 0, 0.0) 100%);
+
+            background-position: -500px -500px;
+            background-size: 800px 800px;
+            background-repeat: no-repeat;
+
+        }
+
+        to {
+            background-repeat: no-repeat;
+            background-position: 150px 150px;
+        }
+
+
+
+    }
+</style>
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 貼上html -->
@@ -266,13 +328,15 @@ foreach ($rec2_row  as $k2 => $r2) {
             </div>
 
             <div class="desktop last-sec-text-ani">
-                <h3>36度，與人類共感的溫度</h3>
+                <h3>找到專屬於你的瑜珈墊</h3>
             </div>
             <div class="mobile last-sec-text-ani">
-                <h3>36度，<br>與人類共感的溫度</h3>
+                <h3>找到<br>專屬於你的瑜珈墊</h3>
             </div>
             <a href="<?= WEB_ROOT ?>yoga-test.php">
-                <div class="last-sec-btn last-sec-text-ani"><button class="btn_l">進入測驗</button></div>
+                <div class="last-sec-btn last-sec-text-ani"><button class="btn_l btn-ani">
+                        <div class="btn2 pt-1"><span>開始測驗</span></div>
+                    </button></div>
             </a>
         </div>
     </div>

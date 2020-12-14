@@ -206,6 +206,10 @@
 .i-need-w-and-fix-w-part {
   width: 335px;
 }
+
+.error-border {
+  border: 2px solid #db5c00;
+}
 /* jq */
 
 .dividerline-in-table {
@@ -275,6 +279,15 @@ a:hover {
 }
 
 /* button */
+.btn-privacy {
+  width: 130px;
+  line-height: 40px;
+  background-color: #004a13;
+  color: #fffefc;
+  border: 1px solid #004a13;
+  margin: 40px 0;
+  transition: 0.5s;
+}
 .btn-leave {
   width: 130px;
   line-height: 40px;
@@ -291,7 +304,8 @@ a:hover {
   background-color: #004a13;
   color: #fffefc;
 }
-.hope-next-step:hover {
+.hope-next-step:hover,
+.btn-privacy:hover {
   color: #fffefc;
 }
 @media (max-width: 576px) {

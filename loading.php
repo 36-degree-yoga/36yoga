@@ -53,7 +53,7 @@
           font-family: 'Josefin Sans', sans-serif;
           font-size: 60px;
           padding: 0;
-          font-weight: 300;
+          font-weight: 300!important;
           color: #333333;
           }
   </style>

@@ -129,6 +129,19 @@ if (isset($_SERVER['HTTP_REFERER'])) {
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/animate.min.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/test-06.css">
+<style>
+    .modal-header {
+        display: flex;
+        justify-content: end;
+
+
+    }
+
+    .close img {
+        width: 30px;
+        height: 30px;
+    }
+</style>
 
 <!-- include __DIR__ . '/parts/nav.php'; -->
 <!-- 貼上html -->
@@ -367,6 +380,47 @@ if (isset($_SERVER['HTTP_REFERER'])) {
                 </span>
             </button></a>
     </div>
+    <!-- 彈跳視窗 -->
+    <div class="modal fade" id="couponModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            <img src="./SVG/delete.svg" alt="" class="btn_delete">
+                        </span>
+                    </button>
+                </div>
+
+                <div class="modal-body d-flex justify-content-center flex-column w-100">
+
+                    <div class="edit_info d-flex align-items-center justify-content-center w-100 flex-column">
+
+                        <div class="w-100 text-center mb-3">
+                            <h6 id="login-alert-s" style="color: #135F39;">恭喜獲得折價券！</h6>
+                        </div>
+                        <a href="javascript:void(0)" onclick="CopyTextToClipboard('copythis'); return false;">
+                            <h6>
+                                折扣碼：<span id="copythis" style="color:#db5c00;">best_yoga_mat</span></h6>
+                        </a>
+
+                        <p class="m-0">至<a href="<?= WEB_ROOT ?>member_my_coupon.php">會員中心</a>加入折扣碼</p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+                <div class=" modal-footer">
+                    <div class="space_30"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 彈跳視窗結束 -->
 
 </div>
 
@@ -374,11 +428,34 @@ if (isset($_SERVER['HTTP_REFERER'])) {
 
 <!-- include __DIR__ . '/parts/html-footer.php';  -->
 <?php include __DIR__ . '/parts/script.php'; ?>
-<!-- js連結 -->
-<!-- <script>
-    function unsettest() {
+<script>
+    setTimeout(function() {
+
+
+
+        $('#couponModal').modal('show')
+
+
+
+    }, 3000);
+
+    function CopyTextToClipboard(id) {
+
+        var TextRange = document.createRange();
+
+        TextRange.selectNode(document.getElementById(id));
+
+        sel = window.getSelection();
+
+        sel.removeAllRanges();
+
+        sel.addRange(TextRange);
+
+        document.execCommand("copy");
+
+        alert("折扣碼複製成功！");
+
 
     }
-</script> -->
-
+</script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

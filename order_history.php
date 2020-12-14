@@ -369,7 +369,7 @@ $member_row = $stmt->fetch();
                                         </g>
                                     </g>
                                 </svg>
-                                <a href="#" class="mb-0 ml-4">我的折價券</a>
+                                <a href="member_my_coupon.php" class="mb-0 ml-4">我的折價券</a>
                             </li>
                             <li class="account_sidebar_title d-flex align-items-center">
                                 <svg id="point" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="45" height="45">
