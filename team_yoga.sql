@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-12-04 09:52:13
--- 伺服器版本： 10.4.16-MariaDB
--- PHP 版本： 7.3.24
+-- 產生時間： 2020-12-14 04:10:09
+-- 伺服器版本： 10.4.14-MariaDB
+-- PHP 版本： 7.3.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,7 +56,13 @@ INSERT INTO `custom_product` (`sid`, `member_id`, `mat-total-price`, `mat-count`
 (75, 1, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(90, 66, 66)', '264997236', '', 'no', '2020-12-03 15:30:34'),
 (76, 5, 4000, 2, 680, 61, 173, '3.5', 'TPE', 'rgb(63, 63, 63)', '460631370', '', 'no', '2020-12-03 15:32:32'),
 (77, 5, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(201, 139, 153)', '749882848', '', 'no', '2020-12-03 15:36:10'),
-(78, 5, 8000, 4, 1360, 61, 173, '3.5', 'TPE', 'rgb(90, 66, 66)', '186751155', '', 'no', '2020-12-03 15:38:54');
+(78, 5, 8000, 4, 1360, 61, 173, '3.5', 'TPE', 'rgb(90, 66, 66)', '186751155', '', 'no', '2020-12-03 15:38:54'),
+(79, 2, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(63, 85, 114)', '105475097', '', 'save', '2020-12-04 17:22:19'),
+(80, 2, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(63, 85, 114)', '575918097', '', 'no', '2020-12-04 17:22:20'),
+(81, 2, 2000, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(63, 85, 114)', '77726206', '', 'no', '2020-12-04 17:34:43'),
+(82, 1, 3800, 1, 340, 180, 183, '3.5', 'TPE', 'rgb(63, 85, 114)', '', '', '', '2020-12-07 16:01:15'),
+(87, 1, 3600, 1, 340, 61, 173, '3.5', 'TPE', 'rgb(63, 85, 114)', '249905813', '', 'no', '2020-12-07 16:07:23'),
+(88, 1, 3830, 1, 340, 61, 173, '5.0', 'NR', 'rgb(205, 173, 226)', '486929921', '鋼印', 'no', '2020-12-10 16:17:22');
 
 -- --------------------------------------------------------
 
@@ -76,12 +82,10 @@ CREATE TABLE `favorite` (
 --
 
 INSERT INTO `favorite` (`sid`, `member_id`, `product_sid`, `created_at`) VALUES
-(1, '1', '1', '2020-11-30'),
-(2, '1', '17', '2020-11-30'),
-(3, '1', '22', '2020-11-30'),
-(4, '1', '13', '2020-11-30'),
-(5, '1', '8', '2020-11-30'),
-(6, '1', '24', '2020-11-30');
+(8, '1', '15', '2020-12-04'),
+(9, '1', '32', '2020-12-04'),
+(12, '1', '17', '2020-12-07'),
+(14, '1', '13', '2020-12-10');
 
 -- --------------------------------------------------------
 
@@ -100,7 +104,7 @@ CREATE TABLE `members` (
   `birthday` date DEFAULT NULL,
   `activated` int(11) DEFAULT 0,
   `nickname` varchar(255) DEFAULT NULL,
-  `avatar` varchar(50) DEFAULT '[]',
+  `avatar` varchar(50) DEFAULT 'avatar00.jpg',
   `create_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -109,12 +113,18 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id`, `account`, `email`, `password`, `mobile`, `city`, `address`, `birthday`, `activated`, `nickname`, `avatar`, `create_at`) VALUES
-(1, 'butterfly159', 'butterfly.liaw@gmail.com', '666', '0987-090-999', '台中市', '南屯區妤甄路100號-5樓', '2005-01-01', 0, 'Butterfly', 'avatar01', '2019-12-12 00:00:00'),
-(2, 'chrome2416', 'chrome2416@yahoo.com.tw', '123', '0983-118-742', '台北市', '大安區信義路三段123號', '2000-11-11', 0, 'Kelly', 'avatar02', '2019-12-13 00:00:00'),
-(3, 'sally123', 'sally123@gmail.com', '123', '0912-345-678', '台北市', '大安區信義路三段123號', '2000-02-17', 0, 'Sally', 'avatar03', '2020-11-24 00:00:00'),
-(4, 'yujuwk357', 'yujuwk@gmail.com', '123', '0953-319-458', '新北市', '汐止區水源路', '2000-02-18', 0, 'Ruan', 'avatar04', '2020-11-24 00:00:00'),
-(5, 'taco123', 'taco123@gmail.com', '123', '0935-318-343', '台北市', '文山區興隆路三段號', '2012-11-30', 0, 'taco', 'avatar05', '2020-11-25 00:00:00'),
-(9, '', 'abc830212@gmail.com', '456', NULL, NULL, NULL, NULL, 0, '', '[]', '2020-12-03 14:55:36');
+(1, 'butterfly159', 'butterfly.liaw@gmail.com', '666', '0987-090-999', '臺中市', '南屯區妤甄路100號-5樓', '2005-01-01', 0, 'Butterfly', 'avatar01.jpg', '2019-12-12 00:00:00'),
+(2, 'chrome2416', 'chrome2416@yahoo.com.tw', '123', '0983-118-742', '臺北市', '大安區信義路三段123號', '2000-11-11', 0, 'Kelly', 'avatar02.jpg', '2019-12-13 00:00:00'),
+(3, 'sally123', 'sally123@gmail.com', '123', '0912-345-678', '臺北市', '大安區信義路三段123號', '2000-02-17', 0, 'Sally', 'avatar03.jpg', '2020-11-24 00:00:00'),
+(4, 'yujuwk357', 'yujuwk@gmail.com', '123', '0953-319-458', '臺北市', '汐止區水源路', '2000-02-18', 0, 'Ruan', 'avatar04.jpg', '2020-11-24 00:00:00'),
+(5, 'taco123', 'taco123@gmail.com', '123', '0935-318-343', '臺北市', '文山區興隆路三段號', '2012-11-30', 0, 'taco', 'avatar05.jpg', '2020-11-25 00:00:00'),
+(10, 'bob159', 'aaa111@gmail.com', '111111', '0911111111', '臺北市', '深海鳳梨裡', '2020-12-02', 0, 'BBB', 'avatar00.jpg', NULL),
+(17, 'test2', 'test2@mail.com', '111', '0965897531', NULL, NULL, '2020-12-08', 0, 'test', 'avatar00.jpg', '2020-12-09 15:21:12'),
+(18, 'test3', 'test3@mail.com', '123', 'rewgesrhtesh', NULL, NULL, '2020-12-13', 0, 'wegtweg', '5fd1d1fab98e6810.jpg', '2020-12-09 15:26:37'),
+(21, NULL, 'test4@gmail.com', '111', NULL, NULL, NULL, NULL, 0, NULL, '5fd1d163171fb827.jpg', '2020-12-10 15:06:28'),
+(24, 'test5', 'test5@gmail.com', '111', '0214123451', NULL, NULL, '2020-12-08', 0, 'test5', '5fd30bb893d08989.jpg', '2020-12-10 20:01:14'),
+(28, 'test5', 'test@gmail.com', '111', '0912456787', NULL, NULL, '2020-12-02', 0, 'test5', '5fd30b0e999a8820.jpg', '2020-12-11 13:57:32'),
+(29, 'smallLight123', 'qq@mail.com', '123', '0968175986', NULL, NULL, '1995-10-10', 0, '小明', '5fd6c3a6b316c110.jpg', '2020-12-14 09:43:52');
 
 -- --------------------------------------------------------
 
@@ -147,7 +157,13 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`sid`, `member_sid`, `amount`, `order_date`, `logistic`, `trans_fee`, `payment`, `deduction`, `buyer`, `address`, `mobile`, `email`, `points`, `payment_status`, `logistic_status`, `order_status`) VALUES
 (1, 1, 4080, '2020-08-05 18:00:03', '宅配', '60', '貨到付款', '100', '阿蝶', '台北市麗寶最高那一層', '0966666666', 'butterfly@gmail.com', '10', '已付款', '已經出貨', '已完成訂單'),
-(2, 1, 11400, '2020-12-05 11:24:35', '宅配', '60', '貨到付款', '0', '阿蝶', '台北市麗寶最高那一層', '0966666666', 'butterfly@gmail.com', '10', '已付款', '已出貨', '已完成訂單');
+(2, 1, 11400, '2020-12-05 11:24:35', '宅配', '60', '貨到付款', '0', '阿蝶', '台北市麗寶最高那一層', '0966666666', 'butterfly@gmail.com', '10', '已付款', '已出貨', '已完成訂單'),
+(3, 1, 9080, '2020-12-07 16:11:06', 'home', '60', 'credit', '100', 'butterfly159', '臺北市南屯區妤甄路100號-5樓', '0987-090-999', 'butterfly.liaw@gmail.com', '10', '已付款', '待出貨', '待出貨'),
+(4, 1, 9080, '2020-12-07 16:11:22', 'home', '60', 'atm', '100', 'butterfly159', '臺北市南屯區妤甄路100號-5樓', '0987-090-999', 'butterfly.liaw@gmail.com', '10', '已付款', '待出貨', '待出貨'),
+(5, 1, 5940, '2020-12-09 10:34:50', 'home', '60', 'credit', '0', 'butterfly159', 'null南屯區妤甄路100號-5樓', '0987-090-999', 'butterfly.liaw@gmail.com', '10', '已付款', '待出貨', '待出貨'),
+(6, 1, 1500, '2020-12-09 10:35:59', '超商', '60', '信用卡', '0', 'butterfly159', 'null南屯區妤甄路100號-5樓', '0987-090-999', 'butterfly.liaw@gmail.com', '10', '已付款', '待出貨', '待出貨'),
+(7, 1, 4370, '2020-12-10 16:19:34', '宅配', '60', '信用卡', '0', '<?= $m_row[\'account\'] ?>', 'null<?= $m_row[\'address\'] ?>', '<?= $m_row[\'mobile\'] ?>', '<?= $m_row[\'email\'] ?>', '10', '已付款', '待出貨', '待出貨'),
+(8, 1, 2460, '2020-12-10 16:21:20', '宅配', '60', 'ATM', '0', 'butterfly159', '嘉義市南屯區妤甄路100號-5樓', '0987-090-999', 'butterfly.liaw@gmail.com', '10', '已付款', '待出貨', '待出貨');
 
 -- --------------------------------------------------------
 
@@ -170,7 +186,15 @@ CREATE TABLE `order_details` (
 INSERT INTO `order_details` (`sid`, `order_sid`, `product_sid`, `quantity`, `custom_id`) VALUES
 (1, 1, 1, 1, NULL),
 (2, 1, 13, 1, NULL),
-(3, 2, 25, 5, NULL);
+(3, 2, 25, 5, NULL),
+(4, 5, 22, 1, NULL),
+(5, 5, 3, 1, NULL),
+(6, 5, 0, 0, NULL),
+(7, 6, 13, 3, NULL),
+(8, 7, 13, 1, NULL),
+(9, 7, 34, 1, 88),
+(10, 8, 13, 1, NULL),
+(11, 8, 14, 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -317,31 +341,31 @@ ALTER TABLE `yoga_test`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `custom_product`
 --
 ALTER TABLE `custom_product`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `favorite`
 --
 ALTER TABLE `favorite`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `products`

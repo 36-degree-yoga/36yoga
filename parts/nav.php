@@ -41,10 +41,10 @@ foreach ($_SESSION as $k => $v) {
                 <a href="<?= WEB_ROOT ?>product_list.php">
                     <h5>瑜珈墊</h5>
                 </a>
-                <a href="<?= WEB_ROOT ?>product_list.php#ctm">
+                <a href="<?= WEB_ROOT ?>product_list.php#std">
                     <h6>一般</h6>
                 </a>
-                <a href="<?= WEB_ROOT ?>product_list.php#block">
+                <a href="<?= WEB_ROOT ?>product_list.php#m-ctm">
                     <h6>客製化</h6>
                 </a>
             </div>
@@ -59,7 +59,7 @@ foreach ($_SESSION as $k => $v) {
                     <h6>滾筒</h6>
                 </a>
                 <a href="<?= WEB_ROOT ?>product_list.php#sand">
-                    <h6>沙包</h6>
+                    <h6>重量手環</h6>
                 </a>
                 <a href="<?= WEB_ROOT ?>product_list.php#strap">
                     <h6>伸展</h6>
@@ -231,7 +231,7 @@ foreach ($_SESSION as $k => $v) {
                                 <a href="<?= WEB_ROOT ?>product_list.php#roller">滾筒
                                 </a>
 
-                                <a href="<?= WEB_ROOT ?>product_list.php#sand">沙包
+                                <a href="<?= WEB_ROOT ?>product_list.php#sand">重量手環
                                 </a>
                                 <a href="<?= WEB_ROOT ?>product_list.php#strap">伸展帶
                                 </a>

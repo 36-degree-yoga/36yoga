@@ -359,7 +359,7 @@ foreach ($towel_row  as $k => $r) {
             </div>
 
             <!-- 客製化產品區(手機板) -->
-            <div class="customize_area_mobile align-items-center justify-content-center">
+            <div class="customize_area_mobile align-items-center justify-content-center" id="m-ctm">
                 <div class="content_wrap_mobile d-flex flex-column w-100 p-5">
                     <div class="word_pic_wrap_mobile d-flex align-items-center justify-content-between">
                         <h1 class="mb-0 d-flex justify-content-end" style="color: #FFFEFC; line-height: 70px;font-family:Josefin Sans, sans-serif;">
