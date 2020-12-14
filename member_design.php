@@ -205,7 +205,7 @@ $member_row = $stmt->fetch();
                         <a href="" data-toggle="modal" data-target="#delete<?= $d['sid'] ?>" class="py-1 ml-2 mr-3">
                             <img src="SVG/icon_trash.svg" alt="">
                         </a>
-                        <button class="btn_f  mr-3" style="width:72%">加入購物車</button>
+                        <button class="btn_f  mr-3" id="sid" style="width:72%" data-sid="<?= $d['sid'] ?>" onclick="designToCart()">加入購物車</button>
                     </div>
 
                 </div>
@@ -248,9 +248,28 @@ $member_row = $stmt->fetch();
 <script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
 <script>
     function delete_it(sid) {
-        console.log(sid);
+        // console.log(sid);
         location.href = "member_desgin_delete.php?sid=" + sid;
 
     }
+
+    function designToCart(event) {
+        const designSid = $('#sid').attr('data-sid');
+
+        console.log({
+            sid: designSid,
+        });
+
+        $.get('handle-design.php', {
+            sid: designSid,
+            save: 'save',
+            action: 'add',
+        }, function(data) {
+            console.log(data);
+            // if (window.parent && window.parent.renderSmallCart) {
+            //     window.parent.renderSmallCart(data.cart);
+            // }
+        }, 'json');
+    };
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
