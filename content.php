@@ -96,6 +96,14 @@ foreach ($rec2_row  as $k2 => $r2) {
 
 
     }
+
+
+    @media screen and (max-width: 992px) {
+        .btn-ani {
+            width: 18rem !important;
+        }
+
+    }
 </style>
 
 <?php include __DIR__ . '/parts/nav.php'; ?>

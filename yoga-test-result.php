@@ -437,7 +437,7 @@ if (isset($_SERVER['HTTP_REFERER'])) {
 
 
 
-    }, 3000);
+    }, 10000);
 
     function CopyTextToClipboard(id) {
 
