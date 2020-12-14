@@ -406,11 +406,11 @@ foreach ($_SESSION as $k => $v) {
     <!-- hamburger -->
     <div class="navv-mobile">
         <!-- nav-icon nav-icon-mobile menu-icon col-3 nav-mobile -->
-        <a id="menu-toggle" href="#" class="menu-button">
+        <div id="menu-toggle" class="menu-button">
             <span class="menu-bar bar1 menu-icon"></span>
             <span class="menu-bar bar2 menu-icon"></span>
             <span class="menu-bar bar3 menu-icon"></span>
-        </a>
+        </div>
     </div>
 
 
