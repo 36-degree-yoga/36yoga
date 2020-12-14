@@ -323,7 +323,7 @@ $gotoURL = 'product_list.php';
                 } else {
                     $('#regist-alert').modal('show');
                     $('#regist-alert-s').text('');
-                    $('#regist-alert-f').text('註冊失敗！');
+                    $('#regist-alert-f').text('註冊失敗！ ');
                     console.log('error fail to register');
                 }
             }, 'json');
