@@ -27,6 +27,8 @@ foreach ($rec2_row  as $k2 => $r2) {
 <!-- css連結 -->
 
 <link rel="stylesheet" href="./CSS/shopping-cart.css" />
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
+
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 貼上html -->
 

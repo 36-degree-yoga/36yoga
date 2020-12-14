@@ -35,6 +35,8 @@ foreach ($rec2_row  as $k2 => $r2) {
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/animate.min.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/content.css">
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
+
 <style>
     .btn-ani {
         position: relative;

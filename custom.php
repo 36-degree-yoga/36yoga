@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="./CSS/reset.css">
 <link rel="stylesheet" href="./CSS/share.css">
 <link rel="stylesheet" href="./CSS/custom.css" />
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 <!-- 貼上html -->
 <div style="display:none">
     <?php include __DIR__ . '/parts/nav.php'; ?>

@@ -21,7 +21,7 @@ $m_row = $pdo->query($m_sql)->fetch();
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 <link rel="stylesheet" href="./CSS/fill-in-infomation.css" />
-
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 貼上html -->
 <div class="nav-place-zone"></div>

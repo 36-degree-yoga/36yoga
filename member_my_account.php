@@ -23,6 +23,8 @@ $member_row = $stmt->fetch();
 
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/member_my_account.css">
 
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
+
 <?php include __DIR__ . '/parts/nav.php'; ?>
 
 <!-- 會員中心選單橫條bar↓↓ -->

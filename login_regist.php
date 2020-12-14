@@ -11,6 +11,7 @@ $gotoURL = 'product_list.php';
 <!-- css連結 -->
 <link rel="stylesheet" href="./CSS/login_registered.css" />
 <link rel="stylesheet" href="./CSS/share.css" />
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 貼上html -->

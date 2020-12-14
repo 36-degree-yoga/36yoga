@@ -28,6 +28,7 @@ $member_row = $stmt->fetch();
 <!-- css連結 -->
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/member_my_favorite.css">
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <style>

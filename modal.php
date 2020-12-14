@@ -22,6 +22,7 @@ $others_rows = $others_stmt->fetchAll();
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/quick_view.css">
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 
 
 <div class="modal_wrap d-flex align-items-center justify-content-center" data-sid="<?= $modal_rows['sid'] ?>" id="endformodal">

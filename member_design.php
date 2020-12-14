@@ -16,6 +16,7 @@ $member_row = $stmt->fetch();
 <!-- css連結 -->
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/member_design.css">
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 會員中心選單橫條bar↓↓ -->

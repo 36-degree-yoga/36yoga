@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/nav.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/footer.css" />
-
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
