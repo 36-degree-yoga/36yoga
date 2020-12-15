@@ -17,7 +17,7 @@ foreach ($mf_row as $k => $r) {
     $mf_row[$k]['my_imgs']  = explode(",", $r['img']);
 };
 
-$fly_arry = [];
+// $fly_arry = [];
 
 // foreach ($mf_row as $k1 => $r1) {
 //     // $mf_row[$r1]['sid']  = $fly_arry['sid'];
@@ -27,18 +27,18 @@ $fly_arry = [];
 //     }
 // };
 
-foreach ($mf_row as $r1) {
-    $fly_arry[] = $r1['sid'];
-    // $fly_arry[] = $r1;
-    // foreach ($fly_arry as $ff => $rr) {
-    //     $fly_arry[$ff] = $rr;
-    //     $fly_arry[$ff][$rr] = $r1;
-    // }
-};
+// foreach ($mf_row as $r1) {
+//     $fly_arry[] = $r1['sid'];
+//     // $fly_arry[] = $r1;
+//     // foreach ($fly_arry as $ff => $rr) {
+//     //     $fly_arry[$ff] = $rr;
+//     //     $fly_arry[$ff][$rr] = $r1;
+//     // }
+// };
 
-echo json_encode($fly_arry, JSON_UNESCAPED_UNICODE);
-// // echo json_encode($mf_row[0]['sid'], JSON_UNESCAPED_UNICODE);
-exit;
+// echo json_encode($fly_arry, JSON_UNESCAPED_UNICODE);
+// // // echo json_encode($mf_row[0]['sid'], JSON_UNESCAPED_UNICODE);
+// exit;
 
 
 // 照片用
