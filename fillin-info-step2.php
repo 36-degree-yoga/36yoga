@@ -237,7 +237,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                         <label class="col-12 col-sm-12 col-md-3 col-lg-3 col-form-label" for="">優惠代碼</label>
                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 py-1 mobile-need-change-padding pr-2 d-flex">
                             <input type="text" class="form-control4 px-2" id="bouns" value="" />
-                            <div class="text-center control-his-position ml-3"><u>確認</u></div>
+                            <div class="text-center control-his-position ml-3" style="cursor:pointer;"><u>確認</u></div>
                         </div>
                     </div>
                 </div>
@@ -277,7 +277,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                                         <!-- 件數價錢 -->
                                         <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
                                             <p class="m-0">共<span class="count"><?= $c['quantity'] ?></span>件</p>
-                                            <p class="m-0">NT$ <span class="price"><?= $c['price'] * $c['quantity'] ?></span></p>
+                                            <p class="m-0">NT. <span class="price"><?= $c['price'] * $c['quantity'] ?></span></p>
                                         </div>
                                     </div>
                                     <hr />
@@ -303,7 +303,7 @@ $m_row = $pdo->query($m_sql)->fetch();
                                         <!-- 件數價錢 -->
                                         <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
                                             <p class="m-0">共<span class="count"><?= $b['mat-count'] ?></span>件</p>
-                                            <p class="m-0">NT$ <span class="price"><?= $b['mat-total-price'] * $b['mat-count'] ?></span></p>
+                                            <p class="m-0">NT. <span class="price"><?= $b['mat-total-price'] * $b['mat-count'] ?></span></p>
                                         </div>
                                     </div>
                                     <hr />
@@ -557,37 +557,6 @@ $m_row = $pdo->query($m_sql)->fetch();
         }
 
     });
-
-
-
-    // $('.hope-next-step').on('click', function() {
-    //     console.log($(".how-to-pay").val())
-    //     console.log($(".logistic").val())
-
-    //     if ($(".how-to-pay").val() == "null" || $(".logistic").val() == "null") {
-    //         if ($(".how-to-pay").val() == "null") {
-    //             $(".how-to-pay").addClass("error-border");
-
-    //         }
-    //         if ($(".logistic").val() == "null") {
-    //             $(".logistic").addClass("error-border");
-    //         }
-
-    //     } else {
-    // if ($(".how-to-pay").val() === '信用卡') {
-    //     console.log($(".how-to-pay").val())
-    //     $(window).attr('location', 'credit-card-step3.php');
-
-    // } else {
-    //     console.log($(".how-to-pay").val())
-    //     $(window).attr('location', 'atm-step3.php');
-
-    // }
-    //     };
-
-
-
-    // });
 </script>
 <script src="./lib/checkout-step123.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

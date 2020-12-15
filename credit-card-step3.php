@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/parts/config.php'; ?>
+<?php include __DIR__ . '/parts/config.php';
+$member_id = $_SESSION['user']['id'];
+$ooo_sql = "SELECT * FROM `orders`  WHERE 1 ORDER BY `order_date` DESC LIMIT 1 ";
+$ooo_stmt = $pdo->QUERY($ooo_sql)->fetchAll();
+?>
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 <link rel="stylesheet" href="./CSS/credit-card.css" />
@@ -127,7 +131,7 @@
                                     <!-- 件數價錢 -->
                                     <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
                                         <p class="m-0">共<span class="count"><?= $c['quantity'] ?></span>件</p>
-                                        <p class="m-0">NT$ <span class="price"><?= $c['price'] * $c['quantity'] ?></span></p>
+                                        <p class="m-0">NT. <span class="price"><?= $c['price'] * $c['quantity'] ?></span></p>
                                     </div>
                                 </div>
                                 <hr />
@@ -153,7 +157,7 @@
                                     <!-- 件數價錢 -->
                                     <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
                                         <p class="m-0">共<span class="count"><?= $b['mat-count'] ?></span>件</p>
-                                        <p class="m-0">NT$ <span class="price"><?= $b['mat-total-price'] * $b['mat-count'] ?></span></p>
+                                        <p class="m-0">NT. <span class="price"><?= $b['mat-total-price'] * $b['mat-count'] ?></span></p>
                                     </div>
                                 </div>
                                 <hr />
@@ -192,11 +196,11 @@
                         </tr>
                         <tr>
                             <th scope="row">優惠折抵</th>
-                            <td><span id="deduction">0</span></td>
+                            <td><span id="deduction"><?= $ooo_stmt[0]['deduction'] ?></span></td>
                         </tr>
                         <tr>
                             <th scope="row">應付金額</th>
-                            <td>NT.<span id="amount"></span></td>
+                            <td>NT.<span id="amount"><?= $ooo_stmt[0]['amount'] ?></span></td>
                         </tr>
                     </tbody>
                 </table>
