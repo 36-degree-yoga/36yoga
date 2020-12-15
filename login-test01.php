@@ -19,6 +19,7 @@ $gotoURL = 'product_list.php';
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/product_sidebar.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/quick_view.css">
 <link rel="stylesheet" href="./CSS/login_registered.css" />
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 <?php include __DIR__ . '/parts/nav.php'; ?>
 
 

@@ -27,6 +27,8 @@ foreach ($rec2_row  as $k2 => $r2) {
 <!-- css連結 -->
 
 <link rel="stylesheet" href="./CSS/shopping-cart.css" />
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
+
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 貼上html -->
 
@@ -109,11 +111,11 @@ foreach ($rec2_row  as $k2 => $r2) {
                             </td>
                             <td class="delete-icon">
                                 <!--  href="javascript:delItem(<//?= $c['sid'] ?>)"  -->
-                                <a data-toggle="modal" data-target="#del_prod_warn"><img src="./SVG/icon_trash.svg" alt=""></a>
+                                <a data-toggle="modal" data-target="#del_prod_warn<?= $c['sid'] ?>"><img src="./SVG/icon_trash.svg" alt=""></a>
                             </td>
                         </tr>
                         <!-- delete warning modal-->
-                        <div class="modal fade" id="del_prod_warn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade" id="del_prod_warn<?= $c['sid'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                 <div class="modal-content modal-size">
                                     <div class="modal-header out_header">
@@ -175,13 +177,13 @@ foreach ($rec2_row  as $k2 => $r2) {
 
                             </td>
                             <td class="delete-icon">
-                                <a data-toggle="modal" data-target="#del_Cprod_warn"><img src="./SVG/icon_trash.svg" alt=""></a>
+                                <a data-toggle="modal" data-target="#del_Cprod_warn<?= $b['sid'] ?>"><img src="./SVG/icon_trash.svg" alt=""></a>
                             </td>
 
                         </tr>
 
                         <!-- delete warning modal-->
-                        <div class="modal fade" id="del_Cprod_warn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade" id="del_Cprod_warn<?= $b['sid'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                 <div class="modal-content modal-size">
                                     <div class="modal-header out_header">

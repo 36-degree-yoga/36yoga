@@ -3,7 +3,7 @@
 <!-- css連結 -->
 <link rel="stylesheet" href="./CSS/credit-card.css" />
 <link rel="stylesheet" href="./CSS/share.css" />
-
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 貼上html -->
@@ -248,7 +248,9 @@
             }, 0);
         };
     }
-
+    $(".demo-hidden-trigger").focus(function() {
+        $(".there-need-hidden").css("opacity", "1");
+    });
     //鍵盤輸入練習
 </script>
 <script src="./lib/checkout-step123.js"></script>

@@ -21,7 +21,7 @@ $m_row = $pdo->query($m_sql)->fetch();
 <?php include __DIR__ . '/parts/html-head.php'; ?>
 <!-- css連結 -->
 <link rel="stylesheet" href="./CSS/fill-in-infomation.css" />
-
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 貼上html -->
 <div class="nav-place-zone"></div>
@@ -427,18 +427,13 @@ $m_row = $pdo->query($m_sql)->fetch();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <!-- js連結 -->
 <script>
-    // 除錯
-
-    // 除錯
-
-
     // 優惠
     $('u').on('click', function() {
         if (!$("#bouns").val() === '') {
             $('#deduction').text('0');
 
         } else {
-            $('#deduction').text('100');
+            $('#deduction').text('60');
         }
         calcTotal();
     });
@@ -483,74 +478,73 @@ $m_row = $pdo->query($m_sql)->fetch();
 
     $('#member-info').click(() => {
         $("#email").val("<?= $m_row['email'] ?>");
-        $("#name").val("<?= $m_row['account'] ?>");
+        $("#name").val("<?= $m_row['nickname'] ?>");
         $("#phone-number").val("<?= $m_row['mobile'] ?>");
         $("#city").val("<?= $m_row['city'] ?>");
         $("#city-detail").val("<?= $m_row['address'] ?>");
     });
 
-
-
-    $('.hope-next-step').on('click', function(event) {
-        const transFee = parseInt($('#trans_fee').text());
-        const bouns = parseInt($('#deduction').text());
-        const email = $("#email").val();
-        const name = $("#name").val();
-        const mobile = $("#phone-number").val();
-        const address = $("#city").val() + $("#city-detail").val();
-        const amount = parseInt($('#amount').text());
-        const payment = $(".how-to-pay").val();
-        const logistic = $(".logistic").val();
-
-        let payment_status = '';
-        if (payment === "信用卡") {
-            payment_status = '已付款';
-        } else {
-            payment_status = '未付款';
-        }
-        console.log(transFee, bouns, email, name, mobile, address, amount, payment, logistic, payment_status);
-        $.post('order-info-api.php', {
-
-            amount: amount,
-            logistic: logistic,
-            trans_fee: transFee,
-            payment: payment,
-            deduction: bouns,
-            buyer: name,
-            address: address,
-            mobile: mobile,
-            email: email,
-            points: 10,
-            payment_status: payment_status,
-            logistic_status: "待出貨",
-            order_status: "待出貨",
-        }, function(data) {
-            console.log(data);
-
-        }, 'json');
-    });
-
+    // 自動填入
     $(".how-to-pay").click(function() {
         $(".how-to-pay").removeClass("error-border");
     })
     $(".logistic").click(function() {
         $(".logistic").removeClass("error-border");
     })
+    // 除錯
+    $('.hope-next-step').on('click', function(event) {
+        let isPass = true;
+        if ($(".how-to-pay").val() == "null") {
+            isPass = false;
+            $(".how-to-pay").addClass("error-border");
+            $('html, body').animate({
+                scrollTop: $(".how-to-pay").offset().top - 200
+            }, 500);
+        }
+        if ($(".logistic").val() == "null") {
+            isPass = false;
+            $(".logistic").addClass("error-border");
+            $('html, body').animate({
+                scrollTop: $(".how-to-pay").offset().top - 200
+            }, 500);
+        }
+        if (isPass) {
+            const transFee = parseInt($('#trans_fee').text());
+            const bouns = parseInt($('#deduction').text());
+            const email = $("#email").val();
+            const name = $("#name").val();
+            const mobile = $("#phone-number").val();
+            const address = $("#city").val() + $("#city-detail").val();
+            const amount = parseInt($('#amount').text());
+            const payment = $(".how-to-pay").val();
+            const logistic = $(".logistic").val();
 
-    $('.hope-next-step').on('click', function() {
-        console.log($(".how-to-pay").val())
-        console.log($(".logistic").val())
-
-        if ($(".how-to-pay").val() == "null" || $(".logistic").val() == "null") {
-            if ($(".how-to-pay").val() == "null") {
-                $(".how-to-pay").addClass("error-border");
-                
+            let payment_status = '';
+            if (payment === "信用卡") {
+                payment_status = '已付款';
+            } else {
+                payment_status = '未付款';
             }
-            if ($(".logistic").val() == "null") {
-                $(".logistic").addClass("error-border");
-            }
-
-        } else {
+            console.log(transFee, bouns, email, name, mobile, address, amount, payment, logistic, payment_status);
+            $.post('order-info-api.php', {
+                amount: amount,
+                logistic: logistic,
+                trans_fee: transFee,
+                payment: payment,
+                deduction: bouns,
+                buyer: name,
+                address: address,
+                mobile: mobile,
+                email: email,
+                points: 10,
+                payment_status: payment_status,
+                logistic_status: "待出貨",
+                order_status: "待出貨",
+            }, function(data) {
+                console.log(data);
+            }, 'json');
+        }
+        if (isPass) {
             if ($(".how-to-pay").val() === '信用卡') {
                 console.log($(".how-to-pay").val())
                 $(window).attr('location', 'credit-card-step3.php');
@@ -560,11 +554,40 @@ $m_row = $pdo->query($m_sql)->fetch();
                 $(window).attr('location', 'atm-step3.php');
 
             }
-        };
-
-
+        }
 
     });
+
+
+
+    // $('.hope-next-step').on('click', function() {
+    //     console.log($(".how-to-pay").val())
+    //     console.log($(".logistic").val())
+
+    //     if ($(".how-to-pay").val() == "null" || $(".logistic").val() == "null") {
+    //         if ($(".how-to-pay").val() == "null") {
+    //             $(".how-to-pay").addClass("error-border");
+
+    //         }
+    //         if ($(".logistic").val() == "null") {
+    //             $(".logistic").addClass("error-border");
+    //         }
+
+    //     } else {
+    // if ($(".how-to-pay").val() === '信用卡') {
+    //     console.log($(".how-to-pay").val())
+    //     $(window).attr('location', 'credit-card-step3.php');
+
+    // } else {
+    //     console.log($(".how-to-pay").val())
+    //     $(window).attr('location', 'atm-step3.php');
+
+    // }
+    //     };
+
+
+
+    // });
 </script>
 <script src="./lib/checkout-step123.js"></script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

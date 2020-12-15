@@ -793,7 +793,7 @@ $member_row = $stmt->fetch();
 <div class="m_order_history" style="padding-top: 75px;">
     <!-- 手機標題 -->
     <div class="m_back_and_title d-flex align-items-center justify-content-between">
-        <div class="back_arrow">&lt;</div>
+        <div class="back_arrow" onclick="history.back()">&lt;</div>
 
         <div class="m_title d-flex align-items-center">
             <img src="SVG/w-Page-1.svg" alt="" />

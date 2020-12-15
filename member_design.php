@@ -16,28 +16,29 @@ $member_row = $stmt->fetch();
 <!-- css連結 -->
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/member_design.css">
+<link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 會員中心選單橫條bar↓↓ -->
 <div class="m_account_bar_wrap">
     <div class="m_account_bar_item d-flex align-items-center">
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='member_my_account.php'">
             <p>我的帳號</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='order_history.php'">
             <p>訂單紀錄</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='member_my_favorite.php'">
             <p>我的最愛</p>
         </div>
-        <div class="m_account_option">
+        <div class="m_account_option" onclick="javascript:location.href='member_my_coupon.php'">
             <p>我的折價券</p>
         </div>
         <div class="m_account_option">
             <p>我的點數</p>
         </div>
-        <div class="m_account_option">
-            <p class="check_border">客製化設計</p>
+        <div id="set" class="m_account_option" onclick="javascript:location.href='member_design.php'">
+            <p class="check_border" >客製化設計</p>
         </div>
     </div>
 </div>
@@ -190,7 +191,7 @@ $member_row = $stmt->fetch();
                 <div class="product mb-5 col-4">
                     <div class="product_img_wrap position-relative" data-toggle="modal" data-target="#exampleModal">
 
-                        <div class="d-flex justify-content-center "><img style="background-color: <?= $d['pick_color'] ?>;" src="img/customize/design/<?= $d['design_img'] ?>.png" alt=""></div>
+                        <div class="d-flex justify-content-center cartimg"><img  style="background-color: <?= $d['pick_color'] ?>;" src="img/customize/design/<?= $d['design_img'] ?>.png" alt=""></div>
 
                         <button class="edit-btn btn_f position-absolute" id="edit-btn">
                             繼續編輯
@@ -205,7 +206,7 @@ $member_row = $stmt->fetch();
                         <a href="" data-toggle="modal" data-target="#delete<?= $d['sid'] ?>" class="py-1 ml-2 mr-3">
                             <img src="SVG/icon_trash.svg" alt="">
                         </a>
-                        <button class="btn_f  mr-3" style="width:72%">加入購物車</button>
+                        <button class="cart btn_f  mr-3"  style="width:72%" data-sid="<?= $d['sid'] ?>" data-img="img/customize/design/<?= $d['design_img'] ?>.png"  data-bg="background-color: <?= $d['pick_color'] ?>;">加入購物車</button>
                     </div>
 
                 </div>
@@ -247,10 +248,62 @@ $member_row = $stmt->fetch();
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
 <script>
+   
     function delete_it(sid) {
-        console.log(sid);
+        // console.log(sid);
         location.href = "member_desgin_delete.php?sid=" + sid;
 
     }
+
+    // $('.cart').on('click', addProduct);
+
+    // function addProduct(event) {
+    //         var offset = $("#end").offset();
+    //         var aaa = $('.cart').attr('data-img');
+    //         var bg = $('.cart').attr('data-bg');
+    //         flyer = $(`<img class="u-flyer" style="${bg}" src="${aaa}" style="width: 100px; height: 100px;"/>`);
+    //         flyer.fly({
+    //         start: {
+    //             left: event.pageX,
+    //             top: event.pageY
+    //         },
+    //         end: {
+    //             left: 900,
+    //             top: offset.top,
+    //             width: 0,
+    //             height: 0
+    //         },
+    //         autoPlay: true, //是否直接运动,默认true
+    //         speed: 1.8 //越大越快，默认1.2
+
+    //     });
+    // }
+
+
+
+
+    $('.cart').on('click', function(event) {
+        
+
+        const sid = $(this).attr('data-sid');
+
+        console.log({
+            sid: sid,
+        });
+
+        $.get('handle-design.php', {
+            sid: sid,
+            save: 'no',
+            action: 'add'
+        }, function(data) {
+            console.log(data);
+            renderSmallCart(cart)
+            // if (window.parent && window.parent.renderSmallCart) {
+            //     window.parent.renderSmallCart(data.cart);
+            // }
+
+        }, 'json');
+    });
+    
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
