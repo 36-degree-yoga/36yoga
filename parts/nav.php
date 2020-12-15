@@ -213,14 +213,14 @@ foreach ($_SESSION as $k => $v) {
             <div class="nav-left col-lg-6 d-flex align-items-center">
 
                 <div class="btn-group d-flex align-items-center nav-left-text">
-                    <a href="<?= WEB_ROOT ?>product_list.php>" class="nav-text mr-5 ml-4 mt-2" class="dropdown-toggle" data-toggle="dropdown">瑜珈墊</a>
+                    <a href="<?= WEB_ROOT ?>product_list.php" class="nav-text mr-5 ml-4 mt-2" class="dropdown-toggle" data-toggle="dropdown">瑜珈墊</a>
                     <div class="dropdown-menu">
                         <a class="" href="<?= WEB_ROOT ?>product_list.php#std">一般</a>
                         <a class="" href="<?= WEB_ROOT ?>product_list.php#ctm">客製化</a>
                     </div>
                 </div>
                 <div class="btn-group d-flex align-items-center nav-left-text">
-                    <a href="<?= WEB_ROOT ?>product_list.php>#block" class="nav-text mr-5 ml-4 mt-2" class="dropdown-toggle" data-toggle="dropdown">輔具</a>
+                    <a href="<?= WEB_ROOT ?>product_list.php#block" class="nav-text mr-5 ml-4 mt-2" class="dropdown-toggle" data-toggle="dropdown">輔具</a>
                     <div class="dropdown-menu">
                         <div class="dropdown-menu-wrapper">
                             <div class="dropdown-menu-group">
