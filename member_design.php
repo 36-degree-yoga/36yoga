@@ -18,14 +18,13 @@ $member_row = $stmt->fetch();
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/member_design.css">
 <link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
 <style>
+    @media (max-width: 540px) {
+        /* 手機板橫條bar↓ */
 
-@media (max-width: 540px) {
-  /* 手機板橫條bar↓ */
-  
-  .space_120 {
-    height: 60px;
-  }
-}
+        .space_120 {
+            height: 60px;
+        }
+    }
 </style>
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
@@ -48,7 +47,7 @@ $member_row = $stmt->fetch();
             <p>我的點數</p>
         </div>
         <div id="set" class="m_account_option" onclick="javascript:location.href='member_design.php'">
-            <p class="check_border" >客製化設計</p>
+            <p class="check_border">客製化設計</p>
         </div>
     </div>
 </div>
@@ -202,7 +201,7 @@ $member_row = $stmt->fetch();
                 <div class="product mb-5 col-4">
                     <div class="product_img_wrap position-relative" data-toggle="modal" data-target="#exampleModal">
 
-                        <div class="d-flex justify-content-center cartimg"><img  style="background-color: <?= $d['pick_color'] ?>;" src="img/customize/design/<?= $d['design_img'] ?>.png" alt=""></div>
+                        <div class="d-flex justify-content-center cartimg"><img style="background-color: <?= $d['pick_color'] ?>;" src="img/customize/design/<?= $d['design_img'] ?>.png" alt=""></div>
 
                         <button class="edit-btn btn_f position-absolute" id="edit-btn">
                             繼續編輯
@@ -217,7 +216,7 @@ $member_row = $stmt->fetch();
                         <a href="" data-toggle="modal" data-target="#delete<?= $d['sid'] ?>" class="py-1 ml-2 mr-3">
                             <img src="SVG/icon_trash.svg" alt="">
                         </a>
-                        <button class="cart btn_f  mr-3"  style="width:72%" data-sid="<?= $d['sid'] ?>" data-img="img/customize/design/<?= $d['design_img'] ?>.png"  data-bg="background-color: <?= $d['pick_color'] ?>;" >加入購物車</button>
+                        <button class="cart btn_f  mr-3" style="width:72%" data-sid="<?= $d['sid'] ?>" data-img="img/customize/design/<?= $d['design_img'] ?>.png" data-bg="background-color: <?= $d['pick_color'] ?>;">加入購物車</button>
                     </div>
 
                 </div>
@@ -261,22 +260,24 @@ $member_row = $stmt->fetch();
 <script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
 <script src="<?= WEB_ROOT ?>lib/jquery.fly.min.js"></script>
 <script>
-   
     function delete_it(sid) {
         // console.log(sid);
         location.href = "member_desgin_delete.php?sid=" + sid;
 
     }
 
-   
+
 
     function addProduct(event) {
-            var offset = $("#end").offset();
-            var aaa = $('.cart').attr('data-img');
-            var bg = $('.cart').attr('data-bg');
-            var flyer = $(`<img class="u-flyer" style="${bg}" src="${aaa}" style="width: 100px; height: 100px; overflow:hidden;"/>`);
-            // console.log(flyer);
-            flyer.fly({
+        var offset = $("#end").offset();
+        // var aaa = $('.cart').attr('data-img');
+        var aaa = $(this).attr('data-sid')
+
+        var bg = $(this).attr('data-bg');
+
+        var flyer = $(`<img class="u-flyer" style="${bg}" src="${aaa}" style="width: 100px; height: 100px; overflow:hidden;"/>`);
+        // console.log(flyer);
+        flyer.fly({
             start: {
                 left: event.pageX,
                 top: event.pageY
@@ -297,7 +298,7 @@ $member_row = $stmt->fetch();
 
 
     $('.cart').on('click', function(event) {
-        
+
 
         const sid = $(this).attr('data-sid');
 
@@ -319,6 +320,5 @@ $member_row = $stmt->fetch();
 
         }, 'json');
     });
-    
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>

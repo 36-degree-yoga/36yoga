@@ -174,7 +174,7 @@ $others_rows = $others_stmt->fetchAll();
                                 </div>
 
                             </div>
-                            <h6 style="color: #DB5C00;">NT$<?= $p['price'] ?></h6>
+                            <h6 style="color: #DB5C00;">NT.<?= $p['price'] ?></h6>
                         </div>
 
                         <p class="line-height"><?= $p['introduction'] ?></p>
@@ -535,7 +535,7 @@ $others_rows = $others_stmt->fetchAll();
                                     <a href="<?= WEB_ROOT ?>product_mat.php?sid=13">
                                         <h6 class="p-name mb-0">瑜珈支撐墊</h6>
                                     </a>
-                                    <p>NT$. 179</p>
+                                    <p>NT. 179</p>
                                 </div>
                             </div>
                         </div>
@@ -554,7 +554,7 @@ $others_rows = $others_stmt->fetchAll();
                                     <a href="<?= WEB_ROOT ?>product_mat.php?sid=22">
                                         <h6 class="p-name mb-0">重量運動手環</h6>
                                     </a>
-                                    <p>NT$. 2280</p>
+                                    <p>NT. 2280</p>
                                 </div>
                             </div>
                         </div>
@@ -573,7 +573,7 @@ $others_rows = $others_stmt->fetchAll();
                                     <a href="<?= WEB_ROOT ?>product_mat.php?sid=26">
                                         <h6 class="p-name mb-0">Thunder伸展帶</h6>
                                     </a>
-                                    <p>NT$. 550</p>
+                                    <p>NT. 550</p>
                                 </div>
                             </div>
                         </div>
