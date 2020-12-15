@@ -217,7 +217,7 @@ $member_row = $stmt->fetch();
                         <a href="" data-toggle="modal" data-target="#delete<?= $d['sid'] ?>" class="py-1 ml-2 mr-3">
                             <img src="SVG/icon_trash.svg" alt="">
                         </a>
-                        <button class="cart btn_f  mr-3"  style="width:72%" data-sid="<?= $d['sid'] ?>" data-img="img/customize/design/<?= $d['design_img'] ?>.png"  data-bg="background-color: <?= $d['pick_color'] ?>;">加入購物車</button>
+                        <button class="cart btn_f  mr-3"  style="width:72%" data-sid="<?= $d['sid'] ?>" data-img="img/customize/design/<?= $d['design_img'] ?>.png"  data-bg="background-color: <?= $d['pick_color'] ?>;" >加入購物車</button>
                     </div>
 
                 </div>
@@ -259,6 +259,7 @@ $member_row = $stmt->fetch();
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
+<script src="<?= WEB_ROOT ?>lib/jquery.fly.min.js"></script>
 <script>
    
     function delete_it(sid) {
@@ -267,29 +268,30 @@ $member_row = $stmt->fetch();
 
     }
 
-    // $('.cart').on('click', addProduct);
+   
 
-    // function addProduct(event) {
-    //         var offset = $("#end").offset();
-    //         var aaa = $('.cart').attr('data-img');
-    //         var bg = $('.cart').attr('data-bg');
-    //         flyer = $(`<img class="u-flyer" style="${bg}" src="${aaa}" style="width: 100px; height: 100px;"/>`);
-    //         flyer.fly({
-    //         start: {
-    //             left: event.pageX,
-    //             top: event.pageY
-    //         },
-    //         end: {
-    //             left: 900,
-    //             top: offset.top,
-    //             width: 0,
-    //             height: 0
-    //         },
-    //         autoPlay: true, //是否直接运动,默认true
-    //         speed: 1.8 //越大越快，默认1.2
+    function addProduct(event) {
+            var offset = $("#end").offset();
+            var aaa = $('.cart').attr('data-img');
+            var bg = $('.cart').attr('data-bg');
+            var flyer = $(`<img class="u-flyer" style="${bg}" src="${aaa}" style="width: 100px; height: 100px; overflow:hidden;"/>`);
+            // console.log(flyer);
+            flyer.fly({
+            start: {
+                left: event.pageX,
+                top: event.pageY
+            },
+            end: {
+                left: 2000,
+                top: offset.top,
+                width: 0,
+                height: 0
+            },
+            autoPlay: true, //是否直接运动,默认true
+            speed: 1.8 //越大越快，默认1.2
 
-    //     });
-    // }
+        });
+    }
 
 
 
@@ -313,6 +315,7 @@ $member_row = $stmt->fetch();
             // if (window.parent && window.parent.renderSmallCart) {
             //     window.parent.renderSmallCart(data.cart);
             // }
+            addProduct(event);
 
         }, 'json');
     });
