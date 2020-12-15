@@ -208,9 +208,7 @@ a:hover {
   /* .space_120 {
     height: 60px;
   } */
-  .space_60 {
-    height: 40px;
-  }
+  
 
   .modal-size {
     margin-left: 0px;
@@ -284,7 +282,9 @@ a:hover {
 }
 
 @media (max-width: 540px) {
-
+  .space_777 {
+    height: 40px;
+  }
   .modal-size {
     margin-left: 0px;
     width: 600px;
