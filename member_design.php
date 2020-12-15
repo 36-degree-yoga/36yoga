@@ -340,7 +340,10 @@ $member_row = $stmt->fetch();
             action: 'add'
         }, function(data) {
             console.log(data);
-           
+            setTimeout(() => {
+                location.reload();
+            }, 800);
+            
 
         }, 'json');
     });
