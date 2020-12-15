@@ -66,6 +66,10 @@ $member_row = $stmt->fetch();
             display: none;
         }
 
+        .mobile_space {
+            display: none;
+        }
+
         .product_list {
             padding: 30px;
         }
@@ -116,7 +120,7 @@ $member_row = $stmt->fetch();
 <div class="container">
     <div class="row">
         <div class="space_120"></div>
-        <div class="space_60"></div>
+        <div class="space_60 mobile_space"></div>
         <!-- 左側: 選單 -->
         <div class="account_side_bar d-flex col-3 position-relative ">
             <div class="account_side_bar_wrap d-flex justify-content-center justify-content-between">
@@ -301,10 +305,9 @@ $member_row = $stmt->fetch();
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script>
-
-let bar = $('.check_border').offset().left
-  console.log(bar)
- $('.m_account_bar_wrap').scrollLeft(bar-20);
+    let bar = $('.check_border').offset().left
+    console.log(bar)
+    $('.m_account_bar_wrap').scrollLeft(bar - 20);
     //Coupon物件
     var myCoupon = {
         best_yoga_mat: 'best_yoga_mat',
