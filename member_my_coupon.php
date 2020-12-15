@@ -355,6 +355,7 @@ $member_row = $stmt->fetch();
                 deadline: "2020-12-31",
             }, function(data) {
                 console.log(data);
+                location.reload();
 
 
             }, 'json');
