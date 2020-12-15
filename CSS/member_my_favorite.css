@@ -239,6 +239,11 @@ a:hover {
   }
 
   /* 間距↑↑ */
+
+  .mo-del {
+    display: none;
+  }
+
   /* 手機板橫條bar↓ */
   .m_account_bar_item {
     width: 660px;
