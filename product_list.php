@@ -297,7 +297,7 @@ foreach ($towel_row  as $k => $r) {
                                 <img src="./img/product_list/<?= $s['my_imgs'][0] ?>.jpg" alt="" style="display: none;">
                             </div>
                             <h6 class="mt-4 mb-0" style="text-align: center;" onclick="toDetail(<?= $s['sid'] ?>)"><?= $s['product_name'] ?></h6>
-                            <p style="text-align: center;"><?= $s['price'] ?></p>
+                            <p style="text-align: center;">NT.<?= $s['price'] ?></p>
                         </div>
                     <?php endforeach; ?>
                 </div>
