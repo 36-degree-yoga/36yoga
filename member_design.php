@@ -17,6 +17,16 @@ $member_row = $stmt->fetch();
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/member_design.css">
 <link rel="shortcut icon" href="./SVG/icon_green.svg" type="image/x-icon" />
+<style>
+
+@media (max-width: 540px) {
+  /* 手機板橫條bar↓ */
+  
+  .space_120 {
+    height: 60px;
+  }
+}
+</style>
 
 <?php include __DIR__ . '/parts/nav.php'; ?>
 <!-- 會員中心選單橫條bar↓↓ -->
@@ -46,7 +56,8 @@ $member_row = $stmt->fetch();
 
 <div class="container content-wrap">
     <div class="row">
-        <div class="space_120"></div>
+        <div class="space_120 mo-del"></div>
+        <div class=" space_60"></div>
         <!-- 左側: 選單 -->
         <div class="account_side_bar d-flex col-3 position-relative ">
             <div class="account_side_bar_wrap d-flex justify-content-center justify-content-between">
@@ -243,7 +254,8 @@ $member_row = $stmt->fetch();
     </div>
 </div>
 
-<div class=" space_120"></div>
+<div class=" space_120 mo-del"></div>
+<div class=" space_60"></div>
 <?php include __DIR__ . '/parts/html-footer.php'; ?>
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script src="<?= WEB_ROOT ?>lib/member_design.js"></script>
@@ -297,7 +309,7 @@ $member_row = $stmt->fetch();
             action: 'add'
         }, function(data) {
             console.log(data);
-            renderSmallCart(cart)
+            // renderSmallCart(cart)
             // if (window.parent && window.parent.renderSmallCart) {
             //     window.parent.renderSmallCart(data.cart);
             // }
