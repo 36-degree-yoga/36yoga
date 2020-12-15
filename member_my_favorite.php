@@ -16,10 +16,36 @@ $mf_row = $mf_stmt->fetchAll();
 foreach ($mf_row as $k => $r) {
     $mf_row[$k]['my_imgs']  = explode(",", $r['img']);
 };
+
+$fly_arry = [];
+
+// foreach ($mf_row as $k1 => $r1) {
+//     // $mf_row[$r1]['sid']  = $fly_arry['sid'];
+//     $fly_arry[] = $r1;
+//     foreach ($fly_arry as $ff => $rr) {
+//         $fly_arry[$ff] = $rr'sid'];
+//     }
+// };
+
+foreach ($mf_row as $r1) {
+    $fly_arry[] = $r1['sid'];
+    // $fly_arry[] = $r1;
+    // foreach ($fly_arry as $ff => $rr) {
+    //     $fly_arry[$ff] = $rr;
+    //     $fly_arry[$ff][$rr] = $r1;
+    // }
+};
+
+echo json_encode($fly_arry, JSON_UNESCAPED_UNICODE);
+// // echo json_encode($mf_row[0]['sid'], JSON_UNESCAPED_UNICODE);
+exit;
+
+
 // 照片用
 $sql = "SELECT * FROM `members` WHERE `id`=$member_id";
 $stmt = $pdo->query($sql);
 $member_row = $stmt->fetch();
+
 
 
 // echo json_encode($mf_row, JSON_UNESCAPED_UNICODE);
@@ -335,11 +361,18 @@ $member_row = $stmt->fetch();
     };
 
     //購物車動畫
+
     $('.addtocart-btn').on('click', addProduct);
 
     function addProduct(event) {
+
+        const sidValue = $(this).attr('data-sid');
+        console.log("kkk", sidValue)
+
         var offset = $("#end").offset(),
-            img = "./img/product_list/<?= $r['my_imgs'][1] ?>.jpg"
+            img = $(this).parent().find('img').attr('src');
+        console.log(img, "img")
+
         flyer = $(`<img class="u-flyer" src="${img}" style="width: 100px; height: 100px;"/>`);
         flyer.fly({
             start: {

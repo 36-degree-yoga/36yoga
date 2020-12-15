@@ -636,11 +636,11 @@ a.reviews-item:hover {
 @media (max-width: 500px) {
   /* 間距↓↓ */
   .space_30 {
-    height: 20px;
+    height: 20px !important;
   }
 
   .space_60 {
-    height: 40px;
+    height: 40px !important;
   }
 
   .space_120 {
