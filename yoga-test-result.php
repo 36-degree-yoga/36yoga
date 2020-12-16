@@ -344,41 +344,42 @@ if (isset($_SERVER['HTTP_REFERER'])) {
 
             </div>
         </a>
-        <a href="<?php echo $test_ref ?>"><button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
-                        <defs>
-                            <style>
-                                .cls-1,
-                                .cls-2 {
-                                    fill: none;
-                                }
+        <!-- <a href="php echo $test_ref ?>"> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+                    <defs>
+                        <style>
+                            .cls-1,
+                            .cls-2 {
+                                fill: none;
+                            }
 
-                                .cls-2 {
-                                    stroke: #004a13;
-                                    stroke-width: 2px;
-                                }
+                            .cls-2 {
+                                stroke: #004a13;
+                                stroke-width: 2px;
+                            }
 
-                                .cls-3 {
-                                    fill: #004a13;
-                                }
-                            </style>
-                        </defs>
-                        <g id="Layer_2" data-name="Layer 2">
-                            <g id="Layer_1-2" data-name="Layer 1">
-                                <g id="Ellipse_219" data-name="Ellipse 219">
-                                    <circle class="cls-1" cx="25" cy="25" r="25" />
-                                    <circle class="cls-2" cx="25" cy="25" r="24" />
-                                </g>
-                                <g id="Group_1139" data-name="Group 1139">
-                                    <rect id="Rectangle_1104" data-name="Rectangle 1104" class="cls-3" x="23" y="13" width="4" height="24" transform="translate(-10.36 25) rotate(-45)" />
-                                    <rect id="Rectangle_1106" data-name="Rectangle 1106" class="cls-3" x="13" y="23" width="24" height="4" transform="translate(-10.36 25) rotate(-45)" />
-                                </g>
+                            .cls-3 {
+                                fill: #004a13;
+                            }
+                        </style>
+                    </defs>
+                    <g id="Layer_2" data-name="Layer 2">
+                        <g id="Layer_1-2" data-name="Layer 1">
+                            <g id="Ellipse_219" data-name="Ellipse 219">
+                                <circle class="cls-1" cx="25" cy="25" r="25" />
+                                <circle class="cls-2" cx="25" cy="25" r="24" />
+                            </g>
+                            <g id="Group_1139" data-name="Group 1139">
+                                <rect id="Rectangle_1104" data-name="Rectangle 1104" class="cls-3" x="23" y="13" width="4" height="24" transform="translate(-10.36 25) rotate(-45)" />
+                                <rect id="Rectangle_1106" data-name="Rectangle 1106" class="cls-3" x="13" y="23" width="24" height="4" transform="translate(-10.36 25) rotate(-45)" />
                             </g>
                         </g>
-                    </svg>
-                </span>
-            </button></a>
+                    </g>
+                </svg>
+            </span>
+        </button>
     </div>
     <!-- 彈跳視窗 -->
     <div class="modal fade" id="couponModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -404,7 +405,7 @@ if (isset($_SERVER['HTTP_REFERER'])) {
                                 折扣碼：<span id="copythis" style="color:#db5c00;">best_yoga_mat</span></h6>
                         </a>
 
-                        <p class="m-0">至<a href="<?= WEB_ROOT ?>member_my_coupon.php">會員中心</a>加入折扣碼</p>
+                        <p class="m-0">點擊複製折扣碼</p>
 
 
 
@@ -415,6 +416,11 @@ if (isset($_SERVER['HTTP_REFERER'])) {
                 </div>
 
                 <div class=" modal-footer">
+                    <div class="space_30"></div>
+                    <div class="w-100 d-flex justify-content-center">
+                        <a href="<?php echo $test_ref ?>"><button class="btn_l" style="margin-right: 40px;">離開測驗</button></a>
+                        <a href="<?= WEB_ROOT ?>member_my_coupon.php"><button class="btn_f buy_btn">加入折扣碼</button></a>
+                    </div>
                     <div class="space_30"></div>
                 </div>
             </div>
@@ -429,15 +435,20 @@ if (isset($_SERVER['HTTP_REFERER'])) {
 <!-- include __DIR__ . '/parts/html-footer.php';  -->
 <?php include __DIR__ . '/parts/script.php'; ?>
 <script>
-    setTimeout(function() {
+    $('.close').on('click', function() {
+        $('#couponModal').modal('show');
+
+
+    })
+    // setTimeout(function() {
 
 
 
-        $('#couponModal').modal('show')
+    //     $('#couponModal').modal('show')
 
 
 
-    }, 10000);
+    // }, 10000);
 
     function CopyTextToClipboard(id) {
 
