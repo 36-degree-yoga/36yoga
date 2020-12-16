@@ -338,27 +338,9 @@ $member_row = $stmt->fetch();
     };
 
     //加入購物車
-    function addToCart(event) {
+    // function addToCart(event) {
 
-        const sid = $('.addtocart-btn').attr('data-sid');
-        const qty = $('.amount-number').val();
-
-        console.log({
-            sid: sid,
-            quantity: qty
-        });
-
-        $.get('handle-cart-product.php', {
-            sid: sid,
-            quantity: qty,
-            action: 'add'
-        }, function(data) {
-            console.log(data);
-            if (window.parent && window.parent.renderSmallCart) {
-                window.parent.renderSmallCart(data.cart);
-            }
-        }, 'json');
-    };
+    // };
 
     //購物車動畫
 
@@ -366,12 +348,13 @@ $member_row = $stmt->fetch();
 
     function addProduct(event) {
 
-        const sidValue = $(this).attr('data-sid');
-        console.log("kkk", sidValue)
+        const sid = $(this).attr('data-sid');
+        // const sidValue = $(this).attr('data-sid');
+        console.log("kkk", sid)
 
         var offset = $("#end").offset(),
             img = $(this).parent().find('img').attr('src');
-        console.log(img, "img")
+        // console.log(img, "img")
 
         flyer = $(`<img class="u-flyer" src="${img}" style="width: 100px; height: 100px;"/>`);
         flyer.fly({
@@ -389,6 +372,26 @@ $member_row = $stmt->fetch();
             speed: 1.8 //越大越快，默认1.2
 
         });
+
+        // const sid = $(this).attr('data-sid');
+        const qty = $('.amount-number').val();
+
+        console.log({
+            sid: sid,
+            quantity: qty
+        });
+
+        $.get('handle-cart-product.php', {
+            sid: sid,
+            quantity: qty,
+            action: 'add'
+        }, function(data) {
+            console.log(data);
+            if (window.parent && window.parent.renderSmallCart) {
+                window.parent.renderSmallCart(data.cart);
+            }
+        }, 'json');
+
     }
 </script>
 <?php include __DIR__ . '/parts/html-end.php'; ?>
