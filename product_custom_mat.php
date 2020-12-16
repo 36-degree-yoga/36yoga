@@ -93,7 +93,7 @@ $others_rows = $others_stmt->fetchAll();
                         <div class="subtitle" id="block"><a href="<?= WEB_ROOT ?>product_list.php#block">瑜珈磚</a></div>
                         <div class="subtitle" id="pad"><a href="<?= WEB_ROOT ?>product_list.php#pad">支撐墊</a></div>
                         <div class="subtitle" id="roller"><a href="<?= WEB_ROOT ?>product_list.php#roller">滾筒</a></div>
-                        <div class="subtitle" id="sand"><a href="<?= WEB_ROOT ?>product_list.php#sand">沙包</a></div>
+                        <div class="subtitle" id="sand"><a href="<?= WEB_ROOT ?>product_list.php#sand">重量手環</a></div>
                         <div class="subtitle" id="strap"><a href="<?= WEB_ROOT ?>product_list.php#strap">伸展帶</a></div>
                         <div class="subtitle" id="band"><a href="<?= WEB_ROOT ?>product_list.php#band">彈力帶</a></div>
                         <div class="subtitle" id="towel"><a href="<?= WEB_ROOT ?>product_list.php#towel">舖巾</a></div>
@@ -157,7 +157,7 @@ $others_rows = $others_stmt->fetchAll();
                                 </div>
 
                             </div>
-                            <h6 style="color: #DB5C00;">NT$<?= $p['price'] ?>起</h6>
+                            <h6 style="color: #DB5C00;">NT.<?= $p['price'] ?>起</h6>
                         </div>
 
                         <p class="line-height"><?= $p['introduction'] ?></p>
