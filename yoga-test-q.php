@@ -67,6 +67,7 @@ $qqq = intval(count($_SESSION['yoga_test']) + 1);
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/share.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/animate.min.css">
 <link rel="stylesheet" href="<?= WEB_ROOT ?>CSS/test-01.css">
+<link rel="shortcut icon" href="<?= WEB_ROOT ?>SVG/icon_green.svg" type="image/x-icon" />
 
 <!-- include __DIR__ . '/parts/nav.php'; -->
 <!-- 貼上html -->
