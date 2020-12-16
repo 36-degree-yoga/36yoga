@@ -3,60 +3,142 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>如何挑選尺寸</title>
+    <title>材質差異</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="bootstrap/js/bootstrap.bundle.js" />
     <link rel="stylesheet" href="CSS/reset.css" />
     <link rel="stylesheet" href="share.css" />
     <style>
       ::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  margin: 80px 0 5px 0;
-}
-::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  background: rgb(219, 219, 219);
-}
+        width: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        margin: 80px 0 5px 0;
+      }
+      ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        background: rgb(219, 219, 219);
+      }
 
       body {
         background-color: #eeeeee;
+        font-family: "Noto Sans TC", sans-serif;
+        line-height: 22px;
       }
       .title {
         padding: 50px;
-
-        border-bottom: 1px solid #333;
+        line-height: 22px;
+        /* border-bottom: 1px solid #333; */
       }
       h6 {
+        font-size: 1.2rem;
         margin-bottom: 30px;
+        color: #333;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        color: #fff;
+      }
+
+      figcaption {
+        display: inline-block;
+        margin-right: 30px;
+      }
+      table {
+        border: 1px #333 solid;
+      }
+      td {
+        padding: 5px;
+        border: 1px #333 solid;
+      }
+      .aaa td {
+        color: #fff;
+        background-color: rgb(73, 73, 73);
+      }
+
+      tr td:first {
       }
     </style>
   </head>
   <body>
     <div class="container-fluid p-0">
-      <div class="title">
-        <h6>瑜珈墊尺寸用途</h6>
-        <hr />
-        <p>61x173cm ：國際標準適合身高175cm以下人群使用</p>
-        <p>68x183cm ：加長尺寸適合身高185cm以下人群使用</p>
-        <p>80x183cm ：加長加寬適合肩寬超過50cm的人群使用</p>
-        <p>
-          180x183cm：雙人尺寸適合雙人瑜伽、情侶瑜伽、親子瑜伽、戶外野營、兒童防摔使用
-        </p>
+      <div class="title py-4" style="background-color: #333; border: none">
+        <h2 class="mb-0">材質差異</h2>
       </div>
       <div class="title">
-        <h6>常見尺寸比較</h6>
+        <h6>▋材質示意圖</h6>
         <hr />
-        <p>瑜伽墊的長度173cm和183cm比例圖↓</p>
-        <img src="img/customize/custom_01.jpg" class="w-100 my-4" alt="" />
-        <p>瑜伽墊的寬度61cm和80cm比例圖↓( model身高185cm ）</p>
-        <img src="img/customize/custom_03.jpg" class="w-100 my-4" alt="" />
-        <p>人體與瑜伽墊長度的比例↓（model身高175cm）</p>
-        <img src="img/customize/custom_02.jpg" class="w-100 my-4" alt="" />
+        <figcaption>
+          <img src="img/customize/TPE.jpg" />
+          <figure>TPE 熱塑性彈性體</figure>
+        </figcaption>
+        <figcaption>
+          <img src="img/customize/NR.jpg" />
+          <figure>NR 天然橡膠</figure>
+        </figcaption>
+      </div>
+      <div class="title">
+        <h6>▋特點比較</h6>
+        <hr />
+        <table>
+          <tr class="aaa">
+            <td>材質</td>
+            <td>產品特性</td>
+            <td>結論</td>
+          </tr>
+          <tr>
+            <td>TPE <br />(熱塑性彈性體)</td>
+            <td>
+              <ul>
+                <li>‧重量輕</li>
+                <li>‧彈性好</li>
+                <li>‧不易完全服貼地板</li>
+                <li>‧止滑性較差</li>
+                <li>‧無毒無氣味</li>
+                <li>‧可自然分解和回收</li>
+                <li>‧價格較貴</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>
+                  ‧重量輕攜帶方便，無毒環保，無特殊氣味，好清洗，初學或中階者皆適用
+                </li>
+                <li>‧止滑性較差，大量出汗容易不穩</li>
+                <li>‧與肌膚摩擦時容易有灼熱感，不可陽光直射，高溫容易變形</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 120px">NR<br />(天然橡膠)</td>
+            <td style="width: 200px">
+              <ul>
+                <li>‧天然橡膠材質</li>
+                <li>‧重量較重</li>
+                <li>‧彈性最好</li>
+                <li>‧抓地性強</li>
+                <li>‧止滑性強</li>
+                <li>‧可完全服貼地板</li>
+                <li>‧透氣、吸汗</li>
+                <li>‧完全無毒</li>
+                <li>‧可自然分解和回收利用</li>
+                <li>‧價格最昂貴</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>
+                  ‧天然材質，有橡膠味但不刺鼻，各方面表現皆比其他材質優異，適合中階和高階者使用。
+                </li>
+                <li>‧天然橡膠含有乳膠成分，對乳膠過敏的人不適合使用</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </body>

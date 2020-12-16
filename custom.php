@@ -247,7 +247,7 @@
                             <!-- 加錢顯示 -->
                             <div class="add_pay_wrap a-t ml-auto">
                                 <div class="add_pay d-flex ml-auto align-items-center">
-                                    + NT. 
+                                    + NT.
                                     <input class="push" id="mat-texture-pay" name="mat-texture-pay" type="text" value="" readonly>
                                 </div>
                             </div>
@@ -265,7 +265,7 @@
                                 <p class="align-self-center mb-0">+ NT. 150</p>
                             </div>
 
-                            <div class="how  align-self-end "><a href="">
+                            <div class="how  align-self-end "><a href="#bb" onclick="channel2()">
                                     材質差異
                                 </a></div>
                         </div>
@@ -377,7 +377,7 @@
                             <!-- 加錢顯示 -->
                             <div class="add_pay_wrap a-p ml-auto">
                                 <div class="add_pay d-flex ml-auto align-items-center">
-                                    + NT. 
+                                    + NT.
                                     <input class="push" id="mat-print-pay" name="mat-print-pay" type="text" value="" readonly>
                                 </div>
                             </div>

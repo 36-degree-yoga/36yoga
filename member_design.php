@@ -216,7 +216,7 @@ $member_row = $stmt->fetch();
                         <a href="" data-toggle="modal" data-target="#delete<?= $d['sid'] ?>" class="py-1 ml-2 mr-3">
                             <img src="SVG/icon_trash.svg" alt="">
                         </a>
-                        <button class="cart btn_f  mr-3"  style="width:72%" data-sid="<?= $d['sid'] ?>" id="cart<?= $d['sid'] ?>" data-img="img/customize/design/<?= $d['design_img'] ?>.png" data-bg="background-color: <?= $d['pick_color'] ?>;" >加入購物車</button>
+                        <button class="cart btn_f  mr-3" style="width:72%" data-sid="<?= $d['sid'] ?>" id="cart<?= $d['sid'] ?>" data-img="img/customize/design/<?= $d['design_img'] ?>.png" data-bg="background-color: <?= $d['pick_color'] ?>;">加入購物車</button>
                     </div>
 
                 </div>
@@ -310,15 +310,15 @@ $member_row = $stmt->fetch();
         // addProduct(event,ssid)
 
         var flyer = $(`<img class="u-flyer" style="${bg}" src="${aaa}" style="width: 100px; height: 100px; overflow:hidden;"/>`);
-        console.log('event',aaa);
-        console.log('000',bg);
+        console.log('event', aaa);
+        console.log('000', bg);
         flyer.fly({
             start: {
                 left: event.pageX,
                 top: event.pageY
             },
             end: {
-                left: 2000,
+                left: 1800,
                 top: offset.top,
                 width: 0,
                 height: 0
@@ -343,7 +343,7 @@ $member_row = $stmt->fetch();
             setTimeout(() => {
                 location.reload();
             }, 800);
-            
+
 
         }, 'json');
     });
