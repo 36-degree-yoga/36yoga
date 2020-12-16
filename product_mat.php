@@ -2158,6 +2158,7 @@ $others_rows = $others_stmt->fetchAll();
     function addToCart(event) {
 
         const sid = $('.addtocart-btn').attr('data-sid');
+        console.log('sid:', sid)
         const qty = $('.amount-number').val();
 
         console.log({
