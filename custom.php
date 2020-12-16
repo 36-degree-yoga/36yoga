@@ -440,7 +440,7 @@
                 </div>
                 <div class="modal-body out_body">
                     <p>已儲存您的設計</p>
-                    <p>可至會員中心 > <a href="member_design.php">客製化設計 </a> 查看</p>
+                    <p>可至會員中心 > <a href="member_design.php" target="_blank">客製化設計 </a> 查看</p>
                 </div>
 
             </div>
@@ -758,7 +758,7 @@
 
                         <div class="m_save_wrap">
                             <p>已儲存您的設計</p>
-                            <p>可至會員中心 > <a href="member_design.php">客製化設計 </a><br> 查看</p>
+                            <p>可至會員中心 > <a href="member_design.php" target="_blank">客製化設計 </a><br> 查看</p>
                         </div>
                     </div>
 
@@ -783,7 +783,7 @@
                 <div class="modal-body m_out_body d-flex align-items-center justify-content-center">
                     <div class="m_out_btn d-flex flex-column align-items-center justify-content-center">
                         <p class="mb-5">確定要離開<br>客製瑜珈墊頁面嗎?</p>
-                        <button type="button" class="btn_f mt-5"><a style="color:#fffefc" href="homepage.php">確定離開</a></button>
+                        <a style="color:#fffefc;border:none;" href="homepage.php"><button type="button" class="btn_f mt-5">確定離開</button></a>
                         <button type="button" class="btn_f" data-dismiss="modal" aria-label="Close">繼續編輯</button>
                     </div>
                 </div>
