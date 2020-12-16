@@ -55,9 +55,9 @@ foreach ($rec2_row  as $k2 => $r2) {
         width: 100%;
         height: 100%;
         border: 1px solid transparent;
-        background: #fffefc;
+        /* background: #fffefc; */
         border-radius: 2px;
-        color: #004a13;
+        color: #fffefc;
     }
 
     .btn2 span {
@@ -66,6 +66,7 @@ foreach ($rec2_row  as $k2 => $r2) {
         animation: oxxo ease-in-out 5s infinite;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        color: #fffefc !important;
         /* font-weight: bold; */
 
 
@@ -78,9 +79,9 @@ foreach ($rec2_row  as $k2 => $r2) {
             background-image: -webkit-linear-gradient(top left,
                     rgba(242, 162, 0, 0.0) 0%,
                     rgba(242, 162, 0, 0.0) 45%,
-                    rgba(242, 162, 0, 0.5) 48%,
-                    rgba(242, 162, 0, 0.8) 50%,
-                    rgba(242, 162, 0, 0.5) 52%,
+                    rgba(242, 162, 0, 0.3) 48%,
+                    rgba(242, 162, 0, 0.5) 50%,
+                    rgba(242, 162, 0, 0.3) 52%,
                     rgba(242, 162, 0, 0.0) 57%,
                     rgba(242, 162, 0, 0.0) 100%);
 
@@ -344,8 +345,9 @@ foreach ($rec2_row  as $k2 => $r2) {
                 <h3>找到<br>專屬於你的瑜珈墊</h3>
             </div>
             <a href="<?= WEB_ROOT ?>yoga-test.php">
-                <div class="last-sec-btn last-sec-text-ani"><button class="btn_l btn-ani">
-                        <div class="btn2 pt-1"><span>開始測驗</span></div>
+                <div class="last-sec-btn last-sec-text-ani"><button class="btn_l btn-ani" style="color: #fffefc;">開始測驗
+                        <!-- <div class="btn2 pt-1"><span style="color: #fffefc;"></span>
+                    </div> -->
                     </button></div>
             </a>
         </div>

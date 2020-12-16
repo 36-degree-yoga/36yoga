@@ -453,7 +453,7 @@ $member_row = $stmt->fetch();
                                     <li class="col" id="order_at"><?= substr($a['order_date'], 0, 10) ?></li>
                                     <li class="col" id="order_pay"><?= $a['payment_status'] ?></li>
                                     <li class="col" id="order_transport"><?= $a['logistic_status'] ?></li>
-                                    <li class="col" id="order_moneny">NT$ <?= $a['amount'] ?></li>
+                                    <li class="col" id="order_moneny">NT. <?= $a['amount'] ?></li>
                                 </ul>
 
                                 <div class="order_history_detail_btn openIt d-flex align-items-center justify-content-center">
@@ -467,12 +467,12 @@ $member_row = $stmt->fetch();
                                     <!-- 金額詳情 -->
                                     <div class="order_money_detail d-flex justify-content-end">
                                         <p>
-                                            商品總額: $<span id="order_total_pay">
+                                            商品總額: NT.<span id="order_total_pay">
                                                 <?= $a['amount'] ?> </span>&ensp; /&ensp;
                                         </p>
-                                        <p>運費: $<span id="order_total_pay">
+                                        <p>運費: NT.<span id="order_total_pay">
                                                 <?= $a['trans_fee'] ?></span>&ensp; /&ensp;</p>
-                                        <p>折扣: -$<span id="order_total_pay">
+                                        <p>折扣: -NT.<span id="order_total_pay">
                                                 <?= $a['deduction'] ?></span> 元</p>
                                     </div>
 
@@ -560,7 +560,7 @@ $member_row = $stmt->fetch();
                                     <li class="col" id="order_at"><?= substr($a['order_date'], 0, 10) ?></li>
                                     <li class="col" id="order_pay"><?= $a['payment_status'] ?></li>
                                     <li class="col" id="order_transport"><?= $a['logistic_status'] ?></li>
-                                    <li class="col" id="order_moneny">NT$ <?= $a['amount'] ?></li>
+                                    <li class="col" id="order_moneny">NT. <?= $a['amount'] ?></li>
                                 </ul>
 
                                 <div class="order_history_detail_btn openIt d-flex align-items-center justify-content-center">
@@ -574,12 +574,12 @@ $member_row = $stmt->fetch();
                                     <!-- 金額詳情 -->
                                     <div class="order_money_detail d-flex justify-content-end">
                                         <p>
-                                            商品總額: $<span id="order_total_pay">
+                                            商品總額: NT.<span id="order_total_pay">
                                                 <?= $a['amount'] ?> </span>&ensp; /&ensp;
                                         </p>
-                                        <p>運費: $<span id="order_total_pay">
+                                        <p>運費: NT.<span id="order_total_pay">
                                                 <?= $a['trans_fee'] ?></span>&ensp; /&ensp;</p>
-                                        <p>折扣: -$<span id="order_total_pay">
+                                        <p>折扣: -NT.<span id="order_total_pay">
                                                 <?= $a['deduction'] ?></span> 元</p>
                                     </div>
 
@@ -667,7 +667,7 @@ $member_row = $stmt->fetch();
                                     <li class="col" id="order_at"><?= substr($a['order_date'], 0, 10) ?></li>
                                     <li class="col" id="order_pay"><?= $a['payment_status'] ?></li>
                                     <li class="col" id="order_transport"><?= $a['logistic_status'] ?></li>
-                                    <li class="col" id="order_moneny">NT$ <?= $a['amount'] ?></li>
+                                    <li class="col" id="order_moneny">NT. <?= $a['amount'] ?></li>
                                 </ul>
 
                                 <div class="order_history_detail_btn openIt d-flex align-items-center justify-content-center">
@@ -681,12 +681,12 @@ $member_row = $stmt->fetch();
                                     <!-- 金額詳情 -->
                                     <div class="order_money_detail d-flex justify-content-end">
                                         <p>
-                                            商品總額: $<span id="order_total_pay">
+                                            商品總額: NT.<span id="order_total_pay">
                                                 <?= $a['amount'] - $a['trans_fee'] ?> </span>&ensp; /&ensp;
                                         </p>
-                                        <p>運費: $<span id="order_total_pay">
+                                        <p>運費: NT.<span id="order_total_pay">
                                                 <?= $a['trans_fee'] ?></span>&ensp; /&ensp;</p>
-                                        <p>折扣: -$<span id="order_total_pay">
+                                        <p>折扣: -NT.<span id="order_total_pay">
                                                 <?= $a['deduction'] ?></span> 元</p>
                                     </div>
 
@@ -710,7 +710,7 @@ $member_row = $stmt->fetch();
                                                 <!-- 件數價錢 -->
                                                 <div class="count_price d-flex justify-content-start col-5">
                                                     <p class="col-6">共<span class="count"><?= $ddd['quantity'] ?></span>件</p>
-                                                    <p class="col-6">NT$ <span class="price"><?= $ddd['ttl'] ?></span></p>
+                                                    <p class="col-6">NT. <span class="price"><?= $ddd['ttl'] ?></span></p>
                                                 </div>
                                             </div>
                                         <?php endif ?>
@@ -736,7 +736,7 @@ $member_row = $stmt->fetch();
                                                 <!-- 件數價錢 -->
                                                 <div class="count_price d-flex justify-content-start col-5">
                                                     <p class="col-6">共<span class="count"><?= $ddds['quantity'] ?></span>件</p>
-                                                    <p class="col-6">NT$ <span class="price"><?= $ddds['mat-total-price'] * $ddds['quantity'] ?></span></p>
+                                                    <p class="col-6">NT. <span class="price"><?= $ddds['mat-total-price'] * $ddds['quantity'] ?></span></p>
                                                 </div>
                                             </div>
                                         <?php endif ?>
@@ -847,10 +847,10 @@ $member_row = $stmt->fetch();
                 <!-- 金額詳情 -->
                 <div class="order_money_detail d-flex justify-content-start">
                     <p>
-                        商品總額: $<span id="order_total_pay">2000</span>&ensp; /&ensp;
+                        商品總額: NT.<span id="order_total_pay">2000</span>&ensp; /&ensp;
                     </p>
-                    <p>運費: $<span id="order_total_pay">0</span>&ensp; /&ensp;</p>
-                    <p>折扣: -$<span id="order_total_pay">0</span> 元</p>
+                    <p>運費: NT.<span id="order_total_pay">0</span>&ensp; /&ensp;</p>
+                    <p>折扣: -NT.<span id="order_total_pay">0</span> 元</p>
                 </div>
 
                 <div class="m_detail_status">
@@ -879,7 +879,7 @@ $member_row = $stmt->fetch();
                             <!-- 件數價錢 -->
                             <div class="count_price d-flex flex-column m_p justify-content-end align-items-end">
                                 <p class="">共<span class="count">10</span>件</p>
-                                <p class="">NT$ 11000<span class="price"></span></p>
+                                <p class="">NT. 11000<span class="price"></span></p>
                             </div>
                         </div>
                         <!--圖片商品項目底↑-->
