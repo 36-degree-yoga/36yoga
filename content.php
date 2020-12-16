@@ -1,13 +1,13 @@
 <?php include __DIR__ . '/parts/config.php'; ?>
 <?php
-$rec1_sql = "SELECT * FROM `products` WHERE `sid` IN (1 , 2 , 13)";
+$rec1_sql = "SELECT * FROM `products` WHERE `sid` IN (9 , 18 , 13)";
 $rec1_Stmt = $pdo->query($rec1_sql);
 $rec1_row = $rec1_Stmt->fetchAll();
 foreach ($rec1_row  as $k => $r) {
     $rec1_row[$k]['my_imgs'] = explode(",", $r['img']);
 };
 
-$rec2_sql = "SELECT * FROM `products` WHERE `sid` IN (9 , 18 , 21)";
+$rec2_sql = "SELECT * FROM `products` WHERE `sid` IN (1 , 21 , 26)";
 $rec2_Stmt = $pdo->query($rec2_sql);
 $rec2_row = $rec2_Stmt->fetchAll();
 foreach ($rec2_row  as $k2 => $r2) {
