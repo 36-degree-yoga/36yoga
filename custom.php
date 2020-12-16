@@ -158,7 +158,7 @@
                             <!-- 加錢顯示 -->
                             <div class="add_pay_wrap a-w ml-auto">
                                 <div class="add_pay d-flex ml-auto align-items-center">
-                                    + $
+                                    +NT.
                                     <input class="push" id="matw-pay" name="matw-pay" type="text" value="" readonly>
                                 </div>
                             </div>
@@ -185,7 +185,7 @@
                                     <button type="button" class="btn_l add-200" value="0">61</button><br>
                                     <button type="button" class="btn_l add-200" value="0">68</button><br>
                                     <button type="button" class="btn_l add-200" value="0">80</button><br>
-                                    <button type="button" class="btn_l add-200" value="200">180</button><span>+ $200</span>
+                                    <button type="button" class="btn_l add-200" value="200">180</button><span>+ NT. 200</span>
                                 </div>
                                 <div class="how  align-self-end "><a href="#cc" onclick="channel()">如何挑選尺寸</a>
 
@@ -247,7 +247,7 @@
                             <!-- 加錢顯示 -->
                             <div class="add_pay_wrap a-t ml-auto">
                                 <div class="add_pay d-flex ml-auto align-items-center">
-                                    + $
+                                    + NT. 
                                     <input class="push" id="mat-texture-pay" name="mat-texture-pay" type="text" value="" readonly>
                                 </div>
                             </div>
@@ -262,7 +262,7 @@
                             <div class="btn-content 
                         texture d-flex col"><button type="button" class="btn_l add-150" value="0">TPE</button>
                                 <button type="button" class="btn_l add-150" value="150">NR</button>
-                                <p class="align-self-center mb-0">+ $150</p>
+                                <p class="align-self-center mb-0">+ NT. 150</p>
                             </div>
 
                             <div class="how  align-self-end "><a href="">
@@ -377,7 +377,7 @@
                             <!-- 加錢顯示 -->
                             <div class="add_pay_wrap a-p ml-auto">
                                 <div class="add_pay d-flex ml-auto align-items-center">
-                                    + $
+                                    + NT. 
                                     <input class="push" id="mat-print-pay" name="mat-print-pay" type="text" value="" readonly>
                                 </div>
                             </div>
@@ -391,7 +391,7 @@
                         <div class="btno option_button d-flex flex-column">
                             <div class="print btn-content d-flex align-items-center">
                                 <button type="button" class="btn_l add-80" value="0">印刷</button>
-                                <button type="button" class="btn_l add-80" value="80">鋼印</button><span>+ $80</span>
+                                <button type="button" class="btn_l add-80" value="80">鋼印</button><span>+ NT. 80</span>
                             </div>
                             <div class="add_text d-flex justify-content-between">
 
@@ -556,7 +556,7 @@
             <img src="svg/custom/zoom_out.svg" alt="">
         </div>
 
-        <canvas class="mat_show_wrap" style="width: 122px;height: 319px;"></canvas>
+        <canvas class="mat_show_wrap" style=" margin-top: 20px; width: 122px;height: 319px;"></canvas>
 
 
     </div>
@@ -617,7 +617,7 @@
                 <div class="
   question_mark position-absolute">
                     ?</div>
-                <p class="mt-4">NR + $150</p>
+                <p class="mt-4">NR + NT. 150</p>
                 <div class="btn-content m_texture d-flex justify-content-start align-items-center h-50 pb-4">
                     <button class="btn_l add-150" value="0">TPE</button>
                     <button class="btn_l add-150" value="150">NR</button>
@@ -704,7 +704,7 @@
 
                 <div class="m_print btn-content d-flex align-items-center mt-4">
                     <button type="button" class="btn_l w-25 add-80" value="0">印刷</button>
-                    <button type="button" class="btn_l w-25 add-80" value="80">鋼印</button><span>+ $80</span>
+                    <button type="button" class="btn_l w-25 add-80" value="80">鋼印</button><span>+ NT. 80</span>
                 </div>
                 <input type="text" class="col w-75" id="text_input">
                 <div class="add_text d-flex justify-content-start mt-3">
